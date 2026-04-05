@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9-Framework Privacy Law Comparison Matrix · Privacipher · Adv. Sanket Shah</title>
+<meta name="description" content="Privacipher: side-by-side comparison of 9 global privacy laws: DPDPA 2023, GDPR, CCPA/CPRA, Saudi PDPL, Brazil LGPD, Singapore PDPA, Thailand PDPA, UK GDPR/DUAA 2025, UAE PDPL. Lawful bases, breach timelines, penalties, DPO requirements, children's data, cross-border transfers. By Adv. Sanket Shah.">
+<meta name="author" content="Adv. Sanket Shah">
+<link rel="canonical" href="https://advsanketshah.github.io/data-protection-compliance-checker/compare.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D0D0D;--ink2:#2D2D2D;--ink3:#555;--ink4:#999;
+  --bg:#F8F7F4;--white:#fff;--border:#E0DFDB;--border-dark:#C8C7C2;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:rgba(220,38,38,.25);
+  --amber:#D97706;--amber-bg:#FFFBEB;--amber-border:rgba(217,119,6,.25);
+  --green:#16A34A;--green-bg:#F0FDF4;--green-border:rgba(22,163,74,.25);
+  --blue:#1D4ED8;--blue-bg:#EFF6FF;--blue-border:rgba(29,78,216,.25);
+  --purple:#7C3AED;--purple-bg:#F5F3FF;
+  --r:6px;--r-sm:4px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Outfit',sans-serif;font-size:14px;line-height:1.6;text-align:justify;hyphens:auto}
+.site-header{background:var(--ink);color:#fff;padding:32px 0 0}
+.hdr-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:24px}
+.hdr-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:3px 12px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px}
+.hdr-title{font-family:'Instrument Serif',serif;font-size:2.2rem;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:6px}
+.hdr-subtitle{font-size:.78rem;color:rgba(255,255,255,.45);letter-spacing:.04em;text-transform:uppercase}
+.hdr-author-name{font-family:'Instrument Serif',serif;font-size:1.2rem;color:#fff}
+.hdr-author-creds{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:3px}
+.hdr-links{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+.hdr-link{font-size:.72rem;color:rgba(255,255,255,.7);text-decoration:none;border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:3px 10px;transition:all .2s}
+.hdr-link:hover{background:rgba(255,255,255,.12);color:#fff}
+.hdr-nav{display:flex;gap:12px;flex-wrap:wrap;padding:14px 0;border-top:1px solid rgba(255,255,255,.1);align-items:center}
+.hdr-nav a{font-size:.72rem;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.hdr-nav a:hover,.hdr-nav a.active{color:#fff}
+.hdr-nav span{color:rgba(255,255,255,.2)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.main{padding:36px 0 80px}
+
+/* FILTER BAR */
+.filter-bar{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:24px;box-shadow:var(--shadow);display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.filter-bar-label{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);white-space:nowrap}
+.filter-btn{font-size:.68rem;font-weight:700;padding:4px 12px;border-radius:20px;border:1.5px solid var(--border-dark);background:var(--bg);color:var(--ink3);cursor:pointer;letter-spacing:.04em;text-transform:uppercase;transition:all .18s;white-space:nowrap}
+.filter-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filter-btn:hover:not(.active){border-color:var(--ink);color:var(--ink)}
+
+/* LEGEND */
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;font-size:.72rem;color:var(--ink3);align-items:center}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* TABLE WRAPPER */
+.table-wrapper{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow)}
+.compare-table{width:100%;border-collapse:collapse;background:var(--white);min-width:1100px}
+
+/* DIMENSION ROWS */
+.dim-header-row td{background:var(--ink);color:#fff;padding:12px 16px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--border-dark)}
+.dim-header-row td:first-child{min-width:180px;max-width:180px;width:180px;position:sticky;left:0;z-index:3;background:var(--ink)}
+.fw-header-row td{background:var(--bg);padding:14px 14px 10px;vertical-align:bottom;border-right:1px solid var(--border);border-bottom:2px solid var(--ink)}
+.fw-header-row td:first-child{position:sticky;left:0;z-index:3;background:var(--bg)}
+.fw-flag{font-size:1.4rem;display:block;margin-bottom:4px}
+.fw-name{font-family:'Instrument Serif',serif;font-size:.95rem;color:var(--ink);line-height:1.2;display:block}
+.fw-acts{font-size:.62rem;color:var(--ink4);margin-top:2px;line-height:1.4}
+.fw-status-pill{display:inline-block;font-size:.58rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 7px;border-radius:20px;margin-top:4px}
+.status-enforced{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.status-partial{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
+.status-pending{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+
+/* DATA CELLS */
+.data-row td{padding:12px 14px;vertical-align:top;border-right:1px solid var(--border);border-bottom:1px solid var(--border);font-size:.78rem;color:var(--ink3);line-height:1.6}
+.data-row td:first-child{background:#FAFAF8;font-size:.72rem;font-weight:700;color:var(--ink);position:sticky;left:0;z-index:2;border-right:2px solid var(--border-dark);letter-spacing:.01em;min-width:180px;max-width:180px;width:180px;vertical-align:middle}
+.data-row:nth-child(even) td{background:#FAFAF8}
+.data-row:nth-child(even) td:first-child{background:#F4F3F0}
+.data-row td strong{color:var(--ink);font-weight:700}
+
+/* CELL VALUE TAGS */
+.cell-tag{display:inline-block;font-size:.62rem;font-weight:700;padding:1px 7px;border-radius:3px;margin:1px 0;letter-spacing:.03em;white-space:nowrap}
+.tag-strict{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.tag-moderate{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
+.tag-flexible{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.tag-neutral{background:var(--bg);color:var(--ink3);border:1px solid var(--border-dark)}
+.tag-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+.tag-purple{background:var(--purple-bg);color:var(--purple);border:1px solid rgba(124,58,237,.25)}
+.tag-na{background:#F3F4F6;color:#9CA3AF;border:1px solid #E5E7EB}
+
+/* SECTION DIVIDERS */
+.section-row td{background:var(--ink);color:#fff;padding:8px 16px;font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+
+/* PENALTY CELL */
+.penalty-amount{font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--red);display:block;line-height:1.2;margin-bottom:2px}
+
+/* NOTES ROW */
+.notes-row{background:var(--bg)!important}
+.notes-row td{font-size:.7rem;color:var(--ink4)!important;font-style:italic;padding:8px 14px!important;border-bottom:1px solid var(--border)}
+
+/* DISCLAIMER */
+.disclaimer{background:var(--bg);border:1px solid var(--border-dark);border-left:4px solid var(--ink);border-radius:var(--r-sm);padding:20px;font-size:.75rem;color:var(--ink4);line-height:1.8;margin-top:28px}
+.disclaimer-title{font-weight:800;color:var(--ink3);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+
+/* FOOTER */
+.site-footer{background:var(--ink);color:rgba(255,255,255,.5);text-align:center;padding:28px 0;font-size:.72rem;line-height:1.8}
+.footer-name{color:rgba(255,255,255,.9);font-weight:600}
+.footer-copy{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);font-size:.68rem;max-width:700px;margin-left:auto;margin-right:auto}
+
+/* BACK TO TOP */
+.back-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;background:var(--ink);color:#fff;border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow);z-index:500}
+.back-top.visible{display:flex}
+
+@media(max-width:640px){.hdr-inner{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="theme-modern.css">
+</head>
+<body class="privacy-modern">
+<header class="site-header">
+<div class="container">
+  <div class="hdr-inner">
+    <div>
+      <div class="hdr-eyebrow">&#x1F4CB; Reference Matrix</div>
+      <div class="hdr-title">Privacipher</div>
+      <div style="color:rgba(255,255,255,.55);font-size:.82rem;margin-top:4px">9-Framework Comparison Matrix</div>
+      <div class="hdr-subtitle">Lawful Bases &middot; Breach Timelines &middot; Penalties &middot; Rights &middot; Transfers</div>
+    </div>
+    <div>
+      <div class="hdr-author-name">Adv. Sanket Shah</div>
+      <div class="hdr-author-creds">LL.M. in Data Privacy &middot; AI &amp; Tech Law</div>
+      <div class="hdr-links">
+        <a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" class="hdr-link">LinkedIn &#8599;</a>
+        <a href="https://linktr.ee/sanketindore" target="_blank" class="hdr-link">Portfolio &#8599;</a>
+      </div>
+    </div>
+  </div>
+  <div class="hdr-nav">
+    <a href="index.html">&larr; Compliance Assessment</a>
+    <span>&middot;</span>
+    <a href="breach.html">Breach Playbook</a>
+    <span>&middot;</span>
+    <a href="compare.html" class="active">Comparison Matrix</a>
+    <span>&middot;</span>
+    <a href="calendar.html">Calendar</a>
+    <span>&middot;</span>
+    <a href="calendar.html">Deadlines</a>
+    <span>&middot;</span>
+    <a href="about.html">About</a>
+    <span>&middot;</span>
+    <a href="changelog.html">Changelog</a>
+    <span>&middot;</span>
+    <a href="terms.html">Terms of Use</a>
+  </div>
+</div>
+</header>
+<main class="main">
+<div class="container">
+  <div style="margin-bottom:24px">
+    <div style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px">Reference &amp; Bookmark</div>
+    <h1 style="font-family:'Instrument Serif',serif;font-size:1.9rem;letter-spacing:-.02em;margin-bottom:8px">Global Privacy Law Comparison</h1>
+    <p style="font-size:.88rem;color:var(--ink3);max-width:680px;line-height:1.7">Side-by-side comparison of all nine frameworks covered by the compliance assessment tool. Accurate as of 31 March 2026. Scroll horizontally on smaller screens. Scroll the dimension column to navigate.</p>
+  </div>
+
+  <div class="legend">
+    <span style="font-size:.72rem;font-weight:800;color:var(--ink4);text-transform:uppercase;letter-spacing:.06em">Strictness:</span>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Strictest</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>Moderate</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Most Flexible</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--ink4)"></div>N/A or Not Prescribed</div>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-bar-label">Jump to Section:</span>
+    <button class="filter-btn active" onclick="scrollToSection('sec-enforcement',this)">Enforcement</button>
+    <button class="filter-btn" onclick="scrollToSection('sec-lawful',this)">Lawful Bases</button>
+    <button class="filter-btn" onclick="scrollToSection('sec-rights',this)">Data Subject Rights</button>
+    <button class="filter-btn" onclick="scrollToSection('sec-breach',this)">Breach Notification</button>
+    <button class="filter-btn" onclick="scrollToSection('sec-children',this)">Children's Data</button>
+    <button class="filter-btn" onclick="scrollToSection('sec-dpo',this)">DPO</button>
+    <button class="filter-btn" onclick="scrollToSection('sec-transfers',this)">Cross-Border Transfers</button>
+    <button class="filter-btn" onclick="scrollToSection('sec-sensitive',this)">Sensitive Data</button>
+    <button class="filter-btn" onclick="scrollToSection('sec-penalties',this)">Penalties</button>
+  </div>
+
+  <div class="table-wrapper">
+  <table class="compare-table">
+    <!-- FRAMEWORK HEADERS -->
+    <thead>
+    <tr class="fw-header-row">
+      <td style="min-width:180px"><span style="font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4)">Dimension</span></td>
+      <td>
+        <span class="fw-flag">&#x1F1EE;&#x1F1F3;</span>
+        <span class="fw-name">DPDPA 2023</span>
+        <span class="fw-acts">India &middot; DPDP Rules 2025</span>
+        <span class="fw-status-pill status-pending">Enforceable May 2027</span>
+      </td>
+      <td>
+        <span class="fw-flag">&#x1F1EA;&#x1F1FA;</span>
+        <span class="fw-name">GDPR</span>
+        <span class="fw-acts">EU / EEA &middot; Art. 2016/679</span>
+        <span class="fw-status-pill status-enforced">In Force</span>
+      </td>
+      <td>
+        <span class="fw-flag">&#x1F1FA;&#x1F1F8;</span>
+        <span class="fw-name">CCPA / CPRA</span>
+        <span class="fw-acts">California &middot; CPPA Regs 2025</span>
+        <span class="fw-status-pill status-enforced">In Force</span>
+      </td>
+      <td>
+        <span class="fw-flag">&#x1F1F8;&#x1F1E6;</span>
+        <span class="fw-name">Saudi PDPL</span>
+        <span class="fw-acts">Saudi Arabia &middot; Royal Decree M/19</span>
+        <span class="fw-status-pill status-enforced">In Force (Sep 2024)</span>
+      </td>
+      <td>
+        <span class="fw-flag">&#x1F1E7;&#x1F1F7;</span>
+        <span class="fw-name">Brazil LGPD</span>
+        <span class="fw-acts">Brazil &middot; Law 13,709/2018</span>
+        <span class="fw-status-pill status-enforced">In Force</span>
+      </td>
+      <td>
+        <span class="fw-flag">&#x1F1F8;&#x1F1EC;</span>
+        <span class="fw-name">Singapore PDPA</span>
+        <span class="fw-acts">Singapore &middot; Amended 2021</span>
+        <span class="fw-status-pill status-enforced">In Force</span>
+      </td>
+      <td>
+        <span class="fw-flag">&#x1F1F9;&#x1F1ED;</span>
+        <span class="fw-name">Thailand PDPA</span>
+        <span class="fw-acts">Thailand &middot; B.E. 2562 (2019)</span>
+        <span class="fw-status-pill status-enforced">In Force (Jun 2022)</span>
+      </td>
+      <td>
+        <span class="fw-flag">&#x1F1EC;&#x1F1E7;</span>
+        <span class="fw-name">UK GDPR / DUAA 2025</span>
+        <span class="fw-acts">United Kingdom &middot; DUAA in force Feb 2026</span>
+        <span class="fw-status-pill status-enforced">In Force</span>
+      </td>
+      <td>
+        <span class="fw-flag">&#x1F1E6;&#x1F1EA;</span>
+        <span class="fw-name">UAE PDPL</span>
+        <span class="fw-acts">UAE &middot; Fed. Decree-Law 45/2021</span>
+        <span class="fw-status-pill status-enforced">In Force</span>
+      </td>
+    </tr>
+    </thead>
+    <tbody>
+
+    <!-- ENFORCEMENT -->
+    <tr class="section-row" id="sec-enforcement"><td colspan="10">Enforcement &amp; Regulator</td></tr>
+    <tr class="data-row">
+      <td>Enforcement Authority</td>
+      <td>Data Protection Board of India (DPAB)<br><span class="cell-tag tag-pending">Board constituted; core obligations from May 2027</span></td>
+      <td>Lead Supervisory Authority (national DPAs, e.g. CNIL, BfDI, ICO pre-Brexit)</td>
+      <td>California Privacy Protection Agency (CPPA)<br><span class="cell-tag tag-neutral">AG for criminal violations</span></td>
+      <td>Saudi Data and AI Authority (SDAIA)<br><span class="cell-tag tag-neutral">NDMO sub-unit of SDAIA</span></td>
+      <td>Autoridade Nacional de Protecao de Dados (ANPD)</td>
+      <td>Personal Data Protection Commission (PDPC)</td>
+      <td>Personal Data Protection Committee (PDPC Thailand)</td>
+      <td>Information Commissioner's Office (ICO)</td>
+      <td>UAE Data Office (UAEDO)</td>
+    </tr>
+    <tr class="data-row">
+      <td>Territorial Scope</td>
+      <td>Processing of personal data of Indian data principals; applies to fiduciaries outside India if processing data of Indian residents (s.3)</td>
+      <td>Processing in EU establishment; or of EU residents' data by non-EU controllers (Art. 3)</td>
+      <td>Businesses meeting revenue/data volume thresholds doing business in California or processing CA residents' data</td>
+      <td>Controllers processing Saudi residents' personal data; extraterritorial reach for processing outside KSA of Saudi residents' data</td>
+      <td>Processing of personal data in Brazil; extraterritorial if offering goods/services in Brazil or data collected in Brazil</td>
+      <td>Organisations that collect, use, or disclose personal data in Singapore; extraterritorial for organisations with Singapore establishment</td>
+      <td>Controllers and processors collecting, using, or disclosing Thai residents' personal data; extraterritorial reach</td>
+      <td>UK establishment; or processing of UK residents' data by non-UK controllers offering goods/services or monitoring behaviour</td>
+      <td>Controllers processing UAE residents' data; applies to entities outside UAE processing UAE residents' personal data</td>
+    </tr>
+
+    <!-- LAWFUL BASES -->
+    <tr class="section-row" id="sec-lawful"><td colspan="10">Lawful Bases for Processing</td></tr>
+    <tr class="data-row">
+      <td>Primary Basis</td>
+      <td><strong>Consent</strong> (s.6): explicit, affirmative, per-purpose<br><span class="cell-tag tag-strict">No bundled consent</span></td>
+      <td><strong>6 bases</strong> (Art. 6): consent, contract, legal obligation, vital interests, public task, legitimate interests<br><span class="cell-tag tag-flexible">Most flexible basis structure</span></td>
+      <td><strong>Opt-out model</strong> for sale/sharing. Notice-based for general processing. Not a lawful-basis framework in the GDPR sense.<br><span class="cell-tag tag-neutral">Different paradigm</span></td>
+      <td><strong>Consent + 5 additional bases</strong> (Arts. 4-6): contractual necessity, legal obligation, vital interests, public interest, legitimate interests (non-sensitive, 2023 amendment)<br><span class="cell-tag tag-moderate">LI added by RD M/148 (2023)</span></td>
+      <td><strong>10 bases</strong> (Art. 7): consent, contract, legal obligation, legitimate interests, credit protection, research, exercise of rights, vital interests, health obligations, fraud prevention<br><span class="cell-tag tag-flexible">Broadest list</span></td>
+      <td><strong>Consent</strong> (Sec. 13) + deemed consent by contractual necessity, notification deemed consent, and without-consent exceptions (2021 amendments)<br><span class="cell-tag tag-moderate">Consent-primary</span></td>
+      <td><strong>6 bases</strong> (Sec. 24): consent, contract, vital interests, public task, legitimate interests, legal obligation<br><span class="cell-tag tag-moderate">Mirrors GDPR Art. 6</span></td>
+      <td><strong>6 bases</strong> (UK GDPR Art. 6) + <strong>Recognised Legitimate Interests Schedule</strong> (DUAA 2025, in force Feb 2026)<br><span class="cell-tag tag-flexible">RLI pre-satisfies LI test for listed activities</span></td>
+      <td><strong>Consent + 4 bases</strong> (Arts. 5-8): contractual necessity, legal obligation, vital interests, public interest<br><span class="cell-tag tag-moderate">No open LI basis</span></td>
+    </tr>
+    <tr class="data-row">
+      <td>Legitimate Interests</td>
+      <td><span class="cell-tag tag-na">Not available</span><br>s.7 "certain legitimate uses" is a closed list (9 scenarios); not an open balancing-test LI equivalent</td>
+      <td><span class="cell-tag tag-flexible">Available</span><br>Art. 6(1)(f): three-part balancing test. Extensive EDPB/national DPA guidance available.</td>
+      <td><span class="cell-tag tag-na">Not applicable</span><br>CCPA does not use lawful basis concept</td>
+      <td><span class="cell-tag tag-moderate">Available (2023 amendment)</span><br>Non-sensitive data only. Cannot override data subject rights. Royal Decree M/148.</td>
+      <td><span class="cell-tag tag-flexible">Available</span><br>Art. 7(IX): balancing test required. ANPD guidance limited compared to EDPB.</td>
+      <td><span class="cell-tag tag-na">Not a distinct basis</span><br>Without-consent exceptions listed in Second Schedule. No open LI test.</td>
+      <td><span class="cell-tag tag-moderate">Available</span><br>Sec. 24(6): must not override data subject's fundamental rights and freedoms.</td>
+      <td><span class="cell-tag tag-flexible">Available + RLI Schedule</span><br>Standard LI test applies outside the Schedule. DUAA 2025 Recognised LI pre-satisfies balancing for listed activities (crime, safeguarding, national security, emergencies).</td>
+      <td><span class="cell-tag tag-na">Not prescribed</span><br>No explicit LI basis in Decree-Law 45/2021.</td>
+    </tr>
+
+    <!-- DATA SUBJECT RIGHTS -->
+    <tr class="section-row" id="sec-rights"><td colspan="10">Data Subject / Principal Rights</td></tr>
+    <tr class="data-row">
+      <td>Core Rights</td>
+      <td>Access (s.11), Correction &amp; completion (s.12), Erasure (s.12), Grievance redressal (s.13), Nomination (s.14)<br><span class="cell-tag tag-neutral">5 core rights</span></td>
+      <td>Access (Art.15), Rectification (Art.16), Erasure (Art.17), Restriction (Art.18), Portability (Art.20), Object (Art.21), ADM rights (Art.22)<br><span class="cell-tag tag-strict">7 rights + ADM</span></td>
+      <td>Know, Delete, Correct (CPRA), Opt-out of Sale/Sharing, Limit SPI (CPRA), Non-discrimination<br><span class="cell-tag tag-moderate">6 rights; CPRA added Correct + Limit SPI</span></td>
+      <td>Access, Correction, Erasure (conditional), Object to processing<br><span class="cell-tag tag-neutral">4 core rights</span></td>
+      <td>9 rights (Art. 18): confirmation, access, correction, anonymisation/blocking/deletion, portability, consent-deletion, information on sharing, consequences of denial, revocation<br><span class="cell-tag tag-strict">9 rights</span></td>
+      <td>Access (Sec.21), Correction (Sec.22), Portability (Part VIB, prescribed orgs)<br><span class="cell-tag tag-neutral">3 primary rights</span></td>
+      <td>7 rights (Secs.30-36): informed, access/copy, rectification, erasure/destruction, restriction, portability, object<br><span class="cell-tag tag-moderate">Mirrors GDPR</span></td>
+      <td>Access (Art.15), Rectification (Art.16), Erasure (Art.17), Restriction (Art.18), Portability (Art.20), Object (Art.21), ADM (modified by DUAA 2025)<br><span class="cell-tag tag-moderate">DUAA 2025 relaxes Art.22 ADM</span></td>
+      <td>Access (Art.11), Correction (Art.12), Erasure (Art.13), Restriction (Art.14), Portability (Art.15)<br><span class="cell-tag tag-neutral">5 rights</span></td>
+    </tr>
+    <tr class="data-row">
+      <td>Response Deadline</td>
+      <td><span class="cell-tag tag-neutral">Not prescribed</span><br>No statutory deadline for access (s.11) or correction/erasure (s.12) in DPDP Rules 2025. Grievance redressal: max <strong>90 days</strong> (Rule 14(3)).</td>
+      <td><span class="cell-tag tag-strict">1 month</span><br>Extendable to 3 months for complex requests with prior notice (Art. 12(3)).</td>
+      <td><span class="cell-tag tag-moderate">45 days</span><br>Extendable to 90 days with notice. 2 free Requests to Know per 12-month period (s.1798.130(b)).</td>
+      <td><span class="cell-tag tag-neutral">Reasonable timeframe</span><br>No specific statutory deadline prescribed.</td>
+      <td><span class="cell-tag tag-moderate">Immediate / 15 days</span><br>Simple requests: immediate. Complex requests: 15 days per ANPD guidance (ANPD Resolution CD/ANPD No. 15/2024 and prior guidance).</td>
+      <td><span class="cell-tag tag-moderate">30 days</span><br>Must acknowledge and respond to access/correction requests within 30 days (Sec.21).</td>
+      <td><span class="cell-tag tag-moderate">30 days</span><br>Without undue delay and within 30 days of receipt (Secs.30-36).</td>
+      <td><span class="cell-tag tag-strict">1 month</span><br>SAR stop-the-clock introduced by DUAA 2025: clock pauses while awaiting identity clarification reasonably needed.</td>
+      <td><span class="cell-tag tag-neutral">Reasonable timeframe</span><br>UAEDO guidance awaited on specific timelines.</td>
+    </tr>
+    <tr class="data-row">
+      <td>Data Portability</td>
+      <td><span class="cell-tag tag-na">Not provided</span><br>No DPDPA equivalent to GDPR Art. 20.</td>
+      <td><span class="cell-tag tag-strict">Explicit right</span><br>Art. 20: automated processing based on consent or contract. Machine-readable format.</td>
+      <td><span class="cell-tag tag-moderate">Limited equivalent</span><br>Right to know what PI is held; no machine-readable portability right per se.</td>
+      <td><span class="cell-tag tag-na">Not explicitly provided</span></td>
+      <td><span class="cell-tag tag-strict">Explicit right</span><br>Art. 18(V): transfer to another service provider. One of 9 rights.</td>
+      <td><span class="cell-tag tag-moderate">Part VIB</span><br>Phased rollout to prescribed organisations by sector (PDPC determines).</td>
+      <td><span class="cell-tag tag-moderate">Sec. 34</span><br>For consent/contract-based processing by automated means.</td>
+      <td><span class="cell-tag tag-strict">Explicit right</span><br>Art. 20: same as EU GDPR.</td>
+      <td><span class="cell-tag tag-moderate">Art. 15</span><br>Right to data portability provided but practical implementation guidance still developing.</td>
+    </tr>
+
+    <!-- BREACH NOTIFICATION -->
+    <tr class="section-row" id="sec-breach"><td colspan="10">Breach Notification</td></tr>
+    <tr class="data-row">
+      <td>Authority Notification Deadline</td>
+      <td><span class="cell-tag tag-strict">Without delay + 72 hours (two-step)</span><br>Rule 7: initial description to DPAB "without delay" (Rule 7(2)(a)) and simultaneous notification to all affected Data Principals (Rule 7(1)). Detailed follow-up report to DPAB within 72 hours (Rule 7(2)(b)), extendable on request.</td>
+      <td><span class="cell-tag tag-strict">72 hours from awareness</span><br>Art. 33: notify Lead SA. Partial notification permitted.</td>
+      <td><span class="cell-tag tag-na">No CCPA breach notification deadline</span><br>California Civ. Code 1798.82 (separate law): "expedient time" / 30 days after discovery in AG investigations.</td>
+      <td><span class="cell-tag tag-strict">72 hours from awareness</span><br>Implementing Regs Art. 24: notify SDAIA.</td>
+      <td><span class="cell-tag tag-moderate">3 business days (full notification)</span><br>ANPD Resolution CD/ANPD No. 15/2024 (26 April 2024). Where full details are unavailable, preliminary notice within 3 business days; supplementary report within 20 working days. Small agents (Resolution No. 2/2022): 6 business days. Business days exclude weekends and Brazilian holidays.</td>
+      <td><span class="cell-tag tag-strict">3 calendar days from DETERMINATION</span><br>Sec. 26D: clock starts from determination that breach is notifiable (NOT from discovery). Calendar days include weekends.</td>
+      <td><span class="cell-tag tag-strict">72 hours from awareness</span><br>Sec. 37(3): unless breach unlikely to result in risk.</td>
+      <td><span class="cell-tag tag-strict">72 hours from awareness</span><br>UK GDPR Art. 33: notify ICO at ico.org.uk/report-a-breach.</td>
+      <td><span class="cell-tag tag-strict">Without undue delay (72 hours target)</span><br>Art. 17: framework still maturing; monitor UAEDO guidance.</td>
+    </tr>
+    <tr class="data-row">
+      <td>Individual Notification Threshold</td>
+      <td><span class="cell-tag tag-strict">ALL affected principals</span><br>No minimum risk threshold. Every affected data principal must be notified. Stricter than GDPR Art. 34.</td>
+      <td><span class="cell-tag tag-moderate">HIGH RISK only</span><br>Art. 34: notification required only where breach likely to result in high risk to rights and freedoms.</td>
+      <td><span class="cell-tag tag-neutral">California Civ. Code 1798.82</span><br>Separate state breach notification law. CCPA itself does not govern individual breach notification.</td>
+      <td><span class="cell-tag tag-moderate">Where harm is likely</span><br>Individual notification required where breach likely to cause harm to affected individuals.</td>
+      <td><span class="cell-tag tag-moderate">Risk or harm</span><br>Art. 48: notify individuals where breach could cause risk or harm. No explicit "high risk" qualifier.</td>
+      <td><span class="cell-tag tag-moderate">Significant harm to any individual</span><br>Sec. 26D(3): as soon as reasonably practicable where significant harm is likely.</td>
+      <td><span class="cell-tag tag-moderate">HIGH RISK</span><br>Sec. 37(4): notify individuals where likely to result in high risk to rights and freedoms.</td>
+      <td><span class="cell-tag tag-moderate">HIGH RISK only</span><br>UK GDPR Art. 34: same threshold as GDPR.</td>
+      <td><span class="cell-tag tag-moderate">Risk to rights</span><br>Art. 17: where breach poses a risk to data subjects' rights.</td>
+    </tr>
+
+    <!-- CHILDREN -->
+    <tr class="section-row" id="sec-children"><td colspan="10">Children's Data</td></tr>
+    <tr class="data-row">
+      <td>Age Threshold</td>
+      <td><span class="cell-tag tag-strict">18 years</span><br>s.9: verifiable parental consent mandatory for all under-18 users. Strictest global threshold.</td>
+      <td><span class="cell-tag tag-moderate">16 years (default)</span><br>Art. 8: reducible to 13 by member states (e.g., UK set 13). Parental consent for information society services.</td>
+      <td><span class="cell-tag tag-moderate">16 / 13 years</span><br>13-16: opt-in consent required (s.1798.120(d)). Under 13: COPPA applies (parental consent, federal law).</td>
+      <td><span class="cell-tag tag-neutral">Not explicitly defined</span><br>PDPL requires heightened protection for minors but no specific age threshold prescribed.</td>
+      <td><span class="cell-tag tag-strict">Under 18</span><br>Art. 14: children and adolescents receive special protection. Processing requires parental/guardian consent.</td>
+      <td><span class="cell-tag tag-neutral">No specific threshold</span><br>PDPC has not set a bright-line age threshold. General reasonableness standard applies for minors.</td>
+      <td><span class="cell-tag tag-moderate">Under 20 (Thai civil law)</span><br>Minors under Thai law require parental/guardian consent. Age of majority is 20 in Thailand.</td>
+      <td><span class="cell-tag tag-moderate">13 years</span><br>UK GDPR Art. 8 / DUAA 2025: UK set threshold at 13 for online services. ICO Age Appropriate Design Code applies to services likely accessed by under-18s.</td>
+      <td><span class="cell-tag tag-neutral">Not explicitly specified</span><br>UAEDO guidance anticipated. General consent framework applies.</td>
+    </tr>
+    <tr class="data-row">
+      <td>Child-Specific Prohibitions</td>
+      <td><span class="cell-tag tag-strict">Absolute prohibition</span><br>s.9(3): behavioral tracking, targeted advertising, and profiling of children categorically prohibited. No exceptions.</td>
+      <td><span class="cell-tag tag-moderate">Restrictions apply</span><br>GDPR Art. 8 + Recital 38: special protection for children. Profiling under Art. 22 requires explicit consent. ICO AADC in UK goes further.</td>
+      <td><span class="cell-tag tag-moderate">Age-appropriate design</span><br>CPRA and CCPA impose restrictions on selling data of under-16s. COPPA governs under-13s.</td>
+      <td><span class="cell-tag tag-neutral">Heightened protection</span><br>General heightened protection; no categorical prohibition on tracking/advertising equivalent to DPDPA s.9(3).</td>
+      <td><span class="cell-tag tag-moderate">Special protection</span><br>Art. 14: special protection for children and adolescents; best interest of the child principle.</td>
+      <td><span class="cell-tag tag-neutral">No specific prohibitions</span><br>General consent and protection obligations apply. No categorical prohibition.</td>
+      <td><span class="cell-tag tag-neutral">Parental consent required</span><br>No categorical prohibitions; parental/guardian consent required for minors' data processing.</td>
+      <td><span class="cell-tag tag-moderate">ICO AADC applies</span><br>Age Appropriate Design Code (Children's Code): 15 standards for services likely accessed by under-18s. Profiling off by default.</td>
+      <td><span class="cell-tag tag-neutral">Not explicitly prescribed</span><br>UAEDO guidance awaited.</td>
+    </tr>
+
+    <!-- DPO -->
+    <tr class="section-row" id="sec-dpo"><td colspan="10">Data Protection Officer (DPO / Encarregado)</td></tr>
+    <tr class="data-row">
+      <td>DPO Requirement</td>
+      <td><span class="cell-tag tag-moderate">SDF only</span><br>s.10: only Significant Data Fiduciaries. Must be Indian resident. Effective May 2027.</td>
+      <td><span class="cell-tag tag-moderate">Criteria-based</span><br>Art. 37: public authorities; large-scale systematic monitoring; large-scale special category or criminal data processing.</td>
+      <td><span class="cell-tag tag-na">Not required</span><br>CCPA / CPRA do not mandate a DPO. Some CPPA regulations reference a responsible person.</td>
+      <td><span class="cell-tag tag-moderate">Effectively mandatory</span><br>SDAIA guidance indicates a designated Data Protection Officer or responsible person should be appointed. Explicit mandatory requirement less clear-cut than GDPR.</td>
+      <td><span class="cell-tag tag-strict">Mandatory for all controllers</span><br>Art. 41: Encarregado required. Contact must be publicly disclosed. ANPD may grant exemptions to micro-enterprises and small businesses.</td>
+      <td><span class="cell-tag tag-strict">Mandatory for all organisations</span><br>Sec. 11A (2021 amendment): every organisation must designate at least one DPO. Contact must be publicly available.</td>
+      <td><span class="cell-tag tag-moderate">Criteria-based</span><br>Sec. 41: public authorities; large-scale systematic monitoring; large-scale sensitive data processing. Mirrors GDPR Art. 37.</td>
+      <td><span class="cell-tag tag-moderate">Criteria-based</span><br>UK GDPR Art. 37: same criteria as GDPR. ICO registration also required (GBP 40-2,900/yr).</td>
+      <td><span class="cell-tag tag-neutral">Where required by UAEDO</span><br>Not mandatory for all. UAEDO guidance on specific thresholds still developing.</td>
+    </tr>
+    <tr class="data-row">
+      <td>DPO Residency Requirement</td>
+      <td><span class="cell-tag tag-strict">Must be Indian resident</span><br>s.10(2)(b): SDF DPO must ordinarily reside in India.</td>
+      <td><span class="cell-tag tag-na">No residency requirement</span><br>Can be based anywhere. Representative in the EU required for non-EU controllers under Art. 27.</td>
+      <td><span class="cell-tag tag-na">Not applicable</span></td>
+      <td><span class="cell-tag tag-na">No specific residency requirement</span></td>
+      <td><span class="cell-tag tag-na">No residency requirement</span><br>Encarregado can be based outside Brazil.</td>
+      <td><span class="cell-tag tag-na">No residency requirement</span></td>
+      <td><span class="cell-tag tag-na">No residency requirement</span></td>
+      <td><span class="cell-tag tag-na">No residency requirement</span><br>Art. 27 UK representative required for non-UK controllers.</td>
+      <td><span class="cell-tag tag-na">No specific residency requirement</span></td>
+    </tr>
+
+    <!-- CROSS-BORDER TRANSFERS -->
+    <tr class="section-row" id="sec-transfers"><td colspan="10">Cross-Border Data Transfers</td></tr>
+    <tr class="data-row">
+      <td>Transfer Model</td>
+      <td><span class="cell-tag tag-flexible">Restriction / Blacklist</span><br>s.16: transfers permitted by default unless Central Government restricts specific countries. No restriction list notified yet. Sector-specific rules (RBI, SEBI, IRDAI) apply independently.</td>
+      <td><span class="cell-tag tag-strict">Adequacy / Whitelist</span><br>Arts. 44-49: adequacy decision, SCCs + TIA, BCRs, or Art. 49 derogation. Schrems II applies.</td>
+      <td><span class="cell-tag tag-na">No transfer restrictions</span><br>CCPA does not impose cross-border transfer restrictions. Service provider contracts must cover data use.</td>
+      <td><span class="cell-tag tag-moderate">Adequacy + contractual safeguards</span><br>Arts. 29-30: adequacy assessment or binding contractual safeguards. Unlawful transfer: criminal offence (SAR 1M + 1yr imprisonment).</td>
+      <td><span class="cell-tag tag-strict">Adequacy + ANPD SCCs</span><br>Art. 33: ANPD SCCs mandatory for new/renewed arrangements from 23 Aug 2025 (Resolution CD/ANPD No. 19). BCRs and adequacy also valid.</td>
+      <td><span class="cell-tag tag-moderate">Adequacy + contractual arrangements</span><br>Sec. 26: Third Schedule mechanisms (BCRs, contractual arrangements, binding corporate rules). PDPC assesses adequacy.</td>
+      <td><span class="cell-tag tag-moderate">Adequacy + contractual safeguards</span><br>Secs. 28-29: adequacy determination or contractual safeguards ensuring equivalent protection.</td>
+      <td><span class="cell-tag tag-moderate">Adequacy + IDTA / UK addendum</span><br>DUAA 2025 codifies "not materially lower" TRA standard (less strict than EU "essentially equivalent"). ICO IDTA or UK addendum to EU SCCs.</td>
+      <td><span class="cell-tag tag-moderate">Adequacy (UAEDO list) + contractual safeguards</span><br>Arts. 22-24: UAEDO adequacy list; approved standard clauses where no adequacy. Administrative fines range from AED 50,000 to AED 5,000,000 (AED 10,000,000 for repeat violations).</td>
+    </tr>
+    <tr class="data-row">
+      <td>Transfer Assessment Standard</td>
+      <td><span class="cell-tag tag-flexible">No formal TIA/TRA required</span><br>Default permissive until restriction notified. No Transfer Impact Assessment mandated by DPDPA.</td>
+      <td><span class="cell-tag tag-strict">Essentially equivalent (Schrems II)</span><br>Transfer Impact Assessment (TIA) mandatory alongside SCCs.</td>
+      <td><span class="cell-tag tag-na">Not applicable</span></td>
+      <td><span class="cell-tag tag-moderate">PDPL-equivalent protection</span><br>No formal TIA equivalent; proportionality and protection assessment required.</td>
+      <td><span class="cell-tag tag-strict">LGPD-equivalent protection</span><br>Compatibility analysis required where applicable. ANPD oversees.</td>
+      <td><span class="cell-tag tag-moderate">Comparable protection</span><br>PDPC assesses whether comparable protection exists. No formal TIA mechanism.</td>
+      <td><span class="cell-tag tag-moderate">Adequate protection</span><br>No formal TIA; reasonable safeguards assessment required.</td>
+      <td><span class="cell-tag tag-moderate">Not materially lower (DUAA 2025)</span><br>Transfer Risk Assessment (TRA) required. Codified by DUAA 2025; less stringent than EU "essentially equivalent."</td>
+      <td><span class="cell-tag tag-neutral">UAEDO assessment</span><br>Framework still maturing; monitor UAEDO guidance.</td>
+    </tr>
+
+    <!-- SENSITIVE DATA -->
+    <tr class="section-row" id="sec-sensitive"><td colspan="10">Sensitive / Special Category Data</td></tr>
+    <tr class="data-row">
+      <td>Definition Approach</td>
+      <td><span class="cell-tag tag-neutral">Not yet defined in Act</span><br>DPDPA 2023 does not create a separate sensitive category. IT Act SPDI Rules 2011 (passwords, financial, health, biometric, sexual orientation, medical history) remain in force until May 2027. Central Government may notify categories.</td>
+      <td><span class="cell-tag tag-strict">Exhaustive list (Art. 9)</span><br>Health, biometric, genetic, racial/ethnic origin, political opinions, religious/philosophical beliefs, trade union membership, sexual orientation, criminal convictions (Art. 10).</td>
+      <td><span class="cell-tag tag-strict">CPRA Sensitive PI list</span><br>SSN/gov ID, login credentials, financial account details, precise geolocation, racial/ethnic origin, religious beliefs, philosophical beliefs, union membership, mail/email/text contents, genetic data, biometric, health data, sex life/sexual orientation, immigration status.</td>
+      <td><span class="cell-tag tag-strict">Art. 23 list</span><br>Health, genetic, biometric, criminal records, racial/ethnic origin, religious beliefs. Unauthorized disclosure: criminal offence (SAR 3M + 2yr imprisonment).</td>
+      <td><span class="cell-tag tag-strict">Art. 5(II) list</span><br>Racial/ethnic origin, religious beliefs, political opinions, health/sex life, genetic/biometric data, criminal records, trade union membership, minor's data.</td>
+      <td><span class="cell-tag tag-na">No separate category</span><br>Singapore PDPA does not define a separate sensitive personal data category. All personal data regulated under same framework.</td>
+      <td><span class="cell-tag tag-strict">Sec. 26 list (10 categories)</span><br>Racial/ethnic origin, political opinions, religious/philosophical beliefs, sexual behavior, criminal records, health data, disability, trade union membership, genetic data, biometric data.</td>
+      <td><span class="cell-tag tag-strict">Art. 9 list (same as GDPR)</span><br>Health, biometric, genetic, racial/ethnic, political, religious/philosophical, trade union, sexual orientation, criminal (Art. 10).</td>
+      <td><span class="cell-tag tag-strict">Listed categories</span><br>Health, genetic, biometric, criminal, racial/ethnic origin, religious, political opinions, sexual orientation. Similar scope to GDPR Art. 9.</td>
+    </tr>
+    <tr class="data-row">
+      <td>Processing Standard</td>
+      <td><span class="cell-tag tag-neutral">SPDI Rules (until May 2027)</span><br>IT Act SPDI Rules 2011 require explicit written consent for sensitive personal information categories. Enhanced security obligations under s.43A IT Act.</td>
+      <td><span class="cell-tag tag-strict">Explicit Art. 9(2) basis required</span><br>General consent (Art. 6) is insufficient. Explicit consent (Art. 9(2)(a)) or narrow listed exceptions. Stricter security under Art. 32.</td>
+      <td><span class="cell-tag tag-strict">Consumer can Limit SPI</span><br>CPRA s.1798.121: right to limit use/disclosure of Sensitive PI to what is necessary for the requested service. "Limit My SPI" link required.</td>
+      <td><span class="cell-tag tag-strict">Heightened controls + explicit consent</span><br>Art. 23: extra security, explicit consent or narrow PDPL exceptions. Criminal liability for unauthorized disclosure.</td>
+      <td><span class="cell-tag tag-strict">Art. 11 basis required</span><br>Closed list of bases. Explicit consent (not general consent) required where consent is the basis. Third-party transfer restrictions (Art. 11 para. 2).</td>
+      <td><span class="cell-tag tag-neutral">N/A</span><br>No separate sensitive category; general PDPA obligations apply to all personal data.</td>
+      <td><span class="cell-tag tag-strict">Sec. 26 explicit basis required</span><br>Explicit consent or narrow Sec. 26 exceptions. Max THB 3M fine for processing without Sec. 26 basis.</td>
+      <td><span class="cell-tag tag-strict">Explicit Art. 9(2) basis required</span><br>Same as GDPR. Processing by design default under Art. 25 applies with extra force.</td>
+      <td><span class="cell-tag tag-strict">Higher standard</span><br>Enhanced security and consent obligations. Framework details still developing under UAEDO guidance.</td>
+    </tr>
+
+    <!-- PENALTIES -->
+    <tr class="section-row" id="sec-penalties"><td colspan="10">Penalties &amp; Enforcement</td></tr>
+    <tr class="data-row">
+      <td>Maximum Penalty</td>
+      <td><span class="penalty-amount">INR 250 Crore (~EUR 27M)</span>per violation (s.33 Schedule Item 1: security safeguards)<br><span class="cell-tag tag-strict">Fixed rupee amounts; can stack per provision</span></td>
+      <td><span class="penalty-amount">EUR 20M or 4% global turnover</span>(higher applies) per violation (Art. 83(5))<br><span class="cell-tag tag-strict">Turnover-based: scales with organisation size</span></td>
+      <td><span class="penalty-amount">USD 7,500 per intentional violation</span>per consumer for intentional violations (s.1798.155)<br><span class="cell-tag tag-neutral">Per-consumer penalties compound at scale</span></td>
+      <td><span class="penalty-amount">SAR 5,000,000</span>general violations (SAR 10M repeat); criminal: SAR 3M + 2yr (sensitive); SAR 1M + 1yr (cross-border)<br><span class="cell-tag tag-strict">Criminal liability is rare globally</span></td>
+      <td><span class="penalty-amount">2% Brazil revenues or BRL 50M</span>(lower of) per infraction (Art. 52)<br><span class="cell-tag tag-moderate">Revenue-based; daily fines also available</span></td>
+      <td><span class="penalty-amount">SGD 1,000,000 or 10% SG turnover</span>(higher applies) (Sec. 48J, from Oct 2022)<br><span class="cell-tag tag-moderate">Turnover-based for Singapore revenues</span></td>
+      <td><span class="penalty-amount">THB 3,000,000 (administrative)</span>per violation (Sec. 82); criminal: THB 1M + 1yr imprisonment<br><span class="cell-tag tag-neutral">Fixed cap; criminal sanctions for deliberate acts</span></td>
+      <td><span class="penalty-amount">GBP 17.5M or 4% global turnover</span>(higher applies) (UK GDPR Art. 83(5) / DUAA 2025)<br><span class="cell-tag tag-strict">PECR penalties now aligned to UK GDPR level</span></td>
+      <td><span class="penalty-amount">AED 5,000,000</span>maximum administrative fine (AED 10,000,000 for repeat violations). Administrative fines range from AED 50,000 upwards. Criminal liability under cybercrime law also applicable (imprisonment and fines up to AED 5,000,000).<br><span class="cell-tag tag-moderate">Fixed amounts; framework maturing</span></td>
+    </tr>
+    <tr class="data-row">
+      <td>Penalty Structure</td>
+      <td>Fixed absolute amounts (s.33 Schedule). Factors in s.33(2) guide quantum within ceiling. DPAB can double penalties in cases of gravity (s.42(1)).<br><span class="cell-tag tag-neutral">Fixed; proportionally severe for smaller orgs</span></td>
+      <td>Two tiers (Art. 83(4)-(5)). Factors: gravity, duration, nature, cooperation, mitigation, repeat nature. DPA discretion is broad.<br><span class="cell-tag tag-strict">Proportionate to global size</span></td>
+      <td>Civil penalties (AG); administrative fines (CPPA). Intentional vs unintentional distinction. USD 2,500 for unintentional violations.<br><span class="cell-tag tag-neutral">Consumer-count based; compounds quickly</span></td>
+      <td>Fixed + criminal. Repeat violations double the fine. SDAIA may impose additional corrective measures.<br><span class="cell-tag tag-strict">Criminal track is unique globally</span></td>
+      <td>Revenue-based: 2% of Brazilian revenue per infraction. Daily fines for ongoing violations. ANPD has graduated penalty structure under Art. 52.<br><span class="cell-tag tag-moderate">Revenue-proportionate</span></td>
+      <td>Graduated scale below SGD 1M / 10% turnover ceiling. PDPC has published enforcement decisions as precedents.<br><span class="cell-tag tag-moderate">Active enforcement history</span></td>
+      <td>Fixed administrative maximum. PDPC can also issue warnings, suspension, or corrective orders. Criminal track requires intentional/reckless conduct.<br><span class="cell-tag tag-neutral">Fixed ceiling regardless of size</span></td>
+      <td>Two tiers aligned with GDPR. ICO publishes detailed penalty notices with reasoning.<br><span class="cell-tag tag-strict">Active; post-DUAA 2025 approach unchanged</span></td>
+      <td>Administrative fines from AED 50,000 to AED 5,000,000; doubled for repeat violations. UAEDO enforcement posture still developing. Corrective orders also available. Criminal liability under cybercrime laws applies in parallel.<br><span class="cell-tag tag-neutral">Framework maturing</span></td>
+    </tr>
+    <tr class="data-row">
+      <td>ROPA / Processing Register</td>
+      <td><span class="cell-tag tag-na">Not mandated</span><br>No explicit ROPA requirement. Accountability under s.8 implies records. Best practice to maintain one for DPAB audit readiness.</td>
+      <td><span class="cell-tag tag-strict">Mandatory (Art. 30)</span><br>250+ employee threshold; Art. 30(5) exemption is narrow in practice (most regular processing not exempt).</td>
+      <td><span class="cell-tag tag-na">Not required</span><br>No ROPA equivalent in CCPA/CPRA framework.</td>
+      <td><span class="cell-tag tag-moderate">Required under Implementing Regulations</span><br>Processing register required for SDAIA audit readiness.</td>
+      <td><span class="cell-tag tag-neutral">Not explicitly mandated</span><br>ANPD guidance encourages a processing inventory. Best practice for audit readiness.</td>
+      <td><span class="cell-tag tag-neutral">Not explicitly required</span><br>PDPC recommends maintaining a data inventory. No statutory ROPA obligation.</td>
+      <td><span class="cell-tag tag-moderate">Required (Sec. 39)</span><br>Controllers must maintain records of processing activities. Must be available for PDPC inspection.</td>
+      <td><span class="cell-tag tag-strict">Mandatory (Art. 30)</span><br>Same criteria as GDPR. ICO may request ROPA during audits and investigations.</td>
+      <td><span class="cell-tag tag-moderate">Data inventory required</span><br>Cabinet Resolution 33/2022 requires maintaining a data inventory/register. Details still developing.</td>
+    </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <div style="margin-top:20px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px;font-size:.78rem;color:var(--ink3);line-height:1.8;box-shadow:var(--shadow)">
+    <div style="font-weight:700;font-size:.82rem;color:var(--ink);margin-bottom:10px">Notes on Colour Coding</div>
+    The strictness labels (Strictest / Moderate / Most Flexible) refer to the relative stringency of each framework on that specific dimension, not an overall framework ranking. A framework may be strictest on children's data but most flexible on cross-border transfers. Use the assessment tool for a full compliance analysis tailored to your organisation.
+  </div>
+
+  <div class="disclaimer">
+    <div class="disclaimer-title">&#x26A0; Legal Disclaimer &amp; Copyright</div>
+    <p><strong>Not Legal Advice.</strong> This matrix is an informational reference tool. It does not constitute legal advice. Regulatory interpretations, enforcement practice, and guidance documents evolve continuously. Always verify against primary sources and engage qualified legal counsel before making compliance decisions.</p>
+    <p><strong>Accuracy as of 31 March 2026.</strong> Key changes reflected: DPDPA Rules 2025 (Nov 2025), Saudi PDPL 2023 amendment (LI basis), DUAA 2025 (in force Feb 2026), CPPA Final Regulations Arts. 9/10/11 (approved 22 Sep 2025), LGPD ANPD SCC mandate (Aug 2025), LGPD breach notification corrected to 3 business days per ANPD Resolution CD/ANPD No. 15/2024, UAE PDPL penalties corrected to AED 5,000,000 maximum administrative fine, DPDPA Rule 7 two-step notification structure reflected.</p>
+    <p><strong>Copyright &copy; 2025-2026 Adv. Sanket Shah. All rights reserved.</strong> Reproduction without prior written permission is prohibited. &middot; <a href="terms.html" style="color:var(--ink3)">Full Terms of Use</a></p>
+  </div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="container">
+  <div>&copy; 2025-2026 <span class="footer-name">Adv. Sanket Shah</span> &middot; LL.M. in Data Privacy &middot; AI &amp; Tech Law</div>
+  <div>Contract Lifecycle Management &middot; Legal Automation &middot; Data Protection &middot; AI Governance</div>
+  <div style="margin-top:6px"><a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" style="color:rgba(255,255,255,.7);text-decoration:none">linkedin.com/in/advsanketshah</a></div>
+  <div class="footer-copy">Privacipher. All content, methodology, and analysis are the intellectual property of Adv. Sanket Shah. &copy; 2025-2026. All rights reserved.</div>
+</div>
+</footer>
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
+<script>
+function scrollToSection(id,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const el=document.getElementById(id);
+  if(el){const y=el.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top:y,behavior:'smooth'});}
+}
+window.addEventListener('scroll',()=>{
+  const btn=document.getElementById('back-top');
+  if(btn)btn.classList.toggle('visible',window.scrollY>400);
+});
+</script>
+</body>
+</html>
