@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog · Privacipher · Adv. Sanket Shah</title>
+<meta name="description" content="Version history and changelog for Privacipher. Tracks legal accuracy updates, framework additions, and feature changes. By Adv. Sanket Shah, LL.M. Data Privacy.">
+<meta name="author" content="Adv. Sanket Shah">
+<link rel="canonical" href="https://advsanketshah.github.io/data-protection-compliance-checker/changelog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D0D0D;--ink2:#2D2D2D;--ink3:#555;--ink4:#999;
+  --bg:#F8F7F4;--white:#fff;--border:#E0DFDB;--border-dark:#C8C7C2;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:rgba(220,38,38,.25);
+  --amber:#D97706;--amber-bg:#FFFBEB;--amber-border:rgba(217,119,6,.25);
+  --green:#16A34A;--green-bg:#F0FDF4;--green-border:rgba(22,163,74,.25);
+  --blue:#1D4ED8;--blue-bg:#EFF6FF;--blue-border:rgba(29,78,216,.25);
+  --purple:#7C3AED;--purple-bg:#F5F3FF;
+  --r:6px;--r-sm:4px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg:0 4px 24px rgba(0,0,0,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Outfit',sans-serif;font-size:15px;line-height:1.6;text-align:justify;hyphens:auto}
+
+.site-header{background:var(--ink);color:#fff;padding:32px 0 0}
+.hdr-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:24px}
+.hdr-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:3px 12px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px}
+.hdr-title{font-family:'Instrument Serif',serif;font-size:2.2rem;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:6px}
+.hdr-subtitle{font-size:.78rem;color:rgba(255,255,255,.45);letter-spacing:.04em;text-transform:uppercase}
+.hdr-author-name{font-family:'Instrument Serif',serif;font-size:1.2rem;color:#fff}
+.hdr-author-creds{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:3px}
+.hdr-links{display:flex;gap:8px;margin-top:10px}
+.hdr-link{font-size:.72rem;color:rgba(255,255,255,.7);text-decoration:none;border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:3px 10px;transition:all .2s}
+.hdr-link:hover{background:rgba(255,255,255,.12);color:#fff}
+.hdr-nav{display:flex;gap:12px;flex-wrap:wrap;padding:14px 0;border-top:1px solid rgba(255,255,255,.1);align-items:center}
+.hdr-nav a{font-size:.72rem;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.hdr-nav a:hover,.hdr-nav a.active{color:#fff}
+.hdr-nav span{color:rgba(255,255,255,.2)}
+
+.container{max-width:820px;margin:0 auto;padding:0 24px}
+.main{padding:48px 0 96px}
+
+/* VERSION TIMELINE */
+.version-timeline{position:relative;padding-left:32px}
+.version-timeline::before{content:'';position:absolute;left:10px;top:8px;bottom:0;width:2px;background:var(--border-dark)}
+
+/* VERSION BLOCK */
+.version-block{position:relative;margin-bottom:48px}
+.version-block:last-child{margin-bottom:0}
+.version-dot{position:absolute;left:-30px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--white);border:2.5px solid var(--border-dark);display:flex;align-items:center;justify-content:center;z-index:2}
+.version-dot.current{background:var(--ink);border-color:var(--ink)}
+.version-dot.current::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff}
+.version-dot.major{background:var(--white);border-color:var(--ink)}
+.version-dot.major::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.version-dot.minor{background:var(--white);border-color:var(--border-dark)}
+.version-dot.minor::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--ink4)}
+
+/* VERSION HEADER */
+.version-header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.version-num{font-family:'Instrument Serif',serif;font-size:1.5rem;letter-spacing:-.01em;color:var(--ink)}
+.version-date{font-size:.72rem;font-weight:700;color:var(--ink4);letter-spacing:.04em}
+.version-badge{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:20px}
+.badge-current{background:var(--ink);color:#fff}
+.badge-major{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+.badge-legal{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.badge-feature{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.badge-fix{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
+.version-title{font-size:1rem;font-weight:700;color:var(--ink3);margin-bottom:20px;line-height:1.5}
+
+/* CHANGE ENTRIES */
+.change-group{margin-bottom:20px}
+.change-group-label{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.cgl-legal{color:var(--red)}
+.cgl-feature{color:var(--green)}
+.cgl-fix{color:var(--amber)}
+.cgl-ux{color:var(--blue)}
+.cgl-content{color:var(--purple)}
+.cg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.cgl-legal .cg-dot{background:var(--red)}
+.cgl-feature .cg-dot{background:var(--green)}
+.cgl-fix .cg-dot{background:var(--amber)}
+.cgl-ux .cg-dot{background:var(--blue)}
+.cgl-content .cg-dot{background:var(--purple)}
+
+.change-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--r);background:var(--white);overflow:hidden;box-shadow:var(--shadow)}
+.change-item{padding:14px 18px;border-bottom:1px solid var(--border);font-size:.82rem;line-height:1.6}
+.change-item:last-child{border-bottom:none}
+.change-item-title{font-weight:700;color:var(--ink);margin-bottom:3px}
+.change-item-desc{color:var(--ink3);font-size:.78rem;line-height:1.6}
+.change-item-provision{font-size:.65rem;color:var(--ink4);font-family:monospace;margin-top:4px}
+.change-impact{display:inline-flex;align-items:center;gap:4px;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;border-radius:3px;margin-top:6px}
+.impact-breaking{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.impact-correction{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
+.impact-additive{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.impact-ux{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+
+/* SOURCE NOTE */
+.source-note{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 16px;margin-top:16px;font-size:.75rem;color:var(--ink4);line-height:1.7}
+.source-note strong{color:var(--ink3)}
+
+/* INTRO BOX */
+.intro-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:40px;box-shadow:var(--shadow)}
+.intro-box-title{font-family:'Instrument Serif',serif;font-size:1.3rem;margin-bottom:8px}
+.intro-box-text{font-size:.85rem;color:var(--ink3);line-height:1.7}
+.intro-stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.intro-stat{text-align:center}
+.intro-stat-num{font-family:'Instrument Serif',serif;font-size:1.8rem;color:var(--ink);line-height:1}
+.intro-stat-label{font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink4);margin-top:3px}
+
+/* DISCLAIMER */
+.disclaimer{background:var(--bg);border:1px solid var(--border-dark);border-left:4px solid var(--ink);border-radius:var(--r-sm);padding:18px;font-size:.75rem;color:var(--ink4);line-height:1.8;margin-top:32px}
+.disclaimer-title{font-weight:800;color:var(--ink3);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+
+.site-footer{background:var(--ink);color:rgba(255,255,255,.5);text-align:center;padding:28px 0;font-size:.72rem;line-height:1.8}
+.footer-name{color:rgba(255,255,255,.9);font-weight:600}
+.footer-copy{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);font-size:.68rem;max-width:700px;margin-left:auto;margin-right:auto}
+
+.back-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;background:var(--ink);color:#fff;border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);z-index:500}
+.back-top.visible{display:flex}
+@media(max-width:640px){.hdr-inner{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="theme-modern.css">
+</head>
+<body class="privacy-modern">
+<header class="site-header">
+<div class="container">
+  <div class="hdr-inner">
+    <div>
+      <div class="hdr-eyebrow">&#x1F4DD; Version History</div>
+      <div class="hdr-title">Privacipher</div>
+      <div style="color:rgba(255,255,255,.55);font-size:.82rem;margin-top:4px">Changelog</div>
+      <div class="hdr-subtitle">Legal Accuracy Updates &middot; Framework Additions &middot; Feature Changes</div>
+    </div>
+    <div>
+      <div class="hdr-author-name">Adv. Sanket Shah</div>
+      <div class="hdr-author-creds">LL.M. in Data Privacy &middot; AI &amp; Tech Law</div>
+      <div class="hdr-links">
+        <a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" class="hdr-link">LinkedIn &#8599;</a>
+        <a href="https://linktr.ee/sanketindore" target="_blank" class="hdr-link">Portfolio &#8599;</a>
+      </div>
+    </div>
+  </div>
+  <div class="hdr-nav">
+    <a href="index.html">&larr; Compliance Assessment</a>
+    <span>&middot;</span>
+    <a href="breach.html">Breach Playbook</a>
+    <span>&middot;</span>
+    <a href="compare.html">Compare Frameworks</a>
+    <span>&middot;</span>
+    <a href="calendar.html">Calendar</a>
+    <span>&middot;</span>
+    <a href="about.html">About</a>
+    <span>&middot;</span>
+    <a href="changelog.html" class="active">Changelog</a>
+    <span>&middot;</span>
+    <a href="terms.html">Terms of Use</a>
+  </div>
+</div>
+</header>
+
+<main class="main">
+<div class="container">
+
+  <div class="intro-box">
+    <div class="intro-box-title">About This Changelog</div>
+    <div class="intro-box-text">This page tracks every material change to Privacipher, with a particular focus on legal accuracy corrections. Each entry references the primary legal source that prompted the change. The tool is actively maintained; regulatory developments, new judicial guidance, and user-reported inaccuracies are incorporated on a best-efforts basis. If you identify an inaccuracy, please reach out via <a href="https://www.linkedin.com/in/advsanketshah/" style="color:var(--ink);font-weight:600">LinkedIn</a>.</div>
+    <div class="intro-stats">
+      <div class="intro-stat"><div class="intro-stat-num">3</div><div class="intro-stat-label">Major Versions</div></div>
+      <div class="intro-stat"><div class="intro-stat-num">9</div><div class="intro-stat-label">Frameworks Covered</div></div>
+      <div class="intro-stat"><div class="intro-stat-num">6</div><div class="intro-stat-label">Tool Pages</div></div>
+      <div class="intro-stat"><div class="intro-stat-num">2026</div><div class="intro-stat-label">Last Updated</div></div>
+    </div>
+  </div>
+
+  <div class="version-timeline">
+
+    <!-- v3.0 — CURRENT -->
+    <div class="version-block">
+      <div class="version-dot current"></div>
+      <div class="version-header">
+        <div class="version-num">v3.0</div>
+        <div class="version-date">31 March 2026</div>
+        <span class="version-badge badge-current">Current</span>
+        <span class="version-badge badge-feature">Major Feature Release</span>
+      </div>
+      <div class="version-title">Renamed to Privacipher. Full tool expansion: Breach Playbook, Comparison Matrix, Enforcement Calendar, About page, Changelog. Five legal accuracy corrections verified against primary sources: Saudi PDPL LI basis (Royal Decree M/148), UAE PDPL penalty (AED 5M maximum), DPDPA Rule 7 two-step notification structure, Brazil LGPD breach notification (ANPD Resolution No. 15/2024, 3 business days), DPDPA core obligations commencement confirmed as May 2027.</div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-legal"><div class="cg-dot"></div>Legal Accuracy Corrections</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">Saudi PDPL: Legitimate Interests Basis Added (2023 Amendment)</div>
+            <div class="change-item-desc">The tool previously stated that the Saudi PDPL "does not provide a general legitimate interests balancing test as an open-ended basis." This was accurate for the original 2021 law but incorrect for the current amended text. Royal Decree M/148 (27 March 2023) introduced legitimate interests as a valid lawful basis for non-sensitive personal data, subject to a balancing condition that the LI must not override data subject rights. This basis does not apply to sensitive personal data. The sa1 question text, help text, remediation guidance, the DPDPA vs GDPR divergence table, and terms.html Section 3 have all been updated to reflect the amended law.</div>
+            <div class="change-item-provision">Saudi PDPL | Royal Decree M/148, 27 March 2023 | Implementing Regs | Verified against: Clyde &amp; Co (Apr 2023), CMS Law (Sep 2025), Chambers &amp; Partners Practice Guide (2025)</div>
+            <span class="change-impact impact-correction">Legal Accuracy Correction</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">UAE PDPL: "Free of Charge" Rights Claim Corrected</div>
+            <div class="change-item-desc">The ae2 help text previously stated "Rights must be exercisable free of charge" as a firm legal requirement. A review of the primary text (Federal Decree-Law No. 45/2021 and Cabinet Resolution No. 33/2022) confirmed that no explicit provision equivalent to GDPR Art. 12(5) mandating free exercise of rights appears in the UAE PDPL. This has been corrected: the claim is now framed as best practice aligned with the GDPR model, pending explicit UAEDO guidance. The terms.html UAE PDPL accuracy note has been updated correspondingly.</div>
+            <div class="change-item-provision">UAE PDPL | Fed. Decree-Law No. 45/2021 | Cabinet Resolution No. 33/2022 | Reviewed: Bird &amp; Bird UAE PDPL analysis, Baker McKenzie Global Data Handbook (UAE), UAEDO primary text</div>
+            <span class="change-impact impact-correction">Legal Accuracy Correction</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">DPDPA Commencement Confirmed: Core Obligations Operative from May 2027, Not Immediately</div>
+            <div class="change-item-desc">An earlier draft analysis had suggested that "core obligations are operative from the Rules notification date." Research against multiple credible sources confirmed that this was incorrect. Sections 3-17 of the DPDPA (including notice, consent, fiduciary obligations, data principal rights, security, breach notification, SDF obligations, penalties, and enforcement powers) only come into force 18 months from the notification date, i.e., 13 May 2027. The enforcement banner on index.html correctly reflects this. The analysis has been corrected in the project documentation.</div>
+            <div class="change-item-provision">DPDPA 2023 ss.3-17 | Commencement Notification 13 Nov 2025 | Verified against: IFF Statement (Nov 2025), Lexology analysis (Nov 2025), Mondaq (Mar 2026), KPMG DPDP Rules 2025 guidance, DLA Piper Data Protection Laws (India)</div>
+            <span class="change-impact impact-correction">Research Verification</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">DPDPA Rule 7: Breach Notification is a Two-Step Regime, Not a Single 72-Hour Clock</div>
+            <div class="change-item-desc">The tool previously described DPDPA breach notification as a single "72-hour DPAB notification" (mirroring GDPR Art. 33). This was inaccurate. The final DPDP Rules 2025 establish a two-step regime under Rule 7. Step 1 ("without delay"): the Data Fiduciary must simultaneously notify (a) every affected Data Principal under Rule 7(1) with a full description of the breach, likely consequences, mitigation steps, and contact details; and (b) the DPAB under Rule 7(2)(a) with an initial brief description of the breach nature, extent, timing, location, and likely impact. Step 2 (within 72 hours): the Data Fiduciary must provide the DPAB a detailed follow-up report under Rule 7(2)(b) covering causes, mitigation measures, findings on the responsible party, remedial steps, and a summary of Data Principal notifications sent. The 72-hour window governs the detailed follow-up report to the DPAB only. The d15 question and help text, g10 help text, the Breach Notification Scope divergence entry, the breach.html India FW_DATA deadlines and checklists, and the compare.html breach notification cell have all been updated to reflect the correct two-step structure.</div>
+            <div class="change-item-provision">DPDP Rules 2025 Rule 7(1), 7(2)(a), 7(2)(b) | Official Gazette (G.S.R. 846(E)) | Verified against: KPMG DPDP Rules 2025 guidance, Baker Botts analysis (Nov 2025), Ikigai Law (Nov 2025), MediaNama (Nov 2025), dpdpa.com Rule 7 text</div>
+            <span class="change-impact impact-correction">Legal Accuracy Correction</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Brazil LGPD Breach Notification: Corrected to 3 Business Days under ANPD Resolution No. 15/2024</div>
+            <div class="change-item-desc">The tool previously stated the Brazil LGPD breach notification deadline as "2 business days (preliminary RAI)" with a "30 business day supplementary report," both attributed to "ANPD Resolution CD/ANPD No. 2." All three were incorrect. The correct governing instrument is ANPD Resolution CD/ANPD No. 15/2024 (approved 24 April 2024, published 26 April 2024, in force immediately). Under Resolution No. 15/2024, the standard timeline is 3 business days from confirming personal data was affected. Where full details are unavailable within that window, a preliminary notice must still be filed within 3 business days, to be supplemented within 20 working days. Small processing agents (as defined by the unrelated Resolution CD/ANPD No. 2/2022, which concerns exemptions for small agents) have a doubled deadline of 6 business days. Resolution CD/ANPD No. 2/2022 is not a breach notification regulation. The br6 question, help text, and remediation guidance in index.html; the Brazil FW_DATA deadlines and checklists in breach.html; the breach notification cell in compare.html; and the terms.html accuracy note have all been corrected.</div>
+            <div class="change-item-provision">LGPD Art. 48 | ANPD Resolution CD/ANPD No. 15/2024 (24 April 2024) | ANPD Resolution CD/ANPD No. 2/2022 (small agents only) | Verified against: Mayer Brown (May 2024), IAPP (Dec 2024), Licks Attorneys (May 2024), DLA Piper Data Protection Laws (Brazil), Baker McKenzie Global Data Handbook (Brazil)</div>
+            <span class="change-impact impact-correction">Legal Accuracy Correction</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">UAE PDPL Maximum Penalty Corrected to AED 5,000,000 (Not AED 20,000,000)</div>
+            <div class="change-item-desc">The tool previously cited an "AED 20,000,000 maximum for serious violations" attributed to Cabinet Resolution No. 33/2022. This figure cannot be verified against the primary text of Federal Decree-Law No. 45/2021 or Cabinet Resolution No. 33/2022, and is inconsistent with authoritative secondary sources. Multiple credible sources (Baker McKenzie, DLA Piper, Chambers and Partners, Advoke International, CookieYes) consistently report the UAE PDPL administrative fine as ranging from AED 50,000 to a maximum of AED 5,000,000, with repeat violations potentially doubled to AED 10,000,000. The AED 20,000,000 figure does not appear in the UAE PDPL Decree-Law itself; the law defers the specific penalty schedule to a Cabinet decision. All UAE penalty references across index.html, breach.html, compare.html, and terms.html have been corrected to AED 5,000,000 maximum.</div>
+            <div class="change-item-provision">UAE PDPL Fed. Decree-Law No. 45/2021 Art. 26 | Cabinet Resolution No. 33/2022 | Verified against: Baker McKenzie Global Data Handbook (UAE), DLA Piper Data Protection Laws (UAE), Chambers and Partners (UAE 2024), Advoke International, CookieYes PDPL guide</div>
+            <span class="change-impact impact-correction">Legal Accuracy Correction</span>
+          </div>
+        </div>
+        <div class="source-note"><strong>Verification method:</strong> All five corrections were verified by targeted web search against credible primary and secondary legal sources before implementation, following systematic legal accuracy review of all nine frameworks covered by Privacipher.</div>
+      </div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-feature"><div class="cg-dot"></div>New Pages</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">breach.html &mdash; Live Breach Response Playbook</div>
+            <div class="change-item-desc">New interactive breach response tool covering 8 frameworks (DPDPA, GDPR, UK GDPR, Saudi PDPL, LGPD, Singapore PDPA, Thailand PDPA, UAE PDPL). Features: live countdown timers per framework (updating every second), Singapore-specific determination-time input (legally distinct from discovery time), per-framework phase-by-phase checklists with checkboxes, progress tracking, and auto-generated plain-text incident record for breach registers. All processing in-browser, nothing transmitted.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">compare.html &mdash; 9-Framework Comparison Matrix</div>
+            <div class="change-item-desc">Static reference table comparing all 9 frameworks across 9 dimension categories: Enforcement and territorial scope, Lawful bases (including legitimate interests availability per framework), Data subject rights and response deadlines, Breach notification (authority timeline and individual threshold), Children's data, DPO requirements, Cross-border transfers, Sensitive data, Penalties and ROPA. Horizontally scrollable with sticky row-label column and jump-to-section navigation.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">calendar.html &mdash; Regulatory Enforcement Calendar</div>
+            <div class="change-item-desc">Live countdown to 21 material deadlines across all 9 frameworks. Hero stats (deadlines this year, within 12 months, beyond 12 months, total tracked). Framework and category filters. Timeline grouped by year. Passed deadlines in a collapsible section. Covers: DPDPA phased commencement (3 dates), CPPA Regs Arts. 9/10/11 (6 dates), DUAA 2025 commencement dates, LGPD ANPD SCC mandate, EU AI Act high-risk obligations, and reference dates for in-force frameworks.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">about.html &mdash; Professional Profile and Credentials</div>
+            <div class="change-item-desc">Profile page with practice area cards, specialist expertise depth, engagement types (assessment, documentation, incident response, automation, training, retainer), frameworks covered grid, and contact CTAs. Functions as the primary conversion path for tool users who want to engage for professional legal advice.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">changelog.html &mdash; This Page</div>
+            <div class="change-item-desc">Version history and legal accuracy log. Provides transparency on what changed, why, and which primary sources were used to verify corrections. Signals active maintenance to practitioners evaluating the tool's reliability.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-fix"><div class="cg-dot"></div>Bug Fixes</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">Enforcement Countdown Timezone Bug Fixed</div>
+            <div class="change-item-desc">The May 2027 enforcement countdown used <code>new Date('2027-05-13')</code> which browsers parse as UTC midnight, causing the countdown to resolve to 12 May 2027 for users in timezones ahead of UTC (including IST at UTC+5:30). Fixed by specifying the date as <code>2027-05-13T00:00:00+05:30</code> (IST midnight).</div>
+            <div class="change-item-provision">index.html | JavaScript Date constructor</div>
+            <span class="change-impact impact-correction">Bug Fix</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">startOver() Did Not Reset All Step 1 Fields</div>
+            <div class="change-item-desc">Clicking "Start Over" from the results page reset sector selection but left jurisdiction chips, data type checkboxes, SDF checkboxes, organisation name, and website URL populated from the previous session. All fields now reset cleanly to their initial state.</div>
+            <div class="change-item-provision">index.html | startOver() function</div>
+            <span class="change-impact impact-correction">Bug Fix</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">DPDPA vs GDPR Divergence: Singapore Children's Data Entry Had Missing Opening Brace</div>
+            <div class="change-item-desc">A str_replace operation that inserted the new Saudi PDPL LI divergence entry consumed the opening <code>{topic:</code> line of the subsequent Singapore children's data entry, causing an <code>Uncaught SyntaxError: Unexpected token ':'</code> in the browser console. Fixed by reinserting the missing opening line. Node.js <code>--check</code> syntax validation confirms zero errors.</div>
+            <div class="change-item-provision">index.html | DIVERGENCES array | JavaScript syntax</div>
+            <span class="change-impact impact-breaking">Syntax Error (Now Fixed)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-ux"><div class="cg-dot"></div>Navigation &amp; UX</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">Global Navigation Bar Added Across All Pages</div>
+            <div class="change-item-desc">All six pages (index, breach, compare, calendar, about, changelog, terms) now share a consistent navigation bar in the header. The active page is highlighted. Breach Playbook and Compare Frameworks links also appear in the index.html header framework tags row for quick access without scrolling.</div>
+            <span class="change-impact impact-ux">UX Improvement</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-content"><div class="cg-dot"></div>Content</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">New Divergence Entry: Saudi PDPL vs GDPR on Legitimate Interests</div>
+            <div class="change-item-desc">Added a new entry to the DPDPA vs GDPR divergence table documenting the convergence of the Saudi PDPL towards GDPR on the legitimate interests basis following the 2023 amendment, while noting the remaining differences in scope (non-sensitive data only) and elaboration of the balancing test.</div>
+            <span class="change-impact impact-additive">Content Addition</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">terms.html Updated to v2.1</div>
+            <div class="change-item-desc">Saudi PDPL accuracy note updated to document the 2023 LI amendment. UAE PDPL accuracy note updated to flag the "free of charge" limitation. Last Updated date updated to 31 March 2026.</div>
+            <span class="change-impact impact-additive">Content Update</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- v2.0 -->
+    <div class="version-block">
+      <div class="version-dot major"></div>
+      <div class="version-header">
+        <div class="version-num">v2.0</div>
+        <div class="version-date">30 March 2026</div>
+        <span class="version-badge badge-major">Major Version</span>
+        <span class="version-badge badge-legal">Nine Frameworks</span>
+      </div>
+      <div class="version-title">Expanded from a single-framework DPDPA tool to a full nine-framework global privacy compliance intelligence platform. Redesigned UI, sector-specific scoring, penalty mapping, risk heat map, divergence analysis, and PDF export.</div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-feature"><div class="cg-dot"></div>Framework Additions</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">GDPR (EU) — Full Question Set Added</div>
+            <div class="change-item-desc">10 questions covering lawful basis, privacy notice (Arts. 13-14), consent, DSR handling (Arts. 15-22), DPO, ROPA, DPIA, international transfers (Arts. 44-49), special category data (Art. 9), and breach notification (Arts. 33-34). DPDPA vs GDPR divergence table with 15 comparison topics added.</div>
+            <div class="change-item-provision">GDPR 2016/679 | Arts. 5-9, 12-22, 24-25, 28, 30, 33-36, 37-39, 44-49, 83</div>
+            <span class="change-impact impact-additive">Framework Addition</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">CCPA / CPRA (California) — Full Question Set Added</div>
+            <div class="change-item-desc">10 questions covering at-collection notice, consumer rights (Know, Delete, Correct, Opt-out, Limit SPI, Non-discrimination), Do Not Sell/Share and GPC compliance, VCR response timelines, Sensitive PI, service provider contracts, retention, and the new CPPA Final Regulations (Arts. 9/10/11, finalized 22 Sep 2025).</div>
+            <div class="change-item-provision">CCPA s.1798.100-135 | CPRA | CPPA Final Regs Arts. 9, 10, 11 (effective Jan 2026/Jan 2027)</div>
+            <span class="change-impact impact-additive">Framework Addition</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Saudi PDPL — Full Question Set Added</div>
+            <div class="change-item-desc">6 questions covering lawful basis and consent, data subject rights (access, correction, erasure, objection), privacy notice, sensitive personal data (Art. 23 criminal liability), cross-border transfers, and breach notification (72-hour SDAIA notification, Implementing Regs Art. 24).</div>
+            <div class="change-item-provision">Saudi PDPL Royal Decree M/19 (2021, amended M/148 2023) | Implementing Regulations</div>
+            <span class="change-impact impact-additive">Framework Addition</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Brazil LGPD — Full Question Set Added</div>
+            <div class="change-item-desc">7 questions covering Art. 7 lawful basis (10 bases), Art. 18 rights (9 rights), privacy notice and Encarregado, sensitive data (Art. 5(II) / Art. 11), Encarregado appointment obligation, breach notification (3 business days per ANPD Resolution CD/ANPD No. 15/2024; supplementary report within 20 working days), and cross-border transfers (ANPD SCC model clauses mandatory from Aug 2025, per Resolution CD/ANPD No. 19). Note: the initial v2.0 implementation incorrectly cited 2 business days under Resolution No. 2 — this was corrected in v3.0.</div>
+            <div class="change-item-provision">LGPD Law 13,709/2018 | ANPD Resolutions CD/ANPD No. 2 and No. 19</div>
+            <span class="change-impact impact-additive">Framework Addition</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Singapore PDPA — Full Question Set Added</div>
+            <div class="change-item-desc">5 questions covering Consent and Notification Obligations (Secs. 13, 18), Access/Correction/Portability (Secs. 21-22, Part VIB), Protection Obligation (Sec. 24), Mandatory Breach Notification (Sec. 26D — 3 calendar days from determination, not discovery), and DPO designation / Retention Limitation (Secs. 11A, 25). Key distinction from GDPR highlighted: 3-calendar-day clock starts from determination.</div>
+            <div class="change-item-provision">Singapore PDPA 2012 (as amended by Personal Data Protection (Amendment) Act 2020, in force 1 Feb 2021)</div>
+            <span class="change-impact impact-additive">Framework Addition</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Thailand PDPA — Full Question Set Added</div>
+            <div class="change-item-desc">5 questions covering Sec. 24 lawful basis (6 bases), Sec. 26 sensitive data (10 categories, THB 3M max fine), Secs. 30-36 rights (7 rights, 30-day SLA), Sec. 37 breach notification (72 hours to PDPC Thailand), and Secs. 40-41 DPO and data processor contracts. Age of majority in Thailand noted as 20 (Thai civil law).</div>
+            <div class="change-item-provision">Thailand PDPA B.E. 2562 (2019) | Fully in force 1 Jun 2022</div>
+            <span class="change-impact impact-additive">Framework Addition</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">UK GDPR / DUAA 2025 — Full Question Set Added</div>
+            <div class="change-item-desc">6 questions covering UK GDPR lawful basis and DUAA 2025 Recognised Legitimate Interests Schedule (in force 5 Feb 2026), UK privacy notice and SAR stop-the-clock (DUAA 2025 codification), UK ADM framework (DUAA 2025 shift from Art. 22 prohibition to safeguards-based approach), international transfers (IDTA, "not materially lower" TRA standard), ICO registration / DPO / ROPA, and PECR / cookie compliance (DUAA 2025 analytics exemption).</div>
+            <div class="change-item-provision">UK GDPR | Data (Use and Access) Act 2025 (Royal Assent 19 Jun 2025; Part 5 in force 5 Feb 2026)</div>
+            <span class="change-impact impact-additive">Framework Addition</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">UAE PDPL — Full Question Set Added</div>
+            <div class="change-item-desc">4 questions covering lawful basis and consent, data subject rights (5 rights), breach notification (72-hour target, Art. 17), and cross-border transfers (UAEDO adequacy list and contractual safeguards). Penalty figures corrected in v3.0: maximum administrative fine is AED 5,000,000.</div>
+            <div class="change-item-provision">UAE PDPL Fed. Decree-Law No. 45/2021 | Cabinet Resolution No. 33/2022</div>
+            <span class="change-impact impact-additive">Framework Addition</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-feature"><div class="cg-dot"></div>New Features</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">Sector-Specific Scoring Engine</div>
+            <div class="change-item-desc">10 sector profiles (HealthTech, FinTech/BFSI, EdTech, E-commerce, SaaS, Social Media/OTT, HR Tech, LegalTech, Government, Other). Each profile includes weight boosts for sector-elevated risk areas, a narrative sector risk note, elevated obligation categories, and cross-references to sector-specific regulatory frameworks (RBI, IRDAI, DISHA, UGC, etc.).</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">DPDPA Penalty Exposure Calculator</div>
+            <div class="change-item-desc">Maps each DPDPA question to the corresponding Schedule item and penalty ceiling. Computes total maximum statutory exposure from identified violations. Displays per-provision penalty breakdown and the full s.33 Schedule table. Non-DPDPA frameworks display their penalty tiers in narrative notes.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Risk Heat Map (Likelihood x Impact)</div>
+            <div class="change-item-desc">SVG-based interactive heat map plotting each identified gap by likelihood of violation and regulatory impact. Dots colour-coded by risk level (Critical/High/Medium). Hover tooltips show framework and category. Numbered gap index below the map.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">30/60/90-Day Remediation Roadmap</div>
+            <div class="change-item-desc">Automatically sorts identified gaps into 30-day (Critical), 60-day (High), and 90-day (Medium/Low) remediation buckets. Each item shows the framework, category, question, and statutory provision.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">PDF Export (jsPDF, client-side)</div>
+            <div class="change-item-desc">Full compliance report exportable as a branded PDF: score, sector profile, penalty exposure, framework scores, gap cards with remediation steps, roadmap, and disclaimer. Generated entirely client-side via jsPDF; no data transmitted.</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">DPDPA vs GDPR Divergence Analysis (15 topics)</div>
+            <div class="change-item-desc">Structured comparison of 15 key legal divergences between frameworks covered in the assessment, extended in v2.0 to include UK GDPR vs EU GDPR (ADM and transfer standard), Brazil LGPD vs GDPR (lawful basis count), Thailand PDPA vs GDPR (penalty structure), and DPDPA vs Singapore PDPA (children's data age threshold).</div>
+            <span class="change-impact impact-additive">New Feature</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-legal"><div class="cg-dot"></div>Key Legal Accuracy Points in v2.0</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">DPDPA Cross-Border Transfer Model Corrected to Restriction/Blacklist</div>
+            <div class="change-item-desc">The tool correctly documents DPDPA s.16 as a restriction/blacklist model (transfers permitted by default unless the Central Government restricts specific countries), not a whitelist. No restriction list has been notified. Sector-specific localization rules (RBI, SEBI, IRDAI) noted as independently applicable.</div>
+            <div class="change-item-provision">DPDPA s.16 | DPDP Rules 2025 Rule 15</div>
+            <span class="change-impact impact-correction">Accuracy Note</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">DPDPA Rights Response Timeline Correctly Noted as Not Prescribed</div>
+            <div class="change-item-desc">The tool correctly notes that the DPDP Rules 2025 do not prescribe a specific number of days for access (s.11) or correction/erasure (s.12) requests. Only grievance redressal is capped at 90 days (Rule 14(3)). This is a common source of error in secondary commentary.</div>
+            <div class="change-item-provision">DPDPA ss.11-12 | DPDP Rules 2025 Rule 14(3)</div>
+            <span class="change-impact impact-correction">Accuracy Note</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Singapore PDPA Breach Notification Trigger Correctly Stated as Determination Date</div>
+            <div class="change-item-desc">The 3-calendar-day Singapore PDPA notification window runs from the date the organisation determines the breach is notifiable, not from discovery. This operationally significant distinction is correctly reflected in the sg4 question help text, breach notification divergence entry, and the Breach Response Playbook Singapore section.</div>
+            <div class="change-item-provision">Singapore PDPA Sec. 26D(1) | PDP(DBN) Regulations 2021 | PDPC Guide on Managing and Notifying Data Breaches (2021, updated 2024)</div>
+            <span class="change-impact impact-correction">Accuracy Note</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">DPDPA s.7 "Certain Legitimate Uses" Correctly Distinguished from GDPR Legitimate Interests</div>
+            <div class="change-item-desc">The tool correctly notes that DPDPA s.7 provides a closed list of 9 specific scenarios, not an open balancing-test legitimate interests equivalent. This distinction is elaborated in both the divergence table and question help text. Consent is effectively the only basis for most commercial data processing under DPDPA.</div>
+            <div class="change-item-provision">DPDPA s.7 | GDPR Art. 6(1)(f)</div>
+            <span class="change-impact impact-correction">Accuracy Note</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Brazil LGPD: ANPD SCC Mandate (Aug 2025) and 2-Business-Day Preliminary Notification Included</div>
+            <div class="change-item-desc">The ANPD SCC mandate effective 23 August 2025 (Resolution CD/ANPD No. 19) is correctly reflected. Note: the breach notification timeline was initially implemented as 2 business days under Resolution No. 2, which was incorrect. The correct regime under ANPD Resolution No. 15/2024 is 3 business days, corrected in v3.0. See the v3.0 Legal Accuracy Corrections section for the full correction record.</div>
+            <div class="change-item-provision">LGPD Art. 48 | ANPD Resolution CD/ANPD No. 2 | ANPD Resolution CD/ANPD No. 19 (2024)</div>
+            <span class="change-impact impact-correction">Accuracy Note</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- v1.0 -->
+    <div class="version-block">
+      <div class="version-dot minor"></div>
+      <div class="version-header">
+        <div class="version-num">v1.0</div>
+        <div class="version-date">March 2025</div>
+        <span class="version-badge badge-major">Initial Release</span>
+      </div>
+      <div class="version-title">Initial release: India-focused DPDPA 2023 compliance assessment tool with penalty mapping and remediation guidance.</div>
+
+      <div class="change-group">
+        <div class="change-group-label cgl-feature"><div class="cg-dot"></div>Initial Features</div>
+        <div class="change-list">
+          <div class="change-item">
+            <div class="change-item-title">DPDPA 2023 Assessment Tool — Initial Release</div>
+            <div class="change-item-desc">15 questions covering the Digital Personal Data Protection Act 2023: notice and consent (ss.5-6), data principal rights (ss.11-14), fiduciary obligations (s.8), security safeguards (s.8(5)), children's data (s.9), SDF obligations (s.10), cross-border transfers (s.16), and breach notification (s.8(6)). DPDPA penalty schedule mapping (s.33) with per-provision penalty ceilings. Sector-specific scoring for 10 sectors. Step-based UI with organisation profile, assessment, and results.</div>
+            <div class="change-item-provision">Digital Personal Data Protection Act 2023 | IT Act 2000 s.43A | SPDI Rules 2011</div>
+            <span class="change-impact impact-additive">Initial Release</span>
+          </div>
+          <div class="change-item">
+            <div class="change-item-title">Zero-Backend Architecture</div>
+            <div class="change-item-desc">All assessment logic, scoring, and report generation runs entirely in the browser using vanilla JavaScript. No server, no database, no user account, no cookies (except Google Fonts CDN). All inputs are discarded when the browser tab is closed. This architectural decision is documented in terms.html and the results disclaimer.</div>
+            <span class="change-impact impact-additive">Architecture Decision</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end timeline -->
+
+  <div class="disclaimer">
+    <div class="disclaimer-title">&#x26A0; Disclaimer</div>
+    <p>This changelog documents changes to the tool for transparency and audit purposes. Noting a change here does not constitute legal advice about the underlying regulatory developments described. Always verify regulatory positions against current primary sources and qualified legal counsel. &middot; <a href="terms.html" style="color:var(--ink3)">Full Terms of Use</a></p>
+    <p style="margin-top:8px"><strong>Copyright &copy; 2025-2026 Adv. Sanket Shah. All rights reserved.</strong></p>
+  </div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="container">
+  <div>&copy; 2025-2026 <span class="footer-name">Adv. Sanket Shah</span> &middot; LL.M. in Data Privacy &middot; AI &amp; Tech Law</div>
+  <div>Contract Lifecycle Management &middot; Legal Automation &middot; Data Protection &middot; AI Governance</div>
+  <div style="margin-top:6px"><a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" style="color:rgba(255,255,255,.7);text-decoration:none">linkedin.com/in/advsanketshah</a></div>
+  <div class="footer-copy">Privacipher. All content, methodology, and tool design are the intellectual property of Adv. Sanket Shah. &copy; 2025-2026. All rights reserved.</div>
+</div>
+</footer>
+
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
+<script>
+window.addEventListener('scroll',()=>{
+  const b=document.getElementById('back-top');
+  if(b)b.classList.toggle('visible',window.scrollY>400);
+});
+</script>
+</body>
+</html>
