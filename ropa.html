@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Record of Processing Activities (RoPA) Builder · Privacipher</title>
+<meta name="description" content="Audit-ready RoPA Builder strictly aligned with GDPR Article 30 and global privacy frameworks.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0D0D0D; --ink2: #2D2D2D; --ink3: #555; --ink4: #999;
+    --bg: #F8F7F4; --white: #fff; --border: #E0DFDB; --border-dark: #C8C7C2;
+    --brand: #1a1a1a; --brand-hover: #333; --accent: #2563EB;
+    --red: #DC2626; --green: #16A34A;
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+  
+  .navbar { padding: 20px 40px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--white); }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--ink); text-decoration: none; }
+  
+  .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+  .header-desc { color: var(--ink3); max-width: 800px; margin-bottom: 30px; font-size: 1.05rem; }
+  
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+  .card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { font-size: 0.85rem; font-weight: 600; color: var(--ink2); }
+  input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border-dark); border-radius: 6px; font-family: inherit; font-size: 0.95rem; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--ink); }
+  textarea { resize: vertical; min-height: 80px; }
+  
+  .btn { display: inline-block; padding: 10px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 6px; cursor: pointer; text-align: center; border: none; transition: all 0.2s; }
+  .btn-primary { background: var(--brand); color: var(--white); }
+  .btn-primary:hover { background: var(--brand-hover); }
+  .btn-outline { background: transparent; border: 1px solid var(--border-dark); color: var(--ink); }
+  .btn-outline:hover { background: var(--bg); }
+  .btn-danger { background: var(--red); color: var(--white); padding: 6px 12px; font-size: 0.8rem; }
+  
+  .table-responsive { overflow-x: auto; margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+  th, td { border: 1px solid var(--border); padding: 12px; }
+  th { background: var(--bg); font-weight: 600; color: var(--ink2); white-space: nowrap; }
+  td { color: var(--ink3); vertical-align: top; }
+  
+  /* Modal Styles */
+  .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 100; }
+  .modal { background: var(--white); width: 90%; max-width: 800px; max-height: 90vh; border-radius: 8px; overflow-y: auto; padding: 30px; position: relative; }
+  .modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--ink3); }
+  
+  .flex-between { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .help-text { font-size: 0.75rem; color: var(--ink4); margin-top: 2px; }
+  
+  #empty-state { text-align: center; padding: 40px; color: var(--ink4); font-style: italic; }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="logo">Privacipher.</a>
+  <div style="font-size: 0.9rem; font-weight: 500;">RoPA Builder</div>
+</header>
+
+<main class="container">
+  <h1 style="font-family:'DM Serif Display',serif; font-size:2.5rem; margin-bottom:10px;">Record of Processing Activities</h1>
+  <p class="header-desc">Generate an audit-ready RoPA structured to meet the strict documentation standards of GDPR Article 30, UK GDPR, and DPDPA. Define your organization, map your processing flows, and export to CSV.</p>
+
+  <div class="card">
+    <div class="card-title">1. Controller / Organization Details</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Organization Name (Controller)</label>
+        <input type="text" id="orgName" placeholder="e.g., Acme Corp Ltd.">
+      </div>
+      <div class="form-group">
+        <label>Contact Details (Address & Email)</label>
+        <input type="text" id="orgContact" placeholder="e.g., 123 Street, privacy@acme.com">
+      </div>
+      <div class="form-group">
+        <label>Data Protection Officer (DPO) / Privacy Lead</label>
+        <input type="text" id="dpoDetails" placeholder="Name and Contact Details">
+      </div>
+      <div class="form-group">
+        <label>Joint Controller / Representative (If applicable)</label>
+        <input type="text" id="jointController" placeholder="Leave blank if N/A">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="flex-between">
+      <div class="card-title" style="border:none; margin:0; padding:0;">2. Processing Activities Log</div>
+      <div>
+        <button class="btn btn-outline" onclick="exportToCSV()">↓ Export to CSV</button>
+        <button class="btn btn-primary" onclick="openModal()">+ Add Activity</button>
+      </div>
+    </div>
+    
+    <div class="table-responsive">
+      <table id="ropaTable">
+        <thead>
+          <tr>
+            <th>Business Function</th>
+            <th>Purpose of Processing</th>
+            <th>Data Subjects</th>
+            <th>Data Categories</th>
+            <th>Lawful Basis</th>
+            <th>Recipients</th>
+            <th>Transfers & Safeguards</th>
+            <th>Retention Period</th>
+            <th>TOMs (Security)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="ropaBody">
+          <tr id="empty-state">
+            <td colspan="10">No processing activities added yet. Click "+ Add Activity" to begin mapping your data.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<div class="modal-overlay" id="activityModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h2 style="margin-bottom: 20px;">Add Processing Activity</h2>
+    <form id="activityForm" onsubmit="saveActivity(event)">
+      <div class="form-grid">
+        
+        <div class="form-group">
+          <label>Business Function / Department</label>
+          <input type="text" id="bizFunction" required placeholder="e.g., Human Resources, Marketing">
+        </div>
+        
+        <div class="form-group">
+          <label>Lawful Basis (Art. 6 GDPR / DPDPA)</label>
+          <select id="lawfulBasis" required>
+            <option value="">Select Lawful Basis...</option>
+            <option value="Consent">Consent</option>
+            <option value="Contract Performance">Contract Performance</option>
+            <option value="Legal Obligation">Legal Obligation</option>
+            <option value="Vital Interests">Vital Interests</option>
+            <option value="Public Task">Public Task</option>
+            <option value="Legitimate Interests">Legitimate Interests</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>Purpose of Processing</label>
+          <div class="help-text">Why are you using the personal data? Be specific (e.g., "To manage employee payroll and tax obligations").</div>
+          <input type="text" id="purpose" required>
+        </div>
+
+        <div class="form-group">
+          <label>Categories of Data Subjects</label>
+          <div class="help-text">e.g., Employees, Prospects, Active Customers, Suppliers.</div>
+          <input type="text" id="dataSubjects" required>
+        </div>
+
+        <div class="form-group">
+          <label>Categories of Personal Data</label>
+          <div class="help-text">e.g., Contact details, Financial data, Health records (Art 9).</div>
+          <input type="text" id="dataCategories" required>
+        </div>
+
+        <div class="form-group full">
+          <label>Categories of Recipients</label>
+          <div class="help-text">Who is the data shared with? e.g., Cloud hosting providers, HMRC, External auditors.</div>
+          <input type="text" id="recipients" required>
+        </div>
+
+        <div class="form-group full">
+          <label>International Transfers & Safeguards</label>
+          <div class="help-text">Are data transferred outside the jurisdiction? If yes, name the country and safeguard (e.g., "Yes, USA, via SCCs"). Leave N/A if none.</div>
+          <input type="text" id="transfers" value="N/A">
+        </div>
+
+        <div class="form-group">
+          <label>Retention Schedule</label>
+          <div class="help-text">How long is data kept? e.g., "7 years post-employment".</div>
+          <input type="text" id="retention" required>
+        </div>
+
+        <div class="form-group">
+          <label>Technical & Organizational Measures (TOMs)</label>
+          <div class="help-text">e.g., AES-256 Encryption, Role-based Access Control (RBAC), MFA.</div>
+          <input type="text" id="toms" required>
+        </div>
+
+      </div>
+      <div style="margin-top: 30px; text-align: right;">
+        <button type="button" class="btn btn-outline" style="margin-right: 10px;" onclick="closeModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Activity</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  let activities = [];
+
+  function openModal() {
+    document.getElementById('activityForm').reset();
+    document.getElementById('activityModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('activityModal').style.display = 'none';
+  }
+
+  function saveActivity(e) {
+    e.preventDefault();
+    
+    const activity = {
+      id: Date.now(),
+      bizFunction: document.getElementById('bizFunction').value.trim(),
+      purpose: document.getElementById('purpose').value.trim(),
+      dataSubjects: document.getElementById('dataSubjects').value.trim(),
+      dataCategories: document.getElementById('dataCategories').value.trim(),
+      lawfulBasis: document.getElementById('lawfulBasis').value,
+      recipients: document.getElementById('recipients').value.trim(),
+      transfers: document.getElementById('transfers').value.trim(),
+      retention: document.getElementById('retention').value.trim(),
+      toms: document.getElementById('toms').value.trim()
+    };
+
+    activities.push(activity);
+    renderTable();
+    closeModal();
+  }
+
+  function deleteActivity(id) {
+    activities = activities.filter(a => a.id !== id);
+    renderTable();
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById('ropaBody');
+    if (activities.length === 0) {
+      tbody.innerHTML = `<tr id="empty-state"><td colspan="10">No processing activities added yet. Click "+ Add Activity" to begin mapping your data.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = '';
+    activities.forEach(a => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${a.bizFunction}</strong></td>
+        <td>${a.purpose}</td>
+        <td>${a.dataSubjects}</td>
+        <td>${a.dataCategories}</td>
+        <td><span style="background:var(--bg); padding:2px 6px; border-radius:4px; border:1px solid var(--border); font-size:0.8rem;">${a.lawfulBasis}</span></td>
+        <td>${a.recipients}</td>
+        <td>${a.transfers}</td>
+        <td>${a.retention}</td>
+        <td>${a.toms}</td>
+        <td><button class="btn btn-danger" onclick="deleteActivity(${a.id})">Delete</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function escapeCSV(str) {
+    if (str == null) return '""';
+    str = str.toString().replace(/"/g, '""');
+    return `"${str}"`;
+  }
+
+  function exportToCSV() {
+    if (activities.length === 0) {
+      alert("No activities to export. Please add an activity first.");
+      return;
+    }
+
+    // Get Org Details for header context
+    const org = document.getElementById('orgName').value || 'Unspecified Organization';
+    const dpo = document.getElementById('dpoDetails').value || 'Unspecified DPO';
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+    
+    // Add Regulatory Header
+    csvContent += "Record of Processing Activities (RoPA) - Article 30 GDPR / DPDPA Documentation\n";
+    csvContent += `Organization (Controller):,${escapeCSV(org)}\n`;
+    csvContent += `DPO / Privacy Lead:,${escapeCSV(dpo)}\n`;
+    csvContent += `Generated On:,${new Date().toISOString().split('T')[0]}\n\n`;
+
+    // Add Table Headers
+    const headers = [
+      "Business Function", "Purpose of Processing", "Categories of Data Subjects", 
+      "Categories of Personal Data", "Lawful Basis", "Categories of Recipients", 
+      "International Transfers & Safeguards", "Retention Schedule", "Technical & Organizational Measures (TOMs)"
+    ];
+    csvContent += headers.map(escapeCSV).join(",") + "\n";
+
+    // Add Rows
+    activities.forEach(a => {
+      const row = [
+        a.bizFunction, a.purpose, a.dataSubjects, a.dataCategories, 
+        a.lawfulBasis, a.recipients, a.transfers, a.retention, a.toms
+      ];
+      csvContent += row.map(escapeCSV).join(",") + "\n";
+    });
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `RoPA_${org.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
+
+</body>
+</html>
