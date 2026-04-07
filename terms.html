@@ -3,79 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About · Privacipher</title>
-<meta name="description" content="Adv. Sanket Shah, LL.M. in Data Privacy, practices AI and Tech Law, Contract Lifecycle Management, Legal Automation, and Data Protection.">
+<title>Terms of Use · Privacipher</title>
+<meta name="description" content="Terms of Use for the Privacipher global privacy compliance tool by Adv. Sanket Shah.">
 
 <link rel="stylesheet" href="style.css">
 
 <style>
-  /* ─── PAGE-SPECIFIC STYLES (ABOUT) ─── */
+  /* ─── PAGE-SPECIFIC STYLES (TERMS) ─── */
   .site-header { padding: 48px 24px; text-align: center; border-bottom: 1px solid var(--border); background: var(--white); }
   .hdr-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 12px; background: var(--bg); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
   .hdr-title { font-size: 2.5rem; margin-bottom: 12px; }
 
-  /* HERO SECTION */
-  .profile-hero { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: start; margin-bottom: 64px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
-  @media(max-width:640px){ .profile-hero { grid-template-columns: 1fr; gap: 32px; text-align: center; } }
-  .profile-avatar { width: 140px; height: 140px; border-radius: 50%; background: var(--ink); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow-lg); margin: 0 auto; }
-  .profile-avatar-initials { font-size: 3rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
-  .profile-name { font-size: 2.5rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 8px; }
-  .profile-title { font-size: 0.9rem; font-weight: 600; color: var(--ink3); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; }
-  .profile-bio { font-size: 1.05rem; color: var(--ink2); line-height: 1.7; max-width: 600px; margin-bottom: 24px; }
-  @media(max-width:640px){ .profile-bio { margin: 0 auto 24px; } }
-  .profile-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
-  @media(max-width:640px){ .profile-tags { justify-content: center; } }
-  .profile-tag { font-size: 0.75rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border-dark); color: var(--ink2); background: var(--white); }
+  .doc-header { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 2px solid var(--border-dark); }
+  .doc-meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 0.85rem; color: var(--ink3); font-weight: 500; }
 
-  /* LAYOUTS */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px; }
-  @media(max-width:768px){ .two-col { grid-template-columns: 1fr; } }
-  .section { margin-bottom: 56px; }
-  .section-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink4); margin-bottom: 12px; }
-  .section-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  /* Permitted use highlights */
+  .permit-box { background: var(--green-bg); border: 1px solid var(--green-border); border-left: 4px solid var(--green); border-radius: var(--r-sm); padding: 24px; margin-bottom: 32px; box-shadow: var(--shadow-sm); }
+  .permit-box-title { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+  .permit-box ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .permit-box ul li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--ink2); line-height: 1.6; }
+  .permit-box ul li::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 1rem; margin-top: -2px; }
 
-  /* PRACTICE CARDS */
-  .practice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-  .practice-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
-  .practice-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-  .practice-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-  .pc-1::before { background: var(--ink); } .pc-2::before { background: var(--blue); } .pc-3::before { background: var(--amber); }
-  .pc-4::before { background: var(--green); } .pc-5::before { background: var(--purple); } .pc-6::before { background: var(--red); }
-  .practice-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
-  .practice-name { font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-  .practice-desc { font-size: 0.9rem; color: var(--ink3); line-height: 1.6; }
+  .restrict-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--ink); border-radius: var(--r-sm); padding: 24px; margin-bottom: 48px; box-shadow: var(--shadow-sm); }
+  .restrict-box-title { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink); margin-bottom: 16px; }
+  .restrict-box ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .restrict-box ul li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--ink2); line-height: 1.6; }
+  .restrict-box ul li::before { content: '✕'; color: var(--red); font-weight: 800; font-size: 1rem; margin-top: -2px; }
 
-  /* EXPERTISE LIST */
-  .expertise-item { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
-  .expertise-item:last-child { border-bottom: none; }
-  .expertise-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ink); flex-shrink: 0; margin-top: 6px; }
-  .expertise-name { font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-  .expertise-desc { font-size: 0.85rem; color: var(--ink3); line-height: 1.6; }
+  /* TOC */
+  .toc { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 32px; margin-bottom: 48px; box-shadow: var(--shadow-sm); }
+  .toc-title { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink4); margin-bottom: 16px; }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .toc-list li a { font-size: 0.95rem; font-weight: 500; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 12px; transition: color 0.2s; }
+  .toc-list li a:hover { color: var(--blue); }
+  .toc-num { font-size: 0.8rem; color: var(--ink4); font-weight: 700; font-family: monospace; }
 
-  /* ENGAGEMENTS */
-  .engagement-item { display: grid; grid-template-columns: auto 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); align-items: start; }
-  .engagement-item:last-child { border-bottom: none; }
-  .engagement-icon { width: 48px; height: 48px; border-radius: var(--r-sm); background: var(--bg); border: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
-  .engagement-type { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink4); margin-bottom: 6px; }
-  .engagement-title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.4; }
-  .engagement-desc { font-size: 0.9rem; color: var(--ink3); line-height: 1.6; }
+  /* Sections */
+  .section { margin-bottom: 56px; scroll-margin-top: 100px; }
+  .section-num { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink4); margin-bottom: 8px; font-family: monospace; }
+  .section-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .section p { color: var(--ink2); margin-bottom: 16px; font-size: 0.95rem; line-height: 1.7; }
+  .section ul { color: var(--ink2); font-size: 0.95rem; padding-left: 24px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .section ul li { line-height: 1.7; }
+  .section strong { color: var(--ink); font-weight: 600; }
 
-  /* TOOL SHOWCASE */
-  .tool-showcase { background: var(--ink); border-radius: var(--r); padding: 48px; margin-bottom: 56px; position: relative; overflow: hidden; color: #fff; box-shadow: var(--shadow-lg); }
-  .tool-showcase-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
-  .tool-showcase-title { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: -0.01em; }
-  .tool-showcase-desc { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 32px; max-width: 600px; }
-  .tool-features { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
-  .tool-feature { font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
-  .tool-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-white { background: #fff; color: var(--ink); padding: 12px 24px; border-radius: var(--r-sm); font-weight: 600; text-decoration: none; transition: transform 0.2s; }
-  .btn-white:hover { transform: translateY(-2px); }
+  .highlight-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--ink); border-radius: var(--r-sm); padding: 20px; margin: 24px 0; box-shadow: var(--shadow-sm); }
+  .highlight-box.warn { border-left-color: var(--red); background: var(--red-bg); border-color: var(--red-border); }
+  .highlight-box p { font-size: 0.9rem; color: var(--ink); margin-bottom: 0; font-weight: 500; }
 
-  /* CONTACT CTA */
-  .contact-cta { background: var(--bg); border: 2px solid var(--ink); border-radius: var(--r); padding: 48px; text-align: center; box-shadow: var(--shadow-sm); }
-  .contact-cta-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em; }
-  .contact-cta-desc { font-size: 1rem; color: var(--ink3); line-height: 1.7; max-width: 540px; margin: 0 auto 32px; }
-  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .contact-card { background: var(--ink); color: #fff; border-radius: var(--r); padding: 40px; margin-top: 56px; text-align: center; box-shadow: var(--shadow-lg); }
+  .contact-card-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.01em; color: #fff; margin-bottom: 12px; }
+  .contact-card-desc { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin-bottom: 24px; line-height: 1.6; }
+  .contact-card-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .contact-card a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; padding: 12px 24px; border-radius: var(--r-sm); transition: transform 0.2s; }
+  .contact-card a.primary { background: #fff; color: var(--ink); }
+  .contact-card a.secondary { background: transparent; color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.3); }
+  .contact-card a:hover { transform: translateY(-2px); }
 </style>
 </head>
 <body>
@@ -89,141 +72,99 @@
       <a href="breach.html" class="nav-tab">🚨 Breach Playbook</a>
       <a href="compare.html" class="nav-tab">📋 Compare</a>
       <a href="calendar.html" class="nav-tab">📅 Calendar</a>
-      <a href="about.html" class="nav-tab nav-active">👤 About</a>
+      <a href="about.html" class="nav-tab">👤 About</a>
       <a href="changelog.html" class="nav-tab">📝 Changelog</a>
-      <a href="terms.html" class="nav-tab">📄 Terms</a>
-    </div>
+      <a href="terms.html" class="nav-tab nav-active">📄 Terms</a> </div>
   </div>
 </nav>
 
 <header class="site-header">
-  <div class="hdr-eyebrow">👤 Profile</div>
-  <h1 class="hdr-title">About</h1>
+  <div class="hdr-eyebrow">📄 Legal Document</div>
+  <h1 class="hdr-title">Terms of Use</h1>
 </header>
 
 <main class="main">
-<div class="container-wide">
+<div class="container" style="max-width: 800px;">
 
-  <div class="profile-hero">
-    <div class="profile-avatar"><div class="profile-avatar-initials">SS</div></div>
-    <div>
-      <h1 class="profile-name">Adv. Sanket Shah</h1>
-      <div class="profile-title">LL.M. in Data Privacy · AI & Tech Law · Advocate</div>
-      <p class="profile-bio">I am a data protection lawyer and legal technologist based in Indore, India. My practice sits at the intersection of law, technology, and automation. I work with organisations to navigate complex multi-jurisdictional data protection obligations, design privacy-first compliance programmes, and build legal automation systems.</p>
-      <div class="profile-tags">
-        <span class="profile-tag">Data Protection</span>
-        <span class="profile-tag">AI Governance</span>
-        <span class="profile-tag">Contract Lifecycle</span>
-        <span class="profile-tag">Legal Automation</span>
-      </div>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" class="btn btn-primary">LinkedIn ↗</a>
-        <a href="https://linktr.ee/sanketindore" target="_blank" class="btn btn-outline">All Links ↗</a>
-      </div>
+  <div class="doc-header">
+    <div class="doc-meta">
+      <span>📅 Effective: 29 March 2026</span>
+      <span>🔄 Last Updated: April 2026</span>
+      <span>⚖ Governing Law: India</span>
     </div>
   </div>
 
-  <div class="tool-showcase">
-    <div class="tool-showcase-eyebrow">This Tool</div>
-    <div class="tool-showcase-title">Privacipher</div>
-    <div class="tool-showcase-desc">A free, browser-based multi-framework compliance assessment tool covering 9 global privacy laws. Built to give practitioners, in-house counsel, and businesses a substantive starting point for multi-jurisdictional compliance analysis.</div>
-    <div class="tool-features">
-      <span class="tool-feature">9 Frameworks</span>
-      <span class="tool-feature">Sector Scoring</span>
-      <span class="tool-feature">Penalty Exposure</span>
-      <span class="tool-feature">Risk Heat Map</span>
-      <span class="tool-feature">RoPA Builder</span>
-      <span class="tool-feature">Zero Data Collection</span>
-    </div>
-    <div class="tool-ctas">
-      <a href="index.html" class="btn-white">Start Assessment &rarr;</a>
-    </div>
+  <div class="permit-box">
+    <div class="permit-box-title">What You Can Do With This Tool</div>
+    <ul>
+      <li>Use it freely for your own or your organisation's compliance self-assessment</li>
+      <li>Share the tool's URL with colleagues or clients</li>
+      <li>Reference or cite this tool and its output in reports with attribution to Adv. Sanket Shah</li>
+      <li>Download and retain your PDF report for internal records</li>
+    </ul>
   </div>
 
-  <div class="section">
-    <div class="section-eyebrow">What I Do</div>
-    <h2 class="section-title">Practice Areas</h2>
-    <div class="practice-grid">
-      <div class="practice-card pc-1">
-        <span class="practice-icon">🔒</span>
-        <div class="practice-name">Data Protection Law</div>
-        <div class="practice-desc">Multi-jurisdictional compliance across DPDPA, GDPR, CCPA/CPRA, and more. Gap assessments, privacy notices, data processing agreements, and breach response.</div>
-      </div>
-      <div class="practice-card pc-2">
-        <span class="practice-icon">⚖️</span>
-        <div class="practice-name">AI Governance</div>
-        <div class="practice-desc">Governance frameworks aligned with the EU AI Act, emerging Indian AI policy, and DPDPA obligations for algorithmic processing and automated decision-making.</div>
-      </div>
-      <div class="practice-card pc-3">
-        <span class="practice-icon">📋</span>
-        <div class="practice-name">Contract Management</div>
-        <div class="practice-desc">End-to-end CLM design: templates, automated drafting workflows, clause libraries, obligation tracking, and renewal management.</div>
-      </div>
-    </div>
+  <div class="restrict-box">
+    <div class="restrict-box-title">What You Cannot Do</div>
+    <ul>
+      <li>Reproduce, copy, or distribute the tool's scoring methodology or logic as your own work</li>
+      <li>Incorporate the tool into a commercial product or SaaS platform without permission</li>
+      <li>Present the tool's output as a formal legal opinion or regulatory certification</li>
+    </ul>
   </div>
 
-  <div class="two-col">
-    <div class="section" style="margin-bottom:0">
-      <div class="section-eyebrow">Depth of Knowledge</div>
-      <h2 class="section-title">Specialist Expertise</h2>
-      <div class="expertise-item">
-        <div class="expertise-dot"></div>
-        <div>
-          <div class="expertise-name">DPDPA 2023 & DPDP Rules</div>
-          <div class="expertise-desc">Command of provisions, commencement structures, SDF obligations, and the s.7 legitimate uses framework.</div>
-        </div>
-      </div>
-      <div class="expertise-item">
-        <div class="expertise-dot"></div>
-        <div>
-          <div class="expertise-name">GDPR & UK DUAA 2025</div>
-          <div class="expertise-desc">Practical GDPR compliance, DPIAs, SCCs, Transfer Impact Assessments, and the new DUAA Recognised Legitimate Interests.</div>
-        </div>
-      </div>
-      <div class="expertise-item">
-        <div class="expertise-dot"></div>
-        <div>
-          <div class="expertise-name">Data Processing Agreements</div>
-          <div class="expertise-desc">Drafting and reviewing DPAs under DPDPA, GDPR, LGPD, and Thailand PDPA to align processor contracts to multi-frameworks.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section" style="margin-bottom:0">
-      <div class="section-eyebrow">Engagements I Take On</div>
-      <h2 class="section-title">How I Can Help</h2>
-      <div class="engagement-item">
-        <div class="engagement-icon">📄</div>
-        <div>
-          <div class="engagement-type">Documentation</div>
-          <div class="engagement-title">Privacy Policy & DPA Drafting</div>
-          <div class="engagement-desc">Drafting jurisdiction-specific privacy notices, processing agreements, and CLM playbooks.</div>
-        </div>
-      </div>
-      <div class="engagement-item">
-        <div class="engagement-icon">⚙️</div>
-        <div>
-          <div class="engagement-type">Automation</div>
-          <div class="engagement-title">Legal Workflow Automation</div>
-          <div class="engagement-desc">Designing legal automation tools, contract assembly systems, and compliance trackers.</div>
-        </div>
-      </div>
-      <div class="engagement-item">
-        <div class="engagement-icon">💼</div>
-        <div>
-          <div class="engagement-type">Advisory</div>
-          <div class="engagement-title">Ongoing Retainer</div>
-          <div class="engagement-desc">Retained advisory support for in-house teams requiring access to tech law expertise.</div>
-        </div>
-      </div>
-    </div>
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">01</span> About This Tool</a></li>
+      <li><a href="#s2"><span class="toc-num">02</span> Not Legal Advice</a></li>
+      <li><a href="#s3"><span class="toc-num">03</span> Accuracy &amp; Limitations</a></li>
+      <li><a href="#s4"><span class="toc-num">04</span> Intellectual Property</a></li>
+      <li><a href="#s5"><span class="toc-num">05</span> Data &amp; Privacy</a></li>
+    </ul>
   </div>
 
-  <div class="contact-cta">
-    <h2 class="contact-cta-title">Let's Work Together</h2>
-    <p class="contact-cta-desc">If you need legal advice on data protection compliance, AI governance, contract lifecycle management, or legal automation, I'd be glad to hear from you.</p>
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" class="btn btn-primary">Connect on LinkedIn ↗</a>
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2 class="section-title">About This Tool</h2>
+    <p>Privacipher is a free, browser-based self-assessment tool developed by <strong>Adv. Sanket Shah</strong>, an advocate practising in AI &amp; Tech Law, data protection, and contract lifecycle management.</p>
+    <p>It generates a compliance score, risk heat map, penalty exposure estimate, and remediation roadmap based on the responses you enter. All processing happens in your browser. Nothing is transmitted to any server.</p>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2 class="section-title">Not Legal Advice</h2>
+    <div class="highlight-box warn">
+      <p><strong>This Tool does not constitute legal advice.</strong> Nothing in this Tool is legal advice. Using this Tool does not create an advocate-client relationship.</p>
+    </div>
+    <p>The Tool is an educational and informational resource. It is not a substitute for professional legal advice tailored to your specific circumstances. Before making compliance decisions, you should consult a qualified lawyer.</p>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2 class="section-title">Accuracy &amp; Limitations</h2>
+    <p>Reasonable efforts have been made to ensure the accuracy of legal references and penalty figures. However, the regulatory landscape evolves rapidly. Statutory text referenced is for informational purposes only. The Tool cannot verify your inputs; inaccurate responses will produce inaccurate outputs.</p>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2 class="section-title">Intellectual Property</h2>
+    <p><strong>© 2025–2026 Adv. Sanket Shah. All rights reserved.</strong></p>
+    <p>The question framework, methodology, design, and original commentary are proprietary. You may not reproduce the tool's original content for commercial purposes without prior written permission.</p>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2 class="section-title">Data &amp; Privacy</h2>
+    <p>This Tool runs entirely in your browser. <strong>Nothing you enter is transmitted to, stored on, or processed by any server.</strong> Your responses exist only in your browser session and are deleted when you close the tab.</p>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-card-title">Adv. Sanket Shah</div>
+    <div class="contact-card-desc">LL.M. in Data Privacy · AI &amp; Tech Law<br>Data Protection · Contract Lifecycle Management</div>
+    <div class="contact-card-links">
+      <a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" class="primary">Connect on LinkedIn ↗</a>
+      <a href="https://linktr.ee/sanketindore" target="_blank" class="secondary">All Links ↗</a>
     </div>
   </div>
 
@@ -239,12 +180,16 @@
   </div>
 </footer>
 
-<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
 <script>
-window.addEventListener('scroll',()=>{
-  const b=document.getElementById('back-top');
-  if(b)b.classList.toggle('visible',window.scrollY>400);
-});
+  // Smooth scroll offset for TOC links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+  });
 </script>
 </body>
 </html>
