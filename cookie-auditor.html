@@ -18,7 +18,7 @@
   .field-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
   .checkbox-grid { display: flex; flex-wrap: wrap; gap: 10px; }
   .j-chip { display: flex; align-items: center; gap: 10px; background: var(--bg); border: 1px solid var(--border-dark); border-radius: var(--r); padding: 14px 20px; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; font-weight: 500; user-select: none; }
-  .j-chip:hover { border-color: var(--ink); background: var(--white); }
+  .j-chip:hover { border-color: var(--ink); background: var(--white); box-shadow: var(--shadow-sm); }
   .j-chip.sel { border-color: var(--ink); background: var(--ink); color: var(--white); box-shadow: var(--shadow); }
   .j-chip input { display: none; }
 
@@ -26,27 +26,28 @@
   .audit-step.active { display: block; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-  .q-card { padding: 24px; margin-bottom: 16px; border-left: 4px solid var(--border-dark); }
+  .q-card { padding: 24px; margin-bottom: 16px; border-left: 4px solid var(--border-dark); background: var(--white); border-radius: 0 var(--r) var(--r) 0; box-shadow: var(--shadow-sm); }
   .q-card.answered-pass { border-left-color: var(--green); background: var(--green-bg); }
   .q-card.answered-fail { border-left-color: var(--red); background: var(--red-bg); }
-  .q-text { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
-  .q-ref { font-size: 0.7rem; font-family: monospace; background: var(--white); border: 1px solid var(--border-dark); border-radius: 4px; padding: 2px 8px; color: var(--ink3); font-weight: 600; display: inline-block; margin-bottom: 16px; }
+  .q-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; color: var(--ink); line-height: 1.5; }
+  .q-ref { font-size: 0.7rem; font-family: monospace; background: var(--white); border: 1px solid var(--border-dark); border-radius: 4px; padding: 4px 10px; color: var(--ink3); font-weight: 600; display: inline-block; margin-bottom: 16px; letter-spacing: 0.05em; text-transform: uppercase; }
   
-  .btn-choice { display: inline-flex; align-items: center; justify-content: center; width: 120px; padding: 10px; border-radius: var(--r-sm); font-weight: 600; cursor: pointer; border: 1px solid var(--border-dark); background: var(--white); transition: all 0.2s; }
-  .btn-choice.pass:hover { border-color: var(--green); color: var(--green); }
-  .btn-choice.fail:hover { border-color: var(--red); color: var(--red); }
-  .btn-choice.sel-pass { background: var(--green); color: white; border-color: var(--green); }
-  .btn-choice.sel-fail { background: var(--red); color: white; border-color: var(--red); }
+  .btn-choice { display: inline-flex; align-items: center; justify-content: center; width: 140px; padding: 12px; border-radius: var(--r-sm); font-weight: 600; cursor: pointer; border: 1px solid var(--border-dark); background: var(--white); transition: all 0.2s; font-size: 0.9rem; }
+  .btn-choice.pass:hover { border-color: var(--green); color: var(--green); background: var(--green-bg); }
+  .btn-choice.fail:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+  .btn-choice.sel-pass { background: var(--green); color: white; border-color: var(--green); box-shadow: var(--shadow-sm); }
+  .btn-choice.sel-fail { background: var(--red); color: white; border-color: var(--red); box-shadow: var(--shadow-sm); }
 
-  .results-box { background: var(--white); border: 2px solid var(--ink); border-radius: var(--r); padding: 32px; text-align: center; margin-bottom: 24px; box-shadow: var(--shadow-lg); }
-  .results-score { font-size: 3.5rem; font-weight: 700; line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .results-box { background: var(--white); border: 2px solid var(--ink); border-radius: var(--r); padding: 40px; text-align: center; margin-bottom: 32px; box-shadow: var(--shadow-lg); }
+  .results-score { font-size: 4rem; font-weight: 700; line-height: 1; margin-bottom: 12px; letter-spacing: -0.03em; }
   
-  .gap-card { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; padding: 20px; border: 1px solid var(--border); border-radius: var(--r); background: var(--white); margin-bottom: 12px; }
-  .risk-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 4px; padding: 4px 10px; white-space: nowrap; }
+  .gap-card { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; padding: 24px; border: 1px solid var(--border); border-radius: var(--r); background: var(--white); margin-bottom: 16px; box-shadow: var(--shadow-sm); }
+  .risk-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 4px; padding: 4px 12px; white-space: nowrap; }
   .risk-badge.Critical { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
   .risk-badge.High { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
   .risk-badge.Medium { background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
-  .gap-remedy { font-size: 0.85rem; color: var(--ink2); line-height: 1.6; padding: 12px 16px; background: var(--bg); border-radius: var(--r-sm); border-left: 3px solid var(--ink); margin-top: 12px; }
+  .gap-remedy { font-size: 0.9rem; color: var(--ink2); line-height: 1.7; padding: 16px 20px; background: var(--bg); border-radius: var(--r-sm); border-left: 3px solid var(--ink); margin-top: 16px; }
+  .gap-remedy strong { color: var(--ink); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -79,22 +80,22 @@
 <div class="container-wide">
 
   <div id="step-1" class="audit-step active">
-    <div class="card">
-      <h2 class="sec-title" style="font-size: 1.5rem;">1. Target Jurisdictions</h2>
-      <p style="color: var(--ink3); font-size: 0.9rem; margin-bottom: 20px;">Select the jurisdictions where your website visitors reside to load the correct legal criteria.</p>
+    <div class="card" style="padding: 40px;">
+      <h2 class="sec-title" style="font-size: 1.8rem; margin-bottom: 12px;">1. Target Jurisdictions</h2>
+      <p style="color: var(--ink3); font-size: 1rem; margin-bottom: 32px;">Select the jurisdictions where your website visitors reside to load the correct legal criteria.</p>
       
       <div class="field">
         <label class="field-label">Website URL being audited</label>
         <input type="url" id="target-url" placeholder="https://www.example.com">
       </div>
 
-      <div class="checkbox-grid">
+      <div class="checkbox-grid" style="margin-top: 24px;">
         <label class="j-chip" id="chip-eu"><input type="checkbox" id="j-eu" value="eu"><span class="j-flag">🇪🇺</span><div><div class="j-name">EU / UK</div><div class="j-sub">GDPR & ePrivacy</div></div></label>
         <label class="j-chip" id="chip-ca"><input type="checkbox" id="j-ca" value="ca"><span class="j-flag">🇺🇸</span><div><div class="j-name">California</div><div class="j-sub">CCPA / CPRA</div></div></label>
         <label class="j-chip" id="chip-in"><input type="checkbox" id="j-in" value="in"><span class="j-flag">🇮🇳</span><div><div class="j-name">India</div><div class="j-sub">DPDPA 2023</div></div></label>
       </div>
 
-      <div style="margin-top: 32px; text-align: right;">
+      <div style="margin-top: 40px; text-align: right; padding-top: 24px; border-top: 1px solid var(--border);">
         <button class="btn btn-primary" onclick="startAudit()">Generate Audit Checklist →</button>
       </div>
     </div>
@@ -102,29 +103,29 @@
 
   <div id="step-2" class="audit-step">
     <div class="sec-header">
-      <h2 class="sec-title">2. Execute Audit</h2>
-      <p style="color: var(--ink3); font-size: 0.9rem;">Open <strong id="display-url">your website</strong> in an Incognito/Private window. Evaluate the banner against these strict legal criteria.</p>
+      <h2 class="sec-title">2. Execute Technical Audit</h2>
+      <p style="color: var(--ink3); font-size: 1rem; max-width: 700px;">Open <strong id="display-url" style="color:var(--ink)">your website</strong> in an Incognito/Private window. Clear your cache and evaluate the consent banner against these strict legal thresholds.</p>
     </div>
     
     <div id="checklist-container"></div>
 
-    <div style="margin-top: 32px; display: flex; justify-content: space-between;">
-      <button class="btn btn-outline" onclick="location.reload()">← Back</button>
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 32px;">
+      <button class="btn btn-outline" onclick="location.reload()">← Restart Audit</button>
       <button class="btn btn-primary" onclick="generateReport()">Calculate Compliance Score →</button>
     </div>
   </div>
 
   <div id="step-3" class="audit-step">
     <div class="results-box">
-      <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink4); margin-bottom: 8px;">Banner Compliance Score</div>
+      <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink4); margin-bottom: 16px;">Technical Banner Compliance Score</div>
       <div class="results-score" id="final-score">0%</div>
-      <div id="final-verdict" style="font-size: 1.1rem; font-weight: 600;"></div>
+      <div id="final-verdict" style="font-size: 1.25rem; font-weight: 600;"></div>
     </div>
 
-    <h2 class="sec-title" style="font-size: 1.5rem; margin-top: 48px;">Identified Risks & Remediation</h2>
+    <h2 class="sec-title" style="font-size: 1.8rem; margin-top: 56px; border-bottom: 2px solid var(--border-dark); padding-bottom: 16px;">Identified Risks & Legal Remediation</h2>
     <div id="gaps-container"></div>
     
-    <div style="margin-top: 48px; text-align: center;">
+    <div style="margin-top: 56px; text-align: center;">
       <button class="btn btn-outline" onclick="location.reload()">Run Another Audit</button>
     </div>
   </div>
@@ -133,41 +134,42 @@
 </main>
 
 <script>
+  // HIGHLY SPECIFIC, LEGALLY RIGOROUS CRITERIA
   const AUDIT_CRITERIA = [
     { id: 'pre_load', fws: ['eu', 'in'], risk: 'Critical',
-      q: 'Are all non-essential cookies (Analytics, Marketing) blocked from loading BEFORE the user clicks "Accept"?',
-      ref: 'GDPR Art. 7 | ePrivacy Dir. 5(3) | CJEU Planet49 | DPDPA s.6(1)',
-      remedy: 'Configure your CMP or Google Tag Manager to physically block script execution until the consent trigger is fired. Pre-loading cookies is heavily fined by EU DPAs.' },
+      q: 'Are all non-essential cookies (Analytics, Tracking, Marketing) strictly blocked from firing BEFORE the user explicitly clicks the "Accept" button?',
+      ref: 'ePrivacy Dir. 5(3) | CJEU Planet49 (C-673/17) | DPDPA s.6(1)',
+      remedy: '<strong>Technical Implementation:</strong> Configure your Consent Management Platform (CMP) or Google Tag Manager (using Google Consent Mode v2) to establish a strict dependency. Script execution for tags like Meta Pixel, GA4, and LinkedIn Insights must be physically suspended until the <code>consent_status</code> array registers as <code>granted</code>. Pre-loading cookies under the guise of "legitimate interests" is the most heavily fined violation by European DPAs (e.g., CNIL, CNPD).' },
     
     { id: 'visual_eq', fws: ['eu'], risk: 'Critical',
-      q: 'Are the "Accept All" and "Reject All" buttons visually equivalent and on the first layer? (Same size, color prominence, and contrast).',
-      ref: 'EDPB Guidelines 03/2022 on Dark Patterns',
-      remedy: 'Remove dark patterns. If "Accept" is a bright button, "Reject" cannot be hidden as a low-contrast text link or buried in a second layer menu.' },
+      q: 'Are the "Accept All" and "Reject All" (or "Decline") buttons visually equivalent and presented on the identical layer of the banner?',
+      ref: 'EDPB Guidelines 03/2022 on Dark Patterns (Para. 40)',
+      remedy: '<strong>UI/UX Remediation:</strong> Remove dark patterns. If "Accept" is a high-contrast primary button, "Reject" cannot be a low-contrast text link or buried inside a "Manage Settings" secondary layer. The EDPB explicitly states that presenting the "Reject" option with significantly lower visual prominence constitutes a deceptive design pattern, rendering the obtained consent legally invalid under GDPR Art. 4(11).' },
     
     { id: 'no_pre_tick', fws: ['eu', 'in'], risk: 'Critical',
-      q: 'In the granular settings menu, are all non-essential cookie categories UNCHECKED by default?',
-      ref: 'GDPR Art 4(11) | DPDPA s.6(1)(e)',
-      remedy: 'Remove pre-ticked boxes. Consent requires clear affirmative action. Implied consent or "by continuing to use this site" is legally invalid.' },
+      q: 'In the granular preferences/settings menu, are all non-essential cookie categories UNCHECKED by default?',
+      ref: 'GDPR Art 4(11) | CJEU Planet49 | DPDPA s.6(1)(e)',
+      remedy: '<strong>Legal Requirement:</strong> Remove pre-ticked boxes. As established in the seminal CJEU <em>Planet49</em> ruling, active behavior is required; inaction or pre-checked boxes do not constitute valid consent. Similarly, DPDPA s.6(1) requires a clear affirmative action. Defaulting non-essential toggles to "On" guarantees non-compliance.' },
     
     { id: 'withdraw', fws: ['eu', 'in', 'ca'], risk: 'High',
-      q: 'Is there a persistent floating widget or a clear footer link ("Manage Cookie Preferences") allowing users to withdraw consent at any time?',
+      q: 'Is there a persistent mechanism (e.g., a floating widget or a conspicuous footer link) allowing users to easily reopen the banner and withdraw consent?',
       ref: 'GDPR Art. 7(3) | DPDPA s.6(4)',
-      remedy: 'Implement a persistent link or widget. Withdrawal must be as easy as giving consent. If it took 1 click to accept, it must take 1 click to withdraw.' },
+      remedy: '<strong>Operational Fix:</strong> Implement a persistent "Manage Cookie Preferences" link in your global footer. The statutory threshold dictates that withdrawing consent must be <em>"as easy as giving it."</em> If it took one click on the homepage to accept, it must not require emailing the DPO or navigating complex browser settings to withdraw.' },
     
     { id: 'dnss', fws: ['ca'], risk: 'Critical',
-      q: 'Is there a clear, conspicuous link titled exactly "Do Not Sell or Share My Personal Information" in the website footer?',
-      ref: 'CCPA § 1798.135 | CPRA',
-      remedy: 'Add the exact phrase to your footer. It must route to a page or modal that immediately pauses data sharing with ad networks.' },
+      q: 'Is there a clear, conspicuous link titled exactly "Do Not Sell or Share My Personal Information" visible on the homepage?',
+      ref: 'CCPA § 1798.135 | CPRA Amendments',
+      remedy: '<strong>Statutory Mandate:</strong> Add the exact statutory phrase to your global footer. This link must route the consumer to a functional webform or CMP modal that immediately effectuates an opt-out of the "sharing" of personal data for cross-context behavioral advertising (e.g., pausing Meta/Google retargeting scripts). Simply linking to your general Privacy Policy is a violation.' },
     
     { id: 'gpc', fws: ['ca'], risk: 'High',
-      q: 'Does the website automatically detect and honor Global Privacy Control (GPC) browser signals without requiring manual user action?',
-      ref: 'CCPA § 1798.135 | CPPA Final Regulations',
-      remedy: 'Update your CMP to listen for the `navigator.globalPrivacyControl` signal. It must be treated as a legally binding, universal opt-out request.' },
+      q: 'Does the website\'s architecture automatically detect and honor Global Privacy Control (GPC) browser signals without requiring manual user intervention?',
+      ref: 'CPPA Final Regulations § 7025',
+      remedy: '<strong>Technical Implementation:</strong> Update your CMP to actively listen for the <code>Sec-GPC</code> HTTP header or the <code>navigator.globalPrivacyControl</code> DOM property. As affirmed by the California AG\'s enforcement action against Sephora, failing to process user-enabled GPC signals as a frictionless, verified opt-out request is a direct violation of the CPRA.' },
 
-    { id: 'walls', fws: ['eu', 'in'], risk: 'High',
-      q: 'Can the user access the website content even if they choose to Reject all non-essential cookies?',
-      ref: 'GDPR Art. 7(4) | DPDPA s.6(1)(d)',
-      remedy: 'Remove forced "Cookie Walls." Making consent a precondition for accessing a service where the data isn\'t strictly necessary violates the "freely given" requirement.' }
+    { id: 'walls', fws: ['eu', 'in'], risk: 'Medium',
+      q: 'Can the user access the website\'s content even if they choose to Reject all non-essential cookies (i.e., no absolute Cookie Walls)?',
+      ref: 'GDPR Recital 43 | EDPB Guidelines 05/2020',
+      remedy: '<strong>Legal Requirement:</strong> Remove forced "Cookie Walls." Making access to the site strictly conditional on consenting to non-essential tracking violates the requirement that consent be "freely given." Note: The emerging "Pay or Okay" model is subject to strict regulatory scrutiny and requires complex implementation to be lawful.' }
   ];
 
   let selectedFws = [];
@@ -191,6 +193,7 @@
     renderChecklist();
     document.getElementById('step-1').classList.remove('active');
     document.getElementById('step-2').classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   function renderChecklist() {
@@ -205,9 +208,9 @@
       card.innerHTML = `
         <div class="q-ref">${c.ref}</div>
         <div class="q-text">${index + 1}. ${c.q}</div>
-        <div style="display:flex; gap:12px; margin-top: 16px;">
-          <div class="btn-choice pass" onclick="recordAnswer('${c.id}', true)">Yes / Pass</div>
-          <div class="btn-choice fail" onclick="recordAnswer('${c.id}', false)">No / Fail</div>
+        <div style="display:flex; gap:16px; margin-top: 24px;">
+          <div class="btn-choice pass" onclick="recordAnswer('${c.id}', true)">Yes / Compliant</div>
+          <div class="btn-choice fail" onclick="recordAnswer('${c.id}', false)">No / Gap</div>
         </div>
       `;
       container.appendChild(card);
@@ -225,7 +228,7 @@
 
   function generateReport() {
     const applicableQs = AUDIT_CRITERIA.filter(c => c.fws.some(fw => selectedFws.includes(fw)));
-    if (Object.keys(answers).length < applicableQs.length) { alert('Please answer all audit criteria.'); return; }
+    if (Object.keys(answers).length < applicableQs.length) { alert('Please complete the entire audit checklist before calculating the score.'); return; }
 
     let passCount = 0;
     const gapsContainer = document.getElementById('gaps-container');
@@ -238,11 +241,11 @@
         const gap = document.createElement('div');
         gap.className = 'gap-card';
         gap.innerHTML = `
-          <div><span class="risk-badge ${c.risk}">${c.risk}</span></div>
+          <div><span class="risk-badge ${c.risk}">${c.risk} Risk</span></div>
           <div>
-            <div style="font-weight: 700; color: var(--ink); margin-bottom: 4px;">Failed: ${c.q}</div>
-            <div style="font-size: 0.75rem; font-family: monospace; color: var(--ink4);">${c.ref}</div>
-            <div class="gap-remedy"><strong>Remediation:</strong> ${c.remedy}</div>
+            <div style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 1.05rem;">Assessment Failure: ${c.q}</div>
+            <div style="font-size: 0.75rem; font-family: monospace; color: var(--ink4); letter-spacing: 0.05em;">${c.ref}</div>
+            <div class="gap-remedy">${c.remedy}</div>
           </div>
         `;
         gapsContainer.appendChild(gap);
@@ -256,16 +259,16 @@
     scoreEl.textContent = `${score}%`;
     if (score === 100) {
       scoreEl.style.color = 'var(--green)';
-      verdictEl.textContent = 'Fully Compliant Setup';
+      verdictEl.textContent = 'Technically & Legally Sound';
       verdictEl.style.color = 'var(--green)';
-      gapsContainer.innerHTML = '<div style="text-align:center; color: var(--ink4); padding: 40px;">No technical gaps identified. Excellent implementation.</div>';
+      gapsContainer.innerHTML = '<div style="text-align:center; color: var(--ink4); padding: 60px; font-size: 1.1rem; border: 1px solid var(--border); border-radius: var(--r); background: var(--white);">No technical gaps identified. Excellent implementation of statutory requirements.</div>';
     } else if (score >= 70) {
       scoreEl.style.color = 'var(--amber)';
-      verdictEl.textContent = 'Action Required: Moderate Risks Identified';
+      verdictEl.textContent = 'Action Required: Moderate Non-Compliance Risks';
       verdictEl.style.color = 'var(--amber)';
     } else {
       scoreEl.style.color = 'var(--red)';
-      verdictEl.textContent = 'Severe Non-Compliance: Immediate Fixes Required';
+      verdictEl.textContent = 'Severe Non-Compliance: Immediate IT Remediation Required';
       verdictEl.style.color = 'var(--red)';
     }
 
