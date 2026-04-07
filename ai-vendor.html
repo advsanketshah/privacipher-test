@@ -10,36 +10,39 @@
   .site-header { padding: 48px 24px; text-align: center; border-bottom: 1px solid var(--border); background: var(--white); }
   .hdr-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 12px; background: var(--bg); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
   .hdr-title { font-size: 2.5rem; margin-bottom: 12px; }
+  .hdr-subtitle { font-size: 1rem; color: var(--ink3); max-width: 650px; margin: 0 auto; }
+  
   .sec-header { margin-bottom: 32px; }
   .sec-title { font-size: 1.8rem; margin-bottom: 8px; }
   
   .field { margin-bottom: 20px; }
   .field-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
 
   .audit-step { display: none; animation: fadeUp 0.3s ease; }
   .audit-step.active { display: block; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-  .q-card { padding: 24px; margin-bottom: 16px; border-left: 4px solid var(--border-dark); }
+  .q-card { padding: 24px; margin-bottom: 16px; border-left: 4px solid var(--border-dark); background: var(--white); border-radius: 0 var(--r) var(--r) 0; box-shadow: var(--shadow-sm); }
   .q-card.answered-pass { border-left-color: var(--green); background: var(--green-bg); }
   .q-card.answered-fail { border-left-color: var(--red); background: var(--red-bg); }
-  .q-text { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
-  .q-ref { font-size: 0.7rem; font-family: monospace; background: var(--white); border: 1px solid var(--border-dark); border-radius: 4px; padding: 2px 8px; color: var(--ink3); font-weight: 600; display: inline-block; margin-bottom: 16px; }
+  .q-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; color: var(--ink); line-height: 1.5; }
+  .q-ref { font-size: 0.7rem; font-family: monospace; background: var(--white); border: 1px solid var(--border-dark); border-radius: 4px; padding: 4px 10px; color: var(--ink3); font-weight: 600; display: inline-block; margin-bottom: 16px; letter-spacing: 0.05em; text-transform: uppercase; }
   
-  .btn-choice { display: inline-flex; align-items: center; justify-content: center; width: 140px; padding: 10px; border-radius: var(--r-sm); font-weight: 600; cursor: pointer; border: 1px solid var(--border-dark); background: var(--white); transition: all 0.2s; }
-  .btn-choice.pass:hover { border-color: var(--green); color: var(--green); }
-  .btn-choice.fail:hover { border-color: var(--red); color: var(--red); }
-  .btn-choice.sel-pass { background: var(--green); color: white; border-color: var(--green); }
-  .btn-choice.sel-fail { background: var(--red); color: white; border-color: var(--red); }
+  .btn-choice { display: inline-flex; align-items: center; justify-content: center; width: 150px; padding: 12px; border-radius: var(--r-sm); font-weight: 600; cursor: pointer; border: 1px solid var(--border-dark); background: var(--white); transition: all 0.2s; font-size: 0.9rem; }
+  .btn-choice.pass:hover { border-color: var(--green); color: var(--green); background: var(--green-bg); }
+  .btn-choice.fail:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+  .btn-choice.sel-pass { background: var(--green); color: white; border-color: var(--green); box-shadow: var(--shadow-sm); }
+  .btn-choice.sel-fail { background: var(--red); color: white; border-color: var(--red); box-shadow: var(--shadow-sm); }
 
-  .results-box { background: var(--white); border: 2px solid var(--ink); border-radius: var(--r); padding: 32px; text-align: center; margin-bottom: 24px; box-shadow: var(--shadow-lg); }
-  .gap-card { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; padding: 20px; border: 1px solid var(--border); border-radius: var(--r); background: var(--white); margin-bottom: 12px; }
-  .risk-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 4px; padding: 4px 10px; white-space: nowrap; }
+  .results-box { background: var(--white); border: 2px solid var(--ink); border-radius: var(--r); padding: 40px; text-align: center; margin-bottom: 32px; box-shadow: var(--shadow-lg); }
+  .gap-card { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; padding: 24px; border: 1px solid var(--border); border-radius: var(--r); background: var(--white); margin-bottom: 16px; box-shadow: var(--shadow-sm); }
+  .risk-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 4px; padding: 4px 12px; white-space: nowrap; }
   .risk-badge.Critical { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
   .risk-badge.High { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
-  .gap-remedy { font-size: 0.85rem; color: var(--ink2); line-height: 1.6; padding: 12px 16px; background: var(--bg); border-radius: var(--r-sm); border-left: 3px solid var(--ink); margin-top: 12px; }
+  .gap-remedy { font-size: 0.9rem; color: var(--ink2); line-height: 1.7; padding: 16px 20px; background: var(--bg); border-radius: var(--r-sm); border-left: 3px solid var(--ink); margin-top: 16px; }
+  .gap-remedy strong { color: var(--ink); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -65,15 +68,17 @@
 <header class="site-header">
   <div class="hdr-eyebrow">🤖 AI Governance</div>
   <h1 class="hdr-title">AI Vendor Risk Assessment</h1>
-  <p class="hdr-subtitle">Evaluate third-party AI models (LLMs, ADMT) against data protection laws, copyright liability, and the EU AI Act.</p>
+  <p class="hdr-subtitle">Evaluate third-party AI models and LLMs against data protection laws, algorithmic transparency regulations, and copyright IP risks.</p>
 </header>
 
 <main class="main">
 <div class="container-wide">
 
   <div id="step-1" class="audit-step active">
-    <div class="card">
-      <h2 class="sec-title" style="font-size: 1.5rem;">1. Vendor & Model Details</h2>
+    <div class="card" style="padding: 40px;">
+      <h2 class="sec-title" style="font-size: 1.8rem; margin-bottom: 12px;">1. Vendor & Model Details</h2>
+      <p style="color: var(--ink3); font-size: 1rem; margin-bottom: 32px;">Enter the details of the AI tool or vendor you are onboarding (e.g., OpenAI Enterprise, Microsoft Copilot, Custom ADMT HR tool).</p>
+      
       <div class="grid-2">
         <div class="field">
           <label class="field-label">Vendor / Tool Name</label>
@@ -88,7 +93,7 @@
           </select>
         </div>
       </div>
-      <div style="margin-top: 32px; text-align: right;">
+      <div style="margin-top: 40px; text-align: right; border-top: 1px solid var(--border); padding-top: 24px;">
         <button class="btn btn-primary" onclick="startAudit()">Begin Vendor Audit →</button>
       </div>
     </div>
@@ -97,24 +102,24 @@
   <div id="step-2" class="audit-step">
     <div class="sec-header">
       <h2 class="sec-title" id="audit-vendor-title">2. Execute Audit</h2>
-      <p style="color: var(--ink3); font-size: 0.9rem;">Review the vendor's Data Processing Agreement (DPA) and Terms of Service against these critical legal thresholds.</p>
+      <p style="color: var(--ink3); font-size: 1rem; max-width: 700px;">Review the vendor's Data Processing Agreement (DPA) and enterprise Terms of Service against these critical legal thresholds.</p>
     </div>
     <div id="checklist-container"></div>
-    <div style="margin-top: 32px; display: flex; justify-content: space-between;">
-      <button class="btn btn-outline" onclick="location.reload()">← Back</button>
-      <button class="btn btn-primary" onclick="generateReport()">Calculate Vendor Risk Score →</button>
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 32px;">
+      <button class="btn btn-outline" onclick="location.reload()">← Restart Audit</button>
+      <button class="btn btn-primary" onclick="generateReport()">Calculate Vendor Risk Posture →</button>
     </div>
   </div>
 
   <div id="step-3" class="audit-step">
     <div class="results-box">
-      <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink4); margin-bottom: 8px;">Vendor Risk Posture</div>
-      <div class="results-score" id="final-score" style="font-size: 2.5rem; margin-bottom: 12px;">Evaluating...</div>
-      <div id="final-verdict" style="font-size: 1.1rem; font-weight: 600;"></div>
+      <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink4); margin-bottom: 16px;">Vendor Risk Posture</div>
+      <div class="results-score" id="final-score" style="font-size: 3.5rem; margin-bottom: 12px; font-weight: 800;">Evaluating...</div>
+      <div id="final-verdict" style="font-size: 1.25rem; font-weight: 600;"></div>
     </div>
-    <h2 class="sec-title" style="font-size: 1.5rem; margin-top: 48px;">Required Contractual Mitigations</h2>
+    <h2 class="sec-title" style="font-size: 1.8rem; margin-top: 56px; border-bottom: 2px solid var(--border-dark); padding-bottom: 16px;">Required Contractual Mitigations</h2>
     <div id="gaps-container"></div>
-    <div style="margin-top: 48px; text-align: center;">
+    <div style="margin-top: 56px; text-align: center;">
       <button class="btn btn-outline" onclick="location.reload()">Audit Another Vendor</button>
     </div>
   </div>
@@ -123,31 +128,32 @@
 </main>
 
 <script>
+  // HIGHLY SPECIFIC, LEGALLY RIGOROUS CRITERIA
   const AUDIT_CRITERIA = [
     { id: 'training_data', risk: 'Critical',
-      q: 'Does the vendor explicitly state in their DPA or Terms that your inputted customer data and prompts will NOT be used to train their foundational models?',
-      ref: 'GDPR Art. 5 (Purpose Limitation) | DPDPA s.8(1)',
-      remedy: 'Negotiate a "Zero Data Retention/Training" addendum. Using personal data to train a vendor\'s model without explicit data subject consent violates purpose limitation rules.' },
+      q: 'Does the vendor contractually guarantee "Zero Data Retention" (ZDR) for training purposes, explicitly stating that your inputs and outputs will NOT be used to train or improve their foundational models?',
+      ref: 'GDPR Art. 5(1)(b) (Purpose Limitation) | DPDPA s.8(1)',
+      remedy: '<strong>Legal Requirement:</strong> Processing personal data to train a vendor\'s model constitutes a secondary processing purpose. Under GDPR and DPDPA, this requires an independent lawful basis (almost always explicit consent from the data subject), which is practically impossible to obtain at scale for B2B tools. You must negotiate a strict "Zero Data Retention/Training" addendum. Consumer-tier tools (which use data for training by default) are prohibited for enterprise data.' },
     
     { id: 'eu_ai_act', risk: 'Critical',
-      q: 'If the tool evaluates resumes, processes biometric data, or manages critical infrastructure, has the vendor provided an EU AI Act Conformity Assessment?',
-      ref: 'EU AI Act (High-Risk AI Systems)',
-      remedy: 'Under the EU AI Act, tools used for employment (HR screening), education, or credit scoring are "High-Risk." You must collect the vendor\'s CE marking and conformity documentation before deployment.' },
+      q: 'If the tool is used in employment (HR screening), education, credit scoring, or critical infrastructure, has the vendor provided an EU AI Act Declaration of Conformity and technical documentation?',
+      ref: 'EU AI Act (Annex III High-Risk Systems) | Arts. 16 & 26',
+      remedy: '<strong>Regulatory Mandate:</strong> Under the EU AI Act, systems used for these purposes are classified as "High-Risk." As the "Deployer" (user) of the system under Article 26, you bear strict obligations to monitor the system and ensure human oversight. You cannot deploy the system without first obtaining the provider\'s CE marking and technical documentation (Art. 16) proving the model meets EU quality management standards.' },
     
     { id: 'admt_ccpa', risk: 'High',
-      q: 'If this tool assists in making "Significant Decisions" (employment, housing, lending), can it output the underlying logic required to honor a consumer\'s right to an explanation?',
-      ref: 'CCPA / CPPA Regulations Art. 11 (effective Jan 2027)',
-      remedy: 'Black-box AI is non-compliant for ADMT in California. The vendor must provide explainability tools so you can respond to consumer VCRs.' },
+      q: 'If this tool assists in making "Significant Decisions" affecting consumers, does the vendor provide transparency tools allowing you to extract "meaningful information about the logic involved" in specific outputs?',
+      ref: 'CCPA / CPPA Draft Regulations § 7030 (effective Jan 2027) | GDPR Art. 22',
+      remedy: '<strong>Operational Risk:</strong> Black-box AI models create unmitigable compliance risk. Under CPRA and GDPR, consumers possess the right to an explanation of automated decisions. If the vendor cannot provide explainability tools detailing the parameters and logic used to generate a specific output, you will be legally incapable of responding to Verifiable Consumer Requests (VCRs) or Data Subject Access Requests (DSARs).' },
     
     { id: 'ip_indemnity', risk: 'High',
-      q: 'Does the vendor offer an uncapped IP Indemnification clause protecting you if their AI model generates content that infringes a third party\'s copyright?',
-      ref: 'Intellectual Property / Copyright Liability',
-      remedy: 'Generative AI carries high copyright risk (e.g., NYT vs OpenAI). Demand an IP indemnity clause. Do not accept a capped liability for IP infringement.' },
+      q: 'Does the vendor\'s Terms of Service provide an uncapped Intellectual Property (IP) Indemnification clause specifically shielding you from third-party copyright infringement claims arising from the model\'s outputs?',
+      ref: 'Intellectual Property Liability | Copyright Direct Infringement',
+      remedy: '<strong>Commercial Protection:</strong> Generative AI carries massive unresolved copyright risks regarding training data (e.g., NYT vs OpenAI). If the model outputs copyrighted material, your organization faces direct infringement liability for publishing or utilizing it. Top-tier enterprise vendors (Microsoft Copilot Copyright Commitment, Google Gemini Indemnity) offer standard copyright shields. Do not accept a generally capped liability limit for IP infringement.' },
     
-    { id: 'dpa_subprocessor', risk: 'High',
-      q: 'Is the vendor acting purely as a "Data Processor" under a signed DPA, and do they provide advance notice of new sub-processors (e.g., outsourced GPU hosting)?',
-      ref: 'DPDPA s.8(2) | GDPR Art. 28',
-      remedy: 'Execute a strict DPA. If they host their models on external infrastructure (like AWS or Azure), those entities must also be bound by equivalent data protection obligations.' }
+    { id: 'dpa_subprocessor', risk: 'Critical',
+      q: 'Is the vendor acting strictly as a "Data Processor" under a signed DPA, and do they flow down these obligations to their underlying infrastructure providers (e.g., outsourced GPU hosting)?',
+      ref: 'GDPR Art. 28 | DPDPA s.8(2)',
+      remedy: '<strong>Contractual Mandate:</strong> Execute an Article 28 / s.8(2) compliant Data Processing Agreement. The vendor must be contractually barred from using the data for their own independent purposes. Furthermore, if they host their models on external infrastructure (like AWS or Azure GPUs), those entities are sub-processors. The DPA must list all sub-processors and provide you with a mechanism to object to new sub-processor additions.' }
   ];
 
   let answers = {};
@@ -166,9 +172,9 @@
       card.innerHTML = `
         <div class="q-ref">${c.ref}</div>
         <div class="q-text">${index + 1}. ${c.q}</div>
-        <div style="display:flex; gap:12px; margin-top: 16px;">
-          <div class="btn-choice pass" onclick="recordAnswer('${c.id}', true)">Yes (Safe)</div>
-          <div class="btn-choice fail" onclick="recordAnswer('${c.id}', false)">No (Risk)</div>
+        <div style="display:flex; gap:16px; margin-top: 24px;">
+          <div class="btn-choice pass" onclick="recordAnswer('${c.id}', true)">Yes / Compliant</div>
+          <div class="btn-choice fail" onclick="recordAnswer('${c.id}', false)">No / Gap</div>
         </div>
       `;
       container.appendChild(card);
@@ -176,6 +182,7 @@
     
     document.getElementById('step-1').classList.remove('active');
     document.getElementById('step-2').classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   function recordAnswer(id, passed) {
@@ -188,7 +195,7 @@
   }
 
   function generateReport() {
-    if (Object.keys(answers).length < AUDIT_CRITERIA.length) { alert('Please answer all audit criteria.'); return; }
+    if (Object.keys(answers).length < AUDIT_CRITERIA.length) { alert('Please complete the entire audit checklist before calculating the risk posture.'); return; }
 
     let passCount = 0;
     const gapsContainer = document.getElementById('gaps-container');
@@ -201,11 +208,11 @@
         const gap = document.createElement('div');
         gap.className = 'gap-card';
         gap.innerHTML = `
-          <div><span class="risk-badge ${c.risk}">${c.risk}</span></div>
+          <div><span class="risk-badge ${c.risk}">${c.risk} Risk</span></div>
           <div>
-            <div style="font-weight: 700; color: var(--ink); margin-bottom: 4px;">Failed Check: ${c.q}</div>
-            <div style="font-size: 0.75rem; font-family: monospace; color: var(--ink4);">${c.ref}</div>
-            <div class="gap-remedy"><strong>Contractual Mitigation:</strong> ${c.remedy}</div>
+            <div style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 1.05rem;">Failed Assessment: ${c.q}</div>
+            <div style="font-size: 0.75rem; font-family: monospace; color: var(--ink4); letter-spacing: 0.05em;">${c.ref}</div>
+            <div class="gap-remedy">${c.remedy}</div>
           </div>
         `;
         gapsContainer.appendChild(gap);
@@ -218,13 +225,13 @@
     if (passCount === AUDIT_CRITERIA.length) {
       scoreEl.textContent = 'APPROVED';
       scoreEl.style.color = 'var(--green)';
-      verdictEl.textContent = 'Vendor meets enterprise AI compliance thresholds.';
+      verdictEl.textContent = 'Vendor meets enterprise AI compliance and legal thresholds.';
       verdictEl.style.color = 'var(--green)';
-      gapsContainer.innerHTML = '<div style="text-align:center; color: var(--ink4); padding: 40px;">No critical vendor risks identified.</div>';
+      gapsContainer.innerHTML = '<div style="text-align:center; color: var(--ink4); padding: 60px; font-size: 1.1rem; border: 1px solid var(--border); border-radius: var(--r); background: var(--white);">No critical vendor or sub-processor risks identified. Contractual posture is sound.</div>';
     } else {
       scoreEl.textContent = 'DO NOT DEPLOY';
       scoreEl.style.color = 'var(--red)';
-      verdictEl.textContent = `${AUDIT_CRITERIA.length - passCount} critical compliance blockers identified.`;
+      verdictEl.textContent = `${AUDIT_CRITERIA.length - passCount} critical compliance or liability blockers identified.`;
       verdictEl.style.color = 'var(--red)';
     }
 
