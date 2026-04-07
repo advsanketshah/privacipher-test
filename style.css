@@ -2,18 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Colors */
   --ink: #111827; --ink2: #374151; --ink3: #4B5563; --ink4: #9CA3AF;
   --bg: #F9FAFB; --white: #FFFFFF; --border: #E5E7EB; --border-dark: #D1D5DB;
   
-  /* Status Colors */
   --red: #EF4444; --red-bg: #FEF2F2; --red-border: #FCA5A5;
   --amber: #F59E0B; --amber-bg: #FFFBEB; --amber-border: #FCD34D;
   --green: #10B981; --green-bg: #ECFDF5; --green-border: #6EE7B7;
   --blue: #3B82F6; --blue-bg: #EFF6FF; --blue-border: #93C5FD;
   --purple: #8B5CF6; --purple-bg: #F5F3FF;
   
-  /* Radii & Shadows */
   --r: 12px; --r-sm: 8px;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
@@ -23,31 +20,17 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
-/* ─── TYPOGRAPHY ─── */
 body { 
   font-family: 'Inter', -apple-system, sans-serif; 
-  background: var(--bg); 
-  color: var(--ink); 
-  line-height: 1.6; 
-  -webkit-font-smoothing: antialiased; 
+  background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; 
 }
 
 h1, h2, h3, .sec-title, .hdr-title, .card-title, .score-num { 
-  font-family: 'Inter', sans-serif !important; 
-  font-weight: 700 !important; 
-  letter-spacing: -0.02em !important; 
+  font-family: 'Inter', sans-serif !important; font-weight: 700 !important; letter-spacing: -0.02em !important; 
 }
 
 /* ─── UNIFIED NAV BAR ─── */
-.site-nav { 
-  background: rgba(255, 255, 255, 0.85); 
-  backdrop-filter: blur(12px); 
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border); 
-  position: sticky; 
-  top: 0; 
-  z-index: 999; 
-}
+.site-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 999; }
 .site-nav .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: stretch; overflow-x: auto; scrollbar-width: none; }
 .site-nav .nav-inner::-webkit-scrollbar { display: none; }
 .site-nav .nav-brand { display: flex; align-items: center; gap: 8px; padding: 0 20px 0 0; margin-right: 4px; border-right: 1px solid var(--border); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; white-space: nowrap; }
@@ -56,22 +39,12 @@ h1, h2, h3, .sec-title, .hdr-title, .card-title, .score-num {
 .site-nav a.nav-tab { display: inline-flex; align-items: center; gap: 6px; padding: 16px; font-size: 0.85rem; font-weight: 500; color: var(--ink3); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
 .site-nav a.nav-tab:hover { color: var(--ink); background: var(--bg); }
 .site-nav a.nav-tab.nav-active { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
-@media (max-width: 640px) { .site-nav a.nav-tab span:last-child { display: none; } }
 
 /* ─── SHARED LAYOUT & CARDS ─── */
 .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 .container-wide { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 .main { padding: 48px 0 96px; min-height: 75vh; }
-
-.card, .q-card, .gap-card, .heatmap-container, .dl-card, .contact-card { 
-  background: var(--white); 
-  border: 1px solid var(--border); 
-  border-radius: var(--r); 
-  padding: 24px; 
-  box-shadow: var(--shadow); 
-  margin-bottom: 16px; 
-  transition: box-shadow 0.2s, transform 0.2s; 
-}
+.card, .q-card, .gap-card, .heatmap-container, .dl-card, .contact-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; box-shadow: var(--shadow); margin-bottom: 16px; transition: box-shadow 0.2s, transform 0.2s; }
 .card:hover { box-shadow: var(--shadow-lg); }
 
 /* ─── BUTTONS ─── */
@@ -91,7 +64,6 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--i
 .site-footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--ink4); font-size: 0.85rem; margin-top: 40px; }
 .site-footer a { color: var(--ink3); text-decoration: none; transition: color 0.2s; }
 .site-footer a:hover { color: var(--ink); }
-
 .back-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--ink); color: var(--white); border: none; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); z-index: 500; transition: all 0.2s; }
 .back-top:hover { background: var(--ink2); transform: translateY(-2px); }
 .back-top.visible { display: flex; }
