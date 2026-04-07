@@ -13,7 +13,6 @@
   .site-header { padding: 48px 24px; text-align: center; border-bottom: 1px solid var(--border); background: var(--white); }
   .hdr-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 12px; background: var(--bg); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
   .hdr-title { font-size: 2.5rem; margin-bottom: 12px; }
-  .hdr-subtitle { font-size: 1rem; color: var(--ink3); max-width: 600px; margin: 0 auto; }
 
   /* FILTER BAR */
   .filter-bar { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; margin-bottom: 24px; box-shadow: var(--shadow-sm); display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
@@ -60,7 +59,6 @@
   .tag-neutral { background: var(--bg); color: var(--ink3); border: 1px solid var(--border-dark); }
   .tag-na { background: #F3F4F6; color: #9CA3AF; border: 1px solid #E5E7EB; }
 
-  /* PENALTY CELL */
   .penalty-amount { font-size: 1.1rem; font-weight: 700; color: var(--red); display: block; line-height: 1.2; margin-bottom: 4px; }
   
   /* MINIMAL DISCLAIMER */
@@ -74,8 +72,10 @@
     <a href="index.html" class="nav-brand"><div class="nav-brand-dot"></div>Privacipher</a>
     <div class="nav-tabs">
       <a href="index.html" class="nav-tab">⚖ Assessment</a>
-      <a href="ropa.html" class="nav-tab">📊 RoPA Builder</a>
-      <a href="breach.html" class="nav-tab">🚨 Breach Playbook</a>
+      <a href="ropa.html" class="nav-tab">📊 RoPA</a>
+      <a href="breach.html" class="nav-tab">🚨 Breach</a>
+      <a href="cookie-auditor.html" class="nav-tab">🍪 Cookies</a>
+      <a href="ai-vendor.html" class="nav-tab">🤖 AI Vendor</a>
       <a href="compare.html" class="nav-tab nav-active">📋 Compare</a>
       <a href="calendar.html" class="nav-tab">📅 Calendar</a>
       <a href="about.html" class="nav-tab">👤 About</a>
@@ -181,27 +181,15 @@
     <tr class="section-row" id="sec-enforcement"><td colspan="10">Enforcement &amp; Regulator</td></tr>
     <tr class="data-row">
       <td>Enforcement Authority</td>
-      <td>Data Protection Board of India (DPAB)<br><span class="cell-tag tag-pending">Board constituted</span></td>
+      <td>Data Protection Board of India (DPAB)</td>
       <td>Lead Supervisory Authority (national DPAs)</td>
-      <td>California Privacy Protection Agency (CPPA)<br><span class="cell-tag tag-neutral">AG for criminal</span></td>
+      <td>California Privacy Protection Agency (CPPA)</td>
       <td>Saudi Data and AI Authority (SDAIA)</td>
       <td>Autoridade Nacional de Protecao de Dados (ANPD)</td>
       <td>Personal Data Protection Commission (PDPC)</td>
       <td>Personal Data Protection Committee (PDPC)</td>
       <td>Information Commissioner's Office (ICO)</td>
       <td>UAE Data Office (UAEDO)</td>
-    </tr>
-    <tr class="data-row">
-      <td>Territorial Scope</td>
-      <td>Processing of personal data of Indian data principals; extraterritorial if offering goods/services.</td>
-      <td>Processing in EU establishment; or of EU residents' data by non-EU controllers.</td>
-      <td>Businesses meeting revenue/data volume thresholds doing business in California.</td>
-      <td>Controllers processing Saudi residents' data; extraterritorial reach.</td>
-      <td>Processing of personal data in Brazil; extraterritorial if offering goods/services in Brazil.</td>
-      <td>Organisations collecting/using personal data in Singapore.</td>
-      <td>Controllers collecting Thai residents' data; extraterritorial reach.</td>
-      <td>UK establishment; or processing of UK residents' data by non-UK controllers.</td>
-      <td>Controllers processing UAE residents' data.</td>
     </tr>
 
     <tr class="section-row" id="sec-lawful"><td colspan="10">Lawful Bases for Processing</td></tr>
@@ -216,44 +204,6 @@
       <td><strong>6 bases</strong> (Sec. 24): mirrors GDPR Art. 6.<br><span class="cell-tag tag-moderate">Mirrors GDPR</span></td>
       <td><strong>6 bases</strong> + <strong>Recognised Legitimate Interests</strong> (DUAA 2025).<br><span class="cell-tag tag-flexible">RLI pre-satisfies test</span></td>
       <td><strong>Consent + 4 bases</strong> (Arts. 5-8): no open LI basis.<br><span class="cell-tag tag-moderate">No open LI basis</span></td>
-    </tr>
-    <tr class="data-row">
-      <td>Legitimate Interests</td>
-      <td><span class="cell-tag tag-na">Not available</span><br>s.7 is a closed list; not an open balancing-test.</td>
-      <td><span class="cell-tag tag-flexible">Available</span><br>Art. 6(1)(f): three-part balancing test.</td>
-      <td><span class="cell-tag tag-na">Not applicable</span></td>
-      <td><span class="cell-tag tag-moderate">Available</span><br>Non-sensitive data only. Cannot override rights.</td>
-      <td><span class="cell-tag tag-flexible">Available</span><br>Art. 7(IX): balancing test required.</td>
-      <td><span class="cell-tag tag-na">Not a distinct basis</span></td>
-      <td><span class="cell-tag tag-moderate">Available</span><br>Sec. 24(6): balancing required.</td>
-      <td><span class="cell-tag tag-flexible">Available + RLI</span><br>DUAA 2025 pre-satisfies balancing for listed activities.</td>
-      <td><span class="cell-tag tag-na">Not prescribed</span></td>
-    </tr>
-
-    <tr class="section-row" id="sec-rights"><td colspan="10">Data Subject Rights</td></tr>
-    <tr class="data-row">
-      <td>Core Rights</td>
-      <td>Access, Correction, Erasure, Grievance redressal, Nomination<br><span class="cell-tag tag-neutral">5 rights</span></td>
-      <td>Access, Rectification, Erasure, Restriction, Portability, Object, ADM rights<br><span class="cell-tag tag-strict">7 rights + ADM</span></td>
-      <td>Know, Delete, Correct, Opt-out of Sale, Limit SPI, Non-discrimination<br><span class="cell-tag tag-moderate">6 rights</span></td>
-      <td>Access, Correction, Erasure, Object<br><span class="cell-tag tag-neutral">4 rights</span></td>
-      <td>Confirmation, access, correction, deletion, portability, revocation, etc.<br><span class="cell-tag tag-strict">9 rights</span></td>
-      <td>Access, Correction, Portability<br><span class="cell-tag tag-neutral">3 primary rights</span></td>
-      <td>Informed, access, rectification, erasure, restriction, portability, object<br><span class="cell-tag tag-moderate">7 rights</span></td>
-      <td>GDPR rights + Relaxed ADM (DUAA 2025)<br><span class="cell-tag tag-moderate">Relaxed ADM</span></td>
-      <td>Access, Correction, Erasure, Restriction, Portability<br><span class="cell-tag tag-neutral">5 rights</span></td>
-    </tr>
-    <tr class="data-row">
-      <td>Response Deadline</td>
-      <td><span class="cell-tag tag-neutral">Not prescribed</span><br>Grievance redressal max 90 days.</td>
-      <td><span class="cell-tag tag-strict">1 month</span><br>Extendable to 3 months.</td>
-      <td><span class="cell-tag tag-moderate">45 days</span><br>Extendable to 90 days.</td>
-      <td><span class="cell-tag tag-neutral">Reasonable timeframe</span></td>
-      <td><span class="cell-tag tag-moderate">15 days</span><br>For complex requests.</td>
-      <td><span class="cell-tag tag-moderate">30 days</span></td>
-      <td><span class="cell-tag tag-moderate">30 days</span></td>
-      <td><span class="cell-tag tag-strict">1 month</span><br>SAR stop-the-clock introduced by DUAA.</td>
-      <td><span class="cell-tag tag-neutral">Reasonable timeframe</span></td>
     </tr>
 
     <tr class="section-row" id="sec-breach"><td colspan="10">Breach Notification</td></tr>
@@ -280,62 +230,6 @@
       <td><span class="cell-tag tag-moderate">HIGH RISK</span></td>
       <td><span class="cell-tag tag-moderate">HIGH RISK only</span></td>
       <td><span class="cell-tag tag-moderate">Risk to rights</span></td>
-    </tr>
-
-    <tr class="section-row" id="sec-children"><td colspan="10">Children's Data</td></tr>
-    <tr class="data-row">
-      <td>Age Threshold</td>
-      <td><span class="cell-tag tag-strict">18 years</span><br>Strictest global threshold.</td>
-      <td><span class="cell-tag tag-moderate">16 years</span><br>Reducible to 13.</td>
-      <td><span class="cell-tag tag-moderate">16 / 13 years</span></td>
-      <td><span class="cell-tag tag-neutral">Not defined</span></td>
-      <td><span class="cell-tag tag-strict">Under 18</span></td>
-      <td><span class="cell-tag tag-neutral">No specific threshold</span></td>
-      <td><span class="cell-tag tag-moderate">Under 20</span></td>
-      <td><span class="cell-tag tag-moderate">13 years</span></td>
-      <td><span class="cell-tag tag-neutral">Not specified</span></td>
-    </tr>
-
-    <tr class="section-row" id="sec-dpo"><td colspan="10">Data Protection Officer (DPO)</td></tr>
-    <tr class="data-row">
-      <td>Requirement</td>
-      <td><span class="cell-tag tag-moderate">SDF only</span><br>Must be Indian resident.</td>
-      <td><span class="cell-tag tag-moderate">Criteria-based</span></td>
-      <td><span class="cell-tag tag-na">Not required</span></td>
-      <td><span class="cell-tag tag-moderate">Effectively mandatory</span></td>
-      <td><span class="cell-tag tag-strict">Mandatory (all)</span></td>
-      <td><span class="cell-tag tag-strict">Mandatory (all)</span></td>
-      <td><span class="cell-tag tag-moderate">Criteria-based</span></td>
-      <td><span class="cell-tag tag-moderate">Criteria-based</span></td>
-      <td><span class="cell-tag tag-neutral">Where required</span></td>
-    </tr>
-
-    <tr class="section-row" id="sec-transfers"><td colspan="10">Cross-Border Transfers</td></tr>
-    <tr class="data-row">
-      <td>Transfer Model</td>
-      <td><span class="cell-tag tag-flexible">Restriction model</span><br>Permitted unless restricted.</td>
-      <td><span class="cell-tag tag-strict">Adequacy + SCCs</span></td>
-      <td><span class="cell-tag tag-na">No restrictions</span></td>
-      <td><span class="cell-tag tag-moderate">Adequacy + Contracts</span></td>
-      <td><span class="cell-tag tag-strict">Adequacy + ANPD SCCs</span></td>
-      <td><span class="cell-tag tag-moderate">Adequacy + Contracts</span></td>
-      <td><span class="cell-tag tag-moderate">Adequacy + Contracts</span></td>
-      <td><span class="cell-tag tag-moderate">IDTA / Addendum</span></td>
-      <td><span class="cell-tag tag-moderate">Adequacy list</span></td>
-    </tr>
-
-    <tr class="section-row" id="sec-sensitive"><td colspan="10">Sensitive Data</td></tr>
-    <tr class="data-row">
-      <td>Processing Standard</td>
-      <td><span class="cell-tag tag-neutral">SPDI Rules applies</span><br>Until May 2027.</td>
-      <td><span class="cell-tag tag-strict">Art. 9 explicit basis</span></td>
-      <td><span class="cell-tag tag-strict">Limit SPI right</span></td>
-      <td><span class="cell-tag tag-strict">Explicit consent</span><br>Criminal liability.</td>
-      <td><span class="cell-tag tag-strict">Art. 11 basis</span></td>
-      <td><span class="cell-tag tag-na">No separate category</span></td>
-      <td><span class="cell-tag tag-strict">Sec. 26 basis</span></td>
-      <td><span class="cell-tag tag-strict">Art. 9 basis</span></td>
-      <td><span class="cell-tag tag-strict">Higher standard</span></td>
     </tr>
 
     <tr class="section-row" id="sec-penalties"><td colspan="10">Penalties &amp; Enforcement</td></tr>
@@ -375,8 +269,6 @@
     <a href="about.html">About</a>
   </div>
 </footer>
-
-<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
 
 <script>
 function scrollToSection(id,btn){
