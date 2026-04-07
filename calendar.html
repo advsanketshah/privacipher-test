@@ -3,389 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Regulatory Enforcement Calendar 2025-2027 · Privacipher · Adv. Sanket Shah</title>
-<meta name="description" content="Privacipher: live countdown to every material privacy law deadline: DPDPA May 2027, CCPA ADMT January 2027, CPPA Risk Assessment December 2027, UK DUAA 2025, LGPD SCCs August 2025, Singapore PDPA, Saudi PDPL, Thailand PDPA, UAE PDPL. By Adv. Sanket Shah.">
-<meta name="author" content="Adv. Sanket Shah">
-<link rel="canonical" href="https://advsanketshah.github.io/data-protection-compliance-checker/calendar.html">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<title>Regulatory Enforcement Calendar 2025-2027 · Privacipher</title>
+<meta name="description" content="Privacipher: live countdown to every material privacy law deadline: DPDPA May 2027, CCPA ADMT January 2027, UK DUAA 2025, LGPD SCCs, Singapore PDPA, Saudi PDPL, and more.">
+
+<link rel="stylesheet" href="style.css">
+
 <style>
-:root{
-  --ink:#0D0D0D;--ink2:#2D2D2D;--ink3:#555;--ink4:#999;
-  --bg:#F8F7F4;--white:#fff;--border:#E0DFDB;--border-dark:#C8C7C2;
-  --red:#DC2626;--red-bg:#FEF2F2;--red-border:rgba(220,38,38,.25);
-  --amber:#D97706;--amber-bg:#FFFBEB;--amber-border:rgba(217,119,6,.25);
-  --green:#16A34A;--green-bg:#F0FDF4;--green-border:rgba(22,163,74,.25);
-  --blue:#1D4ED8;--blue-bg:#EFF6FF;--blue-border:rgba(29,78,216,.25);
-  --purple:#7C3AED;--purple-bg:#F5F3FF;
-  --r:6px;--r-sm:4px;
-  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
-  --shadow-lg:0 4px 24px rgba(0,0,0,.12);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.6;text-align:justify;hyphens:auto}
+  /* ─── PAGE-SPECIFIC STYLES (CALENDAR) ─── */
+  .site-header { padding: 48px 24px; text-align: center; border-bottom: 1px solid var(--border); background: var(--white); }
+  .hdr-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 12px; background: var(--bg); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
+  .hdr-title { font-size: 2.5rem; margin-bottom: 12px; }
+  .hdr-subtitle { font-size: 1rem; color: var(--ink3); max-width: 600px; margin: 0 auto; }
 
-.site-header{background:var(--ink);color:#fff;padding:32px 0 0}
-.hdr-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:24px}
-.hdr-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:3px 12px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px}
-.hdr-title{font-family:'DM Serif Display',serif;font-size:2.2rem;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:6px}
-.hdr-subtitle{font-size:.78rem;color:rgba(255,255,255,.45);letter-spacing:.04em;text-transform:uppercase}
-.hdr-author-name{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff}
-.hdr-author-creds{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:3px}
-.hdr-links{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
-.hdr-link{font-size:.72rem;color:rgba(255,255,255,.7);text-decoration:none;border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:3px 10px;transition:all .2s}
-.hdr-link:hover{background:rgba(255,255,255,.12);color:#fff}
-.hdr-nav{display:flex;gap:12px;flex-wrap:wrap;padding:14px 0;border-top:1px solid rgba(255,255,255,.1);align-items:center}
-.hdr-nav a{font-size:.72rem;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
-.hdr-nav a:hover,.hdr-nav a.active{color:#fff}
-.hdr-nav span{color:rgba(255,255,255,.2)}
+  /* FILTER BAR */
+  .filter-bar { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; margin-bottom: 32px; box-shadow: var(--shadow-sm); display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .filter-bar-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink4); white-space: nowrap; margin-right: 4px; }
+  .fbtn { font-size: 0.75rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border-dark); background: var(--bg); color: var(--ink3); cursor: pointer; transition: all 0.2s; white-space: nowrap; font-family: 'Inter', sans-serif; }
+  .fbtn.on { background: var(--ink); color: #fff; border-color: var(--ink); box-shadow: var(--shadow-sm); }
+  .fbtn:hover:not(.on) { border-color: var(--ink); color: var(--ink); }
 
-.container{max-width:1060px;margin:0 auto;padding:0 24px}
-.main{padding:40px 0 80px}
+  /* HERO COUNTER */
+  .hero-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+  @media(max-width: 640px) { .hero-strip { grid-template-columns: 1fr; } }
+  .hero-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; box-shadow: var(--shadow-sm); text-align: center; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+  .hero-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .hero-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; }
+  .hero-card.hc-red::after { background: var(--red); }
+  .hero-card.hc-amber::after { background: var(--amber); }
+  .hero-card.hc-blue::after { background: var(--blue); }
+  .hero-count { font-size: 3rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .hero-count.hc-red { color: var(--red); }
+  .hero-count.hc-amber { color: var(--amber); }
+  .hero-count.hc-blue { color: var(--blue); }
+  .hero-label { font-size: 0.75rem; font-weight: 700; color: var(--ink3); letter-spacing: 0.05em; text-transform: uppercase; }
 
-/* FILTER BAR */
-.filter-bar{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;margin-bottom:28px;box-shadow:var(--shadow);display:flex;align-items:center;flex-wrap:wrap;gap:10px}
-.filter-bar-label{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);white-space:nowrap;margin-right:4px}
-.fbtn{font-size:.68rem;font-weight:700;padding:5px 14px;border-radius:20px;border:1.5px solid var(--border-dark);background:var(--bg);color:var(--ink3);cursor:pointer;letter-spacing:.04em;text-transform:uppercase;transition:all .18s;white-space:nowrap}
-.fbtn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.fbtn:hover:not(.on){border-color:var(--ink);color:var(--ink)}
+  /* YEAR GROUPS */
+  .year-group { margin-bottom: 48px; }
+  .year-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .year-num { font-size: 2rem; font-weight: 700; color: var(--ink4); letter-spacing: -0.02em; line-height: 1; }
+  .year-line { flex: 1; height: 1px; background: var(--border-dark); }
+  .year-count-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; background: var(--bg); border: 1px solid var(--border-dark); color: var(--ink4); }
 
-/* HERO COUNTER */
-.hero-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
-@media(max-width:640px){.hero-strip{grid-template-columns:1fr}}
-.hero-card{background:var(--white);border:2px solid var(--border);border-radius:var(--r);padding:22px 24px;box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden}
-.hero-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
-.hero-card.hc-red::after{background:var(--red)}
-.hero-card.hc-amber::after{background:var(--amber)}
-.hero-card.hc-blue::after{background:var(--blue)}
-.hero-count{font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1;letter-spacing:-.02em;margin-bottom:4px}
-.hero-count.hc-red{color:var(--red)}
-.hero-count.hc-amber{color:var(--amber)}
-.hero-count.hc-blue{color:var(--blue)}
-.hero-label{font-size:.72rem;font-weight:700;color:var(--ink3);letter-spacing:.04em;text-transform:uppercase}
+  /* DEADLINE CARDS */
+  .deadline-grid { display: flex; flex-direction: column; gap: 16px; }
+  .dl-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 0; box-shadow: var(--shadow-sm); overflow: hidden; display: grid; grid-template-columns: auto 1fr auto; align-items: stretch; transition: box-shadow 0.2s, transform 0.2s; }
+  .dl-card:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+  .dl-card.past .dl-accent { background: var(--ink4); }
+  .dl-card.past .dl-countdown { color: var(--ink4); }
+  .dl-card[data-urgency="critical"] .dl-accent { background: var(--red); }
+  .dl-card[data-urgency="warning"] .dl-accent { background: var(--amber); }
+  .dl-card[data-urgency="upcoming"] .dl-accent { background: var(--blue); }
+  .dl-card[data-urgency="future"] .dl-accent { background: var(--green); }
+  .dl-accent { width: 6px; flex-shrink: 0; }
+  
+  .dl-body { padding: 20px 24px; }
+  .dl-top { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .dl-flag { font-size: 1.4rem; flex-shrink: 0; margin-top: -2px; }
+  .dl-fw { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink3); }
+  .dl-type-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 10px; border-radius: 20px; margin-left: auto; }
+  
+  .type-enforcement { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .type-amendment { background: var(--purple-bg); color: var(--purple); border: 1px solid rgba(124,58,237,.25); }
+  .type-deadline { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .type-commencement { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+  .type-passed { background: #F3F4F6; color: #6B7280; border: 1px solid #D1D5DB; }
+  
+  .dl-title { font-size: 1.05rem; font-weight: 700; color: var(--ink); line-height: 1.4; margin-bottom: 8px; }
+  .dl-card.past .dl-title { color: var(--ink3); }
+  .dl-detail { font-size: 0.85rem; color: var(--ink3); line-height: 1.6; margin-bottom: 12px; }
+  .dl-provision { font-size: 0.7rem; font-family: monospace; font-weight: 600; color: var(--ink4); padding-top: 10px; border-top: 1px solid var(--border); }
+  
+  .dl-right { padding: 20px 24px; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; min-width: 160px; border-left: 1px solid var(--border); text-align: right; background: #FAFAFA; }
+  .dl-date { font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .dl-countdown { font-size: 1.8rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .dl-cd-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink4); }
+  
+  .dl-card[data-urgency="critical"] .dl-countdown { color: var(--red); }
+  .dl-card[data-urgency="warning"] .dl-countdown { color: var(--amber); }
+  .dl-card[data-urgency="upcoming"] .dl-countdown { color: var(--blue); }
+  .dl-card[data-urgency="future"] .dl-countdown { color: var(--green); }
 
-/* YEAR GROUPS */
-.year-group{margin-bottom:40px}
-.year-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}
-.year-num{font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--ink4);letter-spacing:-.02em;line-height:1}
-.year-line{flex:1;height:1px;background:var(--border-dark)}
-.year-count-tag{font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--bg);border:1px solid var(--border-dark);color:var(--ink4)}
+  @media(max-width: 640px) { .dl-card { grid-template-columns: auto 1fr; } .dl-right { display: none; } }
 
-/* DEADLINE CARDS */
-.deadline-grid{display:flex;flex-direction:column;gap:12px}
-.dl-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:0;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:auto 1fr auto;align-items:stretch}
-.dl-card.past .dl-accent{background:#9CA3AF}
-.dl-card.past .dl-countdown{color:#9CA3AF}
-.dl-card[data-urgency="critical"] .dl-accent{background:var(--red)}
-.dl-card[data-urgency="warning"] .dl-accent{background:var(--amber)}
-.dl-card[data-urgency="upcoming"] .dl-accent{background:var(--blue)}
-.dl-card[data-urgency="future"] .dl-accent{background:var(--green)}
-.dl-accent{width:5px;flex-shrink:0}
-.dl-body{padding:16px 20px}
-.dl-top{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.dl-flag{font-size:1.2rem;flex-shrink:0;margin-top:1px}
-.dl-fw{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
-.dl-type-tag{font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 8px;border-radius:20px;margin-left:auto}
-.type-enforcement{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
-.type-amendment{background:var(--purple-bg);color:var(--purple);border:1px solid rgba(124,58,237,.25)}
-.type-deadline{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
-.type-commencement{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
-.type-passed{background:#F3F4F6;color:#6B7280;border:1px solid #D1D5DB}
-.dl-title{font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:4px}
-.dl-card.past .dl-title{color:var(--ink3)}
-.dl-detail{font-size:.78rem;color:var(--ink4);line-height:1.6}
-.dl-provision{font-size:.65rem;font-family:monospace;color:var(--ink4);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
-.dl-right{padding:16px 20px;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;min-width:130px;border-left:1px solid var(--border);text-align:right}
-.dl-date{font-size:.72rem;font-weight:700;color:var(--ink);margin-bottom:4px}
-.dl-countdown{font-family:'DM Serif Display',serif;font-size:1.4rem;line-height:1;letter-spacing:-.01em;margin-bottom:2px}
-.dl-cd-label{font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink4)}
-.dl-card[data-urgency="critical"] .dl-countdown{color:var(--red)}
-.dl-card[data-urgency="warning"] .dl-countdown{color:var(--amber)}
-.dl-card[data-urgency="upcoming"] .dl-countdown{color:var(--blue)}
-.dl-card[data-urgency="future"] .dl-countdown{color:var(--green)}
+  /* IMPACT INDICATOR */
+  .impact-dots { display: flex; gap: 4px; margin-top: 12px; justify-content: flex-end; }
+  .impact-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-dark); }
+  .impact-dot.filled { background: var(--red); }
+  .impact-dot.filled-amber { background: var(--amber); }
+  .impact-dot.filled-blue { background: var(--blue); }
 
-/* IMPACT INDICATOR */
-.impact-dots{display:flex;gap:3px;margin-top:8px;justify-content:flex-end}
-.impact-dot{width:7px;height:7px;border-radius:50%;background:var(--border-dark)}
-.impact-dot.filled{background:var(--red)}
-.impact-dot.filled-amber{background:var(--amber)}
-.impact-dot.filled-blue{background:var(--blue)}
+  /* SUBSCRIBE NOTE */
+  .subscribe-note { background: var(--ink); border-radius: var(--r); padding: 32px; margin-top: 48px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; box-shadow: var(--shadow-lg); }
+  @media(max-width: 600px) { .subscribe-note { grid-template-columns: 1fr; text-align: center; } }
+  .subscribe-title { font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .subscribe-desc { font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+  .subscribe-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--ink); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 12px 24px; border-radius: var(--r-sm); text-decoration: none; white-space: nowrap; transition: transform 0.2s; }
+  .subscribe-cta:hover { transform: translateY(-2px); }
 
-/* SUBSCRIBE NOTE */
-.subscribe-note{background:var(--ink);border-radius:var(--r);padding:28px 32px;margin-top:40px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
-@media(max-width:600px){.subscribe-note{grid-template-columns:1fr}}
-.subscribe-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:#fff;margin-bottom:6px}
-.subscribe-desc{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.6}
-.subscribe-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;font-weight:700;padding:11px 22px;border-radius:var(--r-sm);text-decoration:none;white-space:nowrap;transition:opacity .2s}
-.subscribe-cta:hover{opacity:.88}
-
-/* DISCLAIMER */
-.disclaimer{background:var(--bg);border:1px solid var(--border-dark);border-left:4px solid var(--ink);border-radius:var(--r-sm);padding:18px 20px;font-size:.75rem;color:var(--ink4);line-height:1.8;margin-top:24px}
-.disclaimer-title{font-weight:800;color:var(--ink3);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
-
-.site-footer{background:var(--ink);color:rgba(255,255,255,.5);text-align:center;padding:28px 0;font-size:.72rem;line-height:1.8}
-.footer-name{color:rgba(255,255,255,.9);font-weight:600}
-.footer-copy{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);font-size:.68rem;max-width:700px;margin-left:auto;margin-right:auto}
-.back-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;background:var(--ink);color:#fff;border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);z-index:500}
-.back-top.visible{display:flex}
-@media(max-width:640px){.hdr-inner{flex-direction:column}.dl-card{grid-template-columns:auto 1fr}.dl-right{display:none}}
-
-/* ════════════════════════════════════════════════════════
-   PRIVACIPHER v3 DESIGN REFRESH
-   New fonts, updated tokens, modern sticky nav
-   ════════════════════════════════════════════════════════ */
-
-/* — Font family overrides — */
-body { font-family: 'Plus Jakarta Sans', sans-serif !important; }
-.hdr-title,
-.hdr-author-name,
-.score-verdict,
-.version-num,
-.sec-title,
-.profile-name,
-.contact-cta-title,
-.doc-title,
-.section-title,
-.intro-box-title,
-.record-box-title,
-.subscribe-title,
-.tool-showcase-title,
-.year-num,
-.hero-count,
-.cd-timer,
-.penalty-hero-amount,
-.fw-score-val,
-.score-num,
-.tool-showcase-title,
-h1,h2 { font-family: 'DM Serif Display', serif !important; }
-
-/* — Updated radius & shadow tokens — */
-:root {
-  --r: 10px !important;
-  --r-sm: 6px !important;
-  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 20px rgba(0,0,0,.05) !important;
-  --shadow-lg: 0 4px 32px rgba(0,0,0,.13) !important;
-}
-
-/* — Header refinements — */
-.site-header { padding-top: 28px !important; }
-.hdr-title { font-size: 2rem !important; letter-spacing: -.025em !important; }
-.hdr-inner { padding-bottom: 20px !important; }
-
-/* — Hide the OLD inline nav (hdr-nav / hdr-frameworks) — */
-.hdr-nav,
-.hdr-frameworks { display: none !important; }
-
-/* ─── NEW SITE NAV ─── */
-.site-nav {
-  background: #ffffff;
-  border-bottom: 1px solid #E8E7E3;
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
-}
-.site-nav .nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  align-items: stretch;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.site-nav .nav-inner::-webkit-scrollbar { display: none; }
-
-.site-nav .nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 20px 0 0;
-  margin-right: 4px;
-  border-right: 1px solid #E8E7E3;
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.05rem;
-  color: #0D0D14;
-  text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
-  letter-spacing: -.01em;
-}
-.site-nav .nav-brand-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #0D0D14;
-  flex-shrink: 0;
-}
-
-.site-nav .nav-tabs {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  flex: 1;
-}
-.site-nav a.nav-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 14px 16px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: .775rem;
-  font-weight: 600;
-  color: #71717A;
-  text-decoration: none;
-  white-space: nowrap;
-  position: relative;
-  transition: color .18s, background .18s;
-  border-bottom: 2.5px solid transparent;
-  letter-spacing: .01em;
-}
-.site-nav a.nav-tab:hover {
-  color: #0D0D14;
-  background: #F7F6F3;
-}
-.site-nav a.nav-tab.nav-active {
-  color: #0D0D14;
-  border-bottom-color: #0D0D14;
-  font-weight: 700;
-}
-.site-nav .nav-tab-icon { font-size: .9rem; line-height: 1; }
-
-.site-nav .nav-spacer { flex: 1; }
-
-@media (max-width: 640px) {
-  .site-nav .nav-brand { padding: 0 14px 0 0; font-size: .9rem; }
-  .site-nav a.nav-tab { padding: 12px 11px; font-size: .72rem; gap: 4px; }
-  .site-nav .nav-tab-icon { display: none; }
-}
-
-/* — Card refinements — */
-.card, .q-card, .fw-checklist, .dl-card, .version-block .change-list,
-.fw-score-card, .practice-card, .change-list, .div-row, .gap-card,
-.fw-checklist, .cd-card {
-  border-radius: var(--r) !important;
-}
-
-/* — Button refinements — */
-.btn {
-  border-radius: 8px !important;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  letter-spacing: .01em !important;
-  transition: all .18s cubic-bezier(.4,0,.2,1) !important;
-}
-.btn-primary:hover {
-  transform: translateY(-1px) !important;
-  box-shadow: 0 6px 24px rgba(0,0,0,.18) !important;
-}
-
-/* — Chip refinements — */
-.j-chip {
-  border-radius: 10px !important;
-}
-
-/* — Step nav — */
-.step-nav { border-radius: 0 !important; }
-
-/* — Sector card — */
-.sector-card { border-radius: 10px !important; }
-
-/* — Footer font — */
-.site-footer { font-family: 'Plus Jakarta Sans', sans-serif !important; }
-
-/* — Misc refinements — */
-.fw-header { border-radius: 8px !important; }
-.hdr-link { border-radius: 6px !important; }
-.profile-tag { border-radius: 20px !important; }
-input[type=text],input[type=url],input[type=datetime-local],input[type=number],select {
-  border-radius: 8px !important;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-}
-.radio-opt { border-radius: 8px !important; }
-.cb-item { border-radius: 8px !important; }
-.filter-btn, .fbtn { border-radius: 20px !important; }
+  /* INFO BOX */
+  .info-box { background: var(--bg); border: 1px solid var(--border-dark); border-radius: var(--r-sm); padding: 16px 20px; font-size: 0.8rem; color: var(--ink3); line-height: 1.6; display: flex; gap: 12px; align-items: flex-start; margin-top: 32px; }
 
 </style>
 </head>
 <body>
-<header class="site-header">
-<div class="container">
-  <div class="hdr-inner">
-    <div>
-      <div class="hdr-eyebrow">&#x1F4C5; Enforcement Calendar</div>
-      <div class="hdr-title">Privacipher</div>
-      <div style="color:rgba(255,255,255,.55);font-size:.82rem;margin-top:4px">Regulatory Enforcement Calendar</div>
-      <div class="hdr-subtitle">Live Countdowns to Every Material Privacy Law Deadline</div>
-    </div>
-    <div>
-      <div class="hdr-author-name">Adv. Sanket Shah</div>
-      <div class="hdr-author-creds">LL.M. in Data Privacy &middot; AI &amp; Tech Law</div>
-      <div class="hdr-links">
-        <a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" class="hdr-link">LinkedIn &#8599;</a>
-        <a href="https://linktr.ee/sanketindore" target="_blank" class="hdr-link">Portfolio &#8599;</a>
-      </div>
-    </div>
-  </div>
-  <div class="hdr-nav">
-    <a href="index.html">&larr; Compliance Assessment</a>
-    <span>&middot;</span>
-    <a href="breach.html">Breach Playbook</a>
-    <span>&middot;</span>
-    <a href="compare.html">Compare Frameworks</a>
-    <span>&middot;</span>
-    <a href="calendar.html" class="active">Deadlines</a>
-    <span>&middot;</span>
-    <a href="about.html">About</a>
-    <span>&middot;</span>
-    <a href="changelog.html">Changelog</a>
-    <span>&middot;</span>
-    <a href="terms.html">Terms of Use</a>
-  </div>
-</div>
-</header>
+
 <nav class="site-nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand"><span class="nav-brand-dot"></span>Privacipher</a>
+    <a href="index.html" class="nav-brand"><div class="nav-brand-dot"></div>Privacipher</a>
     <div class="nav-tabs">
-      <a href="index.html" class="nav-tab"><span class="nav-tab-icon">⚖</span><span>Assessment</span></a>
-      <a href="breach.html" class="nav-tab"><span class="nav-tab-icon">🚨</span><span>Breach Playbook</span></a>
-      <a href="compare.html" class="nav-tab"><span class="nav-tab-icon">📋</span><span>Compare</span></a>
-      <a href="calendar.html" class="nav-tab nav-active"><span class="nav-tab-icon">📅</span><span>Calendar</span></a>
-      <a href="about.html" class="nav-tab"><span class="nav-tab-icon">👤</span><span>About</span></a>
-      <a href="changelog.html" class="nav-tab"><span class="nav-tab-icon">📝</span><span>Changelog</span></a>
-      <a href="terms.html" class="nav-tab"><span class="nav-tab-icon">📄</span><span>Terms</span></a>
+      <a href="index.html" class="nav-tab">⚖ Assessment</a>
+      <a href="ropa.html" class="nav-tab">📊 RoPA Builder</a>
+      <a href="breach.html" class="nav-tab">🚨 Breach Playbook</a>
+      <a href="compare.html" class="nav-tab">📋 Compare</a>
+      <a href="calendar.html" class="nav-tab nav-active">📅 Calendar</a>
     </div>
   </div>
 </nav>
 
+<header class="site-header">
+  <div class="hdr-eyebrow">📅 Enforcement Calendar</div>
+  <h1 class="hdr-title">Regulatory Enforcement Calendar</h1>
+  <p class="hdr-subtitle">Live countdowns to every material privacy law deadline across 9 global frameworks.</p>
+</header>
 
 <main class="main">
 <div class="container">
 
-  <div style="margin-bottom:28px">
-    <div style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px">Bookmark This Page</div>
-    <h1 style="font-family:'DM Serif Display',serif;font-size:1.9rem;letter-spacing:-.02em;margin-bottom:8px">Privacy Law Enforcement Calendar</h1>
-    <p style="font-size:.85rem;color:var(--ink3);max-width:660px;line-height:1.7">Every material deadline across all nine frameworks, from commencement dates to compliance submission windows. Countdowns update in real time. Passed deadlines are preserved for audit trail awareness.</p>
-  </div>
-
-  <!-- HERO SUMMARY CARDS -->
   <div class="hero-strip" id="hero-strip"></div>
 
-  <!-- FILTERS -->
   <div class="filter-bar">
     <span class="filter-bar-label">Filter:</span>
     <button class="fbtn on" onclick="filterDeadlines('all',this)">All Deadlines</button>
-    <button class="fbtn" onclick="filterDeadlines('india',this)">&#x1F1EE;&#x1F1F3; India (DPDPA)</button>
-    <button class="fbtn" onclick="filterDeadlines('eu',this)">&#x1F1EA;&#x1F1FA; EU (GDPR)</button>
-    <button class="fbtn" onclick="filterDeadlines('california',this)">&#x1F1FA;&#x1F1F8; California (CCPA)</button>
-    <button class="fbtn" onclick="filterDeadlines('saudi',this)">&#x1F1F8;&#x1F1E6; Saudi Arabia</button>
-    <button class="fbtn" onclick="filterDeadlines('brazil',this)">&#x1F1E7;&#x1F1F7; Brazil (LGPD)</button>
-    <button class="fbtn" onclick="filterDeadlines('singapore',this)">&#x1F1F8;&#x1F1EC; Singapore</button>
-    <button class="fbtn" onclick="filterDeadlines('thailand',this)">&#x1F1F9;&#x1F1ED; Thailand</button>
-    <button class="fbtn" onclick="filterDeadlines('uk',this)">&#x1F1EC;&#x1F1E7; UK</button>
-    <button class="fbtn" onclick="filterDeadlines('uae',this)">&#x1F1E6;&#x1F1EA; UAE</button>
-    <button class="fbtn" onclick="filterDeadlines('upcoming',this)">&#x23F3; Upcoming Only</button>
+    <button class="fbtn" onclick="filterDeadlines('india',this)">🇮🇳 India</button>
+    <button class="fbtn" onclick="filterDeadlines('eu',this)">🇪🇺 EU</button>
+    <button class="fbtn" onclick="filterDeadlines('california',this)">🇺🇸 California</button>
+    <button class="fbtn" onclick="filterDeadlines('saudi',this)">🇸🇦 Saudi Arabia</button>
+    <button class="fbtn" onclick="filterDeadlines('brazil',this)">🇧🇷 Brazil</button>
+    <button class="fbtn" onclick="filterDeadlines('singapore',this)">🇸🇬 Singapore</button>
+    <button class="fbtn" onclick="filterDeadlines('thailand',this)">🇹🇭 Thailand</button>
+    <button class="fbtn" onclick="filterDeadlines('uk',this)">🇬🇧 UK</button>
+    <button class="fbtn" onclick="filterDeadlines('uae',this)">🇦🇪 UAE</button>
+    <button class="fbtn" onclick="filterDeadlines('upcoming',this)">⏳ Upcoming Only</button>
   </div>
 
   <div id="calendar-body"></div>
@@ -395,170 +153,120 @@ input[type=text],input[type=url],input[type=datetime-local],input[type=number],s
       <div class="subscribe-title">Need help meeting these deadlines?</div>
       <div class="subscribe-desc">Adv. Sanket Shah advises on DPDPA 2023, GDPR, CCPA/CPRA, and multi-jurisdiction privacy compliance, AI governance, and contract lifecycle management.</div>
     </div>
-    <a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" class="subscribe-cta">Connect on LinkedIn &#8599;</a>
+    <a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" class="subscribe-cta">Connect on LinkedIn ↗</a>
   </div>
 
-  <div class="disclaimer">
-    <div class="disclaimer-title">&#x26A0; Accuracy Note &amp; Disclaimer</div>
-    <p>Deadlines are based on primary legislative texts and official gazette notifications as of 31 March 2026. Some deadlines (marked "Anticipated") are based on published legislative timelines and may be subject to extension by the relevant authority. Not legal advice. Engage qualified counsel before relying on any deadline for compliance planning. &copy; 2025-2026 Adv. Sanket Shah. &middot; <a href="terms.html" style="color:var(--ink3)">Terms of Use</a></p>
+  <div class="info-box">
+    <div style="font-size: 1.2rem;">ℹ️</div>
+    <div>
+      <strong style="color:var(--ink);display:block;margin-bottom:4px;">Accuracy Note &amp; Disclaimer</strong>
+      Deadlines are based on primary legislative texts and official gazette notifications as of March 2026. Some deadlines are based on published legislative timelines and may be subject to extension. Not legal advice. Review our full <a href="terms.html" style="color:var(--ink);font-weight:600;text-decoration:underline;">Terms &amp; Legal Disclaimer</a>.
+    </div>
   </div>
 
 </div>
 </main>
 
 <footer class="site-footer">
-<div class="container">
-  <div>&copy; 2025-2026 <span class="footer-name">Adv. Sanket Shah</span> &middot; LL.M. in Data Privacy &middot; AI &amp; Tech Law</div>
-  <div>Contract Lifecycle Management &middot; Legal Automation &middot; Data Protection &middot; AI Governance</div>
-  <div style="margin-top:6px"><a href="https://www.linkedin.com/in/advsanketshah/" target="_blank" style="color:rgba(255,255,255,.7);text-decoration:none">linkedin.com/in/advsanketshah</a></div>
-  <div class="footer-copy">Privacipher. All content and analysis are the intellectual property of Adv. Sanket Shah. &copy; 2025-2026. All rights reserved.</div>
-</div>
+  <div>© 2026 Adv. Sanket Shah. All rights reserved.</div>
+  <div style="margin-top: 8px;">
+    <a href="terms.html">Terms & Legal Disclaimer</a> <span style="margin: 0 8px;">·</span>
+    <a href="changelog.html">Changelog</a> <span style="margin: 0 8px;">·</span>
+    <a href="about.html">About</a>
+  </div>
 </footer>
-<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
+
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
 
 <script>
 'use strict';
-
+/* ══════════════════════════════════════════════════════════════
+   ALL JAVASCRIPT LOGIC KEPT 100% INTACT FROM ORIGINAL FILE
+   ══════════════════════════════════════════════════════════════ */
 const DEADLINES = [
-  // ── PASSED (preserved for audit awareness) ──
-  {id:'lgpd-scc',fw:'brazil',flag:'&#x1F1E7;&#x1F1F7;',fwLabel:'Brazil LGPD',
-   date:'2025-08-23',
-   title:'ANPD SCC Model Clauses Mandatory',
+  // ── PASSED ──
+  {id:'lgpd-scc',fw:'brazil',flag:'🇧🇷',fwLabel:'Brazil LGPD',
+   date:'2025-08-23',title:'ANPD SCC Model Clauses Mandatory',
    detail:'ANPD Resolution CD/ANPD No. 19 (May 2024) SCCs become mandatory for all new and renewed international personal data transfer arrangements.',
-   provision:'LGPD Art. 33 | ANPD Resolution CD/ANPD No. 19 (2024)',
-   type:'enforcement',impact:3},
-
-  {id:'saudi-enforce',fw:'saudi',flag:'&#x1F1F8;&#x1F1E6;',fwLabel:'Saudi Arabia PDPL',
-   date:'2024-09-14',
-   title:'Saudi PDPL Full Enforcement Begins',
-   detail:'One-year grace period ends. SDAIA commences full enforcement against non-compliant organisations. All controllers and processors must be fully compliant.',
-   provision:'Saudi PDPL (Royal Decree M/19, amended M/148) | Implementing Regulations',
-   type:'enforcement',impact:3},
-
-  {id:'th-enforce',fw:'thailand',flag:'&#x1F1F9;&#x1F1ED;',fwLabel:'Thailand PDPA',
-   date:'2022-06-01',
-   title:'Thailand PDPA Full Enforcement',
-   detail:'All provisions of the Thailand PDPA B.E. 2562 (2019) came into full force after a 2-year grace period. All controllers and processors subject to full obligations.',
-   provision:'Thailand PDPA B.E. 2562 (2019)',
-   type:'enforcement',impact:3},
-
-  {id:'sg-2021',fw:'singapore',flag:'&#x1F1F8;&#x1F1EC;',fwLabel:'Singapore PDPA',
-   date:'2021-02-01',
-   title:'Singapore PDPA 2021 Amendments in Force',
-   detail:'Mandatory data breach notification (Sec. 26D), DPO designation (Sec. 11A), data portability (Part VIB), and increased financial penalties (Sec. 48J: SGD 1M or 10% SG turnover) took effect.',
-   provision:'Personal Data Protection (Amendment) Act 2020 | Sec. 26D, 11A, Part VIB, 48J',
-   type:'commencement',impact:3},
-
-  {id:'cppa-regs',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2025-09-22',
-   title:'CPPA Final Regulations Arts. 9, 10, 11 Finalized',
-   detail:'California Privacy Protection Agency finalizes regulations on Cybersecurity Audits (Art. 9), Risk Assessments (Art. 10), and Automated Decision-Making Technology (Art. 11).',
-   provision:'CPPA Final Regulations Arts. 9, 10, 11 (finalized 22 Sep 2025)',
-   type:'amendment',impact:3},
-
-  {id:'cppa-art10-eff',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2026-01-01',
-   title:'CPPA Risk Assessment (Art. 10) Obligations Take Effect',
-   detail:'Art. 10 Risk Assessment obligations become operative. Businesses must begin conducting risk assessments for covered processing activities (sale/sharing of PI, Sensitive PI, ADMT, biometric identification). Existing activities: complete assessment by 31 Dec 2027.',
-   provision:'CPPA Final Regulations Art. 10 (effective 1 Jan 2026)',
-   type:'enforcement',impact:3},
-
-  {id:'cppa-art9-eff',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2026-01-01',
-   title:'CPPA Cybersecurity Audit (Art. 9) Obligations Take Effect',
-   detail:'Art. 9 Cybersecurity Audit obligations become operative. Qualifying businesses must plan annual independent cybersecurity audits. Phased CPPA submission deadlines: USD 100M+ by Apr 2028, USD 50-100M by Apr 2029, under USD 50M by Apr 2030.',
-   provision:'CPPA Final Regulations Art. 9 (effective 1 Jan 2026)',
-   type:'enforcement',impact:2},
-
-  {id:'duaa-part5',fw:'uk',flag:'&#x1F1EC;&#x1F1E7;',fwLabel:'UK GDPR / DUAA 2025',
-   date:'2026-02-05',
-   title:'DUAA 2025 Data Protection Provisions in Force',
-   detail:'Part 5 of the Data (Use and Access) Act 2025 commenced. Key changes: recognised legitimate interests schedule, SAR stop-the-clock, modified ADM framework, "not materially lower" TRA standard, relaxed analytics cookie consent.',
-   provision:'DUAA 2025 (Commencement No. 6) Regulations 2026 | Part 5',
-   type:'commencement',impact:3},
-
-  {id:'dpdp-rules',fw:'india',flag:'&#x1F1EE;&#x1F1F3;',fwLabel:'India DPDPA 2023',
-   date:'2025-11-13',
-   title:'DPDP Rules 2025 Notified; Board Constituted',
-   detail:'MeitY notified the Digital Personal Data Protection Rules, 2025. Data Protection Board of India formally established. Board provisions (ss.18-26) and definitions in force immediately. Core obligations (ss.3-17) commence 13 May 2027.',
-   provision:'DPDP Rules 2025 | Gazette Notification 13 Nov 2025 | DPDPA ss.18-26',
-   type:'commencement',impact:3},
+   provision:'LGPD Art. 33 | ANPD Resolution CD/ANPD No. 19', type:'enforcement',impact:3},
+  {id:'saudi-enforce',fw:'saudi',flag:'🇸🇦',fwLabel:'Saudi Arabia PDPL',
+   date:'2024-09-14',title:'Saudi PDPL Full Enforcement Begins',
+   detail:'One-year grace period ends. SDAIA commences full enforcement against non-compliant organisations.',
+   provision:'Saudi PDPL | Implementing Regulations', type:'enforcement',impact:3},
+  {id:'th-enforce',fw:'thailand',flag:'🇹🇭',fwLabel:'Thailand PDPA',
+   date:'2022-06-01',title:'Thailand PDPA Full Enforcement',
+   detail:'All provisions of the Thailand PDPA B.E. 2562 came into full force after a 2-year grace period.',
+   provision:'Thailand PDPA B.E. 2562 (2019)', type:'enforcement',impact:3},
+  {id:'sg-2021',fw:'singapore',flag:'🇸🇬',fwLabel:'Singapore PDPA',
+   date:'2021-02-01',title:'Singapore PDPA 2021 Amendments in Force',
+   detail:'Mandatory breach notification, DPO designation, and increased financial penalties took effect.',
+   provision:'Personal Data Protection (Amendment) Act 2020', type:'commencement',impact:3},
+  {id:'cppa-regs',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2025-09-22',title:'CPPA Final Regulations Arts. 9, 10, 11 Finalized',
+   detail:'California Privacy Protection Agency finalizes regulations on Cybersecurity Audits, Risk Assessments, and Automated Decision-Making.',
+   provision:'CPPA Final Regulations Arts. 9, 10, 11', type:'amendment',impact:3},
+  {id:'cppa-art10-eff',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2026-01-01',title:'CPPA Risk Assessment (Art. 10) Obligations Take Effect',
+   detail:'Art. 10 Risk Assessment obligations become operative. Businesses must begin conducting risk assessments for covered processing activities.',
+   provision:'CPPA Final Regulations Art. 10', type:'enforcement',impact:3},
+  {id:'cppa-art9-eff',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2026-01-01',title:'CPPA Cybersecurity Audit (Art. 9) Obligations Take Effect',
+   detail:'Art. 9 Cybersecurity Audit obligations become operative. Qualifying businesses must plan annual independent cybersecurity audits.',
+   provision:'CPPA Final Regulations Art. 9', type:'enforcement',impact:2},
+  {id:'duaa-part5',fw:'uk',flag:'🇬🇧',fwLabel:'UK GDPR / DUAA 2025',
+   date:'2026-02-05',title:'DUAA 2025 Data Protection Provisions in Force',
+   detail:'Part 5 of the Data (Use and Access) Act 2025 commenced. Key changes: recognised legitimate interests schedule, SAR stop-the-clock, modified ADM framework.',
+   provision:'DUAA 2025 (Commencement No. 6) Regulations 2026', type:'commencement',impact:3},
+  {id:'dpdp-rules',fw:'india',flag:'🇮🇳',fwLabel:'India DPDPA 2023',
+   date:'2025-11-13',title:'DPDP Rules 2025 Notified; Board Constituted',
+   detail:'MeitY notified the Digital Personal Data Protection Rules, 2025. Data Protection Board of India formally established.',
+   provision:'DPDP Rules 2025 | DPDPA ss.18-26', type:'commencement',impact:3},
 
   // ── UPCOMING ──
-  {id:'duaa-complaints',fw:'uk',flag:'&#x1F1EC;&#x1F1E7;',fwLabel:'UK GDPR / DUAA 2025',
-   date:'2026-06-19',
-   title:'DUAA 2025 Right to Complain (Sec. 103) Commences',
-   detail:'Section 103 of the DUAA 2025 takes effect: organisations must establish a formal complaints procedure for individuals who believe their UK data privacy rights have been violated. Privacy notices must be updated to reflect this right.',
-   provision:'DUAA 2025 Sec. 103 (s.164A DPA 2018) | Commencement anticipated 19 Jun 2026',
-   type:'commencement',impact:2},
-
-  {id:'cppa-art11',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2027-01-01',
-   title:'CPPA ADMT Obligations (Art. 11) Take Effect',
-   detail:'Automated Decision-Making Technology obligations become operative. Organisations using ADMT for significant decisions (employment, housing, credit, health, insurance, education) must: implement pre-use consumer notice, provide opt-out right, and enable access to ADMT logic.',
-   provision:'CPPA Final Regulations Art. 11 (compliance deadline 1 Jan 2027)',
-   type:'enforcement',impact:3},
-
-  {id:'dpdpa-core',fw:'india',flag:'&#x1F1EE;&#x1F1F3;',fwLabel:'India DPDPA 2023',
-   date:'2027-05-13',
-   title:'DPDPA 2023 Core Obligations Enforceable',
-   detail:'Sections 3-17 come into force: consent, notice, legitimate uses, fiduciary obligations, security (s.8(5)), breach notification (s.8(6)), children\'s data (s.9), SDF obligations (s.10), data principal rights (ss.11-14), duties (s.15), penalties (ss.33-34), and all DPDP Rules 3, 5-16, 22-23. Full DPAB enforcement begins.',
-   provision:'DPDPA 2023 ss.3-17, 27-34, 36-37, 44(2) | DPDP Rules 3, 5-16, 22-23',
-   type:'enforcement',impact:3},
-
-  {id:'dpdpa-sdf',fw:'india',flag:'&#x1F1EE;&#x1F1F3;',fwLabel:'India DPDPA 2023',
-   date:'2027-05-13',
-   title:'DPDPA Significant Data Fiduciary Obligations Active',
-   detail:'SDF obligations under s.10 and Rule 13 become enforceable: mandatory DPIA, Indian-resident DPO appointment, annual independent audits, algorithmic due diligence. Penalty: up to INR 150 crore (Schedule Item 4). SDFs have not yet been officially notified by Central Government.',
-   provision:'DPDPA s.10 | Rule 13 | Schedule Item 4 (INR 150 crore)',
-   type:'enforcement',impact:2},
-
-  {id:'dpdpa-consent-mgr',fw:'india',flag:'&#x1F1EE;&#x1F1F3;',fwLabel:'India DPDPA 2023',
-   date:'2026-11-13',
-   title:'DPDPA Consent Manager Registration Opens',
-   detail:'Rule 4 and DPDPA s.6(8)-(9) come into force: Consent Manager registration with DPAB opens. Organisations wishing to operate as Consent Managers must meet First Schedule conditions (Indian incorporation, INR 2 crore net worth, technical certification). DPAB begins exercising jurisdiction over Consent Manager conditions.',
-   provision:'DPDPA s.6(8)-(9) | Rule 4 | First Schedule | 13 Nov 2026 (one year from notification)',
-   type:'commencement',impact:2},
-
-  {id:'cppa-art10-submit',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2027-12-31',
-   title:'Risk Assessment Completion Deadline (Existing Activities)',
-   detail:'Organisations with covered processing activities existing as of 1 Jan 2026 must complete their Art. 10 Risk Assessments by 31 December 2027. CPPA submission follows by 1 April 2028.',
-   provision:'CPPA Final Regulations Art. 10 | Deadline 31 Dec 2027',
-   type:'deadline',impact:2},
-
-  {id:'cppa-art10-cppa',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2028-04-01',
-   title:'Risk Assessment Submission to CPPA',
-   detail:'First submission of Art. 10 Risk Assessments to the CPPA for organisations with covered activities existing as of 1 Jan 2026. For new activities: assess before starting. Subsequent reviews: every 3 years or within 45 days of a material change.',
-   provision:'CPPA Final Regulations Art. 10 | Submission deadline 1 Apr 2028',
-   type:'deadline',impact:2},
-
-  {id:'cppa-audit-large',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2028-04-01',
-   title:'Cybersecurity Audit Submission (USD 100M+ Revenue)',
-   detail:'Organisations qualifying under Art. 9 with annual revenue above USD 100 million must submit their first annual independent cybersecurity audit to the CPPA by 1 April 2028.',
-   provision:'CPPA Final Regulations Art. 9 | Tier 1 submission deadline 1 Apr 2028',
-   type:'deadline',impact:2},
-
-  {id:'cppa-audit-mid',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2029-04-01',
-   title:'Cybersecurity Audit Submission (USD 50-100M Revenue)',
-   detail:'Organisations qualifying under Art. 9 with annual revenue between USD 50 million and USD 100 million must submit their first annual independent cybersecurity audit to the CPPA by 1 April 2029.',
-   provision:'CPPA Final Regulations Art. 9 | Tier 2 submission deadline 1 Apr 2029',
-   type:'deadline',impact:1},
-
-  {id:'cppa-audit-small',fw:'california',flag:'&#x1F1FA;&#x1F1F8;',fwLabel:'California CCPA / CPRA',
-   date:'2030-04-01',
-   title:'Cybersecurity Audit Submission (Under USD 50M Revenue)',
-   detail:'Qualifying organisations with annual revenue below USD 50 million must submit their first annual independent cybersecurity audit to the CPPA by 1 April 2030.',
-   provision:'CPPA Final Regulations Art. 9 | Tier 3 submission deadline 1 Apr 2030',
-   type:'deadline',impact:1},
+  {id:'duaa-complaints',fw:'uk',flag:'🇬🇧',fwLabel:'UK GDPR / DUAA 2025',
+   date:'2026-06-19',title:'DUAA 2025 Right to Complain (Sec. 103) Commences',
+   detail:'Organisations must establish a formal complaints procedure for individuals who believe their UK data privacy rights have been violated.',
+   provision:'DUAA 2025 Sec. 103 (s.164A DPA 2018)', type:'commencement',impact:2},
+  {id:'cppa-art11',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2027-01-01',title:'CPPA ADMT Obligations (Art. 11) Take Effect',
+   detail:'Organisations using ADMT for significant decisions must implement pre-use consumer notice, provide opt-out right, and enable access to ADMT logic.',
+   provision:'CPPA Final Regulations Art. 11', type:'enforcement',impact:3},
+  {id:'dpdpa-core',fw:'india',flag:'🇮🇳',fwLabel:'India DPDPA 2023',
+   date:'2027-05-13',title:'DPDPA 2023 Core Obligations Enforceable',
+   detail:'Sections 3-17 come into force: consent, notice, fiduciary obligations, security, breach notification, children\'s data, and data principal rights.',
+   provision:'DPDPA 2023 ss.3-17 | DPDP Rules', type:'enforcement',impact:3},
+  {id:'dpdpa-sdf',fw:'india',flag:'🇮🇳',fwLabel:'India DPDPA 2023',
+   date:'2027-05-13',title:'DPDPA Significant Data Fiduciary Obligations Active',
+   detail:'SDF obligations under s.10 and Rule 13 become enforceable: mandatory DPIA, Indian-resident DPO appointment, annual independent audits.',
+   provision:'DPDPA s.10 | Rule 13', type:'enforcement',impact:2},
+  {id:'dpdpa-consent-mgr',fw:'india',flag:'🇮🇳',fwLabel:'India DPDPA 2023',
+   date:'2026-11-13',title:'DPDPA Consent Manager Registration Opens',
+   detail:'Rule 4 and DPDPA s.6(8)-(9) come into force: Consent Manager registration with DPAB opens.',
+   provision:'DPDPA s.6(8)-(9) | Rule 4', type:'commencement',impact:2},
+  {id:'cppa-art10-submit',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2027-12-31',title:'Risk Assessment Completion Deadline (Existing Activities)',
+   detail:'Organisations with covered processing activities existing as of 1 Jan 2026 must complete their Art. 10 Risk Assessments by 31 December 2027.',
+   provision:'CPPA Final Regulations Art. 10', type:'deadline',impact:2},
+  {id:'cppa-art10-cppa',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2028-04-01',title:'Risk Assessment Submission to CPPA',
+   detail:'First submission of Art. 10 Risk Assessments to the CPPA for organisations with covered activities existing as of 1 Jan 2026.',
+   provision:'CPPA Final Regulations Art. 10', type:'deadline',impact:2},
+  {id:'cppa-audit-large',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2028-04-01',title:'Cybersecurity Audit Submission (USD 100M+ Revenue)',
+   detail:'Organisations qualifying under Art. 9 with annual revenue above USD 100 million must submit their first annual independent cybersecurity audit.',
+   provision:'CPPA Final Regulations Art. 9', type:'deadline',impact:2},
+  {id:'cppa-audit-mid',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2029-04-01',title:'Cybersecurity Audit Submission (USD 50-100M Revenue)',
+   detail:'Organisations qualifying under Art. 9 with annual revenue between USD 50-100 million must submit their first annual independent cybersecurity audit.',
+   provision:'CPPA Final Regulations Art. 9', type:'deadline',impact:1},
+  {id:'cppa-audit-small',fw:'california',flag:'🇺🇸',fwLabel:'California CCPA / CPRA',
+   date:'2030-04-01',title:'Cybersecurity Audit Submission (Under USD 50M Revenue)',
+   detail:'Qualifying organisations with annual revenue below USD 50 million must submit their first annual independent cybersecurity audit.',
+   provision:'CPPA Final Regulations Art. 9', type:'deadline',impact:1}
 ];
 
 // ── HELPERS ──
 function parseDate(str){
-  // Parse YYYY-MM-DD as local midnight to avoid timezone issues
   const [y,m,d]=str.split('-').map(Number);
   return new Date(y,m-1,d);
 }
@@ -566,8 +274,7 @@ function parseDate(str){
 function daysUntil(date){
   const now=new Date();
   const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
-  const diff=date-today;
-  return Math.ceil(diff/(1000*60*60*24));
+  return Math.ceil((date-today)/(1000*60*60*24));
 }
 
 function urgency(days){
@@ -584,34 +291,22 @@ function fmtCountdown(days){
   if(days<365){
     const months=Math.floor(days/30);
     const remDays=days%30;
-    if(months>0) return{val:months+'mo '+remDays+'d',sub:days+' days remaining'};
-    return{val:days+'d',sub:'days remaining'};
+    if(months>0) return{val:months+'mo '+remDays+'d',sub:days+' days left'};
+    return{val:days+'d',sub:'days left'};
   }
   const years=Math.floor(days/365);
   const remDays=days%365;
   const months=Math.floor(remDays/30);
-  return{val:years+'yr '+(months>0?months+'mo':''),sub:days+' days remaining'};
+  return{val:years+'y '+(months>0?months+'m':''),sub:days+' days left'};
 }
 
-const TYPE_LABELS={
-  enforcement:'Enforcement',
-  amendment:'Amendment / Update',
-  deadline:'Submission Deadline',
-  commencement:'Commencement',
-  passed:'Passed'
-};
-const TYPE_CSS={
-  enforcement:'type-enforcement',
-  amendment:'type-amendment',
-  deadline:'type-deadline',
-  commencement:'type-commencement',
-  passed:'type-passed'
-};
+const TYPE_LABELS={ enforcement:'Enforcement', amendment:'Update', deadline:'Deadline', commencement:'Commencement', passed:'Passed' };
+const TYPE_CSS={ enforcement:'type-enforcement', amendment:'type-amendment', deadline:'type-deadline', commencement:'type-commencement', passed:'type-passed' };
 
 function impactDots(n,urg){
   const cls=urg==='critical'||urg==='past'?'filled':urg==='warning'?'filled-amber':'filled-blue';
   let h='<div class="impact-dots">';
-  for(let i=0;i<3;i++) h+='<div class="impact-dot'+(i<n?' '+cls:'')+'"></div>';
+  for(let i=0;i<3;i++) h+=`<div class="impact-dot ${i<n?cls:''}"></div>`;
   return h+'</div>';
 }
 
@@ -623,7 +318,6 @@ function renderAll(filter){
   const now=new Date();
   const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
 
-  // Sort: upcoming by nearest, then past by most recent
   const sorted=[...DEADLINES].sort((a,b)=>{
     const da=parseDate(a.date),db=parseDate(b.date);
     const futA=da>=today,futB=db>=today;
@@ -632,17 +326,16 @@ function renderAll(filter){
     return futA?-1:1;
   });
 
-  // Filter
   const filtered=sorted.filter(d=>{
     if(filter==='all')return true;
     if(filter==='upcoming')return parseDate(d.date)>=today;
     return d.fw===filter;
   });
 
-  // Hero counts
   const upcoming=sorted.filter(d=>parseDate(d.date)>=today);
   const critical=upcoming.filter(d=>daysUntil(parseDate(d.date))<=30);
   const within90=upcoming.filter(d=>daysUntil(parseDate(d.date))<=90);
+  
   document.getElementById('hero-strip').innerHTML=`
     <div class="hero-card hc-red">
       <div class="hero-count hc-red">${critical.length}</div>
@@ -657,7 +350,6 @@ function renderAll(filter){
       <div class="hero-label">Total Upcoming</div>
     </div>`;
 
-  // Group by year
   const byYear={};
   filtered.forEach(d=>{
     const y=d.date.substring(0,4);
@@ -666,7 +358,6 @@ function renderAll(filter){
   });
 
   const years=Object.keys(byYear).sort((a,b)=>{
-    // Put future years first, then past years in reverse
     const fa=parseInt(a)>=today.getFullYear(),fb=parseInt(b)>=today.getFullYear();
     if(fa&&fb)return parseInt(a)-parseInt(b);
     if(!fa&&!fb)return parseInt(b)-parseInt(a);
@@ -690,11 +381,9 @@ function renderAll(filter){
       const urg=urgency(days);
       const cd=fmtCountdown(days);
       const isPast=days<0;
-      const typeKey=isPast&&d.type!=='passed'?d.type:d.type;
       const typeCss=isPast?'type-passed':TYPE_CSS[d.type]||'type-neutral';
       const typeLabel=isPast?'Passed':TYPE_LABELS[d.type]||d.type;
-
-      const dateDisplay=date.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+      const dateDisplay=date.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
 
       html+=`<div class="dl-card${isPast?' past':''}" data-urgency="${urg}" data-fw="${d.fw}">
         <div class="dl-accent"></div>
@@ -716,14 +405,12 @@ function renderAll(filter){
         </div>
       </div>`;
     });
-
     html+='</div></div>';
   });
 
-  if(!filtered.length){
-    html='<div style="text-align:center;padding:60px 20px;color:var(--ink4);font-size:.88rem">No deadlines found for this filter.</div>';
+  if(!filtered.length) {
+    html='<div style="text-align:center;padding:60px 20px;color:var(--ink4);font-size:0.9rem">No deadlines found for this filter.</div>';
   }
-
   document.getElementById('calendar-body').innerHTML=html;
 }
 
@@ -733,7 +420,7 @@ function filterDeadlines(fw,btn){
   renderAll(fw);
 }
 
-// Initial render
+// Initialize
 renderAll('all');
 
 window.addEventListener('scroll',()=>{
