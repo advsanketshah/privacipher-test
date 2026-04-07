@@ -9,18 +9,15 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-  /* ─── PAGE-SPECIFIC STYLES (ROPA BUILDER) ─── */
   .site-header { padding: 48px 24px; text-align: center; border-bottom: 1px solid var(--border); background: var(--white); }
   .hdr-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 12px; background: var(--bg); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
   .hdr-title { font-size: 2.5rem; margin-bottom: 12px; }
-  .hdr-subtitle { font-size: 1rem; color: var(--ink3); max-width: 600px; margin: 0 auto; }
 
   .sec-header { margin-bottom: 32px; }
   .sec-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink4); margin-bottom: 8px; }
   .sec-title { font-size: 2rem; margin-bottom: 8px; }
   .sec-desc { color: var(--ink3); font-size: 0.95rem; max-width: 650px; }
 
-  /* FORMS */
   .field { margin-bottom: 20px; }
   .field-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
   .field-hint { font-size: 0.75rem; color: var(--ink4); margin-bottom: 8px; margin-top: 4px; line-height: 1.5; }
@@ -28,7 +25,6 @@
   @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
   .grid-full { grid-column: 1 / -1; }
 
-  /* TABLE */
   .table-responsive { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--white); box-shadow: var(--shadow-sm); }
   table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; min-width: 900px; }
   th, td { border-bottom: 1px solid var(--border); padding: 14px 16px; vertical-align: top; line-height: 1.5; }
@@ -39,14 +35,12 @@
   
   .badge { display: inline-block; background: var(--bg); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; color: var(--ink3); border: 1px solid var(--border-dark); white-space: nowrap; }
 
-  /* MODAL */
   .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 24px; }
   .modal { background: var(--white); width: 100%; max-width: 800px; max-height: 90vh; border-radius: var(--r); overflow-y: auto; padding: 36px; position: relative; box-shadow: var(--shadow-lg); animation: slideUp 0.3s ease; }
   @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .modal-close { position: absolute; top: 24px; right: 24px; background: var(--bg); border: 1px solid var(--border-dark); width: 32px; height: 32px; border-radius: 50%; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink3); transition: all 0.2s; line-height: 1; padding-bottom: 2px; }
   .modal-close:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
 
-  /* INFO BOX */
   .info-box { background: var(--bg); border: 1px solid var(--border-dark); border-radius: var(--r-sm); padding: 16px 20px; font-size: 0.8rem; color: var(--ink3); line-height: 1.6; display: flex; gap: 12px; align-items: flex-start; margin-top: 32px; }
 </style>
 </head>
@@ -57,8 +51,10 @@
     <a href="index.html" class="nav-brand"><div class="nav-brand-dot"></div>Privacipher</a>
     <div class="nav-tabs">
       <a href="index.html" class="nav-tab">⚖ Assessment</a>
-      <a href="ropa.html" class="nav-tab nav-active">📊 RoPA Builder</a>
-      <a href="breach.html" class="nav-tab">🚨 Breach Playbook</a>
+      <a href="ropa.html" class="nav-tab nav-active">📊 RoPA</a>
+      <a href="breach.html" class="nav-tab">🚨 Breach</a>
+      <a href="cookie-auditor.html" class="nav-tab">🍪 Cookies</a>
+      <a href="ai-vendor.html" class="nav-tab">🤖 AI Vendor</a>
       <a href="compare.html" class="nav-tab">📋 Compare</a>
       <a href="calendar.html" class="nav-tab">📅 Calendar</a>
       <a href="about.html" class="nav-tab">👤 About</a>
@@ -71,7 +67,6 @@
 <header class="site-header">
   <div class="hdr-eyebrow">📊 Documentation</div>
   <h1 class="hdr-title">Record of Processing Activities (RoPA)</h1>
-  <p class="hdr-subtitle">Generate an audit-ready data map aligned with GDPR Art. 30 and global frameworks.</p>
 </header>
 
 <main class="main">
@@ -80,7 +75,6 @@
   <div class="sec-header">
     <div class="sec-eyebrow">Step 1 of 2</div>
     <h2 class="sec-title">Controller Details</h2>
-    <p class="sec-desc">Enter your organisation's details to anchor the document. This data will appear in the header of your exported CSV.</p>
   </div>
 
   <div class="card">
@@ -101,7 +95,6 @@
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
       <div>
         <h2 class="sec-title" style="margin-bottom: 8px; border-bottom: none; padding-bottom: 0;">Processing Log</h2>
-        <p class="sec-desc" style="margin-bottom:0;">Add individual processing activities to build out your data map.</p>
       </div>
       <div style="display: flex; gap: 12px;">
         <button class="btn btn-outline" onclick="exportToCSV()">↓ Export CSV</button>
@@ -133,14 +126,6 @@
     </table>
   </div>
 
-  <div class="info-box">
-    <div style="font-size: 1.2rem;">ℹ️</div>
-    <div>
-      <strong style="color:var(--ink);display:block;margin-bottom:4px;">Why do I need this?</strong>
-      A Record of Processing Activities (RoPA) is a mandatory requirement under GDPR Article 30 for most organisations, and serves as the foundational document for compliance under the DPDPA, CCPA, and other global frameworks. It demonstrates accountability and is typically the first document requested by regulators during an audit.
-    </div>
-  </div>
-
 </div>
 </main>
 
@@ -152,12 +137,10 @@
     
     <form id="activityForm" onsubmit="saveActivity(event)">
       <div class="grid-2">
-        
         <div class="field">
           <label class="field-label">Business Function / Dept.</label>
-          <input type="text" id="bizFunction" required placeholder="e.g., Human Resources, Marketing">
+          <input type="text" id="bizFunction" required placeholder="e.g., Human Resources">
         </div>
-        
         <div class="field">
           <label class="field-label">Lawful Basis</label>
           <select id="lawfulBasis" required>
@@ -166,53 +149,36 @@
             <option value="Contract Performance">Contract Performance</option>
             <option value="Legal Obligation">Legal Obligation</option>
             <option value="Legitimate Interests">Legitimate Interests</option>
-            <option value="Vital Interests">Vital Interests</option>
-            <option value="Public Task">Public Task</option>
           </select>
         </div>
-
         <div class="field grid-full">
           <label class="field-label">Purpose of Processing</label>
-          <div class="field-hint">Why are you using the personal data? Be specific.</div>
           <input type="text" id="purpose" required placeholder="e.g., To manage employee payroll and tax obligations">
         </div>
-
         <div class="field">
           <label class="field-label">Data Subjects</label>
-          <div class="field-hint">Who does the data belong to?</div>
-          <input type="text" id="dataSubjects" required placeholder="e.g., Employees, Prospects, Customers">
+          <input type="text" id="dataSubjects" required placeholder="e.g., Employees, Customers">
         </div>
-
         <div class="field">
           <label class="field-label">Categories of Personal Data</label>
-          <div class="field-hint">What type of data is being collected?</div>
           <input type="text" id="dataCategories" required placeholder="e.g., Contact details, Financial data">
         </div>
-
         <div class="field grid-full">
           <label class="field-label">Recipients & Third Parties</label>
-          <div class="field-hint">Who is the data shared with? Include SaaS tools and cloud providers.</div>
           <input type="text" id="recipients" required placeholder="e.g., AWS (Hosting), Stripe (Payments)">
         </div>
-
         <div class="field">
           <label class="field-label">Intl. Transfers & Safeguards</label>
-          <div class="field-hint">Are data transferred cross-border? If yes, list safeguards.</div>
           <input type="text" id="transfers" value="N/A" placeholder="e.g., USA via SCCs">
         </div>
-
         <div class="field">
           <label class="field-label">Retention Schedule</label>
-          <div class="field-hint">How long is data kept?</div>
           <input type="text" id="retention" required placeholder="e.g., 7 years post-employment">
         </div>
-
         <div class="field grid-full" style="margin-bottom:0">
           <label class="field-label">Technical & Org. Measures (TOMs)</label>
-          <div class="field-hint">What security protects this flow?</div>
           <input type="text" id="toms" required placeholder="e.g., AES-256 Encryption, RBAC, MFA">
         </div>
-
       </div>
       <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 12px;">
         <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
@@ -225,104 +191,45 @@
 <footer class="site-footer">
   <div>© 2026 Adv. Sanket Shah. All rights reserved.</div>
   <div style="margin-top: 8px;">
-    <a href="terms.html">Terms & Legal Disclaimer</a> <span style="margin: 0 8px;">·</span>
-    <a href="changelog.html">Changelog</a> <span style="margin: 0 8px;">·</span>
+    <a href="terms.html">Terms & Legal Disclaimer</a> · 
     <a href="about.html">About</a>
   </div>
 </footer>
 
 <script>
   'use strict';
-  
   let activities = [];
-
-  function openModal() {
-    document.getElementById('activityForm').reset();
-    document.getElementById('activityModal').style.display = 'flex';
-  }
-
-  function closeModal() {
-    document.getElementById('activityModal').style.display = 'none';
-  }
-
+  function openModal() { document.getElementById('activityForm').reset(); document.getElementById('activityModal').style.display = 'flex'; }
+  function closeModal() { document.getElementById('activityModal').style.display = 'none'; }
   function saveActivity(e) {
     e.preventDefault();
-    const activity = {
-      id: Date.now(),
-      bizFunction: document.getElementById('bizFunction').value.trim(),
-      purpose: document.getElementById('purpose').value.trim(),
-      dataSubjects: document.getElementById('dataSubjects').value.trim(),
-      dataCategories: document.getElementById('dataCategories').value.trim(),
-      lawfulBasis: document.getElementById('lawfulBasis').value,
-      recipients: document.getElementById('recipients').value.trim(),
-      transfers: document.getElementById('transfers').value.trim(),
-      retention: document.getElementById('retention').value.trim(),
-      toms: document.getElementById('toms').value.trim()
-    };
-    activities.push(activity);
-    renderTable();
-    closeModal();
+    const activity = { id: Date.now(), bizFunction: document.getElementById('bizFunction').value.trim(), purpose: document.getElementById('purpose').value.trim(), dataSubjects: document.getElementById('dataSubjects').value.trim(), dataCategories: document.getElementById('dataCategories').value.trim(), lawfulBasis: document.getElementById('lawfulBasis').value, recipients: document.getElementById('recipients').value.trim(), transfers: document.getElementById('transfers').value.trim(), retention: document.getElementById('retention').value.trim(), toms: document.getElementById('toms').value.trim() };
+    activities.push(activity); renderTable(); closeModal();
   }
-
-  function deleteActivity(id) {
-    activities = activities.filter(a => a.id !== id);
-    renderTable();
-  }
-
+  function deleteActivity(id) { activities = activities.filter(a => a.id !== id); renderTable(); }
   function renderTable() {
     const tbody = document.getElementById('ropaBody');
-    if (activities.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 48px 20px; color: var(--ink4); font-style: italic; background: #FAFAFA;">No processing activities added yet.<br>Click the <strong>"+ Add Activity"</strong> button above to begin mapping your data.</td></tr>`;
-      return;
-    }
-    
+    if (activities.length === 0) { tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 48px 20px; color: var(--ink4); font-style: italic; background: #FAFAFA;">No processing activities added yet.</td></tr>`; return; }
     tbody.innerHTML = '';
     activities.forEach(a => {
       const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td><strong style="color:var(--ink)">${a.bizFunction}</strong></td>
-        <td>${a.purpose}</td>
-        <td>${a.dataSubjects}</td>
-        <td>${a.dataCategories}</td>
-        <td><span class="badge">${a.lawfulBasis}</span></td>
-        <td>${a.retention}</td>
-        <td><button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.75rem; color: var(--red); border-color: var(--red-border);" onclick="deleteActivity(${a.id})">Remove</button></td>
-      `;
+      tr.innerHTML = `<td><strong style="color:var(--ink)">${a.bizFunction}</strong></td><td>${a.purpose}</td><td>${a.dataSubjects}</td><td>${a.dataCategories}</td><td><span class="badge">${a.lawfulBasis}</span></td><td>${a.retention}</td><td><button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.75rem; color: var(--red); border-color: var(--red-border);" onclick="deleteActivity(${a.id})">Remove</button></td>`;
       tbody.appendChild(tr);
     });
   }
-
-  function escapeCSV(str) {
-    if (str == null) return '""';
-    return `"${str.toString().replace(/"/g, '""')}"`;
-  }
-
+  function escapeCSV(str) { if (str == null) return '""'; return `"${str.toString().replace(/"/g, '""')}"`; }
   function exportToCSV() {
-    if (activities.length === 0) { 
-      alert("No activities to export. Please add an activity first."); 
-      return; 
-    }
-    
+    if (activities.length === 0) { alert("No activities to export."); return; }
     const org = document.getElementById('orgName').value || 'Unspecified Organization';
     const dpo = document.getElementById('dpoDetails').value || 'Unspecified DPO';
-    
     let csv = "Record of Processing Activities (RoPA) - Article 30 Documentation\n";
-    csv += `Organization (Controller):,${escapeCSV(org)}\n`;
-    csv += `DPO / Privacy Lead:,${escapeCSV(dpo)}\n`;
-    csv += `Generated On:,${new Date().toISOString().split('T')[0]}\n\n`;
-    
+    csv += `Organization (Controller):,${escapeCSV(org)}\nDPO / Privacy Lead:,${escapeCSV(dpo)}\nGenerated On:,${new Date().toISOString().split('T')[0]}\n\n`;
     csv += "Business Function,Purpose of Processing,Data Subjects,Data Categories,Lawful Basis,Recipients,International Transfers,Retention,TOMs\n";
-    
-    activities.forEach(a => {
-      csv += `${escapeCSV(a.bizFunction)},${escapeCSV(a.purpose)},${escapeCSV(a.dataSubjects)},${escapeCSV(a.dataCategories)},${escapeCSV(a.lawfulBasis)},${escapeCSV(a.recipients)},${escapeCSV(a.transfers)},${escapeCSV(a.retention)},${escapeCSV(a.toms)}\n`;
-    });
-    
+    activities.forEach(a => { csv += `${escapeCSV(a.bizFunction)},${escapeCSV(a.purpose)},${escapeCSV(a.dataSubjects)},${escapeCSV(a.dataCategories)},${escapeCSV(a.lawfulBasis)},${escapeCSV(a.recipients)},${escapeCSV(a.transfers)},${escapeCSV(a.retention)},${escapeCSV(a.toms)}\n`; });
     const link = document.createElement("a");
     link.href = encodeURI("data:text/csv;charset=utf-8," + csv);
     link.download = `RoPA_${org.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.csv`;
-    document.body.appendChild(link); 
-    link.click(); 
-    document.body.removeChild(link);
+    document.body.appendChild(link); link.click(); document.body.removeChild(link);
   }
 </script>
 </body>
