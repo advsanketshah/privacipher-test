@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Consent Auditor · Privacipher</title>
+<meta name="description" content="Audit your website's cookie consent banner for compliance with GDPR Dark Patterns, ePrivacy, CCPA/CPRA GPC signals, and DPDPA.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .site-header { padding: 48px 24px; text-align: center; border-bottom: 1px solid var(--border); background: var(--white); }
+  .hdr-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 12px; background: var(--bg); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
+  .hdr-title { font-size: 2.5rem; margin-bottom: 12px; }
+  .hdr-subtitle { font-size: 1rem; color: var(--ink3); max-width: 600px; margin: 0 auto; }
+  .sec-header { margin-bottom: 32px; }
+  .sec-title { font-size: 1.8rem; margin-bottom: 8px; }
+  
+  .field { margin-bottom: 20px; }
+  .field-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .checkbox-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .j-chip { display: flex; align-items: center; gap: 10px; background: var(--bg); border: 1px solid var(--border-dark); border-radius: var(--r); padding: 14px 20px; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; font-weight: 500; user-select: none; }
+  .j-chip:hover { border-color: var(--ink); background: var(--white); }
+  .j-chip.sel { border-color: var(--ink); background: var(--ink); color: var(--white); box-shadow: var(--shadow); }
+  .j-chip input { display: none; }
+
+  .audit-step { display: none; animation: fadeUp 0.3s ease; }
+  .audit-step.active { display: block; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .q-card { padding: 24px; margin-bottom: 16px; border-left: 4px solid var(--border-dark); }
+  .q-card.answered-pass { border-left-color: var(--green); background: var(--green-bg); }
+  .q-card.answered-fail { border-left-color: var(--red); background: var(--red-bg); }
+  .q-text { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+  .q-ref { font-size: 0.7rem; font-family: monospace; background: var(--white); border: 1px solid var(--border-dark); border-radius: 4px; padding: 2px 8px; color: var(--ink3); font-weight: 600; display: inline-block; margin-bottom: 16px; }
+  
+  .btn-choice { display: inline-flex; align-items: center; justify-content: center; width: 120px; padding: 10px; border-radius: var(--r-sm); font-weight: 600; cursor: pointer; border: 1px solid var(--border-dark); background: var(--white); transition: all 0.2s; }
+  .btn-choice.pass:hover { border-color: var(--green); color: var(--green); }
+  .btn-choice.fail:hover { border-color: var(--red); color: var(--red); }
+  .btn-choice.sel-pass { background: var(--green); color: white; border-color: var(--green); }
+  .btn-choice.sel-fail { background: var(--red); color: white; border-color: var(--red); }
+
+  .results-box { background: var(--white); border: 2px solid var(--ink); border-radius: var(--r); padding: 32px; text-align: center; margin-bottom: 24px; box-shadow: var(--shadow-lg); }
+  .results-score { font-size: 3.5rem; font-weight: 700; line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em; }
+  
+  .gap-card { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; padding: 20px; border: 1px solid var(--border); border-radius: var(--r); background: var(--white); margin-bottom: 12px; }
+  .risk-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 4px; padding: 4px 10px; white-space: nowrap; }
+  .risk-badge.Critical { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .risk-badge.High { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .risk-badge.Medium { background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
+  .gap-remedy { font-size: 0.85rem; color: var(--ink2); line-height: 1.6; padding: 12px 16px; background: var(--bg); border-radius: var(--r-sm); border-left: 3px solid var(--ink); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><div class="nav-brand-dot"></div>Privacipher</a>
+    <div class="nav-tabs">
+      <a href="index.html" class="nav-tab">⚖ Assessment</a>
+      <a href="ropa.html" class="nav-tab">📊 RoPA</a>
+      <a href="breach.html" class="nav-tab">🚨 Breach</a>
+      <a href="cookie-auditor.html" class="nav-tab nav-active">🍪 Cookies</a>
+      <a href="ai-vendor.html" class="nav-tab">🤖 AI Vendor</a>
+      <a href="compare.html" class="nav-tab">📋 Compare</a>
+      <a href="calendar.html" class="nav-tab">📅 Calendar</a>
+      <a href="about.html" class="nav-tab">👤 About</a>
+      <a href="changelog.html" class="nav-tab">📝 Changelog</a>
+      <a href="terms.html" class="nav-tab">📄 Terms</a>
+    </div>
+  </div>
+</nav>
+
+<header class="site-header">
+  <div class="hdr-eyebrow">🍪 Technical Compliance</div>
+  <h1 class="hdr-title">Cookie Consent Auditor</h1>
+  <p class="hdr-subtitle">Evaluate your website's tracking setup against EDPB Dark Pattern guidelines, CPRA, and DPDPA 2023.</p>
+</header>
+
+<main class="main">
+<div class="container-wide">
+
+  <div id="step-1" class="audit-step active">
+    <div class="card">
+      <h2 class="sec-title" style="font-size: 1.5rem;">1. Target Jurisdictions</h2>
+      <p style="color: var(--ink3); font-size: 0.9rem; margin-bottom: 20px;">Select the jurisdictions where your website visitors reside to load the correct legal criteria.</p>
+      
+      <div class="field">
+        <label class="field-label">Website URL being audited</label>
+        <input type="url" id="target-url" placeholder="https://www.example.com">
+      </div>
+
+      <div class="checkbox-grid">
+        <label class="j-chip" id="chip-eu"><input type="checkbox" id="j-eu" value="eu"><span class="j-flag">🇪🇺</span><div><div class="j-name">EU / UK</div><div class="j-sub">GDPR & ePrivacy</div></div></label>
+        <label class="j-chip" id="chip-ca"><input type="checkbox" id="j-ca" value="ca"><span class="j-flag">🇺🇸</span><div><div class="j-name">California</div><div class="j-sub">CCPA / CPRA</div></div></label>
+        <label class="j-chip" id="chip-in"><input type="checkbox" id="j-in" value="in"><span class="j-flag">🇮🇳</span><div><div class="j-name">India</div><div class="j-sub">DPDPA 2023</div></div></label>
+      </div>
+
+      <div style="margin-top: 32px; text-align: right;">
+        <button class="btn btn-primary" onclick="startAudit()">Generate Audit Checklist →</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="step-2" class="audit-step">
+    <div class="sec-header">
+      <h2 class="sec-title">2. Execute Audit</h2>
+      <p style="color: var(--ink3); font-size: 0.9rem;">Open <strong id="display-url">your website</strong> in an Incognito/Private window. Evaluate the banner against these strict legal criteria.</p>
+    </div>
+    
+    <div id="checklist-container"></div>
+
+    <div style="margin-top: 32px; display: flex; justify-content: space-between;">
+      <button class="btn btn-outline" onclick="location.reload()">← Back</button>
+      <button class="btn btn-primary" onclick="generateReport()">Calculate Compliance Score →</button>
+    </div>
+  </div>
+
+  <div id="step-3" class="audit-step">
+    <div class="results-box">
+      <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink4); margin-bottom: 8px;">Banner Compliance Score</div>
+      <div class="results-score" id="final-score">0%</div>
+      <div id="final-verdict" style="font-size: 1.1rem; font-weight: 600;"></div>
+    </div>
+
+    <h2 class="sec-title" style="font-size: 1.5rem; margin-top: 48px;">Identified Risks & Remediation</h2>
+    <div id="gaps-container"></div>
+    
+    <div style="margin-top: 48px; text-align: center;">
+      <button class="btn btn-outline" onclick="location.reload()">Run Another Audit</button>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script>
+  const AUDIT_CRITERIA = [
+    { id: 'pre_load', fws: ['eu', 'in'], risk: 'Critical',
+      q: 'Are all non-essential cookies (Analytics, Marketing) blocked from loading BEFORE the user clicks "Accept"?',
+      ref: 'GDPR Art. 7 | ePrivacy Dir. 5(3) | CJEU Planet49 | DPDPA s.6(1)',
+      remedy: 'Configure your CMP or Google Tag Manager to physically block script execution until the consent trigger is fired. Pre-loading cookies is heavily fined by EU DPAs.' },
+    
+    { id: 'visual_eq', fws: ['eu'], risk: 'Critical',
+      q: 'Are the "Accept All" and "Reject All" buttons visually equivalent and on the first layer? (Same size, color prominence, and contrast).',
+      ref: 'EDPB Guidelines 03/2022 on Dark Patterns',
+      remedy: 'Remove dark patterns. If "Accept" is a bright button, "Reject" cannot be hidden as a low-contrast text link or buried in a second layer menu.' },
+    
+    { id: 'no_pre_tick', fws: ['eu', 'in'], risk: 'Critical',
+      q: 'In the granular settings menu, are all non-essential cookie categories UNCHECKED by default?',
+      ref: 'GDPR Art 4(11) | DPDPA s.6(1)(e)',
+      remedy: 'Remove pre-ticked boxes. Consent requires clear affirmative action. Implied consent or "by continuing to use this site" is legally invalid.' },
+    
+    { id: 'withdraw', fws: ['eu', 'in', 'ca'], risk: 'High',
+      q: 'Is there a persistent floating widget or a clear footer link ("Manage Cookie Preferences") allowing users to withdraw consent at any time?',
+      ref: 'GDPR Art. 7(3) | DPDPA s.6(4)',
+      remedy: 'Implement a persistent link or widget. Withdrawal must be as easy as giving consent. If it took 1 click to accept, it must take 1 click to withdraw.' },
+    
+    { id: 'dnss', fws: ['ca'], risk: 'Critical',
+      q: 'Is there a clear, conspicuous link titled exactly "Do Not Sell or Share My Personal Information" in the website footer?',
+      ref: 'CCPA § 1798.135 | CPRA',
+      remedy: 'Add the exact phrase to your footer. It must route to a page or modal that immediately pauses data sharing with ad networks.' },
+    
+    { id: 'gpc', fws: ['ca'], risk: 'High',
+      q: 'Does the website automatically detect and honor Global Privacy Control (GPC) browser signals without requiring manual user action?',
+      ref: 'CCPA § 1798.135 | CPPA Final Regulations',
+      remedy: 'Update your CMP to listen for the `navigator.globalPrivacyControl` signal. It must be treated as a legally binding, universal opt-out request.' },
+
+    { id: 'walls', fws: ['eu', 'in'], risk: 'High',
+      q: 'Can the user access the website content even if they choose to Reject all non-essential cookies?',
+      ref: 'GDPR Art. 7(4) | DPDPA s.6(1)(d)',
+      remedy: 'Remove forced "Cookie Walls." Making consent a precondition for accessing a service where the data isn\'t strictly necessary violates the "freely given" requirement.' }
+  ];
+
+  let selectedFws = [];
+  let answers = {};
+
+  document.querySelectorAll('.j-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const cb = this.querySelector('input');
+      cb.checked = !cb.checked;
+      this.classList.toggle('sel', cb.checked);
+    });
+  });
+
+  function startAudit() {
+    selectedFws = Array.from(document.querySelectorAll('.j-chip input:checked')).map(cb => cb.value);
+    if (selectedFws.length === 0) { alert('Select at least one jurisdiction.'); return; }
+    
+    const url = document.getElementById('target-url').value || 'your website';
+    document.getElementById('display-url').textContent = url;
+
+    renderChecklist();
+    document.getElementById('step-1').classList.remove('active');
+    document.getElementById('step-2').classList.add('active');
+  }
+
+  function renderChecklist() {
+    const container = document.getElementById('checklist-container');
+    container.innerHTML = '';
+    const applicableQs = AUDIT_CRITERIA.filter(c => c.fws.some(fw => selectedFws.includes(fw)));
+
+    applicableQs.forEach((c, index) => {
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.id = `card-${c.id}`;
+      card.innerHTML = `
+        <div class="q-ref">${c.ref}</div>
+        <div class="q-text">${index + 1}. ${c.q}</div>
+        <div style="display:flex; gap:12px; margin-top: 16px;">
+          <div class="btn-choice pass" onclick="recordAnswer('${c.id}', true)">Yes / Pass</div>
+          <div class="btn-choice fail" onclick="recordAnswer('${c.id}', false)">No / Fail</div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function recordAnswer(id, passed) {
+    answers[id] = passed;
+    const card = document.getElementById(`card-${id}`);
+    const btns = card.querySelectorAll('.btn-choice');
+    btns[0].className = `btn-choice pass ${passed ? 'sel-pass' : ''}`;
+    btns[1].className = `btn-choice fail ${!passed ? 'sel-fail' : ''}`;
+    card.className = `q-card ${passed ? 'answered-pass' : 'answered-fail'}`;
+  }
+
+  function generateReport() {
+    const applicableQs = AUDIT_CRITERIA.filter(c => c.fws.some(fw => selectedFws.includes(fw)));
+    if (Object.keys(answers).length < applicableQs.length) { alert('Please answer all audit criteria.'); return; }
+
+    let passCount = 0;
+    const gapsContainer = document.getElementById('gaps-container');
+    gapsContainer.innerHTML = '';
+
+    applicableQs.forEach(c => {
+      if (answers[c.id]) {
+        passCount++;
+      } else {
+        const gap = document.createElement('div');
+        gap.className = 'gap-card';
+        gap.innerHTML = `
+          <div><span class="risk-badge ${c.risk}">${c.risk}</span></div>
+          <div>
+            <div style="font-weight: 700; color: var(--ink); margin-bottom: 4px;">Failed: ${c.q}</div>
+            <div style="font-size: 0.75rem; font-family: monospace; color: var(--ink4);">${c.ref}</div>
+            <div class="gap-remedy"><strong>Remediation:</strong> ${c.remedy}</div>
+          </div>
+        `;
+        gapsContainer.appendChild(gap);
+      }
+    });
+
+    const score = Math.round((passCount / applicableQs.length) * 100);
+    const scoreEl = document.getElementById('final-score');
+    const verdictEl = document.getElementById('final-verdict');
+    
+    scoreEl.textContent = `${score}%`;
+    if (score === 100) {
+      scoreEl.style.color = 'var(--green)';
+      verdictEl.textContent = 'Fully Compliant Setup';
+      verdictEl.style.color = 'var(--green)';
+      gapsContainer.innerHTML = '<div style="text-align:center; color: var(--ink4); padding: 40px;">No technical gaps identified. Excellent implementation.</div>';
+    } else if (score >= 70) {
+      scoreEl.style.color = 'var(--amber)';
+      verdictEl.textContent = 'Action Required: Moderate Risks Identified';
+      verdictEl.style.color = 'var(--amber)';
+    } else {
+      scoreEl.style.color = 'var(--red)';
+      verdictEl.textContent = 'Severe Non-Compliance: Immediate Fixes Required';
+      verdictEl.style.color = 'var(--red)';
+    }
+
+    document.getElementById('step-2').classList.remove('active');
+    document.getElementById('step-3').classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+</script>
+
+<footer class="site-footer">
+  <div>© 2026 Adv. Sanket Shah. All rights reserved.</div>
+  <div style="margin-top: 8px;">
+    <a href="terms.html">Terms & Legal Disclaimer</a> · 
+    <a href="about.html">About</a>
+  </div>
+</footer>
+</body>
+</html>
