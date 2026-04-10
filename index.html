@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacipher | Adv. Sanket Shah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #FAFAFC; --bg-surface: #FFFFFF; --text-primary: #0F172A;
+    --text-secondary: #475569; --text-tertiary: #94A3B8; --accent-primary: #2563EB;
+    --accent-light: #EFF6FF; --border-color: #E2E8F0;
+    --font-sans: 'Inter', sans-serif; --font-display: 'Outfit', sans-serif;
+    --radius-md: 12px; --radius-full: 9999px;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05); --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s ease;
+  }
+  
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background-color: var(--bg-base); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.6; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  
+  /* Glassmorphism Nav */
+  nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 1rem 0; }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+  .nav-logo { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--text-primary); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+  .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: var(--transition); }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent-primary); }
+  
+  /* Content Spacing */
+  section { padding: 8rem 0 6rem; }
+  .section-header { margin-bottom: 3rem; }
+  .section-title { font-family: var(--font-display); font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .section-subtitle { color: var(--text-secondary); font-size: 1rem; }
+
+  /* Universal Card Style for Tool Modules */
+  .tool-card { background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
+  
+  /* Buttons */
+  .btn-primary { display: inline-flex; padding: 0.6rem 1.2rem; border-radius: var(--radius-full); font-weight: 600; font-size: 0.875rem; background: var(--accent-primary); color: white; text-decoration: none; border: none; cursor: pointer; transition: var(--transition); }
+  .btn-primary:hover { background: #1D4ED8; }
+  
+  @media (max-width: 900px) { .nav-links { display: none; } /* We will need to add a mobile toggle here! */ }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Privacipher</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Scanner</a></li>
+      <li><a href="compare.html">Comparator</a></li>
+      <li><a href="breach.html">Breach Playbook</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="changelog.html">Changelog</a></li>
+    </ul>
+    <a href="../index.html" class="nav-logo" style="font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);">← Back to Portfolio</a>
+  </div>
+</nav>
+
+</body>
+</html>
