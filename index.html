@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacipher | Multi-Jurisdiction Privacy Compliance Suite</title>
+<meta name="description" content="A free, zero-backend privacy compliance platform covering GDPR, DPDPA, CCPA/CPRA, LGPD, PDPA, PIPL, POPIA, and the Australian Privacy Act. Built by Adv. Sanket Shah.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://advsanketshah.github.io/Privacipher/">
+<meta property="og:title" content="Privacipher | Multi-Jurisdiction Privacy Compliance Suite">
+<meta property="og:description" content="A free, zero-backend privacy compliance platform covering GDPR, DPDPA, CCPA/CPRA, LGPD, PDPA, PIPL, POPIA, and the Australian Privacy Act.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-base:#F8FAFC;--bg-surface:#FFFFFF;--bg-elevated:#F1F5F9;
+  --text-primary:#0F172A;--text-secondary:#475569;--text-tertiary:#94A3B8;
+  --accent:#2563EB;--accent-light:#EFF6FF;--accent-dark:#1D4ED8;
+  --success:#10B981;--success-light:#ECFDF5;
+  --warning:#F59E0B;--warning-light:#FFFBEB;
+  --danger:#EF4444;--danger-light:#FEF2F2;
+  --border:#E2E8F0;--border-strong:#CBD5E1;
+  --font-sans:'Inter',sans-serif;--font-display:'Outfit',sans-serif;--font-mono:'JetBrains Mono',monospace;
+  --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 4px 12px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);
+  --shadow-lg:0 10px 24px rgba(0,0,0,.1),0 4px 8px rgba(0,0,0,.06);
+  --transition:all .2s ease;--header-h:64px;--tab-h:52px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+button{cursor:pointer;font-family:inherit}
+input,select,textarea{font-family:inherit;font-size:inherit;border:1px solid var(--border);border-radius:var(--radius-sm);padding:.5rem .75rem;color:var(--text-primary);background:var(--bg-surface);width:100%;transition:var(--transition)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+label{display:block;font-size:.8125rem;font-weight:600;color:var(--text-secondary);margin-bottom:.375rem}
+textarea{resize:vertical;min-height:80px}
+.container{max-width:1160px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--header-h);background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center}
+.header-inner{display:flex;align-items:center;gap:1rem;width:100%;max-width:1160px;margin:0 auto;padding:0 1.5rem}
+.logo-mark{display:flex;align-items:center;gap:.625rem;text-decoration:none;flex-shrink:0}
+.logo-mark svg{width:36px;height:36px;display:block}
+.logo-text{font-family:var(--font-display);font-size:1.1875rem;font-weight:700;color:var(--text-primary);letter-spacing:-.01em}
+.logo-text span{color:var(--accent)}
+.header-badge{font-size:.625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid #BFDBFE;padding:.1875rem .5rem;border-radius:var(--radius-full);margin-left:.25rem;align-self:center}
+.header-spacer{flex:1}
+.header-actions{display:flex;align-items:center;gap:.75rem}
+.btn-header-link{font-size:.8125rem;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:var(--transition);padding:.375rem .625rem;border-radius:var(--radius-sm);white-space:nowrap}
+.btn-header-link:hover{color:var(--text-primary);background:var(--bg-elevated);text-decoration:none}
+
+/* Tab Nav */
+.tab-nav{position:fixed;top:var(--header-h);left:0;right:0;z-index:190;height:var(--tab-h);background:var(--bg-surface);border-bottom:1px solid var(--border);display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:none}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-nav-inner{display:flex;align-items:stretch;max-width:1160px;margin:0 auto;padding:0 1rem;gap:0;width:100%}
+.tab-btn{display:flex;align-items:center;gap:.5rem;padding:0 1.125rem;font-size:.8125rem;font-weight:500;color:var(--text-secondary);background:none;border:none;border-bottom:2.5px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:var(--transition);flex-shrink:0;cursor:pointer}
+.tab-btn:hover{color:var(--text-primary)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-btn svg{width:15px;height:15px;flex-shrink:0}
+
+/* Main */
+.main-content{padding-top:calc(var(--header-h) + var(--tab-h) + 2rem);padding-bottom:4rem;min-height:100vh}
+.tab-panel{display:none;animation:fadeIn .2s ease}
+.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Page headers */
+.page-header{margin-bottom:2rem}
+.page-eyebrow{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid #BFDBFE;padding:.25rem .75rem;border-radius:var(--radius-full);margin-bottom:.875rem}
+.page-title{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--text-primary);line-height:1.2;letter-spacing:-.02em;margin-bottom:.625rem}
+.page-subtitle{font-size:.9375rem;color:var(--text-secondary);max-width:60ch}
+
+/* Cards */
+.card{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+.card-padded{padding:1.5rem}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:1.125rem 1.5rem;border-bottom:1px solid var(--border);gap:1rem}
+.card-title{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--text-primary)}
+.card-body{padding:1.5rem}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.5625rem 1.125rem;font-size:.8125rem;font-weight:600;border-radius:var(--radius-md);border:1px solid transparent;transition:var(--transition);white-space:nowrap;text-decoration:none;cursor:pointer}
+.btn:hover{text-decoration:none}
+.btn svg{width:15px;height:15px;flex-shrink:0}
+.btn-primary{background:var(--accent);color:white;border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+.btn-secondary{background:var(--bg-surface);color:var(--text-primary);border-color:var(--border)}
+.btn-secondary:hover{background:var(--bg-elevated)}
+.btn-ghost{background:transparent;color:var(--text-secondary);border-color:transparent}
+.btn-ghost:hover{background:var(--bg-elevated);color:var(--text-primary)}
+.btn-danger{background:var(--danger);color:white;border-color:var(--danger)}
+.btn-danger:hover{background:#DC2626}
+.btn-sm{padding:.375rem .75rem;font-size:.75rem;border-radius:var(--radius-sm)}
+.btn-lg{padding:.75rem 1.5rem;font-size:.9375rem;border-radius:var(--radius-lg)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* Badges */
+.badge{display:inline-flex;align-items:center;gap:.25rem;font-size:.6875rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.2rem .5rem;border-radius:var(--radius-full)}
+.badge-blue{background:var(--accent-light);color:var(--accent)}
+.badge-green{background:var(--success-light);color:#065F46}
+.badge-orange{background:var(--warning-light);color:#92400E}
+.badge-red{background:var(--danger-light);color:#991B1B}
+.badge-gray{background:var(--bg-elevated);color:var(--text-secondary)}
+
+/* Jurisdiction chips */
+.jurisdiction-grid{display:flex;flex-wrap:wrap;gap:.625rem;margin-bottom:1.5rem}
+.j-chip{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .875rem;font-size:.8125rem;font-weight:500;border:1.5px solid var(--border);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-secondary);cursor:pointer;transition:var(--transition);user-select:none}
+.j-chip:hover,.j-chip.selected{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.j-chip .j-flag{font-size:1rem}
+
+/* Compliance checker */
+.checker-layout{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start}
+.checker-sidebar{position:sticky;top:calc(var(--header-h) + var(--tab-h) + 2rem)}
+.score-ring-wrap{display:flex;flex-direction:column;align-items:center;padding:1.5rem}
+.score-ring{position:relative;width:120px;height:120px;margin-bottom:1rem}
+.score-ring svg{width:120px;height:120px;transform:rotate(-90deg)}
+.score-ring-bg{stroke:var(--bg-elevated);fill:none;stroke-width:10}
+.score-ring-fill{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .8s ease}
+.score-ring-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+.score-number{font-family:var(--font-display);font-size:1.75rem;font-weight:700;line-height:1}
+.score-label{font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-tertiary)}
+.score-status{font-size:.875rem;font-weight:600;margin-bottom:.25rem}
+
+.accordion-item{border:1px solid var(--border);border-radius:var(--radius-md);margin-bottom:.75rem;overflow:hidden}
+.accordion-header{display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:var(--bg-surface);cursor:pointer;user-select:none;transition:var(--transition)}
+.accordion-header:hover{background:var(--bg-elevated)}
+.accordion-header.open{background:var(--accent-light);border-bottom:1px solid #BFDBFE}
+.accordion-flag{font-size:1.125rem;flex-shrink:0}
+.accordion-name{font-family:var(--font-display);font-size:.9375rem;font-weight:600;flex:1}
+.accordion-progress{display:flex;align-items:center;gap:.625rem}
+.accordion-pct{font-size:.75rem;font-weight:600;color:var(--text-secondary);min-width:32px;text-align:right}
+.accordion-arrow{width:16px;height:16px;color:var(--text-tertiary);transition:transform .2s ease;flex-shrink:0}
+.accordion-header.open .accordion-arrow{transform:rotate(180deg)}
+.accordion-body{display:none;padding:1.25rem;background:var(--bg-surface)}
+.accordion-body.open{display:block}
+
+.question-item{padding:.875rem 0;border-bottom:1px solid var(--border)}
+.question-item:last-child{border-bottom:none}
+.question-text{font-size:.875rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.5}
+.question-ref{font-size:.7rem;font-weight:600;color:var(--text-tertiary);margin-bottom:.625rem;font-family:var(--font-mono)}
+.question-btns{display:flex;gap:.5rem}
+.q-btn{flex:1;padding:.375rem;font-size:.75rem;font-weight:600;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-surface);color:var(--text-secondary);cursor:pointer;transition:var(--transition);text-align:center}
+.q-btn:hover{border-color:var(--border-strong)}
+.q-btn.yes{border-color:var(--success);color:var(--success);background:var(--success-light)}
+.q-btn.no{border-color:var(--danger);color:var(--danger);background:var(--danger-light)}
+.q-btn.na{border-color:var(--text-tertiary);color:var(--text-secondary);background:var(--bg-elevated)}
+
+.gap-item{display:flex;gap:.75rem;padding:.75rem;border:1px solid var(--danger-light);background:#FFF5F5;border-radius:var(--radius-md);margin-bottom:.625rem}
+.gap-icon{width:16px;height:16px;color:var(--danger);flex-shrink:0;margin-top:2px}
+.gap-content{flex:1}
+.gap-question{font-size:.8125rem;font-weight:600;color:var(--text-primary);margin-bottom:.25rem}
+.gap-rec{font-size:.75rem;color:var(--text-secondary)}
+
+/* RoPA */
+.ropa-table-wrap{overflow-x:auto}
+.ropa-table{width:100%;border-collapse:collapse;font-size:.8125rem}
+.ropa-table th{text-align:left;padding:.75rem 1rem;background:var(--bg-elevated);color:var(--text-secondary);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border);white-space:nowrap}
+.ropa-table td{padding:.875rem 1rem;border-bottom:1px solid var(--border);color:var(--text-primary);vertical-align:top;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ropa-table tr:last-child td{border-bottom:none}
+.ropa-table tr:hover td{background:var(--bg-base)}
+.ropa-table .actions-cell{display:flex;gap:.375rem;white-space:nowrap;max-width:none}
+.ropa-empty{text-align:center;padding:4rem 2rem;color:var(--text-tertiary)}
+.ropa-empty-icon{font-size:2.5rem;margin-bottom:.75rem}
+.ropa-empty h3{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--text-secondary);margin-bottom:.375rem}
+.ropa-empty p{font-size:.8125rem}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;z-index:900;background:rgba(15,23,42,.5);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg-surface);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);width:100%;max-width:620px;max-height:90vh;overflow-y:auto;display:flex;flex-direction:column}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg-surface);z-index:1}
+.modal-title{font-family:var(--font-display);font-size:1.0625rem;font-weight:600}
+.modal-close{width:32px;height:32px;border:none;background:var(--bg-elevated);border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);cursor:pointer;transition:var(--transition)}
+.modal-close:hover{background:var(--border);color:var(--text-primary)}
+.modal-body{padding:1.5rem;flex:1}
+.modal-footer{display:flex;align-items:center;justify-content:flex-end;gap:.75rem;padding:1.25rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--bg-surface)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{margin-bottom:1rem}
+.form-group:last-child{margin-bottom:0}
+.multi-check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.375rem;margin-top:.375rem}
+.multi-check-item{display:flex;align-items:center;gap:.5rem;font-size:.8125rem;color:var(--text-secondary);cursor:pointer}
+.multi-check-item input[type=checkbox]{width:auto;margin:0}
+
+/* TIA */
+.tia-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.risk-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:1.25rem 0}
+.risk-cell{padding:1rem;border-radius:var(--radius-md);text-align:center;border:1px solid var(--border)}
+.risk-cell.low{background:var(--success-light);border-color:#A7F3D0}
+.risk-cell.medium{background:var(--warning-light);border-color:#FDE68A}
+.risk-cell.high{background:var(--danger-light);border-color:#FECACA}
+.risk-cell-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.375rem}
+.risk-cell.low .risk-cell-label{color:#065F46}
+.risk-cell.medium .risk-cell-label{color:#92400E}
+.risk-cell.high .risk-cell-label{color:#991B1B}
+.risk-cell-desc{font-size:.75rem;color:var(--text-secondary)}
+.tia-result{margin-top:1.5rem;padding:1.5rem;border-radius:var(--radius-lg);border:1px solid var(--border);display:none}
+.tia-result.show{display:block}
+.tia-result-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
+.tia-risk-badge{font-size:1.125rem;font-weight:700;padding:.5rem 1.25rem;border-radius:var(--radius-full)}
+.tia-result.low{border-color:#A7F3D0;background:var(--success-light)}
+.tia-result.medium{border-color:#FDE68A;background:var(--warning-light)}
+.tia-result.high{border-color:#FECACA;background:var(--danger-light)}
+.tia-result.low .tia-risk-badge{background:var(--success);color:white}
+.tia-result.medium .tia-risk-badge{background:var(--warning);color:white}
+.tia-result.high .tia-risk-badge{background:var(--danger);color:white}
+.tia-measures{list-style:none;margin-top:1rem}
+.tia-measures li{display:flex;gap:.625rem;padding:.5rem 0;font-size:.875rem;color:var(--text-secondary);border-bottom:1px solid rgba(0,0,0,.07)}
+.tia-measures li:last-child{border-bottom:none}
+.tia-measures li::before{content:'→';font-weight:700;color:var(--accent);flex-shrink:0}
+
+/* PIA/DPIA */
+.pia-step-nav{display:flex;gap:0;margin-bottom:2rem;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.pia-step-nav::-webkit-scrollbar{display:none}
+.pia-step{display:flex;flex-direction:column;align-items:center;gap:.25rem;padding:.875rem 1.25rem;font-size:.75rem;font-weight:600;color:var(--text-tertiary);border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:var(--transition);background:none;border-top:none;border-left:none;border-right:none;margin-bottom:-1px}
+.pia-step.done{color:var(--success);border-bottom-color:var(--success)}
+.pia-step.active{color:var(--accent);border-bottom-color:var(--accent)}
+.pia-step-num{width:24px;height:24px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.6875rem}
+.pia-step.done .pia-step-num{background:var(--success);border-color:var(--success);color:white}
+.pia-step.active .pia-step-num{background:var(--accent);border-color:var(--accent);color:white}
+.pia-panel{display:none}
+.pia-panel.active{display:block}
+.pia-nav{display:flex;justify-content:space-between;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+
+.risk-table{width:100%;border-collapse:collapse;font-size:.8125rem;margin-top:.75rem}
+.risk-table th{text-align:left;padding:.625rem .875rem;background:var(--bg-elevated);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border:1px solid var(--border);color:var(--text-secondary)}
+.risk-table td{padding:.75rem .875rem;border:1px solid var(--border);vertical-align:middle}
+.risk-table input,.risk-table select{border:none;background:transparent;padding:0;font-size:.8125rem;width:100%}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 320px;gap:2.5rem;align-items:start}
+.about-info-row{display:flex;align-items:flex-start;gap:.875rem;padding:.875rem 0;border-bottom:1px solid var(--border)}
+.about-info-row:last-child{border-bottom:none}
+.about-info-icon{width:18px;height:18px;color:var(--accent);flex-shrink:0;margin-top:2px}
+.about-info-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-tertiary);margin-bottom:.125rem}
+.about-info-val{font-size:.875rem;color:var(--text-primary)}
+.cert-tag{display:inline-block;font-size:.7rem;font-weight:600;background:var(--bg-elevated);color:var(--text-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.2rem .5rem;margin:.125rem}
+
+/* Changelog */
+.changelog-list{list-style:none}
+.changelog-item{display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+.changelog-item:last-child{border-bottom:none}
+.changelog-meta{min-width:100px;flex-shrink:0}
+.changelog-version{font-family:var(--font-mono);font-size:.875rem;font-weight:600;color:var(--accent)}
+.changelog-date{font-size:.75rem;color:var(--text-tertiary);margin-top:.125rem}
+.changelog-changes{list-style:none}
+.changelog-changes li{font-size:.875rem;color:var(--text-secondary);padding:.25rem 0;padding-left:1.25rem;position:relative}
+.changelog-changes li::before{content:'+';position:absolute;left:0;color:var(--success);font-weight:700}
+.changelog-changes li.fix::before{content:'✓';color:var(--accent)}
+.changelog-tag{font-size:.625rem;font-weight:700;text-transform:uppercase;padding:.125rem .4rem;border-radius:var(--radius-sm);margin-right:.25rem}
+.tag-new{background:#DCFCE7;color:#166534}
+.tag-fix{background:#DBEAFE;color:#1E40AF}
+.tag-improved{background:#FEF9C3;color:#713F12}
+
+/* Disclaimer */
+.disclaimer-banner{background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--radius-md);padding:.875rem 1.125rem;display:flex;gap:.75rem;margin-bottom:1.5rem;font-size:.8125rem;color:#78350F}
+.disclaimer-banner svg{width:16px;height:16px;flex-shrink:0;margin-top:1px;color:#D97706}
+
+/* Progress */
+.progress-track{height:6px;background:var(--bg-elevated);border-radius:var(--radius-full);overflow:hidden}
+.progress-fill{height:100%;border-radius:var(--radius-full);transition:width .6s ease}
+.progress-fill.green{background:var(--success)}
+.progress-fill.yellow{background:var(--warning)}
+.progress-fill.orange{background:#F97316}
+.progress-fill.red{background:var(--danger)}
+.progress-fill.blue{background:var(--accent)}
+
+/* Footer */
+.site-footer{padding:2rem 1.5rem;border-top:1px solid var(--border);background:var(--bg-surface);margin-top:3rem;text-align:center}
+.footer-links{display:flex;justify-content:center;gap:1.5rem;list-style:none;flex-wrap:wrap;margin-bottom:.75rem}
+.footer-links a{font-size:.8125rem;color:var(--text-secondary);text-decoration:none;transition:var(--transition)}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{font-size:.75rem;color:var(--text-tertiary)}
+.footer-legal{font-size:.7rem;color:var(--text-tertiary);max-width:700px;margin:.75rem auto 0;line-height:1.5}
+
+/* Utilities */
+.divider{height:1px;background:var(--border);margin:1.5rem 0}
+.text-sm{font-size:.8125rem}.text-xs{font-size:.75rem}
+.text-muted{color:var(--text-secondary)}.text-tertiary{color:var(--text-tertiary)}
+.font-mono{font-family:var(--font-mono)}.font-display{font-family:var(--font-display)}
+.fw-600{font-weight:600}
+.mt-05{margin-top:.5rem}.mt-1{margin-top:1rem}.mt-15{margin-top:1.5rem}.mt-2{margin-top:2rem}
+.mb-05{margin-bottom:.5rem}.mb-1{margin-bottom:1rem}.mb-15{margin-bottom:1.5rem}
+
+/* Mobile bottom tab */
+.mobile-btab-bar{display:none;position:fixed;bottom:0;left:0;right:0;height:64px;padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg-surface);border-top:1px solid var(--border);z-index:200;overflow-x:auto;scrollbar-width:none}
+.mobile-btab-bar::-webkit-scrollbar{display:none}
+.mobile-btab{flex:0 0 auto;min-width:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:6px 8px;color:var(--text-tertiary);text-decoration:none;cursor:pointer;font-size:.5625rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:none;border:none;-webkit-tap-highlight-color:transparent;transition:color .15s ease}
+.mobile-btab svg{width:20px;height:20px}
+.mobile-btab.active{color:var(--accent)}
+.mobile-btab:active{opacity:.65}
+
+/* Responsive */
+@media(max-width:900px){
+  .tab-nav{display:none}
+  .mobile-btab-bar{display:flex}
+  .main-content{padding-top:calc(var(--header-h) + 1.25rem);padding-bottom:calc(64px + env(safe-area-inset-bottom,0px) + 1rem)}
+  .checker-layout{grid-template-columns:1fr}
+  .checker-sidebar{position:static}
+  .tia-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .container{padding:0 1rem}
+  .page-title{font-size:1.5rem}
+  .risk-matrix{grid-template-columns:1fr}
+  .pia-step span{display:none}
+  .header-actions .btn-header-link:not(:last-child){display:none}
+}
+@media print{
+  .site-header,.tab-nav,.mobile-btab-bar,.site-footer,.tab-btn,.q-btn,.accordion-arrow,.ropa-toolbar,.btn{display:none!important}
+  .main-content{padding-top:0}
+  body{font-size:12pt}
+  .accordion-body,.tab-panel{display:block!important}
+}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- LOGO SVG DEFS (reused inline) -->
+<svg style="display:none"><defs>
+  <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1D4ED8"/><stop offset="100%" stop-color="#0F172A"/></linearGradient>
+  <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
+</defs></svg>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo-mark" onclick="switchTab('checker');return false;">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="shg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1D4ED8"/><stop offset="100%" stop-color="#0F172A"/></linearGradient><linearGradient id="ahg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#2563EB"/></linearGradient></defs>
+        <path d="M32 3L58 13L58 34C58 48 46 57 32 62C18 57 6 48 6 34L6 13Z" fill="url(#shg)"/>
+        <path d="M32 3L58 13L58 34C58 48 46 57 32 62C18 57 6 48 6 34L6 13Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+        <rect x="19" y="18" width="5" height="28" rx="2.5" fill="white"/>
+        <rect x="19" y="18" width="17" height="4.5" rx="2.25" fill="white"/>
+        <rect x="32" y="18" width="4.5" height="17" rx="2.25" fill="white"/>
+        <rect x="19" y="31" width="17" height="4.5" rx="2.25" fill="white"/>
+        <circle cx="44" cy="25" r="2.5" fill="url(#ahg)"/>
+        <circle cx="44" cy="33" r="2.5" fill="url(#ahg)"/>
+        <circle cx="44" cy="41" r="2.5" fill="url(#ahg)"/>
+        <line x1="37" y1="25" x2="41.5" y2="25" stroke="#3B82F6" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="37" y1="33" x2="41.5" y2="33" stroke="#3B82F6" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="37" y1="41" x2="41.5" y2="41" stroke="#3B82F6" stroke-width="1.5" stroke-opacity="0.6"/>
+      </svg>
+      <span class="logo-text">Priva<span>cipher</span></span>
+    </a>
+    <span class="header-badge">v4.0</span>
+    <div class="header-spacer"></div>
+    <div class="header-actions">
+      <a href="https://advsanketshah.github.io/portfolio/" class="btn-header-link" target="_blank">Portfolio</a>
+      <a href="https://linkedin.com/in/advsanketshah/" class="btn-header-link" target="_blank">LinkedIn</a>
+      <button class="btn btn-primary btn-sm" onclick="switchTab('about')">About</button>
+    </div>
+  </div>
+</header>
+
+<!-- DESKTOP TAB NAV -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="switchTab('checker')" id="tab-checker-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Compliance Checker
+    </button>
+    <button class="tab-btn" onclick="switchTab('ropa')" id="tab-ropa-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
+      RoPA Builder
+    </button>
+    <button class="tab-btn" onclick="switchTab('tia')" id="tab-tia-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+      Transfer Impact (TIA)
+    </button>
+    <button class="tab-btn" onclick="switchTab('pia')" id="tab-pia-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      PIA / DPIA
+    </button>
+    <button class="tab-btn" onclick="switchTab('about')" id="tab-about-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      About
+    </button>
+    <button class="tab-btn" onclick="switchTab('changelog')" id="tab-changelog-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Changelog
+    </button>
+  </div>
+</nav>
+<!-- MAIN CONTENT -->
+<main class="main-content">
+<div class="container">
+
+<!-- TAB: COMPLIANCE CHECKER -->
+<div class="tab-panel active" id="tab-checker">
+  <div class="page-header">
+    <span class="page-eyebrow">9 Jurisdictions · Statutory References · Weighted Scoring</span>
+    <h1 class="page-title">Privacy Compliance Checker</h1>
+    <p class="page-subtitle">Select jurisdictions, answer the diagnostic questions, and get a structured gap analysis with recommendations mapped to specific legal provisions.</p>
+  </div>
+  <div class="disclaimer-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span>For informational and educational purposes only. Not legal advice. Laws change; always verify against current primary texts. Consult a qualified lawyer for your specific situation.</span>
+  </div>
+  <div class="card card-padded mb-15">
+    <div class="font-display fw-600 mb-1" style="font-size:.9375rem;">Select Jurisdictions</div>
+    <div class="jurisdiction-grid" id="j-grid">
+      <div class="j-chip" data-j="gdpr" onclick="toggleJurisdiction(this)"><span class="j-flag">🇪🇺</span> GDPR (EU)</div>
+      <div class="j-chip" data-j="dpdpa" onclick="toggleJurisdiction(this)"><span class="j-flag">🇮🇳</span> DPDPA (India)</div>
+      <div class="j-chip" data-j="ccpa" onclick="toggleJurisdiction(this)"><span class="j-flag">🇺🇸</span> CCPA / CPRA (California)</div>
+      <div class="j-chip" data-j="lgpd" onclick="toggleJurisdiction(this)"><span class="j-flag">🇧🇷</span> LGPD (Brazil)</div>
+      <div class="j-chip" data-j="pdpa_th" onclick="toggleJurisdiction(this)"><span class="j-flag">🇹🇭</span> PDPA (Thailand)</div>
+      <div class="j-chip" data-j="pdpa_sg" onclick="toggleJurisdiction(this)"><span class="j-flag">🇸🇬</span> PDPA (Singapore)</div>
+      <div class="j-chip" data-j="pipl" onclick="toggleJurisdiction(this)"><span class="j-flag">🇨🇳</span> PIPL (China)</div>
+      <div class="j-chip" data-j="popia" onclick="toggleJurisdiction(this)"><span class="j-flag">🇿🇦</span> POPIA (South Africa)</div>
+      <div class="j-chip" data-j="apa" onclick="toggleJurisdiction(this)"><span class="j-flag">🇦🇺</span> Privacy Act (Australia)</div>
+    </div>
+    <div style="display:flex;gap:.625rem;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="startChecker()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        Run Assessment
+      </button>
+      <button class="btn btn-secondary" onclick="selectAllJ()">Select All</button>
+      <button class="btn btn-ghost" onclick="clearJ()">Clear</button>
+    </div>
+  </div>
+  <div class="checker-layout" id="checker-main" style="display:none;">
+    <div id="checker-accordions"></div>
+    <div class="checker-sidebar">
+      <div class="card mb-1">
+        <div class="card-header"><span class="card-title">Overall Readiness</span></div>
+        <div class="score-ring-wrap">
+          <div class="score-ring">
+            <svg viewBox="0 0 120 120">
+              <circle class="score-ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="score-ring-fill" id="score-ring-fill" cx="60" cy="60" r="50" stroke="#2563EB" stroke-dasharray="314.16" stroke-dashoffset="314.16"/>
+            </svg>
+            <div class="score-ring-text">
+              <div class="score-number" id="score-num">0%</div>
+              <div class="score-label">Readiness</div>
+            </div>
+          </div>
+          <div class="score-status" id="score-status">Not started</div>
+          <div class="text-sm text-muted" id="score-detail" style="text-align:center;"></div>
+        </div>
+      </div>
+      <div class="card mb-1">
+        <div class="card-header"><span class="card-title">Open Gaps</span></div>
+        <div id="gaps-container" class="card-body" style="max-height:380px;overflow-y:auto;">
+          <div class="text-sm text-muted">Answer questions to see gaps here.</div>
+        </div>
+      </div>
+      <button class="btn btn-secondary" style="width:100%;" onclick="exportReport()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export Gap Report (.txt)
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: RoPA -->
+<div class="tab-panel" id="tab-ropa">
+  <div class="page-header">
+    <span class="page-eyebrow">Art. 30 GDPR · DPDPA S. 8 · LGPD Art. 37</span>
+    <h1 class="page-title">Record of Processing Activities</h1>
+    <p class="page-subtitle">Build and maintain your RoPA in-browser. All data stays in your session. Export to CSV or JSON.</p>
+  </div>
+  <div class="disclaimer-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span><strong>Session only.</strong> Data is not transmitted or persisted beyond your current browser tab. Export before closing.</span>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title" id="ropa-count">0 Processing Activities</span>
+      <div style="display:flex;gap:.625rem;flex-wrap:wrap;">
+        <button class="btn btn-ghost btn-sm" onclick="exportRopaCSV()">↓ CSV</button>
+        <button class="btn btn-ghost btn-sm" onclick="exportRopaJSON()">↓ JSON</button>
+        <button class="btn btn-primary btn-sm" onclick="openRopaModal()">+ Add Activity</button>
+      </div>
+    </div>
+    <div class="ropa-table-wrap" id="ropa-table-wrap">
+      <div class="ropa-empty" id="ropa-empty">
+        <div class="ropa-empty-icon">🗂️</div>
+        <h3>No activities yet</h3>
+        <p>Add your first processing activity to start building your RoPA.</p>
+        <br>
+        <button class="btn btn-primary" onclick="openRopaModal()">Add First Activity</button>
+      </div>
+      <table class="ropa-table" id="ropa-table" style="display:none;">
+        <thead><tr>
+          <th>#</th><th>Activity</th><th>Role</th><th>Legal Basis</th><th>Data Categories</th>
+          <th>Retention</th><th>Intl. Transfer</th><th>Updated</th><th>Actions</th>
+        </tr></thead>
+        <tbody id="ropa-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card card-padded mt-15">
+    <div class="font-display fw-600 mb-1" style="font-size:.9375rem;">Regulatory Reference</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.875rem;">
+      <div style="padding:.875rem;background:var(--bg-base);border-radius:var(--radius-md);border:1px solid var(--border);">
+        <div class="badge badge-blue mb-05">GDPR Art. 30</div>
+        <p class="text-sm text-muted mt-05">Controllers with 250+ employees must maintain a full RoPA. Smaller organisations must maintain records where processing is not occasional, involves special categories, or could risk individuals' rights.</p>
+      </div>
+      <div style="padding:.875rem;background:var(--bg-base);border-radius:var(--radius-md);border:1px solid var(--border);">
+        <div class="badge badge-blue mb-05">DPDPA S. 8</div>
+        <p class="text-sm text-muted mt-05">India's DPDPA places broad accuracy and security obligations on data fiduciaries. A RoPA supports demonstrating accountability, especially for Significant Data Fiduciaries subject to audit obligations under S. 10.</p>
+      </div>
+      <div style="padding:.875rem;background:var(--bg-base);border-radius:var(--radius-md);border:1px solid var(--border);">
+        <div class="badge badge-blue mb-05">LGPD Art. 37</div>
+        <p class="text-sm text-muted mt-05">Brazilian law requires controllers and operators to keep records of processing operations, particularly where legitimate interest is relied upon as the legal basis.</p>
+      </div>
+      <div style="padding:.875rem;background:var(--bg-base);border-radius:var(--radius-md);border:1px solid var(--border);">
+        <div class="badge badge-blue mb-05">Best Practice</div>
+        <p class="text-sm text-muted mt-05">Even where not legally mandated, a RoPA is the foundation of any accountability framework. It is typically the first document a supervisory authority requests during an investigation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: TIA -->
+<div class="tab-panel" id="tab-tia">
+  <div class="page-header">
+    <span class="page-eyebrow">GDPR Ch. V · DPDPA S. 16 · PIPL Ch. III · EDPB Rec. 01/2020</span>
+    <h1 class="page-title">Transfer Impact Assessment</h1>
+    <p class="page-subtitle">Evaluate the legal and practical risk of cross-border personal data transfers. Based on EDPB Recommendations 01/2020 on supplementary transfer tools.</p>
+  </div>
+  <div class="disclaimer-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span>A TIA is a legal analysis, not a checkbox exercise. This tool structures the assessment to support — not replace — qualified legal review. Under GDPR, a TIA is required before relying on SCCs or BCRs (EDPB Recommendations 01/2020, updated Jan 2022).</span>
+  </div>
+  <div class="tia-grid">
+    <div>
+      <div class="card card-padded mb-1">
+        <div class="font-display fw-600 mb-1" style="font-size:.9375rem;">Transfer Details</div>
+        <div class="form-group">
+          <label>Exporting / Origin Jurisdiction</label>
+          <select id="tia-origin">
+            <option value="">Select jurisdiction</option>
+            <option value="gdpr">European Union (GDPR)</option>
+            <option value="dpdpa">India (DPDPA)</option>
+            <option value="ccpa">California, USA (CCPA/CPRA)</option>
+            <option value="lgpd">Brazil (LGPD)</option>
+            <option value="pipl">China (PIPL)</option>
+            <option value="popia">South Africa (POPIA)</option>
+            <option value="apa">Australia (Privacy Act)</option>
+            <option value="pdpa_sg">Singapore (PDPA)</option>
+            <option value="pdpa_th">Thailand (PDPA)</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Destination Country / Territory</label>
+          <input type="text" id="tia-dest" placeholder="e.g. United States, India, Singapore…">
+        </div>
+        <div class="form-group">
+          <label>Transfer Mechanism</label>
+          <select id="tia-mechanism">
+            <option value="">Select mechanism</option>
+            <option value="adequacy">Adequacy Decision</option>
+            <option value="scc">Standard Contractual Clauses (SCCs)</option>
+            <option value="bcr">Binding Corporate Rules (BCRs)</option>
+            <option value="consent">Explicit Consent of Data Subject</option>
+            <option value="contract_necessity">Necessary for Performance of Contract</option>
+            <option value="legal_claims">Legal Claims</option>
+            <option value="vital_interests">Vital Interests</option>
+            <option value="no_mechanism">No Mechanism Identified</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Categories of Data Transferred</label>
+          <div class="multi-check-grid">
+            <label class="multi-check-item"><input type="checkbox" name="tia-data" value="name_contact"> Name / Contact</label>
+            <label class="multi-check-item"><input type="checkbox" name="tia-data" value="financial"> Financial</label>
+            <label class="multi-check-item"><input type="checkbox" name="tia-data" value="health"> Health / Medical</label>
+            <label class="multi-check-item"><input type="checkbox" name="tia-data" value="biometric"> Biometric</label>
+            <label class="multi-check-item"><input type="checkbox" name="tia-data" value="location"> Precise Location</label>
+            <label class="multi-check-item"><input type="checkbox" name="tia-data" value="children"> Children's Data</label>
+            <label class="multi-check-item"><input type="checkbox" name="tia-data" value="special_category"> Special Category</label>
+            <label class="multi-check-item"><input type="checkbox" name="tia-data" value="employee"> Employee Data</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Volume / Frequency</label>
+          <select id="tia-volume">
+            <option value="low">Low — occasional, small numbers</option>
+            <option value="medium">Medium — regular, moderate volume</option>
+            <option value="high">High — continuous, large-scale</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Purpose of Transfer</label>
+          <textarea id="tia-purpose" placeholder="Describe why this transfer is necessary…"></textarea>
+        </div>
+      </div>
+      <div class="card card-padded mb-1">
+        <div class="font-display fw-600 mb-1" style="font-size:.9375rem;">Destination Country Assessment</div>
+        <p class="text-sm text-muted mb-1">Answer honestly based on your knowledge of the destination country's legal framework.</p>
+        <div id="tia-questions"></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="runTIA()" style="width:100%;margin-bottom:1.5rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Generate Transfer Impact Assessment
+      </button>
+      <div class="tia-result" id="tia-result">
+        <div class="tia-result-header">
+          <div>
+            <div class="text-xs text-muted mb-05">Transfer Risk Rating</div>
+            <div class="tia-risk-badge" id="tia-risk-badge">—</div>
+          </div>
+          <div style="flex:1;" id="tia-risk-summary"></div>
+        </div>
+        <div id="tia-findings"></div>
+        <div class="divider"></div>
+        <div class="font-display fw-600 text-sm mb-05">Required / Recommended Measures</div>
+        <ul class="tia-measures" id="tia-measures"></ul>
+        <div class="divider"></div>
+        <div style="display:flex;gap:.625rem;flex-wrap:wrap;">
+          <button class="btn btn-secondary btn-sm" onclick="window.print()">Print / Save PDF</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetTIA()">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card card-padded mb-1">
+        <div class="font-display fw-600 mb-1" style="font-size:.9375rem;">Risk Framework</div>
+        <div class="risk-matrix">
+          <div class="risk-cell low"><div class="risk-cell-label">Low Risk</div><div class="risk-cell-desc">Adequate mechanism; no significant legal obstacles. Standard measures sufficient.</div></div>
+          <div class="risk-cell medium"><div class="risk-cell-label">Medium Risk</div><div class="risk-cell-desc">Mechanism exists but gaps identified. Supplementary measures required.</div></div>
+          <div class="risk-cell high"><div class="risk-cell-label">High Risk</div><div class="risk-cell-desc">Significant legal or practical obstacles. Transfer should be suspended or restructured.</div></div>
+        </div>
+        <p class="text-xs text-muted">Based on EDPB Recommendations 01/2020 on measures supplementing transfer tools (updated January 2022).</p>
+      </div>
+      <div class="card card-padded">
+        <div class="font-display fw-600 mb-1" style="font-size:.9375rem;">Key Legal References</div>
+        <div class="about-info-row"><div><div class="about-info-label">GDPR Chapter V (Arts. 44–49)</div><div class="about-info-val text-sm">International transfers from the EEA require an adequacy decision, appropriate safeguards (SCCs, BCRs), or a derogation. SCCs (Commission Decision 2021/914) are the most commonly used mechanism. A TIA is required before relying on SCCs — Schrems II, C-311/18.</div></div></div>
+        <div class="about-info-row"><div><div class="about-info-label">DPDPA S. 16(1)(b)</div><div class="about-info-val text-sm">Transfers permitted to all countries except those specifically restricted by Central Government notification. A blacklist approach — the inverse of GDPR. No countries have been restricted as of April 2025; monitor government notifications as rules are finalised.</div></div></div>
+        <div class="about-info-row"><div><div class="about-info-label">PIPL Arts. 38–43</div><div class="about-info-val text-sm">Three mechanisms: CAC security assessment (mandatory for critical infrastructure operators; processors handling >1M persons; transfers of >100K persons' data annually; or >10K persons' sensitive PI); standard contract; or certification. CAC assessment approval typically required before first transfer.</div></div></div>
+        <div class="about-info-row"><div><div class="about-info-label">POPIA S. 72</div><div class="about-info-val text-sm">Transfers permitted if recipient country or organisation provides adequate protection substantially similar to POPIA's conditions, the data subject consents, or another listed ground applies.</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: PIA / DPIA -->
+<div class="tab-panel" id="tab-pia">
+  <div class="page-header">
+    <span class="page-eyebrow">GDPR Art. 35 · DPDPA S. 10 · LGPD Art. 38 · PIPL Art. 55</span>
+    <h1 class="page-title">Privacy / Data Protection Impact Assessment</h1>
+    <p class="page-subtitle">A structured six-step assessment to identify, document, and mitigate privacy risks before commencing high-risk processing activities.</p>
+  </div>
+  <div class="disclaimer-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span>Under GDPR Art. 35, a DPIA is mandatory for processing likely to result in high risk to individuals. Under DPDPA S. 10, Significant Data Fiduciaries must conduct periodic DPIAs. This tool generates a structured draft for review by a qualified legal professional before approval.</span>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="pia-step-nav" id="pia-step-nav">
+        <button class="pia-step active" onclick="goPiaStep(0)" id="pia-step-0"><div class="pia-step-num">1</div><span>Context</span></button>
+        <button class="pia-step" onclick="goPiaStep(1)" id="pia-step-1"><div class="pia-step-num">2</div><span>Screening</span></button>
+        <button class="pia-step" onclick="goPiaStep(2)" id="pia-step-2"><div class="pia-step-num">3</div><span>Data Flows</span></button>
+        <button class="pia-step" onclick="goPiaStep(3)" id="pia-step-3"><div class="pia-step-num">4</div><span>Necessity</span></button>
+        <button class="pia-step" onclick="goPiaStep(4)" id="pia-step-4"><div class="pia-step-num">5</div><span>Risk Assessment</span></button>
+        <button class="pia-step" onclick="goPiaStep(5)" id="pia-step-5"><div class="pia-step-num">6</div><span>Outcome</span></button>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="pia-panel active" id="pia-panel-0">
+        <h3 class="font-display fw-600 mb-1" style="font-size:1rem;">Step 1: Project Context</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Project / Activity Name</label><input type="text" id="pia-name" placeholder="e.g. Customer Profiling System"></div>
+          <div class="form-group"><label>Assessment Date</label><input type="date" id="pia-date"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Data Controller</label><input type="text" id="pia-controller" placeholder="Organisation name"></div>
+          <div class="form-group"><label>DPO / Lead Contact</label><input type="text" id="pia-dpo" placeholder="Name and email"></div>
+        </div>
+        <div class="form-group"><label>Description of Processing Activity</label><textarea id="pia-description" rows="4" placeholder="Describe the processing activity in plain language. What data is processed, by whom, for what purpose, and using what systems?"></textarea></div>
+        <div class="form-group"><label>Applicable Jurisdiction(s)</label><input type="text" id="pia-jurisdiction" placeholder="e.g. GDPR (EU), DPDPA (India)"></div>
+        <div class="pia-nav"><div></div><button class="btn btn-primary" onclick="goPiaStep(1)">Next: Screening →</button></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="pia-panel" id="pia-panel-1">
+        <h3 class="font-display fw-600 mb-1" style="font-size:1rem;">Step 2: Screening — Is a DPIA Mandatory?</h3>
+        <p class="text-sm text-muted mb-1">A DPIA is mandatory under GDPR Art. 35 if any of the following apply. It is also best practice for any processing that may pose significant risks.</p>
+        <div id="pia-screening-items"></div>
+        <div class="card-padded mt-1" style="background:var(--bg-base);border:1px solid var(--border);border-radius:var(--radius-md);">
+          <div id="pia-screening-verdict" class="text-sm fw-600"></div>
+        </div>
+        <div class="pia-nav"><button class="btn btn-ghost" onclick="goPiaStep(0)">← Back</button><button class="btn btn-primary" onclick="goPiaStep(2)">Next: Data Flows →</button></div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="pia-panel" id="pia-panel-2">
+        <h3 class="font-display fw-600 mb-1" style="font-size:1rem;">Step 3: Data Flows &amp; Processing Details</h3>
+        <div class="form-group">
+          <label>Categories of Personal Data Processed</label>
+          <div class="multi-check-grid">
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="basic_id"> Basic Identity (name, email, phone)</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="financial"> Financial / Payment data</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="health"> Health / Medical</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="biometric"> Biometric data</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="location"> Precise location</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="genetic"> Genetic data</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="racial_ethnic"> Racial / Ethnic origin</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="political"> Political opinions</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="religious"> Religious / philosophical beliefs</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="sexual"> Sex life / Sexual orientation</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="children"> Children's data</label>
+            <label class="multi-check-item"><input type="checkbox" name="pia-data" value="behavioral"> Behavioural / Tracking data</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Categories of Data Subjects</label><textarea id="pia-subjects" rows="3" placeholder="e.g. customers, employees, website visitors, children…"></textarea></div>
+          <div class="form-group"><label>Approximate Volume</label><select id="pia-volume"><option value="small">Small — fewer than 1,000</option><option value="medium">Medium — 1,000–100,000</option><option value="large">Large — 100,000–1 million</option><option value="very_large">Very large — over 1 million</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Third Parties / Processors Involved</label><textarea id="pia-thirds" rows="3" placeholder="List processors, sub-processors, or recipients…"></textarea></div>
+          <div class="form-group"><label>International Transfers?</label><select id="pia-transfers"><option value="no">No international transfers</option><option value="yes_adequate">Yes — to adequate country</option><option value="yes_sccs">Yes — using SCCs or equivalent</option><option value="yes_no_mechanism">Yes — no transfer mechanism in place</option></select></div>
+        </div>
+        <div class="form-group"><label>Automated Decision-Making / Profiling?</label><select id="pia-adm"><option value="no">No automated decision-making or profiling</option><option value="profiling_only">Profiling only (no significant decisions)</option><option value="adm_low">Automated decisions, not solely automated</option><option value="adm_solely">Solely automated decisions with legal / significant effect</option></select></div>
+        <div class="pia-nav"><button class="btn btn-ghost" onclick="goPiaStep(1)">← Back</button><button class="btn btn-primary" onclick="goPiaStep(3)">Next: Necessity →</button></div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="pia-panel" id="pia-panel-3">
+        <h3 class="font-display fw-600 mb-1" style="font-size:1rem;">Step 4: Necessity &amp; Proportionality</h3>
+        <p class="text-sm text-muted mb-1">Assess whether the processing is the minimum required to achieve the stated purpose.</p>
+        <div class="form-group"><label>What is the specific, legitimate purpose of this processing?</label><textarea id="pia-purpose" rows="3" placeholder="State the purpose clearly. Vague purposes like 'analytics' are insufficient."></textarea></div>
+        <div class="form-group"><label>Legal Basis Relied Upon</label><select id="pia-legal-basis"><option value="">Select primary legal basis</option><option value="consent">Consent (GDPR Art. 6(1)(a) / DPDPA S. 4 &amp; 6)</option><option value="contract">Contract (GDPR Art. 6(1)(b))</option><option value="legal_obligation">Legal obligation (GDPR Art. 6(1)(c))</option><option value="vital_interests">Vital interests (GDPR Art. 6(1)(d))</option><option value="public_task">Public task (GDPR Art. 6(1)(e))</option><option value="legitimate_interests">Legitimate interests (GDPR Art. 6(1)(f))</option><option value="dpdpa_legitimate">Legitimate use (DPDPA S. 7)</option></select></div>
+        <div class="form-group"><label>Could the purpose be achieved with less data or a privacy-preserving technique?</label><select id="pia-minimisation"><option value="no">No — this is the minimum required</option><option value="possibly">Possibly — some data could be anonymised or reduced</option><option value="yes">Yes — the purpose could be achieved with less data</option></select></div>
+        <div class="form-group"><label>Is the processing proportionate to the purpose? Justify below.</label><textarea id="pia-proportionate" rows="3" placeholder="Explain why the scale, nature, and sensitivity of processing is proportionate to the legitimate aim…"></textarea></div>
+        <div class="form-group"><label>Data Retention Period</label><input type="text" id="pia-retention" placeholder="e.g. 3 years from last interaction; deleted upon account closure"></div>
+        <div class="pia-nav"><button class="btn btn-ghost" onclick="goPiaStep(2)">← Back</button><button class="btn btn-primary" onclick="goPiaStep(4)">Next: Risk Assessment →</button></div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="pia-panel" id="pia-panel-4">
+        <h3 class="font-display fw-600 mb-1" style="font-size:1rem;">Step 5: Risk Identification &amp; Mitigation</h3>
+        <p class="text-sm text-muted mb-1">Identify key privacy risks, their likelihood and severity, and the controls in place to mitigate them.</p>
+        <div style="overflow-x:auto;">
+          <table class="risk-table" id="risk-table">
+            <thead><tr><th>Risk Description</th><th>Likelihood</th><th>Severity</th><th>Inherent Risk</th><th>Mitigation Measure</th><th>Residual Risk</th><th></th></tr></thead>
+            <tbody id="risk-tbody"></tbody>
+          </table>
+        </div>
+        <button class="btn btn-secondary btn-sm mt-1" onclick="addRiskRow()">+ Add Risk</button>
+        <div class="form-group mt-1"><label>Overall Residual Risk Assessment</label><select id="pia-overall-risk"><option value="low">Low — risks are adequately mitigated</option><option value="medium">Medium — some residual risks remain; monitoring required</option><option value="high">High — significant residual risk; DPO / supervisory authority consultation recommended</option></select></div>
+        <div class="pia-nav"><button class="btn btn-ghost" onclick="goPiaStep(3)">← Back</button><button class="btn btn-primary" onclick="goPiaStep(5)">Next: Outcome →</button></div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="pia-panel" id="pia-panel-5">
+        <h3 class="font-display fw-600 mb-1" style="font-size:1rem;">Step 6: Outcome &amp; Approval</h3>
+        <div class="form-group"><label>DPO Consultation Completed?</label><select id="pia-dpo-consulted"><option value="yes">Yes</option><option value="no">No</option><option value="na">Not applicable (no DPO appointed)</option></select></div>
+        <div class="form-group"><label>Supervisory Authority Prior Consultation Required? (GDPR Art. 36)</label><select id="pia-sa-consult"><option value="no">No — residual risk is acceptable</option><option value="yes">Yes — high residual risk; prior consultation required before commencing</option><option value="unknown">Unknown — requires further legal assessment</option></select></div>
+        <div class="form-group"><label>Recommended Action</label><select id="pia-action"><option value="proceed">Proceed — processing can commence</option><option value="proceed_measures">Proceed with conditions — implement additional measures first</option><option value="pause">Pause — address identified risks before commencing</option><option value="halt">Halt — processing should not proceed in its current form</option></select></div>
+        <div class="form-group"><label>Review Date</label><input type="date" id="pia-review-date"></div>
+        <div class="form-group"><label>Additional Notes / Conditions</label><textarea id="pia-notes" rows="4" placeholder="Record conditions attached to approval, outstanding actions, or notes for future review…"></textarea></div>
+        <div class="divider"></div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="exportPIAReport()">Export PIA Report (.txt)</button>
+          <button class="btn btn-secondary" onclick="window.print()">Print / Save PDF</button>
+          <button class="btn btn-ghost" onclick="resetPIA()">Reset Assessment</button>
+        </div>
+        <div class="pia-nav"><button class="btn btn-ghost" onclick="goPiaStep(4)">← Back</button><div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- TAB: ABOUT -->
+<div class="tab-panel" id="tab-about">
+  <div class="page-header">
+    <span class="page-eyebrow">Open-Source · Zero Backend · Built for Practitioners</span>
+    <h1 class="page-title">About Privacipher</h1>
+    <p class="page-subtitle">A free compliance platform for lawyers, compliance officers, and in-house counsel working across jurisdictions.</p>
+  </div>
+  <div class="about-grid">
+    <div>
+      <div class="card card-padded mb-15">
+        <div class="font-display fw-600 mb-1" style="font-size:1.0625rem;">What is Privacipher?</div>
+        <p class="text-sm text-muted" style="margin-bottom:.875rem;">Privacipher is a free, zero-backend privacy compliance suite designed for legal professionals, compliance teams, and businesses navigating multi-jurisdictional data protection obligations. Everything runs in your browser. No data leaves your device.</p>
+        <p class="text-sm text-muted" style="margin-bottom:.875rem;">The tool gives practitioners a structured starting point, not a shortcut. Every question is mapped to a specific statutory provision. Every recommendation is grounded in the primary text of the applicable law.</p>
+        <p class="text-sm text-muted">Privacipher covers nine jurisdictions: GDPR (EU), DPDPA 2023 (India), CCPA/CPRA (California), LGPD (Brazil), PDPA (Thailand), PDPA (Singapore), PIPL (China), POPIA (South Africa), and the Privacy Act 1988 (Australia).</p>
+      </div>
+      <div class="card card-padded mb-15">
+        <div class="font-display fw-600 mb-1" style="font-size:1.0625rem;">Tools in This Suite</div>
+        <div class="about-info-row">
+          <svg class="about-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <div><div class="about-info-label">Compliance Checker</div><div class="about-info-val text-sm">Diagnostic questionnaires for nine jurisdictions, mapped to specific statutory provisions. Generates weighted gap analyses with actionable recommendations and exportable gap reports.</div></div>
+        </div>
+        <div class="about-info-row">
+          <svg class="about-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
+          <div><div class="about-info-label">RoPA Builder</div><div class="about-info-val text-sm">In-browser Record of Processing Activities builder. Add, edit, delete processing activities. Export to CSV or JSON for your records. Aligned with GDPR Art. 30, LGPD Art. 37, and accountability best practice.</div></div>
+        </div>
+        <div class="about-info-row">
+          <svg class="about-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <div><div class="about-info-label">Transfer Impact Assessment (TIA)</div><div class="about-info-val text-sm">Structured assessment for cross-border data transfers. Evaluates transfer mechanisms, destination country legal frameworks, and generates risk ratings with supplementary measure recommendations. Based on EDPB Recommendations 01/2020.</div></div>
+        </div>
+        <div class="about-info-row">
+          <svg class="about-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><div class="about-info-label">PIA / DPIA</div><div class="about-info-val text-sm">Six-step Privacy and Data Protection Impact Assessment. Covers context, screening, data flows, necessity, risk assessment, and outcome. Includes mandatory DPIA trigger checklist and risk matrix. Generates an exportable assessment report.</div></div>
+        </div>
+      </div>
+      <div class="card card-padded mb-15">
+        <div class="font-display fw-600 mb-1" style="font-size:1.0625rem;">Regulatory Accuracy</div>
+        <p class="text-sm text-muted" style="margin-bottom:.875rem;">All questions and recommendations are derived from primary legal texts — the actual statutes and regulations, not secondary summaries. Each question references the specific provision so you can verify the source directly.</p>
+        <p class="text-sm text-muted">Regulatory requirements change. The tool carries version numbers and a changelog. If you identify an error or an update not yet reflected, open a GitHub issue or submit a pull request.</p>
+      </div>
+      <div class="card card-padded" style="background:#FFF5F5;border:1px solid #FECACA;">
+        <div class="font-display fw-600 mb-05" style="font-size:.9375rem;color:#991B1B;">Legal Disclaimer</div>
+        <p class="text-sm" style="color:#7F1D1D;">Privacipher is an educational and informational tool only. It does not constitute legal advice, create a lawyer-client relationship, or substitute for qualified legal counsel. Results generated are starting points for internal review, not definitive compliance determinations. Laws change; always verify against current primary texts. Adv. Sanket Shah and the contributors to this project accept no liability for reliance on outputs generated by this tool.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card card-padded mb-15">
+        <div style="text-align:center;margin-bottom:1.25rem;">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:52px;margin:0 auto .75rem;">
+            <defs><linearGradient id="shg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1D4ED8"/><stop offset="100%" stop-color="#0F172A"/></linearGradient><linearGradient id="ahg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#2563EB"/></linearGradient></defs>
+            <path d="M32 3L58 13L58 34C58 48 46 57 32 62C18 57 6 48 6 34L6 13Z" fill="url(#shg2)"/>
+            <path d="M32 3L58 13L58 34C58 48 46 57 32 62C18 57 6 48 6 34L6 13Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+            <rect x="19" y="18" width="5" height="28" rx="2.5" fill="white"/><rect x="19" y="18" width="17" height="4.5" rx="2.25" fill="white"/><rect x="32" y="18" width="4.5" height="17" rx="2.25" fill="white"/><rect x="19" y="31" width="17" height="4.5" rx="2.25" fill="white"/>
+            <circle cx="44" cy="25" r="2.5" fill="url(#ahg2)"/><circle cx="44" cy="33" r="2.5" fill="url(#ahg2)"/><circle cx="44" cy="41" r="2.5" fill="url(#ahg2)"/>
+          </svg>
+          <div class="font-display fw-600" style="font-size:1.0625rem;">Adv. Sanket Shah</div>
+          <div class="text-sm text-muted" style="margin-top:.25rem;">Technology Lawyer · Indore, India</div>
+        </div>
+        <div class="about-info-row">
+          <svg class="about-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <div><div class="about-info-label">Qualification</div><div class="about-info-val text-sm">LL.M. in IPR &amp; Technology Law, Jindal Global Law School. Gold Medalist in Data Privacy. Enrolled at the Bar Council of India. Jean Monnet EU-ERASMUS+ researcher.</div></div>
+        </div>
+        <div class="about-info-row">
+          <svg class="about-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div><div class="about-info-label">Practice Areas</div><div class="about-info-val text-sm">DPDPA · GDPR · CCPA · Commercial contracts · SaaS agreements · AI governance · Contract lifecycle management · Legal automation</div></div>
+        </div>
+        <div class="about-info-row">
+          <svg class="about-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          <div><div class="about-info-label">Published Books</div><div class="about-info-val text-sm">Lawyer's Guide to DPDPA · The Privacy Lawyer's Starter Guide (GDPR &amp; DPDPA) · The Weight of Sunday Afternoons (literary fiction)</div></div>
+        </div>
+        <div class="about-info-row">
+          <svg class="about-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="14"/></svg>
+          <div><div class="about-info-label">Certifications</div><div class="about-info-val text-sm"><span class="cert-tag">AI for Business (UPenn)</span><span class="cert-tag">Claude AI (Anthropic ×3)</span><span class="cert-tag">DPDPA (DPDPA.com)</span><span class="cert-tag">Preparing CIPP/E</span></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.625rem;margin-top:1.25rem;">
+          <a href="https://advsanketshah.github.io/portfolio/" class="btn btn-primary" target="_blank">View Portfolio</a>
+          <a href="https://linkedin.com/in/advsanketshah/" class="btn btn-secondary" target="_blank">LinkedIn</a>
+          <a href="mailto:advocatesanketshah@gmail.com" class="btn btn-ghost">advocatesanketshah@gmail.com</a>
+        </div>
+      </div>
+      <div class="card card-padded">
+        <div class="font-display fw-600 mb-1" style="font-size:.9375rem;">Open Source</div>
+        <p class="text-sm text-muted mb-1">Privacipher is open source and free to use. If you spot an error, a legal update not yet incorporated, or want to contribute, raise an issue or PR on GitHub.</p>
+        <a href="https://github.com/advsanketshah/Privacipher" class="btn btn-secondary" target="_blank" style="width:100%;">GitHub Repository</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: CHANGELOG -->
+<div class="tab-panel" id="tab-changelog">
+  <div class="page-header">
+    <span class="page-eyebrow">Version History</span>
+    <h1 class="page-title">Changelog</h1>
+    <p class="page-subtitle">A record of what changed, what was fixed, and what was added in each release.</p>
+  </div>
+  <div class="card card-padded">
+    <ul class="changelog-list">
+      <li class="changelog-item">
+        <div class="changelog-meta"><div class="changelog-version">v4.0</div><div class="changelog-date">April 2025</div></div>
+        <ul class="changelog-changes">
+          <li><span class="changelog-tag tag-new">new</span> RoPA Builder: in-browser Record of Processing Activities with CSV &amp; JSON export</li>
+          <li><span class="changelog-tag tag-new">new</span> Transfer Impact Assessment (TIA) module with risk scoring and supplementary measures framework based on EDPB Recommendations 01/2020</li>
+          <li><span class="changelog-tag tag-new">new</span> Six-step PIA / DPIA module with mandatory trigger screening, risk matrix, and exportable assessment report</li>
+          <li><span class="changelog-tag tag-new">new</span> New Privacipher logo — geometric shield mark with cipher data-stream accent elements</li>
+          <li><span class="changelog-tag tag-improved">improved</span> Full design overhaul — portfolio-matched colour system, Outfit + Inter + JetBrains Mono typography stack</li>
+          <li><span class="changelog-tag tag-improved">improved</span> Redesigned tab navigation: sticky desktop tab bar and scrollable mobile bottom bar across six modules</li>
+          <li><span class="changelog-tag tag-improved">improved</span> Compliance Checker rewritten with weighted scoring, statutory references per question, and gap export</li>
+          <li><span class="changelog-tag tag-improved">improved</span> All nine jurisdiction question banks reviewed against primary statutory texts and updated</li>
+          <li><span class="changelog-tag tag-improved">improved</span> DPDPA section updated to reflect the Digital Personal Data Protection Act, 2023 as enacted (Presidential assent: 11 August 2023)</li>
+          <li><span class="changelog-tag tag-improved">improved</span> Australia section updated to reflect Privacy and Other Legislation Amendment Act 2024 (Royal Assent: November 2024)</li>
+          <li><span class="changelog-tag tag-improved">improved</span> PIPL section expanded with CAC security assessment thresholds and PIPIA requirements (Art. 55)</li>
+          <li><span class="changelog-tag tag-improved">improved</span> About section updated with current credentials, publications, and practice area description from live portfolio</li>
+          <li class="fix"><span class="changelog-tag tag-fix">fix</span> Accordion headers now correctly toggle open/closed state without layout shifts</li>
+          <li class="fix"><span class="changelog-tag tag-fix">fix</span> Score ring now animates correctly on first load and after re-running the checker with different jurisdictions</li>
+          <li class="fix"><span class="changelog-tag tag-fix">fix</span> Mobile bottom tab bar scrolls horizontally without clipping on narrow viewports</li>
+          <li class="fix"><span class="changelog-tag tag-fix">fix</span> Jurisdiction chip deselection now correctly removes that jurisdiction's questions from the active assessment set</li>
+          <li class="fix"><span class="changelog-tag tag-fix">fix</span> All modal forms now reset cleanly on close, preventing stale data carryover between add/edit cycles</li>
+        </ul>
+      </li>
+      <li class="changelog-item">
+        <div class="changelog-meta"><div class="changelog-version">v3.0</div><div class="changelog-date">2024</div></div>
+        <ul class="changelog-changes">
+          <li><span class="changelog-tag tag-new">new</span> Expanded to 9 jurisdictions including PIPL (China) and Privacy Act (Australia)</li>
+          <li><span class="changelog-tag tag-new">new</span> Mobile bottom tab bar navigation</li>
+          <li><span class="changelog-tag tag-improved">improved</span> Scoring system with progress bars per jurisdiction</li>
+          <li class="fix"><span class="changelog-tag tag-fix">fix</span> Various layout and rendering glitches on mobile viewports</li>
+        </ul>
+      </li>
+      <li class="changelog-item">
+        <div class="changelog-meta"><div class="changelog-version">v2.0</div><div class="changelog-date">2023</div></div>
+        <ul class="changelog-changes">
+          <li><span class="changelog-tag tag-new">new</span> Multi-jurisdiction selector with accordion questions</li>
+          <li><span class="changelog-tag tag-new">new</span> Gap analysis output panel</li>
+          <li><span class="changelog-tag tag-improved">improved</span> Redesigned question flow with Yes / No / N/A answer options</li>
+        </ul>
+      </li>
+      <li class="changelog-item">
+        <div class="changelog-meta"><div class="changelog-version">v1.0</div><div class="changelog-date">2022</div></div>
+        <ul class="changelog-changes">
+          <li><span class="changelog-tag tag-new">new</span> Initial launch with GDPR and DPDPA compliance checkers</li>
+          <li><span class="changelog-tag tag-new">new</span> Basic compliance scoring output</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /container -->
+</main>
+
+<!-- ROPA MODAL -->
+<div class="modal-overlay" id="ropa-modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="ropa-modal-title">Add Processing Activity</span>
+      <button class="modal-close" onclick="closeRopaModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="ropa-edit-id">
+      <div class="form-group"><label>Processing Activity Name *</label><input type="text" id="ropa-activity-name" placeholder="e.g. Employee payroll processing"></div>
+      <div class="form-group"><label>Description</label><textarea id="ropa-description" placeholder="Describe what data is collected, how it is used, and the systems involved…"></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label>Organisation's Role</label><select id="ropa-role"><option>Controller</option><option>Processor</option><option>Joint Controller</option><option>Controller and Processor</option></select></div>
+        <div class="form-group"><label>Legal Basis</label><select id="ropa-legal-basis"><option>Consent</option><option>Contract / Contractual necessity</option><option>Legal obligation</option><option>Vital interests</option><option>Public task</option><option>Legitimate interests</option><option>DPDPA – Consent</option><option>DPDPA – Legitimate use (S. 7)</option><option>LGPD – Consent</option><option>LGPD – Legitimate interest</option><option>Multiple (document separately)</option></select></div>
+      </div>
+      <div class="form-group"><label>Categories of Personal Data</label>
+        <div class="multi-check-grid">
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Name / Contact details"> Name / Contact details</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Financial data"> Financial data</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Health data"> Health data</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Biometric data"> Biometric data</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Location data"> Location data</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Genetic data"> Genetic data</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Racial / ethnic origin"> Racial / ethnic origin</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Political opinions"> Political opinions</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Online identifiers / Tracking"> Online identifiers / Tracking</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Criminal records"> Criminal records</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Employee data"> Employee data</label>
+          <label class="multi-check-item"><input type="checkbox" name="ropa-data-cat" value="Children's data"> Children's data</label>
+        </div>
+      </div>
+      <div class="form-group"><label>Categories of Data Subjects</label><input type="text" id="ropa-subjects" placeholder="e.g. Employees, customers, website visitors, children"></div>
+      <div class="form-group"><label>Purpose(s) of Processing</label><textarea id="ropa-purposes" rows="2" placeholder="State the specific purpose(s)…"></textarea></div>
+      <div class="form-group"><label>Recipients / Third Parties</label><input type="text" id="ropa-recipients" placeholder="e.g. Payroll provider (processor), Tax authority (legal obligation)"></div>
+      <div class="form-row">
+        <div class="form-group"><label>International Transfer?</label><select id="ropa-transfer"><option value="None">No international transfer</option><option value="Adequacy decision">Yes — adequacy decision</option><option value="SCCs / equivalent">Yes — SCCs / standard contract</option><option value="BCRs">Yes — BCRs</option><option value="Consent">Yes — explicit consent</option><option value="Yes – mechanism TBC">Yes — transfer mechanism TBC</option></select></div>
+        <div class="form-group"><label>Retention Period</label><input type="text" id="ropa-retention" placeholder="e.g. 7 years from employment end"></div>
+      </div>
+      <div class="form-group"><label>Security Measures</label><input type="text" id="ropa-security" placeholder="e.g. Encryption at rest and in transit, access controls, MFA"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeRopaModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveRopaRecord()">Save Activity</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE BOTTOM TAB BAR -->
+<nav class="mobile-btab-bar">
+  <button class="mobile-btab active" onclick="switchTab('checker')" id="mob-tab-checker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>Checker</span></button>
+  <button class="mobile-btab" onclick="switchTab('ropa')" id="mob-tab-ropa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg><span>RoPA</span></button>
+  <button class="mobile-btab" onclick="switchTab('tia')" id="mob-tab-tia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><span>TIA</span></button>
+  <button class="mobile-btab" onclick="switchTab('pia')" id="mob-tab-pia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>PIA</span></button>
+  <button class="mobile-btab" onclick="switchTab('about')" id="mob-tab-about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>About</span></button>
+  <button class="mobile-btab" onclick="switchTab('changelog')" id="mob-tab-changelog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Log</span></button>
+</nav>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="https://advsanketshah.github.io/portfolio/" target="_blank">Portfolio</a></li>
+    <li><a href="https://linkedin.com/in/advsanketshah/" target="_blank">LinkedIn</a></li>
+    <li><a href="https://github.com/advsanketshah/Privacipher" target="_blank">GitHub</a></li>
+    <li><a href="mailto:advocatesanketshah@gmail.com">Contact</a></li>
+  </ul>
+  <div class="footer-copy">Privacipher v4.0 &bull; Built by Adv. Sanket Shah &bull; Open Source &bull; Zero Backend</div>
+  <div class="footer-legal">This tool is for informational and educational purposes only. It does not constitute legal advice and does not create a lawyer-client relationship. Regulatory frameworks evolve; always verify against current primary texts. Use of this tool does not guarantee or establish regulatory compliance. Adv. Sanket Shah accepts no liability for reliance on outputs generated by this tool.</div>
+</footer>
+
+<script>
+const TABS=['checker','ropa','tia','pia','about','changelog'];
+function switchTab(id){
+  TABS.forEach(t=>{
+    const p=document.getElementById('tab-'+t);
+    const b=document.getElementById('tab-'+t+'-btn');
+    const m=document.getElementById('mob-tab-'+t);
+    if(p)p.classList.toggle('active',t===id);
+    if(b)b.classList.toggle('active',t===id);
+    if(m)m.classList.toggle('active',t===id);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+const JD={
+  gdpr:{name:'GDPR',flag:'🇪🇺',fullName:'General Data Protection Regulation (EU) 2016/679',effectiveDate:'25 May 2018',authority:'National Data Protection Authorities (EU)',penalty:'Up to €20M or 4% of global annual turnover',
+    questions:[
+      {id:'g1',text:'Have you identified and documented a lawful legal basis for each processing activity?',ref:'Art. 6 GDPR',rec:'Map every processing activity to one of the six lawful bases. Controllers relying on legitimate interests must complete a three-part LIA (purpose, necessity, balancing) and document the outcome.',w:3},
+      {id:'g2',text:'Where consent is relied upon, is it freely given, specific, informed, unambiguous, and expressed through a clear affirmative action? Can it be as easily withdrawn as given?',ref:'Arts. 7, 4(11) GDPR',rec:'Pre-ticked boxes, bundled consent, and consent conditional on service delivery are invalid. Implement granular consent with equivalent withdrawal mechanisms.',w:3},
+      {id:'g3',text:'Do you maintain a Record of Processing Activities (RoPA) containing all required elements under Art. 30?',ref:'Art. 30 GDPR',rec:'RoPA must include: controller identity, DPO contact, purposes, legal bases, recipient categories, international transfers, retention periods, and security measures.',w:2},
+      {id:'g4',text:'Have you appointed a Data Protection Officer (DPO) where required, and is the DPO independent, expert, and registered with the supervisory authority?',ref:'Arts. 37–39 GDPR',rec:'DPO mandatory for: public authorities; large-scale systematic monitoring; large-scale special category processing. Even where not mandatory, a voluntary DPO is best practice.',w:3},
+      {id:'g5',text:'Do you conduct Data Protection Impact Assessments (DPIAs) before commencing high-risk processing activities?',ref:'Art. 35 GDPR',rec:'Mandatory DPIA triggers: systematic profiling with significant effects; large-scale special category data; systematic monitoring of public areas. Check your national DPA list of additional triggers.',w:3},
+      {id:'g6',text:'Can you fulfil data subject access requests within one calendar month, including all information required under Art. 15?',ref:'Arts. 12, 15 GDPR',rec:'DSARs must be responded to within one month, extendable by two further months for complex requests. Build a DSAR workflow with intake, verification, retrieval, and response stages.',w:2},
+      {id:'g7',text:'Do you have a procedure to notify the supervisory authority of personal data breaches within 72 hours of becoming aware?',ref:'Art. 33 GDPR',rec:'Establish a breach management procedure. Document all breaches. Notify the supervisory authority using the required format. Notify data subjects where breach poses high risk (Art. 34).',w:3},
+      {id:'g8',text:'Are all personal data transfers to third countries based on a lawful transfer mechanism (adequacy decision, SCCs, BCRs, or Art. 49 derogation)?',ref:'Arts. 44–49 GDPR',rec:'Audit all data flows leaving the EEA. Conduct a Transfer Impact Assessment before relying on SCCs (Schrems II, C-311/18). Use the TIA module in this tool.',w:3},
+      {id:'g9',text:'Do your privacy notices meet the transparency requirements of Arts. 13 and 14, provided at or before collection?',ref:'Arts. 13–14 GDPR',rec:'Notices must cover: controller identity; DPO contact; purposes and legal bases; recipients; international transfers; retention periods; data subject rights; right to complain.',w:2},
+      {id:'g10',text:'Do you apply data minimisation and purpose limitation — only collecting data necessary for the stated purpose?',ref:'Art. 5(1)(b)(c) GDPR',rec:'Conduct a data inventory. For each data field, document why it is necessary for the stated purpose. Remove fields collected out of habit rather than necessity.',w:2},
+      {id:'g11',text:'Do you have documented retention periods and a process to enforce deletion when those periods expire?',ref:'Art. 5(1)(e) GDPR',rec:'Build a retention schedule linked to your RoPA. Implement automated or periodic deletion processes. Tie retention periods to the specific purpose of processing.',w:2},
+      {id:'g12',text:'Are all processors bound by GDPR-compliant Data Processing Agreements under Art. 28?',ref:'Art. 28 GDPR',rec:'Every processor relationship requires a written DPA covering: subject matter, duration, nature, purpose, data categories, subject categories, controller instructions, and sub-processor provisions.',w:3},
+      {id:'g13',text:'Have you implemented appropriate technical and organisational security measures proportionate to the risk?',ref:'Art. 32 GDPR',rec:'Document your security framework. Consider encryption at rest and in transit, role-based access controls, pseudonymisation, resilience measures, and tested incident response procedures.',w:2},
+      {id:'g14',text:'Do you apply data protection by design and by default — embedding privacy safeguards into systems from the outset?',ref:'Art. 25 GDPR',rec:'Privacy engineering must be built into project and procurement processes. The most privacy-protective option should be the default setting.',w:2},
+      {id:'g15',text:'Can you respond to requests for erasure, rectification, portability, restriction, and objection within applicable timeframes?',ref:'Arts. 16–22 GDPR',rec:'Build a rights fulfilment workflow covering all rights. Document criteria for refusing requests. Refusals must be communicated to the individual within one month.',w:2}
+    ]},
+  dpdpa:{name:'DPDPA',flag:'🇮🇳',fullName:'Digital Personal Data Protection Act, 2023 (India)',effectiveDate:'Presidential assent: 11 August 2023. Rules pending.',authority:'Data Protection Board of India (DPBI)',penalty:'Up to ₹250 crore per breach (Schedule to the Act)',
+    questions:[
+      {id:'d1',text:'Do you provide a Data Protection Notice before or at the time of seeking consent, covering all elements required under S. 5?',ref:'S. 5, DPDPA 2023',rec:'The notice must specify: personal data sought; purposes; how rights can be exercised; how to complain to DPBI; how to withdraw consent. Must be in plain language and in scheduled languages if requested.',w:3},
+      {id:'d2',text:'Is your consent mechanism free, specific, informed, unconditional, and expressed through a clear affirmative action? Is there an equivalent withdrawal mechanism?',ref:'S. 6, DPDPA 2023',rec:'Consent cannot be conditional, bundled, or coerced. Each consent must be for a specific purpose. Withdrawal must be as easy as giving consent.',w:3},
+      {id:'d3',text:'Where processing is without consent, does it fall within one of the grounds specified as a legitimate use under S. 7?',ref:'S. 7, DPDPA 2023',rec:'S. 7 legitimate uses include: state-provided subsidies or services; voluntary provision of data; employment; medical emergency; epidemic; disaster management; judicial proceedings.',w:2},
+      {id:'d4',text:'Do you maintain accuracy and completeness of personal data used for decisions affecting data principals or shared with other fiduciaries?',ref:'S. 8(3), DPDPA 2023',rec:'Implement data quality processes. Accuracy checks are legally required for data used in decisions affecting individuals or shared with third parties.',w:2},
+      {id:'d5',text:'Do you implement reasonable security safeguards to prevent personal data breaches?',ref:'S. 8(5), DPDPA 2023',rec:'Implement encryption, access controls, audit logging, and a tested incident response plan. Failure leading to a breach attracts penalties of up to Rs. 250 crore.',w:3},
+      {id:'d6',text:'Do you notify the Data Protection Board of India (DPBI) and each affected data principal in the event of a personal data breach?',ref:'S. 8(6), DPDPA 2023',rec:'Notification required to both the DPBI and affected data principals. Build a breach response plan that includes communication templates for data principals.',w:3},
+      {id:'d7',text:'Do you erase personal data when the purpose of processing is no longer served, or when consent is withdrawn (unless retention is required by law)?',ref:'S. 8(7), DPDPA 2023',rec:'Purpose-based erasure is mandatory. Implement retention schedules tied to each processing purpose.',w:2},
+      {id:'d8',text:'Do you obtain verifiable consent of a parent or lawful guardian before processing personal data of a child (under 18)?',ref:'S. 9, DPDPA 2023',rec:'Parental/guardian consent is required for all children data processing. Verification must be built into your user registration or data collection flows.',w:3},
+      {id:'d9',text:'Do you refrain from tracking, behavioural monitoring, or targeted advertising directed at children?',ref:'S. 9(3), DPDPA 2023',rec:'The Act prohibits tracking or behavioural monitoring of children and targeted advertising directed at children. Audit your product and advertising systems.',w:3},
+      {id:'d10',text:'Can data principals access a summary of their personal data being processed and the identities of fiduciaries it has been shared with?',ref:'S. 11, DPDPA 2023',rec:'Build a data access interface. Data principals are entitled to: a summary of personal data processed; list of other fiduciaries and consent managers their data has been shared with.',w:2},
+      {id:'d11',text:'Can data principals correct inaccurate data, complete incomplete data, and seek erasure of data no longer needed?',ref:'S. 12, DPDPA 2023',rec:'Rights of correction and erasure must be supported by an accessible mechanism.',w:2},
+      {id:'d12',text:'Do you have a grievance redressal mechanism allowing data principals to raise complaints?',ref:'S. 13, DPDPA 2023',rec:'Appoint an accessible grievance officer. Best practice: acknowledge within 48 hours; resolve within 30 days; with escalation pathway to the DPBI if unresolved.',w:2},
+      {id:'d13',text:'If classified as a Significant Data Fiduciary, have you appointed a DPO resident in India, an independent data auditor, and commenced periodic DPIAs?',ref:'S. 10, DPDPA 2023',rec:'SDFs must: appoint an India-resident DPO accountable to the Board of Directors; engage an independent data auditor; and conduct periodic DPIAs.',w:3},
+      {id:'d14',text:'Are international transfers of personal data made only to countries not restricted by Central Government notification?',ref:'S. 16(1)(b), DPDPA 2023',rec:'India uses a blacklist approach: transfers permitted to all countries except those specifically restricted by notification. No countries have been restricted as of April 2025. Monitor government notifications.',w:2}
+    ]},
+  ccpa:{name:'CCPA/CPRA',flag:'🇺🇸',fullName:'California Consumer Privacy Act (2018) as amended by CPRA (2020)',effectiveDate:'CCPA: 1 January 2020. CPRA: 1 January 2023.',authority:'California Privacy Protection Agency (CPPA)',penalty:'$2,500/unintentional; $7,500/intentional violation',
+    questions:[
+      {id:'c1',text:'Does your business meet at least one CCPA threshold: (a) $25M+ annual gross revenue; (b) buys/sells/shares 100K+ consumer/household records annually; or (c) derives 50%+ revenue from selling personal information?',ref:'Cal. Civ. Code s. 1798.140(d)',rec:'Any one threshold triggers full CCPA/CPRA compliance. Conduct an annual threshold review as your business scales.',w:3},
+      {id:'c2',text:'Do you provide a "Notice at Collection" disclosing categories of personal information collected and purposes, at or before collection?',ref:'Cal. Civ. Code s. 1798.100(b)',rec:'The Notice at Collection must cover: categories of PI; purposes; whether PI is sold or shared; and retention periods per category.',w:3},
+      {id:'c3',text:'Do you provide a conspicuous "Do Not Sell or Share My Personal Information" mechanism, and do you honour Global Privacy Control (GPC) signals?',ref:'Cal. Civ. Code s. 1798.120, 1798.135',rec:'The opt-out link must be on your homepage. GPC browser signals must be treated as valid opt-out requests.',w:3},
+      {id:'c4',text:'Can consumers request deletion of their personal information, and can you propagate that request to service providers and contractors?',ref:'Cal. Civ. Code s. 1798.105',rec:'Deletion must extend to service providers and contractors. Response window is 45 days, extendable by a further 45 days with notice.',w:2},
+      {id:'c5',text:'Can consumers request access to categories and specific pieces of their personal information, sources, business purposes, and third parties to whom PI is disclosed?',ref:'Cal. Civ. Code s. 1798.110',rec:'Build a verifiable consumer request (VCR) intake process. Requests can be submitted without requiring account creation.',w:2},
+      {id:'c6',text:'Can consumers correct inaccurate personal information (CPRA right), with corrections propagated to third parties?',ref:'Cal. Civ. Code s. 1798.106 (CPRA)',rec:'Corrections must be propagated to third parties to whom the PI was sold or shared. Build a correction workflow with downstream propagation.',w:2},
+      {id:'c7',text:'Can consumers limit the use and disclosure of sensitive personal information to core service provision purposes?',ref:'Cal. Civ. Code s. 1798.121 (CPRA)',rec:'A "Limit the Use of My Sensitive PI" link is required if SPI is used beyond permitted purposes. SPI includes SSNs, financial accounts, precise geolocation, biometric, and health data.',w:3},
+      {id:'c8',text:'Do you have written contracts with service providers, contractors, and third parties containing required CCPA/CPRA data provisions?',ref:'Cal. Civ. Code s. 1798.140(ag)(1)',rec:'Contracts must prohibit use of PI outside the specified business purpose; require assistance with consumer requests; and prohibit further disclosure without authorisation.',w:2},
+      {id:'c9',text:'Do you conduct annual cybersecurity audits and privacy risk assessments where required under CPRA regulations?',ref:'Cal. Civ. Code s. 1798.185(a)(15)(A) (CPRA)',rec:'Monitor CPPA regulatory guidance for applicable thresholds and requirements.',w:2},
+      {id:'c10',text:'Does your privacy policy contain all required disclosures and cover the preceding 12 months of data practices?',ref:'Cal. Civ. Code s. 1798.130(a)(5)',rec:'Privacy policy must list: categories of PI collected and sold/shared; consumer rights; how to submit requests; contact information; and the date of last update.',w:2}
+    ]},
+  lgpd:{name:'LGPD',flag:'🇧🇷',fullName:'Lei Geral de Protecao de Dados (Law 13.709/2018, Brazil)',effectiveDate:'September 2020; ANPD enforcement from August 2021',authority:'Autoridade Nacional de Protecao de Dados (ANPD)',penalty:'Up to 2% of Brazil revenue; max R$50M per violation',
+    questions:[
+      {id:'l1',text:'Have you identified one of the ten LGPD legal bases for each processing activity (consent, legitimate interest, legal obligation, public policy, research, contract, regular exercise of rights, credit protection, protection of life, or health)?',ref:'Arts. 7, 11 LGPD',rec:'Document the applicable basis for each activity. Legitimate interest requires a balancing test with documentation.',w:3},
+      {id:'l2',text:'Have you appointed a Data Protection Officer (Encarregado) and published their contact information?',ref:'Arts. 41-42 LGPD',rec:'An Encarregado is required for all controllers. Their identity and contact details must be published clearly, typically in the privacy policy.',w:3},
+      {id:'l3',text:'Do you provide clear, adequate, and accessible information to data subjects about your processing activities?',ref:'Arts. 9, 18(I) LGPD',rec:'Transparency obligations cover: specific purpose; form and duration of processing; controller identity; Encarregado contact; third-party sharing; and data subject rights.',w:2},
+      {id:'l4',text:'Can data subjects exercise their rights: confirmation, access, correction, blocking, deletion, portability, information on third-party sharing, objection, and review of automated decisions?',ref:'Art. 18 LGPD',rec:'Build a data subject rights mechanism. Best practice is to respond within 15 days.',w:2},
+      {id:'l5',text:'Do you conduct Privacy Impact Assessments (RIPD) for processing likely to pose risks to data subjects?',ref:'Art. 38 LGPD',rec:'The ANPD may require RIPDs for processing involving sensitive data or large-scale profiling. Even where not required, a RIPD is best practice.',w:2},
+      {id:'l6',text:'Have you implemented appropriate technical and administrative security measures against unauthorised access, destruction, loss, alteration, or disclosure?',ref:'Arts. 46-49 LGPD',rec:'Operators (processors) are jointly liable for security incidents caused by their failure to implement adequate measures.',w:2},
+      {id:'l7',text:'Do you notify the ANPD and affected data subjects of security incidents that may pose risk or significant harm?',ref:'Art. 48 LGPD',rec:'ANPD guidance recommends initial notification within 2 business days. Notification to affected data subjects required where there is significant risk of harm.',w:3},
+      {id:'l8',text:'Do you have written data processing agreements with operators (processors) governing purpose, security, and sub-processing?',ref:'Art. 39 LGPD',rec:'Both controller and operator may be jointly liable for damages. Contracts must address purpose, duration, security, and sub-processing.',w:2},
+      {id:'l9',text:'For international transfers, do you rely on one of the lawful transfer bases (adequacy decision, ANPD-approved contractual clauses, BCRs, or specific consent)?',ref:'Arts. 33-36 LGPD',rec:'The ANPD has approved standard contractual clauses. Brazil has not adopted a formal adequacy list. Implement ANPD-approved standard clauses or obtain specific consent.',w:2}
+    ]},
+  pdpa_th:{name:'PDPA (Thailand)',flag:'🇹🇭',fullName:'Personal Data Protection Act B.E. 2562 (2019), Thailand',effectiveDate:'Fully effective: 1 June 2022',authority:'Office of the Personal Data Protection Committee (PDPC Thailand)',penalty:'Administrative fines up to THB 3M; criminal up to THB 5M and/or imprisonment',
+    questions:[
+      {id:'th1',text:'Have you identified a lawful legal basis for each processing activity (consent, contract, vital interests, legitimate interests, public task, or legal obligation)?',ref:'S. 24, PDPA Thailand',rec:'Consent must be separate from other terms. Legitimate interest requires a balancing test. Document the basis for each processing activity.',w:3},
+      {id:'th2',text:'Do you provide a Privacy Notice at or before collection covering all required elements?',ref:'S. 23, PDPA Thailand',rec:'Notices must cover: data categories; purposes; retention periods; data subject rights; controller and DPO contact; recipients.',w:2},
+      {id:'th3',text:'Can data subjects exercise their rights (access, portability, objection, erasure, restriction, rectification) with responses within 30 days?',ref:'Ss. 30-41, PDPA Thailand',rec:'Thailand PDPA provides a 30-day response window. Refusals must be notified to the data subject with the legal basis for refusal.',w:2},
+      {id:'th4',text:'Have you appointed a Data Protection Officer where required (public authorities, large-scale systematic monitoring, or large-scale sensitive data processing)?',ref:'S. 41/1, PDPA Thailand',rec:'DPO contact details must be published and communicated to the PDPC. The DPO must be independent.',w:2},
+      {id:'th5',text:'Do you have procedures to notify the PDPC and affected data subjects of personal data breaches without delay (generally within 72 hours)?',ref:'S. 37(3), PDPA Thailand',rec:'Notify the PDPC within 72 hours for breaches likely to cause harm. Notify data subjects without undue delay where the breach poses high risk.',w:3},
+      {id:'th6',text:'Do you implement appropriate security measures proportionate to the risk?',ref:'S. 37, PDPA Thailand',rec:'Implement encryption, access controls, and tested incident response plans proportionate to the nature of personal data held.',w:2},
+      {id:'th7',text:'Are international transfers made only to countries with adequate protection or under specific safeguards (standard clauses, BCRs, or specific consent)?',ref:'Ss. 28-30, PDPA Thailand',rec:'The PDPC is developing an adequacy list and standard clauses. Monitor PDPC guidance regularly.',w:2},
+      {id:'th8',text:'Do you have written data processing agreements with all processors?',ref:'S. 40, PDPA Thailand',rec:'Processors must be bound by written agreements restricting processing to controller instructions and requiring security measures.',w:2}
+    ]},
+  pdpa_sg:{name:'PDPA (Singapore)',flag:'🇸🇬',fullName:'Personal Data Protection Act 2012 (amended 2020), Singapore',effectiveDate:'Original: July 2014. Key 2020 amendments: February 2021.',authority:'Personal Data Protection Commission (PDPC Singapore)',penalty:'Up to S$1M or 10% of local annual turnover (whichever higher)',
+    questions:[
+      {id:'sg1',text:'Have you designated at least one Data Protection Officer and made their contact details publicly available?',ref:'S. 11, PDPA Singapore',rec:'Every organisation subject to PDPA must designate at least one DPO. Contact details must be publicly available, typically in the privacy policy.',w:3},
+      {id:'sg2',text:'Do you notify individuals of the purposes of collection, use, or disclosure of their personal data before or at the point of collection?',ref:'S. 20, PDPA Singapore',rec:'The Notification Obligation requires informing individuals of the purposes for which data is collected, used, or disclosed before or at the time of collection.',w:3},
+      {id:'sg3',text:'Do you obtain consent before collecting, using, or disclosing personal data (unless a consent exception or deemed consent applies)?',ref:'Ss. 13-17, PDPA Singapore',rec:'Consent must be for the specific purposes notified. Exceptions include: business contact information; publicly available data; legal authority; legitimate interests (2020 amendment).',w:3},
+      {id:'sg4',text:'Do you notify the PDPC of notifiable data breaches within 3 calendar days of assessment (if likely to cause significant harm or affects 500+ individuals)?',ref:'S. 26D, PDPA Singapore',rec:'Notify PDPC within 3 calendar days of assessing a notifiable breach. Notify affected individuals where they could take action to reduce harm.',w:3},
+      {id:'sg5',text:'Have you implemented reasonable security arrangements to protect personal data?',ref:'S. 24, PDPA Singapore',rec:'The PDPC has found organisations liable for insufficient password policies, unencrypted databases, and lack of access controls. Conduct regular security reviews.',w:2},
+      {id:'sg6',text:'Do you comply with Do Not Call (DNC) Registry obligations before sending marketing messages?',ref:'Part IX, PDPA Singapore',rec:'Numbers on the DNC Registry must not receive promotional messages. Check the registry before each marketing campaign.',w:2},
+      {id:'sg7',text:'Where your sector is covered, do you comply with data portability obligations?',ref:'Ss. 26H-26R, PDPA Singapore',rec:'Data portability applies to prescribed sectors (banking, insurance, telecom, energy). Build a portability mechanism to transfer data in a machine-readable format upon request.',w:2},
+      {id:'sg8',text:'Do you have retention and disposal policies ensuring personal data is not kept longer than necessary?',ref:'S. 25, PDPA Singapore',rec:'Personal data must not be retained beyond necessity. Implement a retention and disposal policy linked to your data inventory.',w:2}
+    ]},
+  pipl:{name:'PIPL',flag:'🇨🇳',fullName:'Personal Information Protection Law of the PRC (PIPL), 2021',effectiveDate:'1 November 2021',authority:'Cyberspace Administration of China (CAC) and sectoral authorities',penalty:'Up to CNY 50M or 5% of previous year turnover; business suspension; individual liability up to CNY 1M',
+    questions:[
+      {id:'p1',text:'Have you identified a lawful legal basis for each personal information processing activity (consent, contract, legal duty, vital interests, public interest, or disclosure within reasonable scope)?',ref:'Art. 13, PIPL',rec:'Consent is the default basis. Separate consent is required for sensitive PI, cross-border transfers, and use for different purposes from the original notice.',w:3},
+      {id:'p2',text:'Do you have a privacy policy that is accurate, clear, and complete, covering all mandatory elements under Art. 17 PIPL, published prominently?',ref:'Art. 17, PIPL',rec:'Privacy policies must cover: types of PI processed; purposes and methods; retention periods; individual rights and how to exercise them; APPI contact information.',w:2},
+      {id:'p3',text:'Do you obtain separate consent for processing sensitive personal information (biometrics, religious belief, medical health, financial accounts, precise location, or minors under 14)?',ref:'Arts. 28-32, PIPL',rec:'Sensitive PI requires separate, voluntary, and informed consent with explicit notification of the necessity and impact on the individual.',w:3},
+      {id:'p4',text:'Have you conducted a Personal Information Protection Impact Assessment (PIPIA) before processing sensitive PI, sharing with third parties, public disclosure, large-scale automated decisions, or cross-border transfers?',ref:'Art. 55, PIPL',rec:'PIIPAs are mandatory for all listed high-risk activities. Retain assessments for at least three years.',w:3},
+      {id:'p5',text:'Have you appointed a Person for Personal Information Protection (APPI) responsible for overseeing PI processing?',ref:'Art. 52, PIPL',rec:'PI processors handling more than 1 million persons data must designate an APPI and submit their details to the competent authority.',w:2},
+      {id:'p6',text:'Can individuals exercise their rights to know, decide, access, copy, correct, and delete their personal information, with responses within 15 working days?',ref:'Arts. 44-50, PIPL',rec:'Requests must be handled within 15 working days. Refusals must be explained in writing.',w:2},
+      {id:'p7',text:'For cross-border transfers, have you complied with the applicable mechanism: CAC security assessment, standard contract, or certification?',ref:'Arts. 38-43, PIPL; CAC Measures on Data Export Security Assessment',rec:'CAC security assessment mandatory for: critical information infrastructure operators; processors handling >1M persons; annual transfer of >100K persons PI; or sensitive PI of >10K persons.',w:3},
+      {id:'p8',text:'If you process personal information of more than 1 million persons, have you filed with the CAC?',ref:'Art. 52, PIPL',rec:'Filing with the CAC is required at the 1 million persons threshold. Confirm your processing volumes.',w:2},
+      {id:'p9',text:'Do you apply purpose limitation and data minimisation — only processing PI directly related to the purpose and to the minimum extent necessary?',ref:'Art. 6, PIPL',rec:'Each data field must be directly related to the stated purpose. Apply minimisation at the collection design stage.',w:2},
+      {id:'p10',text:'Are automated decision-making systems transparent? Can individuals opt out of personalised decisions that affect their rights or interests?',ref:'Art. 24, PIPL',rec:'Individuals must be informed where PI is used for automated decision-making. Personalised decisions must have opt-out options. Decisions with significant effect must have a human review pathway.',w:2}
+    ]},
+  popia:{name:'POPIA',flag:'🇿🇦',fullName:'Protection of Personal Information Act 4 of 2013, South Africa',effectiveDate:'Fully effective: 1 July 2021',authority:'Information Regulator (South Africa)',penalty:'Administrative fines up to R10,000,000; criminal penalties including imprisonment up to 10 years',
+    questions:[
+      {id:'po1',text:'Does your processing satisfy all eight lawful processing conditions: Accountability; Processing Limitation; Purpose Specification; Further Processing Limitation; Information Quality; Openness; Security Safeguards; and Data Subject Participation?',ref:'Ch. 3, POPIA (Conditions 1-8)',rec:'All eight conditions must be met for processing to be lawful. Map each processing activity against all eight conditions.',w:3},
+      {id:'po2',text:'Have you registered your Information Officer with the Information Regulator and published their contact details?',ref:'S. 55, POPIA; Regulations',rec:'Every responsible party must designate and register an Information Officer using Form 1 on the Information Regulator website.',w:3},
+      {id:'po3',text:'Do you obtain consent of the data subject where required, or rely on a valid alternative processing ground?',ref:'S. 11, POPIA',rec:'Processing requires consent or an alternative ground: contract; legal obligation; protecting legitimate interests of the subject; public law duty; or legitimate interest of the responsible party.',w:2},
+      {id:'po4',text:'Do you have a PAIA Manual and a procedure to respond to access requests under the Promotion of Access to Information Act?',ref:'S. 14, PAIA; S. 17, POPIA',rec:'Private bodies with 50+ employees must compile a PAIA Manual, submit it to the Information Regulator, and make it publicly available.',w:2},
+      {id:'po5',text:'Do you notify the Information Regulator and affected data subjects as soon as reasonably possible after a security compromise?',ref:'S. 22, POPIA',rec:'Breach notification required when there is reasonable belief that personal information was accessed or acquired by an unauthorised person.',w:3},
+      {id:'po6',text:'Have you implemented appropriate technical and organisational security measures proportionate to the risk?',ref:'S. 19, POPIA',rec:'Security measures must cover both technical (encryption, access controls) and organisational (policies, training, supplier management) aspects.',w:2},
+      {id:'po7',text:'For cross-border transfers, does the recipient jurisdiction or organisation provide adequate protection substantially similar to POPIA conditions?',ref:'S. 72, POPIA',rec:'Transfers are permitted where: the recipient provides adequate protection; the data subject consents; transfer is necessary for contract; legal proceedings; public interest; or vital interests.',w:2},
+      {id:'po8',text:'Do you have written operator agreements with all processors binding them to process data only on your authorisation and to implement equivalent security measures?',ref:'Ss. 20-21, POPIA',rec:'Operators must be contractually bound to process data only with your knowledge and authorisation, and to implement the same security measures required of you.',w:2}
+    ]},
+  apa:{name:'Privacy Act',flag:'🇦🇺',fullName:'Privacy Act 1988 (Cth), Australia (incl. 2024 amendments)',effectiveDate:'Original: 1989. NDB scheme: Feb 2018. 2024 Amendment Act: Nov 2024.',authority:'Office of the Australian Information Commissioner (OAIC)',penalty:'Up to AU$50M (or 3x benefit, or 30% of domestic turnover) for serious/repeated interferences',
+    questions:[
+      {id:'a1',text:'Do you have a clearly expressed, up-to-date Privacy Policy describing how you manage personal information, compliant with APP 1?',ref:'APP 1, Privacy Act 1988',rec:'Policies must cover: types of PI held; purposes; how PI is collected; use and disclosure; whether overseas disclosure occurs; how to access and correct PI; how to complain.',w:3},
+      {id:'a2',text:'At or before collection, do you take reasonable steps to notify individuals of matters required by APP 5?',ref:'APP 5, Privacy Act 1988',rec:'Collection notices must cover: entity identity; purposes; recipients; whether overseas disclosure is likely and to which countries; and how to access and correct PI.',w:2},
+      {id:'a3',text:'Do you only use or disclose personal information for the primary purpose of collection, or a permitted secondary purpose under APP 6?',ref:'APP 6, Privacy Act 1988',rec:'Secondary use is permitted where: the individual consents; necessary to lessen a serious threat; required by law; reasonably expected; or directly related to the primary purpose.',w:2},
+      {id:'a4',text:'Do you only use personal information for direct marketing with consent or an opt-out mechanism, compliant with APP 7?',ref:'APP 7, Privacy Act 1988',rec:'Every marketing communication must include an opt-out mechanism. Government agencies are prohibited from direct marketing.',w:2},
+      {id:'a5',text:'Before disclosing PI to an overseas recipient, do you take reasonable steps to ensure the recipient complies with the APPs, or does an exception apply?',ref:'APP 8, Privacy Act 1988',rec:'Overseas disclosure triggers accountability under APP 8. You remain liable for the overseas recipient acts unless an exception applies or the recipient is in a country with comparable protections.',w:2},
+      {id:'a6',text:'Do you protect personal information from misuse, interference, loss, unauthorised access, modification, or disclosure, and destroy or de-identify PI no longer needed?',ref:'APP 11, Privacy Act 1988',rec:'APP 11 requires active security measures proportionate to the risk. Destroy or de-identify PI that is no longer needed for any permitted purpose.',w:2},
+      {id:'a7',text:'Can individuals access their personal information on request within a reasonable timeframe and without excessive charge?',ref:'APP 12, Privacy Act 1988',rec:'Access requests should be responded to within 30 days. Access can only be refused on limited grounds. Refusals must be notified in writing.',w:2},
+      {id:'a8',text:'Do you take reasonable steps to correct personal information that is inaccurate, out-of-date, incomplete, irrelevant, or misleading?',ref:'APP 13, Privacy Act 1988',rec:'Corrections must be made within a reasonable timeframe. If correction is refused, notify the individual in writing with reasons.',w:2},
+      {id:'a9',text:'Have you complied with the Notifiable Data Breaches (NDB) scheme — notifying the OAIC and affected individuals of eligible data breaches as soon as practicable?',ref:'Pt IIIC, Privacy Act 1988',rec:'An eligible data breach occurs when there is unauthorised access to, or disclosure of, PI likely to result in serious harm. Notify OAIC and affected individuals as soon as practicable.',w:3},
+      {id:'a10',text:'Are you aware of the new statutory tort for serious invasions of privacy introduced by the Privacy and Other Legislation Amendment Act 2024?',ref:'Privacy and Other Legislation Amendment Act 2024 (Cth)',rec:'The 2024 Act introduced a direct cause of action for serious invasion of privacy. Ensure data handling practices are robust to avoid both regulatory and tort liability.',w:2}
+    ]}
+};
+
+let selectedJ=[],answers={},ropaRecords=[],piaCurrentStep=0,riskRowCount=0,tiaAnswers={},piaScreeningAnswers={};
+
+function toggleJurisdiction(el){const j=el.dataset.j;el.classList.toggle('selected');if(selectedJ.includes(j))selectedJ=selectedJ.filter(x=>x!==j);else selectedJ.push(j);}
+function selectAllJ(){document.querySelectorAll('.j-chip').forEach(el=>{el.classList.add('selected');if(!selectedJ.includes(el.dataset.j))selectedJ.push(el.dataset.j);});}
+function clearJ(){document.querySelectorAll('.j-chip').forEach(el=>el.classList.remove('selected'));selectedJ=[];document.getElementById('checker-main').style.display='none';}
+function startChecker(){
+  if(!selectedJ.length){alert('Please select at least one jurisdiction.');return;}
+  const c=document.getElementById('checker-accordions');c.innerHTML='';
+  selectedJ.forEach(j=>{
+    const d=JD[j];if(!d)return;
+    const item=document.createElement('div');item.className='accordion-item';
+    item.innerHTML=`<div class="accordion-header" onclick="toggleAcc('acc-${j}',this)">
+      <span class="accordion-flag">${d.flag}</span>
+      <span class="accordion-name">${d.fullName.split(' (')[0]}</span>
+      <div class="accordion-progress"><span class="accordion-pct" id="pct-${j}">—</span><div style="width:60px" class="progress-track"><div class="progress-fill blue" id="prog-${j}" style="width:0%"></div></div></div>
+      <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="accordion-body" id="acc-${j}">
+      <div style="margin-bottom:1rem;display:flex;gap:.375rem;flex-wrap:wrap;"><span class="badge badge-gray">${d.authority}</span><span class="badge badge-gray">${d.effectiveDate}</span></div>
+      <div class="text-xs font-mono text-muted" style="margin-bottom:.875rem;padding:.5rem .75rem;background:var(--bg-base);border-radius:var(--radius-sm);border:1px solid var(--border);">Max Penalty: ${d.penalty}</div>
+      ${d.questions.map(q=>`<div class="question-item">
+        <div class="question-text">${q.text}</div>
+        <div class="question-ref">${q.ref}</div>
+        <div class="question-btns">
+          <button class="q-btn" onclick="ansQ('${q.id}','yes','${j}')" id="qy-${q.id}">✓ Yes</button>
+          <button class="q-btn" onclick="ansQ('${q.id}','no','${j}')" id="qn-${q.id}">✗ No</button>
+          <button class="q-btn" onclick="ansQ('${q.id}','na','${j}')" id="qna-${q.id}">N/A</button>
+        </div>
+      </div>`).join('')}
+    </div>`;
+    c.appendChild(item);
+  });
+  document.getElementById('checker-main').style.display='grid';updateScore();
+}
+function toggleAcc(id,hdr){const b=document.getElementById(id);const o=b.classList.contains('open');b.classList.toggle('open',!o);hdr.classList.toggle('open',!o);}
+function ansQ(qId,ans,j){answers[qId]=ans;['yes','no','na'].forEach(a=>{const btn=document.getElementById('q'+a.charAt(0)+'-'+qId);if(btn)btn.className='q-btn'+(a===ans?' '+a:'');});updateScore();updateJProg(j);}
+function updateJProg(j){
+  const d=JD[j];if(!d)return;
+  let yes=0,no=0,na=0;
+  d.questions.forEach(q=>{const a=answers[q.id];if(a==='yes')yes++;else if(a==='na')na++;else if(a==='no')no++;});
+  const app=yes+no,pct=app>0?Math.round((yes/app)*100):0;
+  const el=document.getElementById('pct-'+j),pr=document.getElementById('prog-'+j);
+  if(el)el.textContent=(app>0||na>0)?pct+'%':'—';
+  if(pr){pr.style.width=pct+'%';pr.className='progress-fill '+(pct>=90?'green':pct>=75?'yellow':pct>=50?'orange':'red');}
+}
+function updateScore(){
+  let tw=0,yw=0,gaps=[];
+  selectedJ.forEach(j=>{
+    const d=JD[j];if(!d)return;
+    d.questions.forEach(q=>{
+      const a=answers[q.id];if(a==='na')return;
+      tw+=q.w;if(a==='yes')yw+=q.w;
+      if(a==='no')gaps.push({j:d.name,flag:d.flag,text:q.text,ref:q.ref,rec:q.rec});
+    });
+  });
+  const pct=tw>0?Math.round((yw/tw)*100):0,circ=2*Math.PI*50,offset=circ-(pct/100)*circ;
+  const n=document.getElementById('score-num'),rf=document.getElementById('score-ring-fill'),st=document.getElementById('score-status'),sd=document.getElementById('score-detail');
+  if(n)n.textContent=pct+'%';
+  if(rf){const col=pct>=90?'#10B981':pct>=75?'#F59E0B':pct>=50?'#F97316':'#EF4444';rf.style.strokeDashoffset=offset;rf.style.stroke=col;}
+  if(st)st.textContent=tw>0?(pct>=90?'✅ Strong compliance posture':pct>=75?'🟡 Good progress — gaps remain':pct>=50?'🟠 Material gaps identified':'🔴 High risk — significant gaps'):'Not started';
+  if(sd)sd.textContent=tw>0?`${gaps.length} open gap${gaps.length!==1?'s':''} across ${selectedJ.length} jurisdiction${selectedJ.length!==1?'s':''}`:'';
+  const gc=document.getElementById('gaps-container');
+  if(gc){
+    if(!tw)gc.innerHTML='<div class="text-sm text-muted">Answer questions to see gaps here.</div>';
+    else if(!gaps.length)gc.innerHTML='<div class="text-sm" style="color:var(--success);font-weight:600;">✅ No gaps identified so far.</div>';
+    else gc.innerHTML=gaps.map(g=>`<div class="gap-item"><svg class="gap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><div class="gap-content"><div class="gap-question">${g.flag} ${g.j} — ${g.text}</div><div class="text-xs font-mono text-muted" style="margin:.2rem 0">${g.ref}</div><div class="gap-rec">${g.rec}</div></div></div>`).join('');
+  }
+}
+function exportReport(){
+  if(!selectedJ.length){alert('Run an assessment first.');return;}
+  let lines=['PRIVACIPHER — COMPLIANCE GAP REPORT','='.repeat(60),'','Generated: '+new Date().toLocaleString(),'Jurisdictions: '+selectedJ.map(j=>JD[j]?.name||j).join(', '),''];
+  selectedJ.forEach(j=>{
+    const d=JD[j];if(!d)return;
+    lines.push('─'.repeat(60),d.flag+' '+d.fullName,'Authority: '+d.authority,'Max Penalty: '+d.penalty,'');
+    let yes=0,no=0,na=0;
+    d.questions.forEach(q=>{
+      const a=answers[q.id]||'?';
+      if(a==='yes')yes++;else if(a==='no')no++;else if(a==='na')na++;
+      lines.push(`[${a==='yes'?'YES':a==='no'?'NO — GAP':a==='na'?'N/A':'UNANSWERED'}] ${q.text}`,'  Ref: '+q.ref);
+      if(a==='no')lines.push('  Action: '+q.rec);
+      lines.push('');
+    });
+    lines.push('SCORE: '+(yes+no>0?Math.round((yes/(yes+no))*100)+'%':'N/A')+` (${yes} yes / ${no} gaps / ${na} N/A)`,'');
+  });
+  lines.push('─'.repeat(60),'DISCLAIMER: Informational only. Not legal advice.','Built by Adv. Sanket Shah — https://advsanketshah.github.io/portfolio/');
+  dlFile(lines.join('\n'),'privacipher-gap-report-'+new Date().toISOString().split('T')[0]+'.txt','text/plain');
+}
+
+function renderRopa(){
+  const empty=document.getElementById('ropa-empty'),table=document.getElementById('ropa-table'),tbody=document.getElementById('ropa-tbody'),cnt=document.getElementById('ropa-count');
+  cnt.textContent=ropaRecords.length+' Processing Activit'+(ropaRecords.length===1?'y':'ies');
+  if(!ropaRecords.length){empty.style.display='block';table.style.display='none';return;}
+  empty.style.display='none';table.style.display='table';
+  tbody.innerHTML=ropaRecords.map((r,i)=>`<tr>
+    <td style="color:var(--text-tertiary);font-size:.75rem">${i+1}</td>
+    <td style="font-weight:600;max-width:160px" title="${r.name}">${r.name}</td>
+    <td><span class="badge badge-gray">${r.role}</span></td>
+    <td><span class="badge badge-blue">${r.legalBasis}</span></td>
+    <td title="${r.dataCategories.join(', ')}">${r.dataCategories.length?r.dataCategories.slice(0,2).join(', ')+(r.dataCategories.length>2?' +'+(r.dataCategories.length-2):''):'—'}</td>
+    <td>${r.retention||'—'}</td>
+    <td>${r.transfer==='None'?'<span style="color:var(--text-tertiary)">None</span>':'<span class="badge badge-orange">'+r.transfer+'</span>'}</td>
+    <td style="font-size:.75rem;color:var(--text-tertiary)">${r.updated}</td>
+    <td class="actions-cell"><button class="btn btn-ghost btn-sm" onclick="openRopaModal('${r.id}')">Edit</button><button class="btn btn-danger btn-sm" onclick="delRopa('${r.id}')">Del</button></td>
+  </tr>`).join('');
+}
+function openRopaModal(editId){
+  document.getElementById('ropa-modal-title').textContent=editId?'Edit Processing Activity':'Add Processing Activity';
+  document.getElementById('ropa-edit-id').value=editId||'';
+  if(!editId){
+    ['ropa-activity-name','ropa-description','ropa-subjects','ropa-purposes','ropa-recipients','ropa-retention','ropa-security'].forEach(f=>{const el=document.getElementById(f);if(el)el.value='';});
+    ['ropa-role','ropa-legal-basis','ropa-transfer'].forEach(s=>{const el=document.getElementById(s);if(el)el.selectedIndex=0;});
+    document.querySelectorAll('input[name="ropa-data-cat"]').forEach(cb=>cb.checked=false);
+  } else {
+    const r=ropaRecords.find(x=>x.id===editId);if(!r)return;
+    document.getElementById('ropa-activity-name').value=r.name;
+    document.getElementById('ropa-description').value=r.description;
+    document.getElementById('ropa-role').value=r.role;
+    document.getElementById('ropa-legal-basis').value=r.legalBasis;
+    document.getElementById('ropa-subjects').value=r.subjects;
+    document.getElementById('ropa-purposes').value=r.purposes;
+    document.getElementById('ropa-recipients').value=r.recipients;
+    document.getElementById('ropa-transfer').value=r.transfer;
+    document.getElementById('ropa-retention').value=r.retention;
+    document.getElementById('ropa-security').value=r.security;
+    document.querySelectorAll('input[name="ropa-data-cat"]').forEach(cb=>cb.checked=r.dataCategories.includes(cb.value));
+  }
+  document.getElementById('ropa-modal-overlay').classList.add('open');
+}
+function closeRopaModal(){document.getElementById('ropa-modal-overlay').classList.remove('open');}
+function delRopa(id){if(!confirm('Delete this activity?'))return;ropaRecords=ropaRecords.filter(r=>r.id!==id);renderRopa();}
+function saveRopaRecord(){
+  const name=document.getElementById('ropa-activity-name').value.trim();
+  if(!name){alert('Activity name is required.');return;}
+  const cats=Array.from(document.querySelectorAll('input[name="ropa-data-cat"]:checked')).map(cb=>cb.value);
+  const editId=document.getElementById('ropa-edit-id').value;
+  const r={id:editId||'ropa_'+Date.now(),name,description:document.getElementById('ropa-description').value,role:document.getElementById('ropa-role').value,legalBasis:document.getElementById('ropa-legal-basis').value,dataCategories:cats,subjects:document.getElementById('ropa-subjects').value,purposes:document.getElementById('ropa-purposes').value,recipients:document.getElementById('ropa-recipients').value,transfer:document.getElementById('ropa-transfer').value,retention:document.getElementById('ropa-retention').value,security:document.getElementById('ropa-security').value,updated:new Date().toLocaleDateString('en-GB')};
+  if(editId){const idx=ropaRecords.findIndex(x=>x.id===editId);if(idx>=0)ropaRecords[idx]=r;}else ropaRecords.push(r);
+  closeRopaModal();renderRopa();
+}
+function exportRopaCSV(){
+  if(!ropaRecords.length){alert('No records to export.');return;}
+  const h=['#','Activity Name','Role','Legal Basis','Data Categories','Data Subjects','Purposes','Recipients','International Transfer','Retention Period','Security Measures','Last Updated'];
+  const rows=ropaRecords.map((r,i)=>[i+1,'"'+r.name+'"','"'+r.role+'"','"'+r.legalBasis+'"','"'+r.dataCategories.join('; ')+'"','"'+r.subjects+'"','"'+r.purposes+'"','"'+r.recipients+'"','"'+r.transfer+'"','"'+r.retention+'"','"'+r.security+'"',r.updated]);
+  dlFile([h.join(','),...rows.map(r=>r.join(','))].join('\n'),'ropa-'+new Date().toISOString().split('T')[0]+'.csv','text/csv');
+}
+function exportRopaJSON(){
+  if(!ropaRecords.length){alert('No records to export.');return;}
+  dlFile(JSON.stringify({generated:new Date().toISOString(),tool:'Privacipher v4.0',records:ropaRecords},null,2),'ropa-'+new Date().toISOString().split('T')[0]+'.json','application/json');
+}
+
+const TIA_Q=[
+  {id:'tq1',text:'Does the destination country have a comprehensive, enforceable data protection law providing protection substantially equivalent to the origin jurisdiction?',lowIfYes:true},
+  {id:'tq2',text:'Is there an independent supervisory authority that effectively enforces data protection rights in the destination country?',lowIfYes:true},
+  {id:'tq3',text:'Does the destination country have broad government surveillance powers, bulk data collection laws, or obligations requiring disclosure of personal data to public authorities without individual notification?',lowIfYes:false},
+  {id:'tq4',text:'Are there effective judicial or administrative redress mechanisms available to individuals in the destination country whose data rights have been violated?',lowIfYes:true},
+  {id:'tq5',text:'Does the destination country restrict the transfer of personal data to courts, tribunals, or authorities in other countries without local authorisation?',lowIfYes:false},
+  {id:'tq6',text:'Have you verified that the transfer mechanism you are relying upon can be effectively honoured and enforced in practice in the destination country?',lowIfYes:true},
+  {id:'tq7',text:'To your knowledge, have supervisory authorities previously restricted or suspended similar transfers to this destination country?',lowIfYes:false}
+];
+function initTIAQ(){
+  const c=document.getElementById('tia-questions');if(!c)return;
+  c.innerHTML=TIA_Q.map((q,i)=>`<div class="question-item">
+    <div class="question-text">${i+1}. ${q.text}</div>
+    <div class="question-btns">
+      <button class="q-btn" onclick="ansTIA('${q.id}','yes')" id="tqy-${q.id}">✓ Yes</button>
+      <button class="q-btn" onclick="ansTIA('${q.id}','no')" id="tqn-${q.id}">✗ No</button>
+      <button class="q-btn" onclick="ansTIA('${q.id}','uk')" id="tquk-${q.id}">Unknown</button>
+    </div>
+  </div>`).join('');
+}
+function ansTIA(id,ans){tiaAnswers[id]=ans;['yes','no','uk'].forEach(a=>{const btn=document.getElementById('tq'+(a==='uk'?'uk':a.charAt(0))+'-'+id);if(btn)btn.className='q-btn'+(a===ans?(a==='yes'?' yes':a==='no'?' no':' na'):'');});}
+function runTIA(){
+  const origin=document.getElementById('tia-origin').value,dest=document.getElementById('tia-dest').value.trim(),mech=document.getElementById('tia-mechanism').value;
+  if(!origin||!dest||!mech){alert('Please fill in origin jurisdiction, destination country, and transfer mechanism.');return;}
+  let risk=0;
+  const mr={adequacy:0,scc:2,bcr:1,consent:3,contract_necessity:2,legal_claims:2,vital_interests:3,no_mechanism:8};
+  risk+=(mr[mech]||3);
+  const vol=document.getElementById('tia-volume').value;
+  if(vol==='high')risk+=2;else if(vol==='medium')risk+=1;
+  const sens=['health','biometric','location','children','special_category'].some(v=>document.querySelector(`input[name="tia-data"][value="${v}"]`)?.checked);
+  if(sens)risk+=2;
+  TIA_Q.forEach(q=>{const a=tiaAnswers[q.id];if(!a||a==='uk'){risk+=1;return;}if(q.lowIfYes&&a==='no')risk+=2;if(!q.lowIfYes&&a==='yes')risk+=2;if(q.lowIfYes&&a==='yes')risk=Math.max(0,risk-1);if(!q.lowIfYes&&a==='no')risk=Math.max(0,risk-1);});
+  let rating=risk>=14?'high':risk>=7?'medium':'low';
+  if(mech==='no_mechanism')rating='high';
+  if(mech==='adequacy'&&risk<=3)rating='low';
+  const re=document.getElementById('tia-result'),rb=document.getElementById('tia-risk-badge'),rs=document.getElementById('tia-risk-summary'),rfEl=document.getElementById('tia-findings'),rm=document.getElementById('tia-measures');
+  re.className='tia-result show '+rating;rb.textContent=rating.charAt(0).toUpperCase()+rating.slice(1)+' Risk';
+  const sums={low:`The transfer from ${origin.toUpperCase()} to ${dest} presents a low risk profile. The mechanism is appropriate and no significant legal obstacles are identified. Standard contractual provisions and documented due diligence should suffice.`,medium:`The transfer to ${dest} presents medium risk. A mechanism is in place but gaps in the destination country's legal framework require attention. Supplementary measures are recommended before or concurrent with the transfer.`,high:`The transfer to ${dest} presents high risk. Significant legal or practical obstacles have been identified. The transfer should be suspended or restructured until the issues below are resolved.`};
+  rs.innerHTML=`<p class="text-sm" style="color:var(--text-secondary);margin-top:.25rem">${sums[rating]}</p>`;
+  const findings=[];
+  if(mech==='no_mechanism')findings.push('<strong>Critical:</strong> No transfer mechanism identified. The transfer cannot proceed without a lawful mechanism under the applicable law.');
+  if(mech==='scc')findings.push('SCCs require a completed TIA to verify they can be honoured in practice in the destination country. Document and retain this assessment (Schrems II, C-311/18).');
+  if(sens)findings.push('Sensitive personal data is involved. Enhanced scrutiny applies to the destination country\'s legal framework and any government access laws.');
+  if(vol==='high')findings.push('Large-scale transfers attract greater regulatory scrutiny. Maintain a comprehensive due diligence record.');
+  if(tiaAnswers['tq3']==='yes')findings.push('The destination country appears to have broad government surveillance or bulk data access powers. This is a key factor in assessing whether SCCs can be effectively honoured (Schrems II, C-311/18).');
+  if(!tiaAnswers['tq6']||tiaAnswers['tq6']==='no')findings.push('Verification that the transfer mechanism can be practically honoured in the destination country is outstanding. This is a mandatory TIA step under EDPB Recommendations 01/2020.');
+  rfEl.innerHTML=findings.length?'<div class="font-display fw-600 text-sm mb-05">Key Findings</div>'+findings.map(f=>`<div class="gap-item" style="margin-bottom:.5rem"><svg class="gap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><div class="gap-content"><div class="gap-rec">${f}</div></div></div>`).join(''):'';
+  const measures=['Document and retain this TIA for supervisory authority review. Update when the destination country\'s legal framework changes.'];
+  if(rating!=='low'){measures.push('Apply end-to-end encryption so data is unintelligible to the importer and any public authorities with access powers in the destination country.');measures.push('Implement pseudonymisation before transfer where technically feasible, retaining the key in the origin country.');}
+  if(mech==='scc')measures.push('Supplement SCCs with contractual commitments requiring the importer to notify the exporter of legally binding requests for disclosure, and to challenge such requests where legally possible.');
+  if(rating==='high'&&mech!=='no_mechanism')measures.push('Consider restricting the transfer to essential data fields only.');
+  if(mech==='no_mechanism')measures.push('Identify a lawful transfer mechanism. For GDPR: adequacy decision (Art. 45), SCCs (Art. 46(2)(c)), BCRs (Art. 47), or Art. 49 derogations. The transfer must be suspended until a mechanism is in place.');
+  if(rating==='high')measures.push('Engage a qualified lawyer with expertise in data protection law in both the origin and destination jurisdictions before proceeding.');
+  measures.push('Record this transfer in your RoPA with the mechanism and TIA reference documented.');
+  rm.innerHTML=measures.map(m=>`<li>${m}</li>`).join('');
+  re.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function resetTIA(){tiaAnswers={};document.getElementById('tia-result').className='tia-result';initTIAQ();['tia-origin','tia-mechanism','tia-volume'].forEach(id=>{const el=document.getElementById(id);if(el)el.selectedIndex=0;});document.getElementById('tia-dest').value='';document.getElementById('tia-purpose').value='';document.querySelectorAll('input[name="tia-data"]').forEach(cb=>cb.checked=false);}
+
+const PIA_SCREEN=[
+  {id:'ps1',text:'Systematic and extensive profiling or automated decision-making with significant legal or similar effects on individuals (GDPR Art. 35(3)(a))',mandatory:true},
+  {id:'ps2',text:'Large-scale processing of special category data (health, biometric, genetic, racial/ethnic, political, religious, trade union, sex life/orientation) or criminal offence data (GDPR Art. 35(3)(b))',mandatory:true},
+  {id:'ps3',text:'Systematic monitoring of a publicly accessible area on a large scale, e.g. CCTV or body cameras (GDPR Art. 35(3)(c))',mandatory:true},
+  {id:'ps4',text:'Matching or combining datasets from multiple controllers, or datasets processed for purposes not anticipated when collected',mandatory:false},
+  {id:'ps5',text:'Processing of data concerning vulnerable individuals (children, employees, patients, elderly) where a power imbalance exists',mandatory:false},
+  {id:'ps6',text:'Innovative use or application of new technology (AI, ML, IoT, facial recognition, fingerprint readers)',mandatory:false},
+  {id:'ps7',text:'Processing that prevents individuals from exercising their rights or accessing a service (e.g. blacklisting, credit scoring)',mandatory:false},
+  {id:'ps8',text:'Significant Data Fiduciary (DPDPA S. 10) with obligation to conduct periodic DPIAs',mandatory:false},
+  {id:'ps9',text:'Processing likely to pose risks to data subjects under LGPD Art. 38 or PIPL Art. 55',mandatory:false}
+];
+function initPIAScreening(){
+  const c=document.getElementById('pia-screening-items');if(!c)return;
+  c.innerHTML=PIA_SCREEN.map(s=>`<div class="question-item">
+    <div class="question-text">${s.mandatory?'<span class="badge badge-red" style="margin-right:.375rem">Mandatory</span>':'<span class="badge badge-gray" style="margin-right:.375rem">Recommended</span>'}${s.text}</div>
+    <div class="question-btns" style="max-width:300px">
+      <button class="q-btn" onclick="ansPIAS('${s.id}','yes')" id="psy-${s.id}">✓ Applies</button>
+      <button class="q-btn" onclick="ansPIAS('${s.id}','no')" id="psn-${s.id}">✗ Does not apply</button>
+    </div>
+  </div>`).join('');
+  updateScreeningVerdict();
+}
+function ansPIAS(id,ans){piaScreeningAnswers[id]=ans;['yes','no'].forEach(a=>{const btn=document.getElementById('ps'+(a==='yes'?'y':'n')+'-'+id);if(btn)btn.className='q-btn'+(a===ans?(a==='yes'?' yes':' no'):'');});updateScreeningVerdict();}
+function updateScreeningVerdict(){
+  const mt=PIA_SCREEN.filter(s=>s.mandatory&&piaScreeningAnswers[s.id]==='yes');
+  const rt=PIA_SCREEN.filter(s=>!s.mandatory&&piaScreeningAnswers[s.id]==='yes');
+  const el=document.getElementById('pia-screening-verdict');if(!el)return;
+  if(mt.length)el.innerHTML=`<span style="color:var(--danger)">🔴 A DPIA is <strong>mandatory</strong> under GDPR Art. 35 based on ${mt.length} mandatory trigger(s) identified. Proceed with this assessment and consult your DPO before commencing processing.</span>`;
+  else if(rt.length)el.innerHTML=`<span style="color:var(--warning)">🟡 A DPIA is <strong>strongly recommended</strong> based on ${rt.length} risk factor(s) identified.</span>`;
+  else if(Object.keys(piaScreeningAnswers).length)el.innerHTML='<span style="color:var(--success)">🟢 No mandatory DPIA triggers identified under GDPR Art. 35.</span>';
+  else el.innerHTML='<span style="color:var(--text-tertiary)">Answer the screening questions above to determine whether a DPIA is mandatory.</span>';
+}
+function initRiskTable(){const tb=document.getElementById('risk-tbody');if(!tb||tb.children.length)return;addRiskRow();}
+function addRiskRow(){
+  riskRowCount++;const id='rr'+riskRowCount;
+  const tb=document.getElementById('risk-tbody');const tr=document.createElement('tr');tr.id=id;
+  tr.innerHTML=`<td><input type="text" placeholder="Describe the risk" style="min-width:150px;font-size:.8125rem"></td>
+    <td><select id="${id}-l" onchange="calcIR('${id}')" style="font-size:.8125rem"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></td>
+    <td><select id="${id}-s" onchange="calcIR('${id}')" style="font-size:.8125rem"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></td>
+    <td id="${id}-ir"><span class="badge badge-green">Low</span></td>
+    <td><input type="text" placeholder="Mitigation measure" style="min-width:150px;font-size:.8125rem"></td>
+    <td><select style="font-size:.8125rem"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></td>
+    <td><button class="btn btn-ghost btn-sm" onclick="document.getElementById('${id}').remove()">✕</button></td>`;
+  tb.appendChild(tr);
+}
+function calcIR(id){
+  const l=document.getElementById(id+'-l')?.value,s=document.getElementById(id+'-s')?.value;
+  const m={low_low:'low',low_medium:'low',low_high:'medium',medium_low:'low',medium_medium:'medium',medium_high:'high',high_low:'medium',high_medium:'high',high_high:'high'};
+  const r=m[l+'_'+s]||'medium';
+  const c=document.getElementById(id+'-ir');
+  if(c)c.innerHTML=`<span class="badge ${r==='high'?'badge-red':r==='medium'?'badge-orange':'badge-green'}">${r.charAt(0).toUpperCase()+r.slice(1)}</span>`;
+}
+function goPiaStep(step){
+  document.querySelectorAll('.pia-panel').forEach((p,i)=>p.classList.toggle('active',i===step));
+  document.querySelectorAll('.pia-step').forEach((b,i)=>{b.classList.remove('active','done');if(i<step)b.classList.add('done');else if(i===step)b.classList.add('active');});
+  piaCurrentStep=step;
+  if(step===1)initPIAScreening();
+  if(step===4)initRiskTable();
+}
+function exportPIAReport(){
+  const name=document.getElementById('pia-name')?.value||'Unnamed';
+  const date=document.getElementById('pia-date')?.value||new Date().toISOString().split('T')[0];
+  const cats=Array.from(document.querySelectorAll('input[name="pia-data"]:checked')).map(cb=>cb.value);
+  const mt=PIA_SCREEN.filter(s=>s.mandatory&&piaScreeningAnswers[s.id]==='yes');
+  const rt=PIA_SCREEN.filter(s=>!s.mandatory&&piaScreeningAnswers[s.id]==='yes');
+  const lines=['PRIVACIPHER — PRIVACY / DATA PROTECTION IMPACT ASSESSMENT','='.repeat(60),'',
+    'PROJECT: '+name,'DATE: '+date,'CONTROLLER: '+(document.getElementById('pia-controller')?.value||'—'),'DPO / LEAD: '+(document.getElementById('pia-dpo')?.value||'—'),'JURISDICTION(S): '+(document.getElementById('pia-jurisdiction')?.value||'—'),'',
+    'DESCRIPTION','─'.repeat(40),document.getElementById('pia-description')?.value||'—','',
+    'STEP 2: DPIA SCREENING','─'.repeat(40),'Mandatory triggers: '+mt.length,...mt.map(s=>'  • '+s.text),'Recommended triggers: '+rt.length,...rt.map(s=>'  • '+s.text),'',
+    'STEP 3: DATA FLOWS','─'.repeat(40),'Data categories: '+cats.join(', '),'Data subjects: '+(document.getElementById('pia-subjects')?.value||'—'),'Volume: '+(document.getElementById('pia-volume')?.value||'—'),'Third parties: '+(document.getElementById('pia-thirds')?.value||'—'),'International transfers: '+(document.getElementById('pia-transfers')?.value||'—'),'Automated decision-making: '+(document.getElementById('pia-adm')?.value||'—'),'',
+    'STEP 4: NECESSITY & PROPORTIONALITY','─'.repeat(40),'Purpose: '+(document.getElementById('pia-purpose')?.value||'—'),'Legal basis: '+(document.getElementById('pia-legal-basis')?.value||'—'),'Minimisation: '+(document.getElementById('pia-minimisation')?.value||'—'),'Proportionality: '+(document.getElementById('pia-proportionate')?.value||'—'),'Retention: '+(document.getElementById('pia-retention')?.value||'—'),'',
+    'STEP 5: RISK ASSESSMENT','─'.repeat(40),'Overall residual risk: '+(document.getElementById('pia-overall-risk')?.value||'—'),'',
+    'STEP 6: OUTCOME','─'.repeat(40),'DPO consulted: '+(document.getElementById('pia-dpo-consulted')?.value||'—'),'SA consultation required: '+(document.getElementById('pia-sa-consult')?.value||'—'),'Recommended action: '+(document.getElementById('pia-action')?.value||'—'),'Review date: '+(document.getElementById('pia-review-date')?.value||'—'),'Notes: '+(document.getElementById('pia-notes')?.value||'—'),'',
+    '─'.repeat(60),'DISCLAIMER: Generated by Privacipher v4.0 (informational only; not legal advice).','Built by Adv. Sanket Shah — https://advsanketshah.github.io/portfolio/'];
+  dlFile(lines.join('\n'),'pia-'+name.replace(/\s+/g,'-').toLowerCase()+'-'+date+'.txt','text/plain');
+}
+function resetPIA(){
+  if(!confirm('Reset the PIA? All data will be cleared.'))return;
+  document.querySelectorAll('#tab-pia input[type=text],#tab-pia textarea').forEach(el=>el.value='');
+  document.querySelectorAll('#tab-pia select').forEach(el=>el.selectedIndex=0);
+  document.querySelectorAll('#tab-pia input[type=checkbox]').forEach(cb=>cb.checked=false);
+  piaScreeningAnswers={};riskRowCount=0;
+  document.getElementById('risk-tbody').innerHTML='';
+  goPiaStep(0);
+}
+
+function dlFile(content,filename,type){const b=new Blob([content],{type});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=filename;a.click();URL.revokeObjectURL(a.href);}
+
+document.getElementById('ropa-modal-overlay').addEventListener('click',function(e){if(e.target===this)closeRopaModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeRopaModal();});
+(function(){
+  const today=new Date().toISOString().split('T')[0];
+  const pd=document.getElementById('pia-date');if(pd)pd.value=today;
+  const pr=document.getElementById('pia-review-date');if(pr){const d=new Date();d.setFullYear(d.getFullYear()+1);pr.value=d.toISOString().split('T')[0];}
+  const fill=document.getElementById('score-ring-fill');if(fill)fill.style.strokeDasharray=2*Math.PI*50;
+  initTIAQ();
+})();
+</script>
+</body>
+</html>
