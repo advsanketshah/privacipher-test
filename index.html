@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanket Shah | Technology Lawyer & Data Privacy Advocate, Indore</title>
+<meta name="description" content="Technology lawyer specialising in DPDPA, GDPR, SaaS contracts, and AI governance. External general counsel for IT and software companies. Based in Indore, India.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://advsanketshah.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://advsanketshah.github.io/">
+<meta property="og:title" content="Sanket Shah | Technology Lawyer & Data Privacy Advocate, Indore">
+<meta property="og:description" content="Technology lawyer specialising in DPDPA, GDPR, SaaS contracts, and AI governance. External general counsel for IT and software companies. Based in Indore, India.">
+<meta property="og:image" content="https://advsanketshah.github.io/sanket-photo.JPG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sanket Shah | Technology Lawyer & Data Privacy Advocate, Indore">
+<meta name="twitter:description" content="Technology lawyer specialising in DPDPA, GDPR, SaaS contracts, and AI governance. External general counsel for IT and software companies. Based in Indore, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<style>
+  :root {
+    --bg-base: #FAFAFC;
+    --bg-surface: #FFFFFF;
+    --bg-ink: #0F172A;
+    --bg-ink-2: #1E293B;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-tertiary: #94A3B8;
+    --text-muted: #CBD5E1;
+    --accent: #2563EB;
+    --accent-soft: #EFF6FF;
+    --border: #E2E8F0;
+    --border-soft: #F1F5F9;
+    --font-sans: 'Inter', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --r-sm: 10px;
+    --r-md: 14px;
+    --r-lg: 20px;
+    --r-full: 9999px;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,0.04);
+    --shadow-md: 0 4px 12px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+    --shadow-lg: 0 12px 32px rgba(15,23,42,0.08), 0 2px 4px rgba(15,23,42,0.04);
+    --shadow-hover: 0 20px 48px rgba(15,23,42,0.10), 0 4px 8px rgba(15,23,42,0.05);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  a { color: inherit; }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 9rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle at center, rgba(37,99,235,0.08), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    grid-template-areas: "intro photo" "body photo";
+    column-gap: 4rem;
+    align-items: start;
+  }
+  .hero-intro { grid-area: intro; }
+  .hero-photo-wrap { grid-area: photo; align-self: start; }
+  .hero-body { grid-area: body; padding-top: 1.5rem; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    padding: 0.45rem 0.875rem;
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    background: rgba(255,255,255,0.6);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    margin-bottom: 1.75rem;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.9); }
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 6vw, 4.75rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .hero-subtitle {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+  .hero-text {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    max-width: 58ch;
+    line-height: 1.65;
+  }
+  .hero-text strong { color: var(--text-primary); font-weight: 600; }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.75rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.5rem;
+    border-radius: var(--r-full);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s var(--ease);
+    letter-spacing: -0.005em;
+  }
+  .btn-primary {
+    background: var(--text-primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--bg-ink-2);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-secondary {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border-color: var(--border);
+  }
+  .btn-secondary:hover {
+    border-color: #CBD5E1;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn svg { transition: transform 0.2s ease; }
+  .btn:hover svg { transform: translateX(2px); }
+
+  .hero-photo-wrap {
+    width: 100%;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .hero-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(15,23,42,0.15));
+    pointer-events: none;
+  }
+  .hero-photo-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* ── Stats strip ── */
+  .stats-strip {
+    margin-top: 4rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-surface);
+    padding: 1.75rem 2rem;
+    border-radius: var(--r-md);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+  .stat-item {
+    text-align: left;
+    border-left: 2px solid var(--border-soft);
+    padding-left: 1rem;
+  }
+  .stat-item:first-child { border-left: none; padding-left: 0; }
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.375rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Section shell ── */
+  .section { padding: 6rem 0; }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.625rem;
+    display: block;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+    max-width: 22ch;
+  }
+  .section-sub {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    max-width: 58ch;
+  }
+  .section-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    background: #fff;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .section-link:hover {
+    border-color: #94A3B8;
+    box-shadow: var(--shadow-sm);
+  }
+  .section-link svg { transition: transform 0.2s ease; }
+  .section-link:hover svg { transform: translateX(2px); }
+
+  /* ── Pillars (What I do) ── */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .pillar {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 2rem;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .pillar:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+  }
+  .pillar-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+  .pillar-icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg-base);
+    border-radius: var(--r-sm);
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+  }
+  .pillar-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.625rem;
+    line-height: 1.2;
+  }
+  .pillar-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  /* ── Tools showcase (dark section) ── */
+  .tools-section {
+    background: var(--bg-ink);
+    color: #fff;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .tools-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  }
+  .tools-section::after {
+    content: '';
+    position: absolute;
+    bottom: -300px; left: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(37,99,235,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .tools-section .section-label { color: var(--text-muted); }
+  .tools-section .section-title { color: #fff; }
+  .tools-section .section-sub { color: #94A3B8; }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+  .tool-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-md);
+    padding: 2rem;
+    transition: all 0.25s var(--ease);
+    display: flex;
+    flex-direction: column;
+  }
+  .tool-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-3px);
+  }
+  .tool-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+  .tool-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: #86EFAC;
+    letter-spacing: 0.04em;
+  }
+  .tool-status-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.25);
+  }
+  .tool-url {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .tool-name {
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.625rem;
+    line-height: 1.15;
+  }
+  .tool-tagline {
+    font-size: 0.9375rem;
+    color: #CBD5E1;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+  .tool-specs {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 1.5rem;
+  }
+  .tool-spec-item {
+    flex: 1;
+  }
+  .tool-spec-num {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .tool-spec-lbl {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: #94A3B8;
+    letter-spacing: 0.04em;
+  }
+  .tool-actions {
+    display: flex;
+    gap: 0.625rem;
+  }
+  .tool-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1.15rem;
+    border-radius: var(--r-full);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .tool-btn-primary {
+    background: #fff;
+    color: var(--text-primary);
+  }
+  .tool-btn-primary:hover { transform: translateY(-1px); background: #F8FAFC; }
+  .tool-btn-ghost {
+    background: transparent;
+    color: #CBD5E1;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .tool-btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.25); }
+  .tool-btn svg { transition: transform 0.2s ease; }
+  .tool-btn:hover svg { transform: translate(1px, -1px); }
+
+  /* ── Books teaser ── */
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .book-tile {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 1.5rem;
+    transition: all 0.25s var(--ease);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    position: relative;
+  }
+  .book-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+  }
+  .book-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  .book-tag.fiction { color: #A855F7; }
+  .book-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.75rem;
+    flex: 1;
+  }
+  .book-tile-foot {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Quote card ── */
+  .quote-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .quote-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 3rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 0.8;
+    color: var(--accent);
+    opacity: 0.15;
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+  }
+  .quote-text {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    margin-bottom: 1.75rem;
+    position: relative;
+    z-index: 1;
+  }
+  .quote-attr {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .quote-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--bg-ink);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    font-family: var(--font-display);
+  }
+  .quote-who-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.125rem;
+  }
+  .quote-who-role {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+  }
+
+  /* ── CTA section ── */
+  .cta-section {
+    padding: 5rem 0;
+    background: var(--bg-base);
+  }
+  .cta-card {
+    background: var(--bg-ink);
+    border-radius: var(--r-lg);
+    padding: 4rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(37,99,235,0.25), transparent 65%);
+    pointer-events: none;
+  }
+  .cta-card::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(168,85,247,0.12), transparent 65%);
+    pointer-events: none;
+  }
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    max-width: 22ch;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-sub {
+    font-size: 1.0625rem;
+    color: #CBD5E1;
+    max-width: 52ch;
+    margin: 0 auto 2.25rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-btn-primary {
+    background: #fff;
+    color: var(--text-primary);
+    padding: 1rem 1.75rem;
+    border-radius: var(--r-full);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+  .cta-btn-primary:hover { transform: translateY(-2px); }
+  .cta-btn-ghost {
+    background: transparent;
+    color: #fff;
+    padding: 1rem 1.75rem;
+    border-radius: var(--r-full);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: all 0.2s ease;
+  }
+  .cta-btn-ghost:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.04); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg-surface);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .footer-copy {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+  }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .footer-links a:hover { color: var(--text-primary); }
+
+  /* ── Reveal animation ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1000px) {
+    .pillars { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: 1fr; }
+    .books-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-strip { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  }
+  @media (max-width: 900px) {
+    .hero { padding: 6.5rem 0 3.5rem; }
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .hero-photo-wrap { width: 180px; align-self: flex-start; border-radius: var(--r-md); }
+    .hero-body { padding-top: 0; width: 100%; }
+    .hero-text { max-width: 100%; }
+    .section { padding: 4rem 0; }
+    .section-head { margin-bottom: 2rem; }
+    .quote-card { padding: 2.25rem 1.75rem; }
+    .quote-text { font-size: 1.125rem; }
+    .quote-mark { font-size: 4rem; top: 1rem; left: 1.25rem; }
+    .cta-card { padding: 3rem 1.75rem; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 5.5rem 0 3rem; }
+    .hero-title { font-size: 2.5rem !important; }
+    .hero-actions { flex-direction: column; align-items: stretch; width: 100%; }
+    .btn { width: 100%; justify-content: center; }
+    .stats-strip {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .stat-item:nth-child(odd) { border-left: none; padding-left: 0; }
+    .stat-item:nth-child(even) { border-left: 2px solid var(--border-soft); padding-left: 1rem; }
+    .stat-number { font-size: 1.625rem; }
+    .books-grid { grid-template-columns: 1fr; }
+    .tool-card { padding: 1.5rem; }
+    .tool-name { font-size: 1.375rem; }
+    .tool-actions { flex-direction: column; }
+    .tool-btn { justify-content: center; }
+  }
+</style>
+<link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Adv. Sanket Shah</a>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <button class="dropdown-toggle">Work <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-menu-inner">
+          <a href="portfolio.html">Sample Work</a>
+          <a href="cases.html">Cases</a>
+        </div></div>
+      </li>
+      <li class="has-dropdown">
+        <button class="dropdown-toggle">Tools <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-menu-inner">
+          <a href="privacipher.html">Privacipher</a>
+          <a href="clauselab.html">Clauselab</a>
+        </div></div>
+      </li>
+      <li class="has-dropdown">
+        <button class="dropdown-toggle">Writing <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-menu-inner">
+          <a href="books.html">Books</a>
+          <a href="resources.html">Resources</a>
+        </div></div>
+      </li>
+      <li class="has-dropdown">
+        <button class="dropdown-toggle">About <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-menu-inner">
+          <a href="value.html">What I Do</a>
+          <a href="experience.html">Experience</a>
+          <a href="education.html">Education</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="testimonials.html">Testimonials</a>
+        </div></div>
+      </li>
+      <li class="mobile-cta-wrapper"><a href="contact.html" class="nav-cta">Book Consultation</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Book Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-intro reveal">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>AVAILABLE FOR NEW MANDATES · INDORE, INDIA</span>
+        <h1 class="hero-title">Sanket Shah</h1>
+        <p class="hero-subtitle">LL.M., IPR &amp; Technology Law &middot; Gold Medalist in Data Privacy &middot; Bar Council of India</p>
+      </div>
+
+      <div class="hero-photo-wrap reveal">
+        <picture>
+          <source srcset="sanket-photo.webp" type="image/webp">
+          <img src="sanket-photo.jpg" alt="Adv. Sanket Shah" width="597" height="800" loading="eager" decoding="async">
+        </picture>
+      </div>
+
+      <div class="hero-body reveal">
+        <p class="hero-text">
+          Technology lawyer working at the intersection of <strong>data privacy, AI governance, and commercial contracts</strong>. I serve IT and software companies as external general counsel: drafting and negotiating SaaS agreements, MSAs, and vendor contracts with a risk allocation lens, building DPDPA and GDPR compliance frameworks from primary texts, and designing legal workflows that reduce operational friction rather than create it.
+        </p>
+        <p class="hero-text">
+          Four books published. Builder of <strong>Privacipher</strong>, a 9-jurisdiction privacy compliance platform, and <strong>Clauselab</strong>, a client-side contract lifecycle management workspace. If you need legal architecture that works in practice, not just on paper, that is what I do.
+        </p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary">Book Consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="Sanket_Shah_Resume.pdf" class="btn btn-secondary" download>Download CV</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-strip reveal">
+      <div class="stat-item"><span class="stat-number">4+</span><span class="stat-label">Years in Tech Law</span></div>
+      <div class="stat-item"><span class="stat-number">4</span><span class="stat-label">Books Published</span></div>
+      <div class="stat-item"><span class="stat-number">12</span><span class="stat-label">Certifications</span></div>
+      <div class="stat-item"><span class="stat-number">6.4K+</span><span class="stat-label">LinkedIn Followers</span></div>
+      <div class="stat-item"><span class="stat-number">2</span><span class="stat-label">Live Tools Built</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pillars ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-label">01 · PRACTICE</span>
+        <h2 class="section-title">Three things I do well</h2>
+        <p class="section-sub">Commercial contracting, privacy compliance, and legal engineering. The overlap is where most of my work happens.</p>
+      </div>
+      <a href="value.html" class="section-link">See full scope
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar reveal">
+        <span class="pillar-num">/ 01</span>
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3 class="pillar-title">Contract Lifecycle Management</h3>
+        <p class="pillar-desc">End-to-end drafting, review, and negotiation of SaaS agreements, MSAs, NDAs, and vendor contracts, with a risk allocation lens rather than a checkbox mentality.</p>
+      </div>
+
+      <div class="pillar reveal">
+        <span class="pillar-num">/ 02</span>
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="pillar-title">Data Privacy &amp; Compliance</h3>
+        <p class="pillar-desc">DPDPA and GDPR compliance frameworks built from primary texts, not templates. Data flow mapping, DPIAs, vendor structuring. A Gold Medal in Data Privacy backs the work.</p>
+      </div>
+
+      <div class="pillar reveal">
+        <span class="pillar-num">/ 03</span>
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="pillar-title">AI Governance &amp; Legal Automation</h3>
+        <p class="pillar-desc">I don't just advise on AI. I build with it. Designed AI-driven legal evaluation logic at LawSikho. Ship live multi-jurisdiction tools deployed on GitHub Pages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tools (dark) ── -->
+<section class="tools-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-label">02 · LIVE TOOLS</span>
+        <h2 class="section-title">Built for practitioners, shipped in the browser</h2>
+        <p class="section-sub">Two zero-backend legal tools. No servers, no accounts, no telemetry. Data stays in the user's browser. Both live on GitHub Pages.</p>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-card reveal">
+        <div class="tool-card-head">
+          <span class="tool-status"><span class="tool-status-dot"></span>LIVE</span>
+          <span class="tool-url">/privacipher</span>
+        </div>
+        <h3 class="tool-name">Privacipher Suite</h3>
+        <p class="tool-tagline">A 9-jurisdiction privacy compliance platform. Covers DPDPA 2023, GDPR, CCPA/CPRA, UK GDPR, LGPD, Saudi PDPL, Singapore PDPA, Thailand PDPA, and UAE PDPL.</p>
+        <div class="tool-specs">
+          <div class="tool-spec-item">
+            <div class="tool-spec-num">9</div>
+            <div class="tool-spec-lbl">JURISDICTIONS</div>
+          </div>
+          <div class="tool-spec-item">
+            <div class="tool-spec-num">4</div>
+            <div class="tool-spec-lbl">CORE MODULES</div>
+          </div>
+          <div class="tool-spec-item">
+            <div class="tool-spec-num">0</div>
+            <div class="tool-spec-lbl">BACKEND</div>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://advsanketshah.github.io/Privacipher/" target="_blank" rel="noopener" class="tool-btn tool-btn-primary">Launch tool
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a href="privacipher.html" class="tool-btn tool-btn-ghost">Details</a>
+        </div>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-card-head">
+          <span class="tool-status"><span class="tool-status-dot"></span>LIVE</span>
+          <span class="tool-url">/clauselab</span>
+        </div>
+        <h3 class="tool-name">Clauselab</h3>
+        <p class="tool-tagline">A client-side contract lifecycle management workspace. Contracts repository, curated clause library, template drafter, and AI-assisted review with your own API key.</p>
+        <div class="tool-specs">
+          <div class="tool-spec-item">
+            <div class="tool-spec-num">45+</div>
+            <div class="tool-spec-lbl">CLAUSES</div>
+          </div>
+          <div class="tool-spec-item">
+            <div class="tool-spec-num">5</div>
+            <div class="tool-spec-lbl">MODULES</div>
+          </div>
+          <div class="tool-spec-item">
+            <div class="tool-spec-num">BYOK</div>
+            <div class="tool-spec-lbl">AI REVIEW</div>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://advsanketshah.github.io/Clauselab/" target="_blank" rel="noopener" class="tool-btn tool-btn-primary">Launch tool
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a href="clauselab.html" class="tool-btn tool-btn-ghost">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Books ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-label">03 · PUBLISHED WRITING</span>
+        <h2 class="section-title">Four books in three years</h2>
+        <p class="section-sub">Three on data privacy and AI compliance for practitioners. One literary novel. All available on Amazon.</p>
+      </div>
+      <a href="books.html" class="section-link">View all
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="books-grid">
+      <a href="books.html" class="book-tile reveal">
+        <span class="book-tag">AI · COMPLIANCE</span>
+        <h3 class="book-title">What Compliance Missed: AI, Regulation, and the Gap Nobody Wants to Name</h3>
+        <span class="book-tile-foot">2025</span>
+      </a>
+      <a href="books.html" class="book-tile reveal">
+        <span class="book-tag">GDPR · DPDPA</span>
+        <h3 class="book-title">The Privacy Lawyer's Starter Guide: GDPR and India's DPDPA in Practice</h3>
+        <span class="book-tile-foot">2025</span>
+      </a>
+      <a href="books.html" class="book-tile reveal">
+        <span class="book-tag">DPDPA</span>
+        <h3 class="book-title">Lawyer's Guide to DPDPA: From Black Letter Law to Boardroom Advice</h3>
+        <span class="book-tile-foot">2024</span>
+      </a>
+      <a href="books.html" class="book-tile reveal">
+        <span class="book-tag fiction">LITERARY FICTION</span>
+        <h3 class="book-title">The Weight of Sunday Afternoons</h3>
+        <span class="book-tile-foot">2024</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Quote ── -->
+<section class="section" style="padding-top: 2rem;">
+  <div class="container">
+    <div class="quote-wrap reveal">
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">What stood out about Sanket was his curiosity and genuine initiative in understanding how AI could be applied practically. He approached every responsibility with sincerity and consistency, and was one of the most receptive people to feedback I have worked with.</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">KM</div>
+          <div>
+            <p class="quote-who-name">Kantika Mukherjee</p>
+            <p class="quote-who-role">Deputy Director, LawSikho &amp; Skill Arbitrage</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card reveal">
+      <h2 class="cta-title">Need legal architecture that holds up in practice?</h2>
+      <p class="cta-sub">I work with a small number of IT and software companies as external general counsel. Drafting, negotiation, privacy compliance, AI governance. Initial call is no-obligation.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="cta-btn-primary">Book Consultation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="portfolio.html" class="cta-btn-ghost">See work samples</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 Adv. Sanket Shah · Advocate, Bar Council of India</p>
+    <ul class="footer-links">
+      <li><a href="https://linkedin.com/in/advsanketshah" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://linktr.ee/sanketindore" target="_blank" rel="noopener">Linktree</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  /* Scroll-triggered reveal */
+  (function(){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el, i){
+      el.style.transitionDelay = Math.min(i, 6) * 60 + 'ms';
+      io.observe(el);
+    });
+    /* Reveal anything already in view on load */
+    requestAnimationFrame(function(){
+      document.querySelectorAll('.hero .reveal').forEach(function(el){ el.classList.add('in'); });
+    });
+  })();
+</script>
+
+<script src="nav.js" defer></script>
+<script>if("serviceWorker"in navigator){navigator.serviceWorker.register("/sw.js").catch(function(){});}</script>
+</body>
+</html>

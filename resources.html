@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Resources | Adv. Sanket Shah</title>
+<meta name="description" content="Free downloadable legal resources including DPDPA compliance checklist and GDPR vs DPDPA quick-reference guide for lawyers and compliance professionals.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://advsanketshah.github.io/resources.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://advsanketshah.github.io/resources.html">
+<meta property="og:title" content="Free Resources | Adv. Sanket Shah">
+<meta property="og:description" content="Free downloadable legal resources including DPDPA compliance checklist and GDPR vs DPDPA quick-reference guide for lawyers and compliance professionals.">
+<meta property="og:image" content="https://advsanketshah.github.io/sanket-photo.JPG">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap"></noscript>
+<style>
+  :root {
+    --bg-base: #FAFAFC; --bg-surface: #FFFFFF; --text-primary: #0F172A;
+    --text-secondary: #475569; --text-tertiary: #94A3B8; --accent-primary: #2563EB;
+    --accent-light: #EFF6FF; --border-color: #E2E8F0;
+    --font-sans: 'Inter', sans-serif; --font-display: 'Outfit', sans-serif;
+    --radius-md: 12px; --radius-full: 9999px;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05); --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s ease;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background-color: var(--bg-base); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.6; transition: background-color 0.3s, color 0.3s; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+
+
+  section { padding: 10rem 0 6rem; }
+  .section-header { margin-bottom: 1rem; }
+  .section-label { display: inline-block; font-size: 0.875rem; font-weight: 600; color: var(--accent-primary); margin-bottom: 0.5rem; }
+  .section-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+  .section-subtitle { color: var(--text-secondary); font-size: 1rem; max-width: 60ch; margin-bottom: 4rem; }
+
+  .resources-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; }
+  .resource-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); }
+  .resource-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .resource-card-header { padding: 2rem 2rem 1.5rem; border-bottom: 1px solid var(--border-color); }
+  .resource-type { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-primary); margin-bottom: 0.5rem; }
+  .resource-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.75rem; }
+  .resource-desc { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; }
+  .resource-card-footer { padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+  .resource-meta { font-size: 0.8rem; color: var(--text-tertiary); }
+  .btn-download { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; background: var(--text-primary); color: white; border: none; cursor: pointer; text-decoration: none; transition: var(--transition); }
+  .btn-download:hover { opacity: 0.85; }
+
+  /* Preview panel */
+  .preview-wrapper { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .preview-tabs { display: flex; border-bottom: 1px solid var(--border-color); }
+  .preview-tab { padding: 1rem 1.5rem; font-size: 0.875rem; font-weight: 600; color: var(--text-tertiary); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition); background: none; border-top: none; border-left: none; border-right: none; }
+  .preview-tab.active { color: var(--accent-primary); border-bottom-color: var(--accent-primary); }
+  .preview-panel { display: none; }
+  .preview-panel.active { display: block; }
+
+  /* Print-ready checklist styles */
+  .checklist-doc { padding: 2.5rem; max-width: 720px; margin: 0 auto; }
+  .checklist-doc-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); }
+  .checklist-doc-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .checklist-doc-meta { font-size: 0.8rem; color: var(--text-tertiary); }
+  .checklist-section { margin-bottom: 2rem; }
+  .checklist-section-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 1rem; padding: 0.5rem 1rem; background: var(--accent-light); border-radius: 6px; color: var(--accent-primary); }
+  .checklist-items { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+  .checklist-box { width: 16px; height: 16px; border: 2px solid var(--border-color); border-radius: 3px; flex-shrink: 0; margin-top: 2px; cursor: pointer; transition: var(--transition); }
+  .checklist-box.checked { background: var(--accent-primary); border-color: var(--accent-primary); position: relative; }
+  .checklist-box.checked::after { content: '✓'; position: absolute; top: -2px; left: 1px; font-size: 12px; color: white; font-weight: 700; }
+
+  /* Comparison table */
+  .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .comparison-table th { padding: 0.875rem 1rem; text-align: left; font-weight: 700; font-family: var(--font-display); background: var(--bg-base); border-bottom: 2px solid var(--border-color); }
+  .comparison-table th:first-child { width: 30%; }
+  .comparison-table td { padding: 0.875rem 1rem; border-bottom: 1px solid var(--border-color); vertical-align: top; color: var(--text-secondary); line-height: 1.5; }
+  .comparison-table tr:hover td { background: var(--accent-light); }
+  .tag-yes { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; background: #D1FAE5; color: #065F46; }
+  .tag-no { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; background: #FEE2E2; color: #991B1B; }
+  .tag-partial { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; background: #FEF3C7; color: #92400E; }
+
+  @media print {
+    nav, .preview-tabs, .resource-card-footer, .resources-grid, .section-header, .section-subtitle, .btn-download { display: none !important; }
+    body { padding: 0; background: white; }
+    .preview-wrapper { border: none; box-shadow: none; }
+    .preview-panel { display: block !important; }
+    .checklist-doc { padding: 1rem; }
+  }
+
+  @media (max-width: 900px) { .resources-grid { grid-template-columns: 1fr; } }
+
+  /* ── resources.html mobile ── */
+  @media (max-width: 700px) {
+    .resources-grid { grid-template-columns: 1fr; }
+    .preview-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; }
+    .preview-tab { white-space: nowrap; }
+    .preview-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .comparison-table { min-width: 560px; }
+    .checklist-doc { padding: 1.25rem; }
+  }
+
+</style>
+<link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Adv. Sanket Shah</a>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <button class="dropdown-toggle">Work <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-menu-inner">
+          <a href="portfolio.html">Sample Work</a>
+          <a href="cases.html">Cases</a>
+        </div></div>
+      </li>
+      <li class="has-dropdown">
+        <button class="dropdown-toggle">Tools <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-menu-inner">
+          <a href="privacipher.html">Privacipher</a>
+          <a href="clauselab.html">Clauselab</a>
+        </div></div>
+      </li>
+      <li class="has-dropdown">
+        <button class="dropdown-toggle active">Writing <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-menu-inner">
+          <a href="books.html">Books</a>
+          <a href="resources.html" class="active">Resources</a>
+        </div></div>
+      </li>
+      <li class="has-dropdown">
+        <button class="dropdown-toggle">About <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-menu-inner">
+          <a href="value.html">What I Do</a>
+          <a href="experience.html">Experience</a>
+          <a href="education.html">Education</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="testimonials.html">Testimonials</a>
+        </div></div>
+      </li>
+      <li class="mobile-cta-wrapper"><a href="contact.html" class="nav-cta">Book Consultation</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Book Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Free</span>
+      <h2 class="section-title">Resources</h2>
+    </div>
+    <p class="section-subtitle">Practical reference tools built from primary texts. Use them, print them, share them.</p>
+
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-card-header">
+          <p class="resource-type">Checklist</p>
+          <h3 class="resource-title">DPDPA 2023 Compliance Checklist</h3>
+          <p class="resource-desc">A structured checklist covering consent, data principal rights, data fiduciary obligations, breach response, and cross-border transfer requirements under the Digital Personal Data Protection Act 2023.</p>
+        </div>
+        <div class="resource-card-footer">
+          <span class="resource-meta">22 items · Updated Apr 2026</span>
+          <button class="btn-download" onclick="printDoc('checklist')">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Print / Save PDF
+          </button>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-header">
+          <p class="resource-type">Comparison Table</p>
+          <h3 class="resource-title">GDPR vs DPDPA: Quick-Reference Guide</h3>
+          <p class="resource-desc">Side-by-side comparison of 16 key dimensions across GDPR and India's DPDPA 2023 — consent standards, data subject rights, breach timelines, cross-border rules, and penalty exposure.</p>
+        </div>
+        <div class="resource-card-footer">
+          <span class="resource-meta">16 dimensions · Updated Apr 2026</span>
+          <button class="btn-download" onclick="printDoc('comparison')">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Print / Save PDF
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive preview -->
+    <div class="preview-wrapper">
+      <div class="preview-tabs">
+        <button class="preview-tab active" onclick="switchTab('checklist', this)">DPDPA Checklist</button>
+        <button class="preview-tab" onclick="switchTab('comparison', this)">GDPR vs DPDPA</button>
+      </div>
+
+      <!-- DPDPA Checklist -->
+      <div class="preview-panel active" id="panel-checklist">
+        <div class="checklist-doc">
+          <div class="checklist-doc-header">
+            <h2 class="checklist-doc-title">DPDPA 2023 Compliance Checklist</h2>
+            <p class="checklist-doc-meta">Prepared by Adv. Sanket Shah · advsanketshah.github.io · Law stated as of April 2026 · For reference only, not legal advice</p>
+          </div>
+
+          <div class="checklist-section">
+            <p class="checklist-section-title">1. Consent and Notice</p>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Notice provided before or at the time of collecting personal data, in plain language</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Notice specifies the data being collected and the purpose of processing</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Consent obtained through a clear affirmative action (no pre-ticked boxes)</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Consent is specific, informed, and freely given</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Mechanism in place for data principal to withdraw consent at any time</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Legitimate use cases (without consent) identified and documented where applicable</li>
+            </ul>
+          </div>
+
+          <div class="checklist-section">
+            <p class="checklist-section-title">2. Data Principal Rights</p>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Right to access: process in place for data principals to request summary of data processed</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Right to correction and erasure: mechanism to action correction/deletion requests</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Right to grievance redressal: contact point or DPO identified and published</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Right to nominate: mechanism available for data principals to nominate another person to exercise rights on death or incapacity</li>
+            </ul>
+          </div>
+
+          <div class="checklist-section">
+            <p class="checklist-section-title">3. Data Fiduciary Obligations</p>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Data collected is limited to what is necessary for the stated purpose (data minimisation)</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Data is not retained beyond the period necessary for the stated purpose</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Reasonable security safeguards implemented to prevent personal data breach</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Data processing agreements in place with all data processors</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Significant Data Fiduciary (SDF) status assessed; additional obligations mapped if applicable</li>
+            </ul>
+          </div>
+
+          <div class="checklist-section">
+            <p class="checklist-section-title">4. Data Breach Response</p>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Incident response plan documented and tested</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Process in place to notify Data Protection Board and affected data principals of breaches</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Notification timelines tracked and assigned to a responsible team</li>
+            </ul>
+          </div>
+
+          <div class="checklist-section">
+            <p class="checklist-section-title">5. Cross-Border Transfers</p>
+            <ul class="checklist-items">
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>All cross-border data transfers identified and mapped</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Restricted countries/territories list monitored for Central Government notifications</li>
+              <li class="checklist-item"><span class="checklist-box" onclick="this.classList.toggle('checked')"></span>Transfer mechanisms reviewed for each cross-border flow</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- GDPR vs DPDPA Comparison -->
+      <div class="preview-panel" id="panel-comparison">
+        <div style="overflow-x:auto; padding: 2rem;">
+          <div style="margin-bottom:1.5rem;">
+            <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:700;margin-bottom:0.35rem;">GDPR vs DPDPA 2023: Quick-Reference Comparison</h2>
+            <p style="font-size:0.8rem;color:var(--text-tertiary);">Prepared by Adv. Sanket Shah · Law stated as of April 2026 · For reference only, not legal advice</p>
+          </div>
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>GDPR (EU)</th>
+                <th>DPDPA 2023 (India)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Scope</strong></td>
+                <td>Personal data of EU residents; extraterritorial reach for data processed outside EU</td>
+                <td>Digital personal data processed in India, or data processed outside India offering goods/services to Indian residents</td>
+              </tr>
+              <tr>
+                <td><strong>Legal bases for processing</strong></td>
+                <td>6 bases: consent, contract, legal obligation, vital interests, public task, legitimate interests</td>
+                <td>2 primary bases: consent; legitimate use (includes employment, state functions, emergencies, research)</td>
+              </tr>
+              <tr>
+                <td><strong>Consent standard</strong></td>
+                <td>Freely given, specific, informed, unambiguous affirmative act</td>
+                <td>Free, specific, informed consent with right to withdraw; notice required before or at collection</td>
+              </tr>
+              <tr>
+                <td><strong>Children's data</strong></td>
+                <td>Parental consent required below 16 (member states can lower to 13)</td>
+                <td>Parental consent required below 18; no processing for behavioural monitoring of children</td>
+              </tr>
+              <tr>
+                <td><strong>Data subject rights</strong></td>
+                <td>Access, rectification, erasure, restriction, portability, objection, automated decision rights</td>
+                <td>Access, correction, erasure, grievance redressal, nomination right; no portability right yet</td>
+              </tr>
+              <tr>
+                <td><strong>Data portability</strong></td>
+                <td><span class="tag-yes">Yes</span></td>
+                <td><span class="tag-no">No (not yet)</span></td>
+              </tr>
+              <tr>
+                <td><strong>DPO requirement</strong></td>
+                <td>Mandatory for certain controllers (public bodies, large-scale processing)</td>
+                <td>Significant Data Fiduciaries must appoint a DPO based in India</td>
+              </tr>
+              <tr>
+                <td><strong>Data breach notification</strong></td>
+                <td>72 hours to supervisory authority; without undue delay to data subjects (if high risk)</td>
+                <td>Promptly to Data Protection Board and affected data principals (timeline to be prescribed by rules)</td>
+              </tr>
+              <tr>
+                <td><strong>Cross-border transfers</strong></td>
+                <td>Adequacy decision, SCCs, BCRs, or derogations</td>
+                <td>Permitted except to countries/territories restricted by Central Government notification</td>
+              </tr>
+              <tr>
+                <td><strong>Data localisation</strong></td>
+                <td><span class="tag-no">No general requirement</span></td>
+                <td><span class="tag-partial">Possible for SDFs (to be prescribed)</span></td>
+              </tr>
+              <tr>
+                <td><strong>DPIA / risk assessment</strong></td>
+                <td>Mandatory for high-risk processing</td>
+                <td>Required for SDFs; general obligation to implement reasonable safeguards</td>
+              </tr>
+              <tr>
+                <td><strong>Supervisory authority</strong></td>
+                <td>National DPA in each member state; one-stop-shop for cross-border cases</td>
+                <td>Data Protection Board of India (DPB)</td>
+              </tr>
+              <tr>
+                <td><strong>Max penalty (financial)</strong></td>
+                <td>Higher of €20M or 4% of global annual turnover</td>
+                <td>Up to INR 250 crore per instance; up to INR 200 crore for breach of child data obligations</td>
+              </tr>
+              <tr>
+                <td><strong>Processor obligations</strong></td>
+                <td>Direct obligations under GDPR; mandatory written DPA with controller</td>
+                <td>Data processors bound by contract with fiduciary; no direct statutory obligations on processors</td>
+              </tr>
+              <tr>
+                <td><strong>Sensitive data category</strong></td>
+                <td>Special categories: health, race, religion, biometric, genetic, political, sexual orientation, etc.</td>
+                <td>No separate sensitive data category in the Act; rules may prescribe additional obligations</td>
+              </tr>
+              <tr>
+                <td><strong>Rules / implementing legislation</strong></td>
+                <td>Directly applicable; member state derogations where permitted</td>
+                <td>DPDP Rules (draft published Nov 2024); final rules not yet notified as of Apr 2026</td>
+              </tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+</script>
+
+<script src="nav.js" defer></script>
+<script>if("serviceWorker"in navigator){navigator.serviceWorker.register("/sw.js").catch(function(){});}</script>
+</body>
+</html>
